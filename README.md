@@ -1,47 +1,92 @@
-# Astro Starter Kit: Minimal
+# Itqan: Quranic Tech Community
 
-```sh
-npm create astro@latest -- --template minimal
-```
+> **Our ultimate mission: Serving the Book of Allah**  
+> Building the largest open-source community for developing Quran tech solutions and enhancing the digital experience for Muslims around the world.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+---
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🎯 Vision & Mission
 
-## 🚀 Project Structure
+[Itqan](https://www.itqan.dev/) is an open initiative dedicated to building a strong tech community that supports the Holy Qur’an by:
 
-Inside of your Astro project, you'll see the following folders and files:
+- Developing open-source Quran technologies and tools.
+- Providing reliable resources for developers and researchers.
+- Promoting collaboration and knowledge sharing among developers.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+---
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🧩 Projects & Initiatives
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Itqan is home to several Quran-focused projects aimed at enhancing digital Islamic experiences, including:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- **Quran App Directory**: A curated list of high-quality Quran-related apps for reading, memorization, and reflection.  
+  → [quran-apps.itqan.dev](https://quran-apps.itqan.dev/en?utm_source=chatgpt.com)
 
-## 🧞 Commands
+- **Advanced Quran Search (coming soon)**: Aiming to revolutionize how users search within the Quranic text using modern indexing techniques.
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 🛠️ Developer Resources
 
-## 👀 Want to learn more?
+Itqan offers a growing collection of tech resources that make it easier to build Quranic apps, including:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### 📖 Mushaf Fonts
+- High-quality fonts for rendering the Quran in digital formats, including Unicode and traditional styles.  
+  → [Mushaf Fonts](https://www.itqan.dev/categories/mushaf-fonts?utm_source=chatgpt.com)
+
+### 🎧 Quran Recitations
+- Time-aligned recitations with verse-level metadata for building interactive playback and visualization tools.  
+  → [Recitation Datasets](https://www.itqan.dev/categories/recitation?utm_source=chatgpt.com)
+
+### 📄 Digital Mushaf Layouts
+- Page-by-page layouts that closely mimic printed Mushafs—ideal for faithful digital Quran presentation.  
+  → [Digital Mushaf Layouts](https://www.itqan.dev/categories/digital-mushaf-layout?utm_source=chatgpt.com)
+
+### 📚 Tafsir (Exegesis)
+- Multi-language Quranic interpretations with structured JSON/SQL datasets, including verse groupings and surah mappings.  
+  → [Tafsir Collections](https://www.itqan.dev/categories/tafseer?utm_source=chatgpt.com)
+
+---
+
+## 👥 Community & Collaboration
+
+Whether you're a professional developer or passionate hobbyist, the Itqan community is for you if you:
+
+- Are building a Quran app or service.
+- Need reliable open-source Quranic resources.
+- Want to create a better Quranic user experience.
+- Work alone in a team and need technical feedback.
+
+Our community provides:
+
+- Code review and feedback boards.
+- Tech support from experienced developers.
+- Shared inspiration and project mentorship.
+
+👉 **Join the conversation on [Discord](https://discord.gg)**
+
+---
+
+## ❓ FAQs
+
+### Why should I join the Itqan community?
+Because you'll be among passionate developers who want to grow technically while working on spiritually fulfilling projects. You'll gain insight, feedback, and inspiration from others walking a similar path.
+
+### Will I get job or technical support?
+Yes! The community offers channels to get reviews on your code, tech feedback, and learn from other developers' experiences.
+
+### What topics can I ask about?
+We focus on professional and hobbyist software development with a Quranic twist. Ideal questions include implementation challenges, app development, data structure, open-source collaboration, and relevant tools.
+
+---
+
+## 📌 Additional Info
+
+- **Official Website**: [https://www.itqan.dev](https://www.itqan.dev)
+- **License**: All materials follow open-source licensing.  
+  © Itqan, 1446 AH.
+
+---
+
+> **Join us to serve the greater mission.**  
+> Visit [https://www.itqan.dev](https://www.itqan.dev) to explore, build, and contribute.
