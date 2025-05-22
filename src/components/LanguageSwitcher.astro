@@ -1,0 +1,11 @@
+---
+// src/components/LanguageSwitcher.astro
+const { currentLang, currentPath } = Astro.props;
+const otherLang = currentLang === 'ar' ? 'en' : 'ar';
+const otherPath = `/${otherLang}${currentPath}`;
+---
+<nav>
+  <a href={otherPath}>
+    {otherLang === 'ar' ? 'العربية' : 'English'}
+  </a>
+</nav>
