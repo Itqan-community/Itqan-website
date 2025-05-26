@@ -8,11 +8,12 @@ const isRTL = lang === 'ar';
   <head>
     <meta charset="UTF-8" />
     <title>Itqan</title>
-    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
     <LanguageSwitcher currentLang={lang} currentPath={path} />
 
     <slot />
+    <script src="/scripts/lang-redirect.js" defer></script>
   </body>
 </html>

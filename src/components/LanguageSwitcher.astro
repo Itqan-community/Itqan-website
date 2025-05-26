@@ -1,11 +1,11 @@
 ---
-// src/components/LanguageSwitcher.astro
-const { currentLang, currentPath } = Astro.props;
+const { currentLang } = Astro.props;
 const otherLang = currentLang === 'ar' ? 'en' : 'ar';
-const otherPath = `/${otherLang}${currentPath}`;
+const otherLangLabel = otherLang === 'ar' ? 'العربية' : 'English';
+const currentPath = Astro.url.pathname.replace(/^\/(en|ar)/, ''); // Remove current lang prefix
+
 ---
-<nav>
-  <a href={otherPath}>
-    {otherLang === 'ar' ? 'العربية' : 'English'}
-  </a>
-</nav>
+
+<a href={`/${otherLang}${currentPath || '/'}`} onclick="localStorage.setItem('lang', otherLang);">
+  {otherLangLabel}
+</a>

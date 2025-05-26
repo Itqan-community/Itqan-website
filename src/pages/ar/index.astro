@@ -1,8 +1,122 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-const lang = 'ar'; // or 'en' based on folder or file
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const lang = "ar"; // or 'en' based on folder or file
 ---
-<BaseLayout lang={lang} path='/'>
-  <h1>مرحبا بك في إتقان</h1>
-  ...
+
+<BaseLayout lang={lang} path="/">
+  <div id="main">
+    <nav>
+      <a href="https://discord.gg/24CskUbuuB" target="_blank" rel="noopener">انضم لمجتمع إتقــان</a>
+      <a href="./blog">تقاريــر قـرآنية</a>
+      <a href="./categories">مــوارد المطوّرين</a>
+      <a href="./projects">المشــاريع</a>
+      <a href="./">الرئيسية</a>
+      <a href="./"><img src="https://framerusercontent.com/images/q9CMuIWB9ZOelP0bKqU7M2MIyi4.svg" alt="إتقان" /></a>
+    </nav>
+
+    <main>
+      <section id="hero">
+        <h1>خِـدمَة كِـتاب الله غـايتُنا الكُـبرى</h1>
+        <p>نهدف لبناء أكبر مجتمع لتطوير تقنيات القرآن الكريم مفتوحة المصدر</p>
+        <p>وتحسين تجربة الاستخدام لخدمة المسلمين حول العالم</p>
+        <a href="https://discord.gg/24CskUbuuB" target="_blank" rel="noopener">انضم لمجتمع إتقان</a>
+      </section>
+
+      <section id="projects">
+        <h2>المشاريع</h2>
+        <p>مشاريع تقنية مفتوحة المصدر لإثراء التقنية المتاحة للمطورين في مجال تقنيات القرآن الكريم</p>
+        
+        <div class="projects-grid">
+          <a href="./projects/quran-apps-directory">
+            <h3>دليل التطبيقات القرآنية</h3>
+            <span>تم الإطلاق</span>
+          </a>
+
+          <a href="./projects/elevating-quranic-apps-search-experience-ar">
+            <h3>تقنية البحث المتقدم في القرآن الكريم</h3>
+            <span>تحت الإنشاء</span>
+          </a>
+        </div>
+
+        <a href="./projects">استكشف كل المشاريع</a>
+      </section>
+
+      <section id="resources">
+        <h2>مكـتبة القُــرْآنِ الكَــرِيمِ التقنية</h2>
+        <p>موارد شاملة للمطورين الباحثين عن المزيد</p>
+
+        <div class="resources-grid">
+          <a href="./categories/mushaf-fonts">
+            <h3>خطوط المصحف الشريف</h3>
+            <p>خطوط القرآن الكريم تتناسب مع الأجهزة المختلفة، بما في ذلك الخطوط المعتمدة على الحروف اليدوية والخطوط القياسية لنص Unicode</p>
+          </a>
+
+          <a href="./categories/recitation">
+            <h3>تلاوات القرآن الكريم</h3>
+            <p>تلاوات القرآن الكريم مع بيانات تفصيلية للوقت والتاريخ لكل آية وسورة. استخدم بيانات الوقت والتاريخ لتحديد الكلمات أثناء التلاوة</p>
+          </a>
+
+          <a href="./categories/digital-mushaf-layout">
+            <h3>النسخ الرقمية للمصحف الشريف</h3>
+            <p>صفحات القرآن الكريم بشكل مشابه تمامًا للمصحف المطبوع، يساعد التصميم الدقيق في حفظ القرآن الكريم، مما يوفر تجربة مألوفة.</p>
+          </a>
+
+          <a href="./categories/tafseer">
+            <h3>التفاسير</h3>
+            <p>بيانات تفسير القرآن الكريم بلغات متعددة مع معلومات تجميع الآيات والسور. تتوفر التفاسير بصيغ مختلفة، بما في ذلك JSON وSQLITE</p>
+          </a>
+        </div>
+      </section>
+
+      <section id="faqs">
+        <h2>الأسئلة الشائعة</h2>
+        <h3>ما يسأله الآخرون عن المجتمع</h3>
+
+        <div class="faq-list">
+          <details>
+            <summary>لماذا قد أرغب بالانضمام لمجتمع إتقان</summary>
+            <p>مجتمع إتقان هو مكان رائع لتكون محاطًا بمطورين شغوفين يسعون إلى تطوير مهاراتهم وخدمة غايات إيمانية أكبر منّا جميعا، من خلال التواصل مع آخرين ذوي فكر مشابه، والحصول على آراء حول عملك وبرمجياتك.</p>
+          </details>
+
+          <details>
+            <summary>هل سأحصل على دعم وظيفي؟</summary>
+            <p>نعم، سيكون لديك وصول إلى لوحة مناقشات المجتمع للحصول على التعليقات ومراجعة برمجياتك والتعلم من الآخرين</p>
+          </details>
+
+          <details>
+            <summary>ما المواضيع التي يمكنني السؤال عنها هنا؟</summary>
+            <p>مجتمع إتقان مخصص للمبرمجين المحترفين والهواة أفضل الأسئلة في مجتمعنا تحتوي عادةً على جزء من الأكواد المصدرية، ولكن إذا كان سؤالك يغطي بشكل عام مشكلة برمجية محددة، أو خوارزمية برمجية، أو أدوات برمجية شائعة الاستخدام لدى المبرمجين؛ ويكون مشكلة عملية وقابلة للإجابة وفريدة من نوعها في تطوير البرمجيات فأنت في المكان الصحيح للسؤال عمّا يتبادر في ذهنك</p>
+          </details>
+        </div>
+      </section>
+
+      <section id="benefits">
+        <h2>هل مجتمع إتقان يناسبني؟</h2>
+        <h3>مجتمعات إتقان الرقمية ستكــون رائعة بالنسبة لـك إذا كـنت</h3>
+
+        <ul>
+          <li>تعاني في الحصول على الموارد القرآنية الموثوقة</li>
+          <li>ترغب في تطوير تطبيقات القرآن الكريم</li>
+          <li>ترغب في أن يطلع شخص آخر على أعمالك ومراجعتها</li>
+          <li>تواجع صعوبة بناء تجربة استخدام فريدة</li>
+          <li>أنت المطور الوحيد في شركتك أو فريقك</li>
+          <li>تبحث عن مجتمع متخصص يدفعك للأمام</li>
+        </ul>
+
+        <a href="https://discord.gg/24CskUbuuB">انضم لمجتمع إتقان</a>
+      </section>
+
+      <footer>
+        <a href="https://discord.gg/24CskUbuuB" target="_blank" rel="noopener">
+          <h2>انضم إلينا لخدمة الغاية الكبرى</h2>
+        </a>
+
+        <div>
+          <a href="./"><img src="https://framerusercontent.com/images/q9CMuIWB9ZOelP0bKqU7M2MIyi4.svg" alt="إتقان" /></a>
+          <p>جميع الحقوق محفوظة وفقًا لرخصة المصدر المفتوح © إتقان ١٤٤٦ هـ</p>
+          <img src="https://framerusercontent.com/images/CsZIzajHrpQyJNg0p8n5HNQ.png" alt="" />
+        </div>
+      </footer>
+    </main>
+  </div>
 </BaseLayout>
