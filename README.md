@@ -7,7 +7,7 @@
 
 ## 🎯 Vision & Mission
 
-[Itqan](https://www.itqan.dev/) is an open initiative dedicated to building a strong tech community that supports the Holy Qur’an by:
+Itqan is an open initiative dedicated to building a strong tech community that supports the Holy Qur'an by:
 
 - Developing open-source Quran technologies and tools.
 - Providing reliable resources for developers and researchers.
@@ -19,8 +19,7 @@
 
 Itqan is home to several Quran-focused projects aimed at enhancing digital Islamic experiences, including:
 
-- **Quran App Directory**: A curated list of high-quality Quran-related apps for reading, memorization, and reflection.  
-  → [quran-apps.itqan.dev](https://quran-apps.itqan.dev/en?utm_source=chatgpt.com)
+- **Quran App Directory**: A curated list of high-quality Quran-related apps for reading, memorization, and reflection.
 
 - **Advanced Quran Search (coming soon)**: Aiming to revolutionize how users search within the Quranic text using modern indexing techniques.
 
@@ -31,20 +30,16 @@ Itqan is home to several Quran-focused projects aimed at enhancing digital Islam
 Itqan offers a growing collection of tech resources that make it easier to build Quranic apps, including:
 
 ### 📖 Mushaf Fonts
-- High-quality fonts for rendering the Quran in digital formats, including Unicode and traditional styles.  
-  → [Mushaf Fonts](https://www.itqan.dev/categories/mushaf-fonts?utm_source=chatgpt.com)
+- High-quality fonts for rendering the Quran in digital formats, including Unicode and traditional styles.
 
 ### 🎧 Quran Recitations
-- Time-aligned recitations with verse-level metadata for building interactive playback and visualization tools.  
-  → [Recitation Datasets](https://www.itqan.dev/categories/recitation?utm_source=chatgpt.com)
+- Time-aligned recitations with verse-level metadata for building interactive playback and visualization tools.
 
 ### 📄 Digital Mushaf Layouts
-- Page-by-page layouts that closely mimic printed Mushafs—ideal for faithful digital Quran presentation.  
-  → [Digital Mushaf Layouts](https://www.itqan.dev/categories/digital-mushaf-layout?utm_source=chatgpt.com)
+- Page-by-page layouts that closely mimic printed Mushafs—ideal for faithful digital Quran presentation.
 
 ### 📚 Tafsir (Exegesis)
-- Multi-language Quranic interpretations with structured JSON/SQL datasets, including verse groupings and surah mappings.  
-  → [Tafsir Collections](https://www.itqan.dev/categories/tafseer?utm_source=chatgpt.com)
+- Multi-language Quranic interpretations with structured JSON/SQL datasets, including verse groupings and surah mappings.
 
 ---
 
@@ -63,7 +58,7 @@ Our community provides:
 - Tech support from experienced developers.
 - Shared inspiration and project mentorship.
 
-👉 **Join the conversation on [Discord](https://discord.gg)**
+👉 **Join the conversation on [Discord](https://discord.gg/24CskUbuuB)**
 
 ---
 
@@ -82,11 +77,9 @@ We focus on professional and hobbyist software development with a Quranic twist.
 
 ## 📌 Additional Info
 
-- **Official Website**: [https://www.itqan.dev](https://www.itqan.dev)
 - **License**: All materials follow open-source licensing.  
   © Itqan, 1446 AH.
 
 ---
 
-> **Join us to serve the greater mission.**  
-> Visit [https://www.itqan.dev](https://www.itqan.dev) to explore, build, and contribute.
+> **Join us to serve the greater mission.**
