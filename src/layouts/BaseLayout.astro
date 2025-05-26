@@ -7,12 +7,171 @@ const isRTL = lang === 'ar';
 <html lang={lang} dir={isRTL ? 'rtl' : 'ltr'}>
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Itqan - Your trusted partner in digital solutions" />
     <title>Itqan</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="/src/styles/global.css" />
+    <link rel="stylesheet" href="/src/styles/home.css" />
   </head>
-  <body>
-    <Navbar lang={lang} path={path} />
-    <slot />
+  <body class={isRTL ? 'rtl' : 'ltr'}>
+    <div class="site-wrapper">
+      <header class="site-header">
+        <Navbar lang={lang} path={path} />
+      </header>
+
+      <main class="site-main">
+        <slot />
+      </main>
+    </div>
+
+    <!-- Scripts -->
     <script src="/scripts/lang-redirect.js" defer></script>
   </body>
 </html>
+
+<style is:global>
+  /* Font Face Declarations */
+  @font-face {
+    font-family: 'Doran';
+    src: url('/fonts/doran-bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Doran';
+    src: url('/fonts/doran-extrabold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/inter.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    /* Color Variables */
+    --color-primary: rgb(36, 168, 91);
+    --color-primary-dark: rgb(33, 131, 88);
+    --color-primary-light: rgb(142, 206, 170);
+    --color-text: rgb(26, 33, 30);
+    --color-text-light: rgb(78, 94, 88);
+    --color-background: rgb(251, 253, 252);
+    --color-background-alt: rgb(242, 242, 242);
+    --color-border: rgb(223, 226, 224);
+    
+    /* Typography */
+    --font-primary: 'Inter', sans-serif;
+    --font-heading: 'Doran', serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+    
+    /* Container */
+    --container-width: 1200px;
+    --container-padding: 1rem;
+  }
+
+  /* Base Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    line-height: 1.5;
+  }
+
+  /* Layout */
+  .site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .site-main {
+    flex: 1;
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--container-padding);
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+  }
+
+  p {
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* Links */
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  /* RTL Support */
+  .rtl {
+    text-align: right;
+  }
+
+  .ltr {
+    text-align: left;
+  }
+
+  /* Responsive */
+  @media (max-width: 1200px) {
+    :root {
+      --container-width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    html {
+      font-size: 14px;
+    }
+  }
+</style>

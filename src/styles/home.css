@@ -1,0 +1,160 @@
+/* Itqan homepage styles */
+
+/* @import url('https://fonts.gstatic.com'); */
+
+/* --- CSS Variables and Resets --- */
+/* html,body,#main{margin:0;padding:0;box-sizing:border-box}
+:root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+*{box-sizing:border-box;-webkit-font-smoothing:inherit}
+h1,h2,h3,h4,h5,h6,p,figure{margin:0}
+body,input,textarea,select,button{font-size:12px;font-family:sans-serif} */
+
+:root {
+  --itqan-background: #f2f2f2;
+  --itqan-text: #1a211e;
+  --itqan-text-light: #4e5e58;
+  --itqan-primary: #24a85b;
+  --itqan-primary-dark: #218358;
+  --itqan-primary-light: #8eceaa;
+  --itqan-border: #dfe2e0;
+  --itqan-white: #ffffff;
+}
+
+/* --- Base Styles --- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--itqan-text);
+  background-color: var(--itqan-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Layout Components --- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* --- Navigation --- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--itqan-white);
+  border-bottom: 1px solid var(--itqan-border);
+}
+
+.nav a {
+  color: var(--itqan-text);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: var(--itqan-text-light);
+}
+
+/* --- Hero Section --- */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--itqan-background);
+}
+
+.hero h1 {
+  font-family: 'Doran', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--itqan-text);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--itqan-text-light);
+  margin-bottom: 0.5rem;
+}
+
+/* --- Buttons --- */
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--itqan-text);
+  background: var(--itqan-background);
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background: var(--itqan-border);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* @media (prefers-color-scheme: dark){body{--token-290cccf8-5fec-461d-9441-78c452472997: rgb(46, 158, 102);}} */
+
+/* --- Font Faces (partial, main ones) --- */
+/* @font-face{font-family:Doran Bold;src:url(https://framerusercontent.com/assets/64zhm0dmBKfXjympncUGpiZ3Nk.woff2);font-display:swap}
+@font-face{font-family:Doran ExtraBold;src:url(https://framerusercontent.com/assets/fLqp2yiKRUJS1VPHVDsjvPEJk2w.woff2);font-display:swap}
+@font-face{font-family:Inter;src:url(https://framerusercontent.com/assets/5vvr9Vy74if2I6bQbJvbw7SY1pQ.woff2);font-display:swap;font-style:normal;font-weight:400;} */
+
+/* --- Responsive Utility Classes (from Framer) --- */
+/* @media(min-width: 1200px){.hidden-jm2fwl{display:none!important}}
+@media(min-width: 810px) and (max-width: 1199px){.hidden-qztt3i{display:none!important}}
+@media(max-width: 809px){.hidden-gqlil4{display:none!important}}
+@media(min-width: 1200px){.hidden-v8p8js{display:none!important}}
+@media(max-width: 1199px){.hidden-r8i4wu{display:none!important}} */
+
+/* --- Example Framer Section Styles (add more as needed) --- */
+.framer-Vyg3e.framer-jm2fwl{align-content:center;align-items:center;background-color:var(--token-0e95684a-446b-4164-ac92-fc368227c62a, #f2f2f2);display:flex;flex-direction:column;flex-wrap:nowrap;gap:0px;height:min-content;justify-content:flex-start;overflow:hidden;padding:0;position:relative;width:1200px}
+
+/* Add more extracted Framer styles here as needed for your homepage */
+
+/* --- Framer Component Styles --- */
+/* .framer-XPGc2.framer-v8p8js{align-content:center;align-items:center;background-color:var(--token-0e95684a-446b-4164-ac92-fc368227c62a, #f2f2f2);display:flex;flex-direction:column;flex-wrap:nowrap;gap:0px;height:min-content;justify-content:flex-start;overflow:hidden;padding:0;position:relative;width:100%}
+.framer-IuXE6.framer-17jfbgy{align-content:center;align-items:center;display:flex;flex-direction:row;flex-wrap:nowrap;gap:10px;height:96px;justify-content:center;overflow:visible;padding:0;position:relative;width:1200px}
+.framer-IuXE6 .framer-1xjskxa{align-content:center;align-items:center;display:flex;flex:none;flex-direction:row;flex-wrap:nowrap;height:min-content;justify-content:space-between;max-width:1360px;overflow:visible;padding:0;position:relative;width:96%}
+.framer-IuXE6 .framer-1bmv2z5{align-content:center;align-items:center;display:flex;flex:none;flex-direction:row;flex-wrap:nowrap;gap:32px;height:min-content;justify-content:center;max-width:1440px;overflow:visible;padding:0;position:relative;width:min-content}
+.framer-IuXE6 .framer-1b7b4x3{align-content:center;align-items:center;display:flex;flex:none;flex-direction:row;flex-wrap:nowrap;gap:10px;height:min-content;justify-content:center;overflow:visible;padding:0;position:relative;width:min-content;z-index:1}
+.framer-Vyg3e.framer-jm2fwl{align-content:center;align-items:center;background-color:var(--token-0e95684a-446b-4164-ac92-fc368227c62a, #f2f2f2);display:flex;flex-direction:column;flex-wrap:nowrap;gap:0px;height:min-content;justify-content:flex-start;overflow:hidden;padding:0;position:relative;width:1200px}
+.framer-Vyg3e .framer-1d38lou{align-content:center;align-items:center;display:flex;flex:none;flex-direction:column;flex-wrap:nowrap;gap:10px;height:90vh;justify-content:center;overflow:hidden;padding:0;position:relative;width:100%}
+.framer-Vyg3e .framer-gtkbn9{align-content:center;align-items:center;display:flex;flex:none;flex-direction:column;flex-wrap:nowrap;gap:48px;height:min-content;justify-content:center;max-width:1440%;overflow:visible;padding:0;position:relative;width:96%;z-index:1}
+.framer-Vyg3e .framer-1baa23t{align-content:center;align-items:center;display:flex;flex:none;flex-direction:column;flex-wrap:nowrap;gap:8px;height:min-content;justify-content:center;overflow:visible;padding:0;position:relative;width:100%}
+.framer-Vyg3e .framer-4yc48v,.framer-Vyg3e .framer-igzipb,.framer-Vyg3e .framer-ew30he{--framer-link-text-color: #0099ff;--framer-link-text-decoration: underline;flex:none;height:auto;overflow:visible;position:relative;white-space:pre-wrap;width:100%;word-break:break-word;word-wrap:break-word}
+.framer-Vyg3e .framer-gt4cx8-container{flex:none;height:48px;position:relative;width:auto;will-change:var(--framer-will-change-effect-override, transform)}
+.framer-Vyg3e .framer-1je01hu{align-content:center;align-items:center;bottom:0;display:flex;flex:none;flex-direction:row;flex-wrap:nowrap;gap:10px;height:min-content;justify-content:center;left:50%;min-height:104px;overflow:hidden;padding:0;position:absolute;transform:translate(-50%);width:100%;z-index:1}
+.framer-Vyg3e .framer-k0og07{align-content:center;align-items:center;display:flex;flex:none;flex-direction:row;flex-wrap:nowrap;gap:10px;height:min-content;justify-content:center;overflow:hidden;padding:80px 0;position:relative;width:100%}
+.framer-Vyg3e .framer-1nn0095{align-content:center;align-items:center;display:flex;flex:none;flex-direction:column;flex-wrap:nowrap;gap:48px;height:min-content;justify-content:center;max-width:1360px;overflow:visible;padding:0;position:relative;width:96%}
+.framer-Vyg3e .framer-d0n1ol{align-content:center;align-items:center;display:flex;flex:none;flex-direction:column;flex-wrap:nowrap;gap:20px;height:min-content;justify-content:center;overflow:hidden;padding:0;position:relative;width:100%} */
