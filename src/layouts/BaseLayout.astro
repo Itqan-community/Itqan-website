@@ -1,177 +1,118 @@
 ---
-// Accepts a `lang` prop like 'ar' or 'en'
-import Navbar from '../components/Navbar.astro';
-const { lang, path } = Astro.props;
-const isRTL = lang === 'ar';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import Header from '../components/layout/Header.astro';
+import SEO from '../components/seo/SEO.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: 'ar' | 'en';
+  path: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  authors?: string[];
+}
+
+const { 
+  title,
+  description,
+  lang,
+  path,
+  image,
+  type,
+  publishedTime,
+  modifiedTime,
+  authors
+} = Astro.props;
+
+const t = useTranslations(lang);
 ---
-<html lang={lang} dir={isRTL ? 'rtl' : 'ltr'}>
+
+<!DOCTYPE html>
+<html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Itqan - Your trusted partner in digital solutions" />
-    <title>Itqan</title>
-    
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="/src/styles/global.css" />
-    <link rel="stylesheet" href="/src/styles/home.css" />
+    <SEO
+      title={title}
+      description={description}
+      lang={lang}
+      path={path}
+      image={image}
+      type={type}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      authors={authors}
+    />
   </head>
-  <body class={isRTL ? 'rtl' : 'ltr'}>
-    <div class="site-wrapper">
-      <header class="site-header">
-        <Navbar lang={lang} path={path} />
-      </header>
-
-      <main class="site-main">
-        <slot />
-      </main>
-    </div>
-
-    <!-- Scripts -->
-    <script src="/scripts/lang-redirect.js" defer></script>
+  <body>
+    <Header lang={lang} path={path} />
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>{t('home.footer.copyright')}</p>
+    </footer>
   </body>
 </html>
 
 <style is:global>
-  /* Font Face Declarations */
-  @font-face {
-    font-family: 'Doran';
-    src: url('/fonts/doran-bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Doran';
-    src: url('/fonts/doran-extrabold.woff2') format('woff2');
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Inter';
-    src: url('/fonts/inter.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
   :root {
-    /* Color Variables */
-    --color-primary: rgb(36, 168, 91);
-    --color-primary-dark: rgb(33, 131, 88);
-    --color-primary-light: rgb(142, 206, 170);
-    --color-text: rgb(26, 33, 30);
-    --color-text-light: rgb(78, 94, 88);
-    --color-background: rgb(251, 253, 252);
-    --color-background-alt: rgb(242, 242, 242);
-    --color-border: rgb(223, 226, 224);
-    
-    /* Typography */
-    --font-primary: 'Inter', sans-serif;
-    --font-heading: 'Doran', serif;
-    
-    /* Spacing */
-    --spacing-xs: 0.25rem;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 4rem;
-    
-    /* Container */
+    --color-background: #ffffff;
+    --color-text: #1a1a1a;
+    --color-primary: #0070f3;
+    --color-border: #eaeaea;
     --container-width: 1200px;
-    --container-padding: 1rem;
   }
 
-  /* Base Styles */
+  [dir="rtl"] {
+    --font-family: 'Cairo', sans-serif;
+  }
+
+  [dir="ltr"] {
+    --font-family: 'Inter', sans-serif;
+  }
+
   * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
 
   html {
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-family);
+    background: var(--color-background);
+    color: var(--color-text);
   }
 
   body {
-    font-family: var(--font-primary);
-    color: var(--color-text);
-    background-color: var(--color-background);
-    line-height: 1.5;
-  }
-
-  /* Layout */
-  .site-wrapper {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
 
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background-color: var(--color-background);
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .site-main {
+  main {
     flex: 1;
     width: 100%;
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: var(--spacing-lg) var(--container-padding);
+    padding: 2rem 1rem;
   }
 
-  /* Typography */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    line-height: 1.2;
-    margin-bottom: var(--spacing-md);
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--color-border);
   }
 
-  p {
-    margin-bottom: var(--spacing-md);
-  }
-
-  /* Links */
-  a {
-    color: var(--color-primary);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  a:hover {
-    color: var(--color-primary-dark);
-  }
-
-  /* RTL Support */
-  .rtl {
-    text-align: right;
-  }
-
-  .ltr {
-    text-align: left;
-  }
-
-  /* Responsive */
-  @media (max-width: 1200px) {
+  @media (prefers-color-scheme: dark) {
     :root {
-      --container-width: 100%;
-    }
-  }
-
-  @media (max-width: 768px) {
-    html {
-      font-size: 14px;
+      --color-background: #1a1a1a;
+      --color-text: #ffffff;
+      --color-border: #333333;
     }
   }
 </style>

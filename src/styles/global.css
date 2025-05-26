@@ -1,11 +1,42 @@
 /* global.css */
 
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Doran';
+  src: url('/fonts/doran-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Doran';
+  src: url('/fonts/doran-extrabold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0070f3;
+  --color-primary-dark: #0051a2;
+  --color-text: #333;
+}
+
 body {
-  font-family: 'Cairo', sans-serif; /* Arabic-friendly font */
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text);
   margin: 0;
   padding: 0;
   background: white;
-  color: #333;
 }
 
 [dir="rtl"] {
@@ -25,12 +56,10 @@ body {
 }
 
 html, body {
-  font-family: 'STIX Two Text', sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fbfdfc;
-  color: #1a211e;
   line-height: 1.6;
 }
 

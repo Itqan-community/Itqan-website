@@ -1,4 +1,14 @@
 ---
-// Safety step, incase user came to the root page, redirect to the Arabic page
-return Astro.redirect('/ar/');
+import { defaultLang } from '../i18n/ui';
+
+// Get the current URL path
+const path = Astro.url.pathname;
+
+// If the path doesn't end with a slash, redirect to the version with a slash
+if (!path.endsWith('/')) {
+  Astro.redirect(`${path}/`);
+}
+
+// Redirect to the default language with trailing slash
+Astro.redirect(`/${defaultLang}/`);
 ---
