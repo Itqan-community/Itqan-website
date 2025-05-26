@@ -1,6 +1,6 @@
 ---
 // Accepts a `lang` prop like 'ar' or 'en'
-import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import Navbar from '../components/Navbar.astro';
 const { lang, path } = Astro.props;
 const isRTL = lang === 'ar';
 ---
@@ -11,8 +11,7 @@ const isRTL = lang === 'ar';
     <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
-    <LanguageSwitcher currentLang={lang} currentPath={path} />
-
+    <Navbar lang={lang} path={path} />
     <slot />
     <script src="/scripts/lang-redirect.js" defer></script>
   </body>

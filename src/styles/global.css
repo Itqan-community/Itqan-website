@@ -17,3 +17,73 @@ body {
 [dir="rtl"] nav {
   /* example: float nav items to right */
 }
+/* Base Reset and Setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'STIX Two Text', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fbfdfc;
+  color: #1a211e;
+  line-height: 1.6;
+}
+
+/* Container Style */
+main {
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+/* Headings */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1rem;
+  color: #4e5e58;
+}
+
+/* Links */
+a {
+  color: #229c5c;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Optional Theme Variables */
+:root {
+  --primary: #229c5c;
+  --text-main: #1a211e;
+  --text-subtle: #4e5e58;
+  --bg-light: #fbfdfc;
+}
+
+/* Dark Mode Support */
+/* Temporary disabled, we don't have a dark mode yet */
+/* @media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a211e;
+    color: #dfe2e0;
+  }
+
+  a {
+    color: #2ea066;
+  }
+} */
