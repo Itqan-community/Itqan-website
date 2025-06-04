@@ -1,0 +1,50 @@
+import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import Image from "next/image";
+import LangSwitch from "./LangSwitch";
+import JoinUsBtn from "./JoinUsBtn";
+import NavbarLink from "./NavbarLink";
+const NavbarLinks = [
+  {
+    href: "",
+    text: "home",
+  },
+  {
+    href: "/projects",
+    text: "projects",
+  },
+  {
+    href: "/categories",
+    text: "resources",
+  },
+  {
+    href: "/blog",
+    text: "reports",
+  },
+];
+export default async function Navbar({ locale }: { locale: string }) {
+  const t = await getTranslations("nav");
+
+  return (
+    <nav className="w-full bg-white border-b border-gray-100 shadow-md shadow-gray-100 !py-2 !px-4">
+      <div className="flex justify-between items-center">
+        <Link href={`/${locale}`} className="p-4">
+          <Image
+            src="/logo.svg"
+            alt={t("logo")}
+            width={64}
+            height={64}
+            className="h-14 w-auto"
+          />
+        </Link>
+        <div className="flex gap-8 items-center">
+          {NavbarLinks.map((link) => (
+            <NavbarLink key={link.href} context={link} locale={locale as string} />
+          ))}
+          <JoinUsBtn locale={locale as string} />
+        </div>
+        <LangSwitch locale={locale as string} />
+      </div>
+    </nav>
+  );
+}
