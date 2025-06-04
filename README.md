@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Itqan: Quranic Tech Community
 
-## Getting Started
+> **Our ultimate mission: Serving the Book of Allah**  
+> Building the largest open-source community for developing Quran tech solutions and enhancing the digital experience for Muslims around the world.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🎯 Vision & Mission
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Itqan is an open initiative dedicated to building a strong tech community that supports the Holy Qur'an by:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Developing open-source Quran technologies and tools.
+- Providing reliable resources for developers and researchers.
+- Promoting collaboration and knowledge sharing among developers.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧩 Projects & Initiatives
 
-To learn more about Next.js, take a look at the following resources:
+Itqan is home to several Quran-focused projects aimed at enhancing digital Islamic experiences, including:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Quran App Directory**: A curated list of high-quality Quran-related apps for reading, memorization, and reflection.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Advanced Quran Search (coming soon)**: Aiming to revolutionize how users search within the Quranic text using modern indexing techniques.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Developer Resources
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Itqan offers a growing collection of tech resources that make it easier to build Quranic apps, including:
+
+### 📖 Mushaf Fonts
+- High-quality fonts for rendering the Quran in digital formats, including Unicode and traditional styles.
+
+### 🎧 Quran Recitations
+- Time-aligned recitations with verse-level metadata for building interactive playback and visualization tools.
+
+### 📄 Digital Mushaf Layouts
+- Page-by-page layouts that closely mimic printed Mushafs—ideal for faithful digital Quran presentation.
+
+### 📚 Tafsir (Exegesis)
+- Multi-language Quranic interpretations with structured JSON/SQL datasets, including verse groupings and surah mappings.
+
+---
+
+## 👥 Community & Collaboration
+
+Whether you're a professional developer or passionate hobbyist, the Itqan community is for you if you:
+
+- Are building a Quran app or service.
+- Need reliable open-source Quranic resources.
+- Want to create a better Quranic user experience.
+- Work alone in a team and need technical feedback.
+
+Our community provides:
+
+- Code review and feedback boards.
+- Tech support from experienced developers.
+- Shared inspiration and project mentorship.
+
+👉 **Join the conversation on [Discord](https://discord.gg/24CskUbuuB)**
+
+---
+
+## ❓ FAQs
+
+### Why should I join the Itqan community?
+Because you'll be among passionate developers who want to grow technically while working on spiritually fulfilling projects. You'll gain insight, feedback, and inspiration from others walking a similar path.
+
+### Will I get job or technical support?
+Yes! The community offers channels to get reviews on your code, tech feedback, and learn from other developers' experiences.
+
+### What topics can I ask about?
+We focus on professional and hobbyist software development with a Quranic twist. Ideal questions include implementation challenges, app development, data structure, open-source collaboration, and relevant tools.
+
+---
+
+## 📌 Additional Info
+
+- **License**: All materials follow open-source licensing.  
+  © Itqan, 1446 AH.
+
+---
+
+> **Join us to serve the greater mission.**
