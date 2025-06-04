@@ -1,0 +1,19 @@
+{
+  "home": {
+    "title": "Serving Quran is our greatest Ghayah",
+    "description": "We are building the largest community for developing the Quranic technology",
+    "description2": "and improving the user experience for Muslims around the world"
+  },
+  "categories": {
+    "title": "Categories"
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "resources": "Resources",
+    "reports": "Reports",
+    "discord": "Join Itqan Community",
+    "logo": "Itqan"
+  }
+}
+
