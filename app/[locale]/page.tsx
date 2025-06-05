@@ -15,16 +15,16 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       >
         <h1 className="text-[56px] font-bold text-[#6bb38b] text-center">{t("title")}</h1>
         <p className="text-xl font-semibold">{t("description")}</p>
-        <p className="text-xl font-semibold mb-10">{t("description2")}</p>
+        <p className="text-xl font-semibold !mb-10">{t("description2")}</p>
         <JoinUsBtn />
       </section>
 
       {/* Projects section */}
-      <section aria-label="Projects" className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
+      <section aria-label="Projects" className="!py-40 !px-[4%] bg-neutral-100">
+        <div className="max-w-7xl !mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-emerald-900 mb-6">{t("projects.title")}</h2>
-            <p className="text-lg text-emerald-700 mb-8">{t("projects.description")}</p>
+            <h2 className="text-4xl font-bold text-emerald-900 !mb-6">{t("projects.title")}</h2>
+            <p className="text-lg text-emerald-700 !mb-8">{t("projects.description")}</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 mb-8">
@@ -42,13 +42,13 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                   priority
                 />
               </div>
-              <div className="absolute inset-0 bg-black/50 p-6 flex flex-col justify-end">
-                <div className="bg-white/90 text-emerald-900 text-sm font-semibold px-3 py-1 rounded-full w-fit mb-2">
-                  {t("projects.launched")}
-                </div>
+              <div className="absolute inset-0 bg-black/50 flex items-end justify-between !p-4">
                 <h3 className="text-2xl font-bold text-white">
                   {t("projects.quranAppsDirectory")}
                 </h3>
+                <div className="bg-white/90 text-emerald-900 text-sm font-semibold !px-2 !py-0.5 rounded-full w-fit mb-2">
+                  {t("projects.launched")}
+                </div>
               </div>
             </Link>
 
