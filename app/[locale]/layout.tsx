@@ -71,13 +71,12 @@ export async function generateMetadata({ params: { locale } }: { params: { local
   };
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: {
+type Props = {
   children: React.ReactNode;
   params: { locale: Locale };
-}) {
+};
+
+export default async function RootLayout({ children, params }: Props) {
   const locale = params.locale;
 
   if (!routing.locales.includes(locale as Locale)) {
