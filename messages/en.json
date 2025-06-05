@@ -2,7 +2,16 @@
   "home": {
     "title": "Serving Quran is our greatest Ghayah",
     "description": "We are building the largest community for developing the Quranic technology",
-    "description2": "and improving the user experience for Muslims around the world"
+    "description2": "and improving the user experience for Muslims around the world",
+    "projects": {
+      "title": "Projects",
+      "description": "Open source technical projects to enrich the technology available to developers in the field of Quranic technologies",
+      "launched": "Launched",
+      "inProgress": "In Progress",
+      "quranAppsDirectory": "Quran Apps Directory",
+      "searchExperience": "Elevating Quranic Apps Search Experience",
+      "exploreAll": "Explore All Projects"
+    }
   },
   "categories": {
     "title": "Categories"
