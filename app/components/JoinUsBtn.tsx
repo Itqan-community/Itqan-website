@@ -1,9 +1,11 @@
+"use client";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { FaArrowRight } from "react-icons/fa";
 
-export default function JoinUsBtn({ locale }: { locale: string }) {
+export default function JoinUsBtn() {
   const t = useTranslations("nav");
+  const locale = useLocale();
 
   return (
     <Link

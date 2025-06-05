@@ -26,7 +26,7 @@ export default async function Navbar({ locale }: { locale: string }) {
   const t = await getTranslations("nav");
 
   return (
-    <nav className="w-full bg-white border-b border-gray-100 shadow-md shadow-gray-100 !py-2 !px-4">
+    <nav className="w-full bg-neutral-100 border-b border-neutral-200 !py-2 !px-6 sticky top-0 z-50">
       <div className="flex justify-between items-center">
         <Link href={`/${locale}`} className="p-4">
           <Image
@@ -41,7 +41,7 @@ export default async function Navbar({ locale }: { locale: string }) {
           {NavbarLinks.map((link) => (
             <NavbarLink key={link.href} context={link} locale={locale as string} />
           ))}
-          <JoinUsBtn locale={locale as string} />
+          <JoinUsBtn />
         </div>
         <LangSwitch locale={locale as string} />
       </div>
