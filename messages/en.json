@@ -5,13 +5,33 @@
     "description2": "and improving the user experience for Muslims around the world",
     "discord": "Join Itqan Community",
     "projects": {
-      "title": "Projects",
+      "title": "Projects", 
       "description": "Open source technical projects to enrich the technology available to developers in the field of Quranic technologies",
       "launched": "Launched",
       "inProgress": "In Progress",
       "quranAppsDirectory": "Quran Apps Directory",
       "searchExperience": "Elevating Quranic Apps Search Experience",
       "exploreAll": "Explore All Projects"
+    },
+    "library": {
+      "title": "Technical Library of the Noble Quran",
+      "description": "Comprehensive resources for developers seeking more",
+      "mushafFonts": {
+        "title": "Mushaf Fonts",
+        "description": "Quran fonts compatible with various devices, including handcrafted letter-based fonts and standard Unicode text fonts"
+      },
+      "recitation": {
+        "title": "Quran Recitations", 
+        "description": "Quran recitations with detailed time and date data for each verse and surah. Use time and date data to identify words during recitation"
+      },
+      "digitalMushaf": {
+        "title": "Digital Mushaf Layout",
+        "description": "Quran pages exactly similar to the printed mushaf, precise design helps in Quran memorization, providing a familiar experience."
+      },
+      "tafseer": {
+        "title": "Tafseer",
+        "description": "Quran tafseer data in multiple languages with verse and surah aggregation information. Tafseer is available in different formats, including JSON and SQLITE"
+      }
     }
   },
   "categories": {
@@ -19,11 +39,10 @@
   },
   "nav": {
     "home": "Home",
-    "projects": "Projects",
+    "projects": "Projects", 
     "resources": "Resources",
     "reports": "Reports",
     "discord": "Join Itqan Community",
     "logo": "Itqan"
   }
 }
-
