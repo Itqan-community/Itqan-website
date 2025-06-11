@@ -2,8 +2,8 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import LangSwitch from "./LangSwitch";
-import JoinUsBtn from "./JoinUsBtn";
 import NavbarLink from "./NavbarLink";
+import LinkBtn from "./LinkBtn";
 const NavbarLinks = [
   {
     href: "",
@@ -41,7 +41,7 @@ export default async function Navbar({ locale }: { locale: string }) {
           {NavbarLinks.map((link) => (
             <NavbarLink key={link.href} context={link} locale={locale as string} />
           ))}
-          <JoinUsBtn />
+          <LinkBtn title={t("discord")} href={`https://discord.gg/24CskUbuuB`} target="_blank" variant="outline" />
         </div>
         <LangSwitch locale={locale as string} />
       </div>

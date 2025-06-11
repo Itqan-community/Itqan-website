@@ -1,8 +1,7 @@
 import { getTranslations } from "next-intl/server";
-import JoinUsBtn from "../components/JoinUsBtn";
 import Link from "next/link";
 import Image from "next/image";
-import { FaArrowRight } from "react-icons/fa";
+import LinkBtn from "../components/LinkBtn";
 
 export default async function Home({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations("home");
@@ -16,7 +15,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
         <h1 className="text-[56px] font-bold text-[#6bb38b] text-center">{t("title")}</h1>
         <p className="text-xl font-semibold">{t("description")}</p>
         <p className="text-xl font-semibold mb-10">{t("description2")}</p>
-        <JoinUsBtn />
+        <LinkBtn title={t("discord")} href={`https://discord.gg/24CskUbuuB`} target="_blank" />
       </section>
 
       {/* Projects section */}
@@ -30,23 +29,23 @@ export default async function Home({ params: { locale } }: { params: { locale: s
           <div className="grid md:grid-cols-2 gap-4 mb-8">
             <Link 
               href={`/${locale}/projects/quran-apps-directory`}
-              className="group relative overflow-hidden rounded-xl aspect-video"
+              className="group flex flex-col rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-neutral-300"
               aria-label={`${t("projects.quranAppsDirectory")} - ${t("projects.launched")}`}
             >
-              <div className="absolute inset-0">
+              <div className="relative aspect-video">
                 <Image
-                  src="/projects/quran-apps-directory.png"
+                  src="/home-projects-1.avif"
                   alt={`${t("projects.quranAppsDirectory")} - A comprehensive directory of Quran applications`}
                   fill
-                  className="object-cover"
+                  className="object-cover rounded-xl"
                   priority
                 />
               </div>
-              <div className="absolute inset-0 bg-black/50 flex items-end justify-between p-4">
-                <h3 className="text-2xl font-bold text-white">
+              <div className="flex items-center justify-between p-4 bg-neutral-100">
+                <h3 className="text-2xl font-bold text-emerald-900">
                   {t("projects.quranAppsDirectory")}
                 </h3>
-                <div className="bg-white/90 text-emerald-900 text-sm font-semibold px-2 py-0.5 rounded-full w-fit mb-2">
+                <div className="bg-emerald-800 opacity-60 text-white text-sm font-semibold px-2 py-0.5 rounded-full">
                   {t("projects.launched")}
                 </div>
               </div>
@@ -54,38 +53,31 @@ export default async function Home({ params: { locale } }: { params: { locale: s
 
             <Link
               href={`/${locale}/projects/elevating-quranic-apps-search-experience`}
-              className="group relative overflow-hidden rounded-xl aspect-video"
+              className="group flex flex-col rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-neutral-300"
               aria-label={`${t("projects.searchExperience")} - ${t("projects.inProgress")}`}
             >
-              <div className="absolute inset-0">
+              <div className="relative aspect-video">
                 <Image
-                  src="/projects/search-experience.jpg"
+                  src="/home-projects-2.avif"
                   alt={`${t("projects.searchExperience")} - Project to enhance search functionality in Quran applications`}
                   fill
-                  className="object-cover"
+                  className="object-cover rounded-xl"
                   priority
                 />
               </div>
-              <div className="absolute inset-0 bg-black/50 p-6 flex flex-col justify-end">
-                <div className="bg-white/90 text-emerald-900 text-sm font-semibold px-3 py-1 rounded-full w-fit mb-2">
-                  {t("projects.inProgress")}
-                </div>
-                <h3 className="text-2xl font-bold text-white">
+              <div className="flex items-center justify-between p-4 bg-neutral-100">
+                <h3 className="text-2xl font-bold text-emerald-900">
                   {t("projects.searchExperience")}
                 </h3>
+                <div className="bg-emerald-800 opacity-60 text-white text-sm font-semibold px-2 py-0.5 rounded-full">
+                  {t("projects.inProgress")}
+                </div>
               </div>
             </Link>
           </div>
 
-          <div className="text-center">
-            <Link
-              href={`/${locale}/projects`}
-              className="inline-flex items-center gap-2 border-2 border-emerald-900 text-emerald-900 hover:bg-emerald-900 hover:text-white rounded-full px-6 py-2 font-semibold transition-colors"
-              aria-label={t("projects.exploreAll")}
-            >
-              <FaArrowRight className={`${locale === "ar" ? "rotate-180" : ""}`} />
-              {t("projects.exploreAll")}
-            </Link>
+          <div className="flex justify-center mt-12">
+            <LinkBtn title={t("projects.exploreAll")} href={`/${locale}/projects`} variant="outline" />
           </div>
         </div>
       </section>
