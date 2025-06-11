@@ -1,9 +1,8 @@
-"use client";
-import { useLocale } from "next-intl";
+import { getLocale } from "next-intl/server";
 import { FaArrowRight } from "react-icons/fa";
 
-export default function ForwardArrow({ silent }: { silent?: boolean }) {
-  const locale = useLocale();
+export default async function ForwardArrow({ silent }: { silent?: boolean }) {
+  const locale = await getLocale();
   
   return (
     <FaArrowRight 
