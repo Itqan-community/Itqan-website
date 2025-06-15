@@ -32,6 +32,42 @@
         "title": "Tafseer",
         "description": "Quran tafseer data in multiple languages with verse and surah aggregation information. Tafseer is available in different formats, including JSON and SQLITE"
       }
+    },
+    "faqs": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "What others ask about the community",
+      "questions": {
+        "join": {
+          "title": "Why would I want to join the Itqan community?",
+          "answer": "The Itqan community is a great place to be surrounded by passionate developers who are looking to develop their skills and serve a greater faith-based purpose. Through connecting with like-minded others, and getting feedback on your work and software."
+        },
+        "support": {
+          "title": "Will I get professional support?",
+          "answer": "Yes, you'll have access to the community discussion board to get feedback, review your software, and learn from others."
+        },
+        "topics": {
+          "title": "What topics can I ask about here?",
+          "answer": "The Itqan community is dedicated to professional and amateur programmers. The best questions in our community usually contain a portion of source code, but if your question covers a specific programming problem, programming algorithm, or commonly used programming tools; and is a practical, answerable, unique problem in software development, you're in the right place to ask what's on your mind."
+        }
+      }
+    },
+    "community": {
+      "title": "Is Itqan Community Right for You?",
+      "subtitle1": "Itqan Digital Communities will be great",
+      "subtitle2": "for you if you are",
+      "points": {
+        "resources": "Struggling to get reliable Quranic resources",
+        "development": "Want to develop Quran applications",
+        "review": "Want someone to review your work",
+        "ux": "Having difficulty building a unique user experience",
+        "solo": "You are the only developer in your company or team",
+        "growth": "Looking for a specialized community to push you forward"
+      },
+      "cta": "Join Itqan Community"
+    },
+    "footer": {
+      "cta": "Join us to serve the greater purpose",
+      "copyright": "All rights reserved under the open source license © Itqan 1446 AH"
     }
   },
   "categories": {

@@ -73,3 +73,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-doran);
   font-weight: 800;
 }
+
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+.font-doran {
+  font-family: var(--font-doran);
+}

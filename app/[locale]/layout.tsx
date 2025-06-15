@@ -30,8 +30,8 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     alternates: {
       canonical: '/',
       languages: {
-        'en': '/en',
         'ar': '/ar',
+        'en': '/en',
       },
     },
     openGraph: {
