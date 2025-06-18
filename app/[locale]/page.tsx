@@ -94,7 +94,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Link
-              href={`/${locale}/categories/recitation`}
+              href={`/${locale}/resources/recitation`}
               className="flex flex-col rounded-xl overflow-hidden"
             >
               <div className="relative aspect-video">
@@ -121,7 +121,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             </Link>
 
             <Link
-              href={`/${locale}/categories/mushaf-fonts`}
+              href={`/${locale}/resources/mushaf-fonts`}
               className="flex flex-col rounded-xl overflow-hidden"
             >
               <div className="relative aspect-video">
@@ -148,7 +148,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             </Link>
 
             <Link
-              href={`/${locale}/categories/tafseer`}
+              href={`/${locale}/resources/tafseer`}
               className="flex flex-col rounded-xl overflow-hidden"
             >
               <div className="relative aspect-video">
@@ -175,7 +175,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             </Link>
 
             <Link
-              href={`/${locale}/categories/digital-mushaf-layout`}
+              href={`/${locale}/resources/digital-mushaf-layout`}
               className="flex flex-col rounded-xl overflow-hidden"
             >
               <div className="relative aspect-video">

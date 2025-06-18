@@ -2,23 +2,20 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import ForwardArrow from "../../components/ForwardArrow";
-import { FaFileDownload } from "react-icons/fa";
+import { FaFileAlt, FaFileDownload } from "react-icons/fa";
 
 export default function Blog() {
   const t = useTranslations("blog");
   return (
-    <section className="py-20 px-4 w-full max-w-7xl mx-auto bg-neutral-100 flex flex-col items-start" id="blogs">
+    <section className="py-20 px-8 w-full max-w-7xl mx-auto bg-neutral-100 flex flex-col items-center" id="blogs">
       <div className="w-full flex flex-col items-start mb-12">
         <div className="flex flex-col items-start gap-4 mb-6">
-          <div className="flex items-center max-w-max px-2 py-1 rounded-full gap-1 text-neutral-100 bg-neutral-900">
-            <span className="text-sm font-medium rounded-full px-4 py-1">{t("badge")}</span>
-            <span className="inline-flex items-center justify-center w-7 h-7 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f2f2f2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{width: '100%', height: '100%'}}><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-            </span>
+          <div className="flex items-center max-w-max px-3 py-1 rounded-full gap-2 text-neutral-100 bg-neutral-900">
+            <span className="text-sm font-medium rounded-full">{t("badge")}</span>
+            <FaFileAlt size={16} />
           </div>
           <div className="flex flex-col gap-2 items-start">
-            <p className="text-2xl md:text-3xl font-bold text-emerald-900 text-start leading-relaxed">{t("headline1")}</p>
-            <p className="text-2xl md:text-3xl font-bold text-emerald-900 text-start leading-relaxed">{t("headline2")}</p>
+            <h1 className="text-2xl md:text-3xl font-bold text-emerald-900 text-start leading-relaxed">{t("headline1")} <br /> {t("headline2")}</h1>
           </div>
         </div>
       </div>
