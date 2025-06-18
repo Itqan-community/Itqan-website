@@ -7,7 +7,7 @@ import { FaFileDownload } from "react-icons/fa";
 export default function Blog() {
   const t = useTranslations("blog");
   return (
-    <section className="py-20 px-4 bg-neutral-100 min-h-[80vh] flex flex-col items-start" id="blogs">
+    <section className="py-20 px-4 w-full max-w-7xl mx-auto bg-neutral-100 flex flex-col items-start" id="blogs">
       <div className="w-full flex flex-col items-start mb-12">
         <div className="flex flex-col items-start gap-4 mb-6">
           <div className="flex items-center max-w-max px-2 py-1 rounded-full gap-1 text-neutral-100 bg-neutral-900">

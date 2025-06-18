@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Projects() {
   const t = useTranslations("home.projects");
   return (
-    <section className="py-20 px-8 bg-neutral-100 min-h-[80vh] max-w-7xl mx-auto flex flex-col items-center" id="projects">
+    <section className="py-20 px-8 bg-neutral-100 w-full max-w-7xl mx-auto flex flex-col items-center" id="projects">
       <div className="flex flex-col items-center mb-12">
         <div className="flex flex-col gap-4 mb-6">
           <div className="flex items-center max-w-max px-2 py-1 rounded-full gap-1 text-neutral-100 bg-neutral-900">
