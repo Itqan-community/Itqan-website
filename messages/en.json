@@ -205,12 +205,12 @@
       "tafsirSaadi": {
         "title": "Tafsir As-Saadi", 
         "description": "This file contains the interpretation of Sheikh Abd al-Rahman al-Sa'di, divided by surahs and verses. It is based on the Dar Ibn al-Jawzi edition.",
-        "link": "tafsir_saadi_project_content_20250303110355.xlsx"
+        "link": "/docs/tafsir_saadi_project_content.xlsx"
       },
       "tafsirMukhtasar": {
         "title": "Tafsir Al-Mukhtasar",
         "description": "Tafsir Al-Mukhtasar with Maqasid (7th edition), this book stands out due to its:\n\n1- Clarity and simplicity of expression, avoiding verbose and complex language.\n2- Focus solely on interpreting verses and clarifying their meanings, without delving into issues of recitations, grammar, jurisprudence, and similar topics.\n3- Explanation of Quranic vocabulary within the interpretation itself.\n4- Adherence to the methodology of the early Muslim predecessors, following what the Quran and Sunnah indicate.",
-        "link": "الطبعة السابعة من المختصر مع المقاصد.xlsx"
+        "link": "/docs/الطبعة السابعة من المختصر مع المقاصد.xlsx"
       },
       "author": "Tafsir Center for Qur'anic Studies"
     },
