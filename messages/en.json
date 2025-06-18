@@ -87,8 +87,27 @@
       "cta": "Join Itqan Community"
     }
   },
-  "categories": {
-    "title": "Categories"
+  "resources": {
+    "badge": "Developer Resources",
+    "headline1": "Itqan Library is your #1 assistant for developing outstanding Quranic apps",
+    "headline2": "We provide digital and technical resources for open source use",
+    "mushafFonts": {
+      "title": "Mushaf Fonts",
+      "description": "Quran fonts compatible with various devices, including handcrafted letter-based fonts and standard Unicode text fonts"
+    },
+    "recitation": {
+      "title": "Quran Recitations",
+      "description": "Quran recitations with detailed time and date data for each verse and surah. Use time and date data to identify words during recitation"
+    },
+    "digitalMushaf": {
+      "title": "Digital Mushaf Layout",
+      "description": "Quran pages exactly similar to the printed mushaf, precise design helps in Quran memorization, providing a familiar experience."
+    },
+    "tafseer": {
+      "title": "Tafseer",
+      "description": "Quran tafseer data in multiple languages with verse and surah aggregation information. Tafseer is available in different formats, including JSON and SQLITE"
+    },
+    "partnersNote": "These resources are made available through Itqan partners"
   },
   "nav": {
     "home": "Home",
@@ -123,6 +142,22 @@
       "description": "In the era of technological innovation, this guide represents a unique tool for anyone seeking to evaluate emerging Quranic tech projects or assess their own project. It offers a clear and robust evaluation methodology that assists both evaluators and project owners in conducting an accurate assessment of the quality of these projects and ensuring the sustainability of their impact.\n\nContents of the Guide:\nThe guide includes an objective evaluation matrix based on a precise analytical approach, along with detailed evaluation criteria and axes, most notably:\n- Originality of the idea and its ability to meet current and future needs.\n- Team competence and the integration of roles and expertise.\n- Maturity of the prototype, readiness for implementation, and practical suitability.\n- Project sustainability and the quality of work and growth plans.\n\nHow to Make Use of This Guide?\nRely on it as a comprehensive reference for objective and accurate project evaluation.\nBenefit from its criteria to identify strengths and weaknesses in your project and improve it.\nDevelop a clear vision of quality and excellence standards in Quranic tech projects.\n\nTowards promising Quranic tech projects.\nDownload the guide now.",
       "link": "https://drive.google.com/file/d/1iHRWy_lz-o4F0Y2ZshSYSQWdtJM2aDZE/view",
       "image": "https://framerusercontent.com/images/your-evaluation-guide-image.png"
+    }
+  },
+  "tools": {
+    "title": "Tools",
+    "author": "Author",
+    "suraApi": {
+      "title": "Sura API",
+      "description": "This API offers comprehensive access to the content of the Surah application, enabling developers to seamlessly integrate Quranic data into their applications. It allows for the retrieval of detailed information about various projects, including content specific to surahs, pages, and verses, whether by individual number or multiple ranges. The API also facilitates access to word data, including word images, making it a powerful tool for developers aiming to create content-rich Quranic applications.",
+      "author": "Tafsir Center for Qur'anic Studies",
+      "link": "https://dev.surahapp.com/api/docs/"
+    },
+    "devPlatform": {
+      "title": "King Fahd Glorious Qur’an Printing Complex: Developers Platform",
+      "description": "The King Fahd Glorious Qur’an Printing Complex offers a specialized platform for developers, providing advanced digital resources and tools to facilitate the integration of Holy Qur'an content into various applications and software. This platform includes high-quality digital copies of Mus'haf al-Madinah in vector format, ideal for printing, software development, and educational systems.It also supplies Unicode Uthmanic Fonts supporting various narrations (such as Hafs, Warsh, Shu'bah, Qaloun, Duri, and Susi), ensuring accurate and aesthetic display of Quranic text on smart devices and digital platforms. Additionally, the platform provides comprehensive databases with detailed information for each verse, including jozz number, surah name, page number, and verse text in multiple formats. Developers can also access trusted resources like Tafseer Muyassar and Muyassar of Ghareeb Al-Quran, along with versatile tools in formats like Excel, JSON, and PDF, all aimed at enriching digital Quranic content and fostering innovation in Qur'an-related applications.",
+      "author": "King Fahd Glorious Qur'an Printing Complex",
+      "link": "https://qurancomplex.gov.sa/techquran/dev/"
     }
   }
 }

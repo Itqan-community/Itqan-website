@@ -14,12 +14,16 @@ const NavbarLinks = [
     text: "projects",
   },
   {
-    href: "/categories",
+    href: "/resources",
     text: "resources",
   },
   {
     href: "/blog",
     text: "reports",
+  },
+  {
+    href: "/tools",
+    text: "tools",
   },
 ];
 export default async function Navbar({ locale }: { locale: string }) {

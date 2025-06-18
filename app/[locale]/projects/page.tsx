@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
+import { FaCog } from "react-icons/fa";
 
 export default function Projects() {
   const t = useTranslations("home.projects");
@@ -8,13 +9,9 @@ export default function Projects() {
     <section className="py-20 px-8 bg-neutral-100 w-full max-w-7xl mx-auto flex flex-col items-center" id="projects">
       <div className="flex flex-col items-center mb-12">
         <div className="flex flex-col gap-4 mb-6">
-          <div className="flex items-center max-w-max px-2 py-1 rounded-full gap-1 text-neutral-100 bg-neutral-900">
-            <span className="text-sm font-medium rounded-full px-4 py-1">{t("badge")}</span>
-            <span className="inline-flex items-center justify-center w-7 h-7 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="white">
-                <path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" />
-              </svg>
-            </span>
+          <div className="flex items-center max-w-max px-3 py-1 rounded-full gap-2 text-neutral-100 bg-neutral-900">
+            <span className="text-sm font-medium rounded-full">{t("badge")}</span>
+            <FaCog size={16} />
           </div>
           <h3 className="text-2xl md:text-3xl font-bold text-emerald-900 leading-relaxed" >
             {t("headline")}
