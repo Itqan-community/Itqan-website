@@ -7,13 +7,15 @@
           "title": "mushafs.mushafMadinah.title",
           "description": "mushafs.mushafMadinah.description",
           "link": "mushafs.mushafMadinah.link", 
-          "author": "mushafs.author"
+          "author": "mushafs.author",
+          "download": false
         },
         {
           "title": "mushafs.unicodeUthmanicFonts.title",
           "description": "mushafs.unicodeUthmanicFonts.description",
           "link": "mushafs.unicodeUthmanicFonts.link",
-          "author": "mushafs.author"
+          "author": "mushafs.author",
+          "download": false
         }
       ]
     },
@@ -24,7 +26,8 @@
           "title": "fonts.unicodeUthmanicFonts.title",
           "description": "fonts.unicodeUthmanicFonts.description",
           "link": "fonts.unicodeUthmanicFonts.link",
-          "author": "fonts.unicodeUthmanicFonts.author"
+          "author": "fonts.unicodeUthmanicFonts.author",
+          "download": false
         }
       ]
     },
@@ -68,7 +71,8 @@
           "title": "translations.title",
           "description": "translations.description",
           "link": "translations.link",
-          "author": "translations.author"
+          "author": "translations.author",
+          "download": false
         }
       ]
     },
@@ -79,7 +83,8 @@
           "title": "linguistics.quranicDataset.title",
           "description": "linguistics.quranicDataset.description",
           "link": "linguistics.quranicDataset.link",
-          "author": "linguistics.quranicDataset.author"
+          "author": "linguistics.quranicDataset.author",
+          "download": false
         }
       ]
     },
@@ -102,7 +107,8 @@
           "title": "audio.mp3Quran.title",
           "description": "audio.mp3Quran.description",
           "link": "audio.mp3Quran.link",
-          "author": "audio.mp3Quran.author"
+          "author": "audio.mp3Quran.author",
+          "download": false
         }
       ]
     },
