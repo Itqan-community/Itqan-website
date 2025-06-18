@@ -1,10 +1,12 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { FaBoxOpen } from "react-icons/fa";
+import { FaBoxOpen, FaDownload, FaExternalLinkAlt } from "react-icons/fa";
+import resourcesList from "./resourcesList.json";
 
 export default function Resources() {
   const t = useTranslations("resources");
+  const t2 = useTranslations("resources2");
 
   return (
     <section className="py-20 px-8 w-full max-w-7xl mx-auto bg-neutral-100 flex flex-col items-center" id="resources">
@@ -21,118 +23,55 @@ export default function Resources() {
         </div>
       </div>
 
-      {/* Resources Grid */}
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-        {/* Quran Fonts */}
-        <Link href={t("mushafFonts.link")} className="flex flex-col gap-4 rounded-xl overflow-hidden">
-          <div className="relative aspect-video w-full">
-            <Image 
-              src="/resources-1.avif"
-              alt={t("mushafFonts.title")}
-              fill
-              className="object-cover rounded-xl border border-neutral-300"
-              sizes="100vw"
-            />
-          </div>
-          <div className="group flex flex-col">
-            <div className="mb-4">
-              <h3 className="text-xl font-bold mb-2">{t("mushafFonts.title")}</h3>
-              <p className="text-neutral-600 text-sm font-medium leading-relaxed">{t("mushafFonts.description")}</p>
-            </div>
-          </div>
-        </Link>
+      {/* Resources Table */}
+      <div className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead className="bg-emerald-900 text-white">
+              <tr>
+                <th className="px-6 py-4 text-start font-semibold">{t2("tableHeader.title")}</th>
+                <th className="px-6 py-4 text-start font-semibold">{t2("tableHeader.description")}</th>
+                <th className="px-6 py-4 text-start font-semibold">{t2("tableHeader.author")}</th>
+                <th className="px-6 py-4 text-start font-semibold">{t2("tableHeader.link")}</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-200">
+              {resourcesList.resourcesList.map((category, categoryIndex) =>
+                category.items.map((item, itemIndex) => {
+                  // Get nested translation values
 
-        {/* Quran Recitations */}
-        <Link href={t("recitation.link")} className="flex flex-col gap-4 rounded-xl overflow-hidden">
-          <div className="relative aspect-video w-full">
-            <Image 
-              src="/resources-2.avif"
-              alt={t("recitation.title")}
-              fill
-              className="object-cover rounded-xl border border-neutral-300"
-              sizes="100vw"
-            />
-          </div>
-          <div className="group flex flex-col">
-            <div className="mb-4">
-              <h3 className="text-xl font-bold mb-2">{t("recitation.title")}</h3>
-              <p className="text-neutral-600 text-sm font-medium leading-relaxed">{t("recitation.description")}</p>
-            </div>
-          </div>
-        </Link>
-
-        {/* Digital Copies */}
-        <Link href={t("digitalMushaf.link")} className="flex flex-col gap-4 rounded-xl overflow-hidden">
-          <div className="relative aspect-video w-full">
-            <Image 
-              src="/resources-3.avif"
-              alt={t("digitalMushaf.title")}
-              fill
-              className="object-cover rounded-xl border border-neutral-300"
-              sizes="100vw"
-            />
-          </div>
-          <div className="group flex flex-col">
-            <div className="mb-4">
-              <h3 className="text-xl font-bold mb-2">{t("digitalMushaf.title")}</h3>
-              <p className="text-neutral-600 text-sm font-medium leading-relaxed">{t("digitalMushaf.description")}</p>
-            </div>
-          </div>
-        </Link>
-
-        {/* Interpretations */}
-        <Link href={t("tafseer.link")} className="flex flex-col gap-4 rounded-xl overflow-hidden">
-          <div className="relative aspect-video w-full">
-            <Image 
-              src="/resources-4.avif"
-              alt={t("tafseer.title")}
-              fill
-              className="object-cover rounded-xl border border-neutral-300"
-              sizes="100vw"
-            />
-          </div>
-          <div className="group flex flex-col">
-            <div className="mb-4">
-              <h3 className="text-xl font-bold mb-2">{t("tafseer.title")}</h3>
-              <p className="text-neutral-600 text-sm font-medium leading-relaxed">{t("tafseer.description")}</p>
-            </div>
-          </div>
-        </Link>
-      </div>
-
-      {/* Partners Section */}
-      <div className="w-full flex flex-col items-center">
-        <h2 className="text-xl font-bold text-emerald-900 text-center mb-8 leading-relaxed">
-          {t("partnersNote")}
-        </h2>
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-          <div className="flex items-center justify-center p-4">
-            <Image
-              src="/resources-partner-1.avif"
-              alt={t("partners.qul.name")}
-              width={80}
-              height={40}
-              className="object-contain opacity-70 hover:opacity-100 transition-opacity"
-            />
-          </div>
-          <div className="flex items-center justify-center p-4">
-            <Image
-              src="/resources-partner-2.avif"
-              alt={t("partners.quranenc.name")}
-              width={120}
-              height={40}
-              className="object-contain opacity-70 hover:opacity-100 transition-opacity"
-            />
-          </div>
-          <div className="flex items-center justify-center p-4">
-            <Image
-              src="/resources-partner-3.svg"
-              alt={t("partners.qurancomplex.name")}
-              width={80}
-              height={40}
-              className="object-contain opacity-70 hover:opacity-100 transition-opacity"
-            />
-          </div>
+                  return (
+                    <tr key={`${categoryIndex}-${itemIndex}`} className="hover:bg-gray-50 transition-colors">
+                      <td className="px-6 py-4 text-start">
+                        <div className="font-medium text-emerald-900">{t2(item.title)}</div>
+                      </td>
+                      <td className="px-6 py-4 text-start">
+                        <div className="text-sm text-gray-600 max-w-md line-clamp-3">
+                          {t2(item.description)}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 text-start">
+                        <div className="text-sm text-gray-500">{t2(item.author)}</div>
+                      </td>
+                      <td className="px-6 py-4 text-start">
+                        {t2(item.link) && (
+                          <Link
+                            href={t2(item.link) as string}
+                            target="_blank"
+                            download={item.download}
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-800 transition-colors"
+                          >
+                            {item.download ? <FaDownload size={16} /> : <FaExternalLinkAlt size={16} />}
+                          </Link>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })
+              )}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

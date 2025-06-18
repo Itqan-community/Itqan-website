@@ -1,0 +1,122 @@
+{
+  "resourcesList": [
+    {
+      "category": "mushafs",
+      "items": [
+        {
+          "title": "mushafs.mushafMadinah.title",
+          "description": "mushafs.mushafMadinah.description",
+          "link": "mushafs.mushafMadinah.link", 
+          "author": "mushafs.author"
+        },
+        {
+          "title": "mushafs.unicodeUthmanicFonts.title",
+          "description": "mushafs.unicodeUthmanicFonts.description",
+          "link": "mushafs.unicodeUthmanicFonts.link",
+          "author": "mushafs.author"
+        }
+      ]
+    },
+    {
+      "category": "fonts",
+      "items": [
+        {
+          "title": "fonts.unicodeUthmanicFonts.title",
+          "description": "fonts.unicodeUthmanicFonts.description",
+          "link": "fonts.unicodeUthmanicFonts.link",
+          "author": "fonts.unicodeUthmanicFonts.author"
+        }
+      ]
+    },
+    {
+      "category": "tafsir", 
+      "items": [
+        {
+          "title": "tafsir.quranicVocabulary.title",
+          "description": "tafsir.quranicVocabulary.description",
+          "link": "tafsir.quranicVocabulary.link",
+          "author": "tafsir.author",
+          "download": true
+        },
+        {
+          "title": "tafsir.tafsirIbnKathir.title",
+          "description": "tafsir.tafsirIbnKathir.description",
+          "link": "tafsir.tafsirIbnKathir.link",
+          "author": "tafsir.author",
+          "download": true
+        },
+        {
+          "title": "tafsir.tafsirSaadi.title",
+          "description": "tafsir.tafsirSaadi.description",
+          "link": "tafsir.tafsirSaadi.link",
+          "author": "tafsir.author",
+          "download": true
+        },
+        {
+          "title": "tafsir.tafsirMukhtasar.title",
+          "description": "tafsir.tafsirMukhtasar.description",
+          "link": "tafsir.tafsirMukhtasar.link",
+          "author": "tafsir.author",
+          "download": true
+        }
+      ]
+    },
+    {
+      "category": "translations",
+      "items": [
+        {
+          "title": "translations.title",
+          "description": "translations.description",
+          "link": "translations.link",
+          "author": "translations.author"
+        }
+      ]
+    },
+    {
+      "category": "linguistics",
+      "items": [
+        {
+          "title": "linguistics.quranicDataset.title",
+          "description": "linguistics.quranicDataset.description",
+          "link": "linguistics.quranicDataset.link",
+          "author": "linguistics.quranicDataset.author"
+        }
+      ]
+    },
+    {
+      "category": "tajweed",
+      "items": [
+        {
+          "title": "tajweed.ahkamTajweed.title",
+          "description": "tajweed.ahkamTajweed.description",
+          "link": "tajweed.ahkamTajweed.link",
+          "author": "tajweed.ahkamTajweed.author",
+          "download": true
+        }
+      ]
+    },
+    {
+      "category": "audio",
+      "items": [
+        {
+          "title": "audio.mp3Quran.title",
+          "description": "audio.mp3Quran.description",
+          "link": "audio.mp3Quran.link",
+          "author": "audio.mp3Quran.author"
+        }
+      ]
+    },
+    {
+      "category": "other",
+      "items": [
+        {
+          "title": "other.quranTests.title",
+          "description": "other.quranTests.description",
+          "link": "other.quranTests.link",
+          "author": "other.quranTests.author",
+          "download": true
+        }
+      ]
+    }
+  ]
+}

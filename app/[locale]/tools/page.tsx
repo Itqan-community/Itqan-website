@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { FaExternalLinkAlt, FaTools } from "react-icons/fa";
+import { FaTools } from "react-icons/fa";
 import ForwardArrow from "../../components/ForwardArrow";
 
 export default function Tools() {
