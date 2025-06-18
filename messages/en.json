@@ -9,9 +9,30 @@
       "description": "Open source technical projects to enrich the technology available to developers in the field of Quranic technologies",
       "launched": "Launched",
       "inProgress": "In Progress",
-      "quranAppsDirectory": "Quran Apps Directory",
       "searchExperience": "Elevating Quranic Apps Search Experience",
-      "exploreAll": "Explore All Projects"
+      "exploreAll": "Explore All Projects",
+      "badge": "Objectives",
+      "headline": "Open source technical projects to enrich the technology available to developers in the field of Quranic technologies. Any developer or researcher can participate, develop, or benefit from them.",
+      "rolesLabel": "Roles Needed:",
+      "quranAppsDirectory": {
+        "title": "Quran Apps Directory",
+        "shortDescription": "Objective: To serve Muslims worldwide by providing a platform to collect and categorize digital applications related to the Quran. The project aims to facilitate access to the best technological solutions that support the Book of Allah, including reading, recitation, memorization, interpretation, Tajweed, and other Quranic fields.",
+        "roles": "Technical Development, UI/UX Design, Research and Data Collection, Sharia Specialists to ensure the accuracy of the applications.",
+        "link": "https://quran-apps.itqan.dev/en",
+        "image": "https://framerusercontent.com/images/xf0voPym2iy4wrGfoxO89ATdQjQ.png"
+      },
+      "advancedSearch": {
+        "title": "Advanced Quran Search Technology",
+        "shortDescription": "A project aimed at developing advanced search technologies in the Quranic text, to facilitate access to verses and Quranic information with high accuracy and speed.",
+        "roles": "Technical Development, Research and Data Collection, Sharia Specialists.",
+        "image": "https://framerusercontent.com/images/jQwDDtFkcNRmtUabxjTAr3LI6k.jpg"
+      },
+      "quranContentManagementSystem": {
+        "title": "Quran Content Management System",
+        "shortDescription": "A project aimed at developing a content management system for the Quranic text, to facilitate access to verses and Quranic information with high accuracy and speed.",
+        "roles": "Technical Development, Research and Data Collection, Sharia Specialists.",
+        "image": ""
+      }
     },
     "library": {
       "title": "Technical Library of the Noble Quran",
@@ -64,10 +85,6 @@
         "growth": "Looking for a specialized community to push you forward"
       },
       "cta": "Join Itqan Community"
-    },
-    "footer": {
-      "cta": "Join us to serve the greater purpose",
-      "copyright": "All rights reserved under the open source license © Itqan 1446 AH"
     }
   },
   "categories": {
@@ -80,5 +97,32 @@
     "reports": "Reports",
     "discord": "Join Itqan Community",
     "logo": "Itqan"
+  },
+  "footer": {
+    "cta": "Join us to serve the greater purpose",
+    "copyright": "All rights reserved under the open source license © Itqan 1446 AH"
+  },
+  "blog": {
+    "badge": "Quranic Reports",
+    "headline1": "Itqan Library is your #1 assistant for developing outstanding Quranic apps",
+    "headline2": "We provide digital and technical resources for open source use",
+    "opensourceLicense": {
+      "title": "Open Source License",
+      "description": "Open Source License",
+      "link": "/en/blog/opensource-license",
+      "image": "https://framerusercontent.com/images/G8uJNCaWecFfK2tv4OTWHkDNY.png"
+    },
+    "developmentGuide": {
+      "title": "Development Guide",
+      "description": "A comprehensive guide to developing Quranic applications using open source resources.",
+      "link": "https://drive.google.com/file/d/1iHRWy_lz-o4F0Y2ZshSYSQWdtJM2aDZE/view",
+      "image": "https://framerusercontent.com/images/your-development-guide-image.png"
+    },
+    "evaluationGuide": {
+      "title": "The Guidebook for Evaluating Emerging Quranic Technology Projects",
+      "description": "In the era of technological innovation, this guide represents a unique tool for anyone seeking to evaluate emerging Quranic tech projects or assess their own project. It offers a clear and robust evaluation methodology that assists both evaluators and project owners in conducting an accurate assessment of the quality of these projects and ensuring the sustainability of their impact.\n\nContents of the Guide:\nThe guide includes an objective evaluation matrix based on a precise analytical approach, along with detailed evaluation criteria and axes, most notably:\n- Originality of the idea and its ability to meet current and future needs.\n- Team competence and the integration of roles and expertise.\n- Maturity of the prototype, readiness for implementation, and practical suitability.\n- Project sustainability and the quality of work and growth plans.\n\nHow to Make Use of This Guide?\nRely on it as a comprehensive reference for objective and accurate project evaluation.\nBenefit from its criteria to identify strengths and weaknesses in your project and improve it.\nDevelop a clear vision of quality and excellence standards in Quranic tech projects.\n\nTowards promising Quranic tech projects.\nDownload the guide now.",
+      "link": "https://drive.google.com/file/d/1iHRWy_lz-o4F0Y2ZshSYSQWdtJM2aDZE/view",
+      "image": "https://framerusercontent.com/images/your-evaluation-guide-image.png"
+    }
   }
 }

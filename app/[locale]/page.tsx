@@ -7,8 +7,7 @@ import ForwardArrow from "../components/ForwardArrow";
 export default async function Home({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations("home");
   return (
-    <main>
-      {/* Hero section */}
+    <>
       <section 
         aria-label="Hero"
         className="flex flex-col items-center justify-center h-[calc(100vh-73px)] bg-[url('/home-hero.avif')] bg-center bg-cover bg-no-repeat bg-[#81ffb8]/50 bg-blend-overlay"
@@ -19,7 +18,6 @@ export default async function Home({ params: { locale } }: { params: { locale: s
         <LinkBtn title={t("discord")} href={`https://discord.gg/24CskUbuuB`} target="_blank" />
       </section>
 
-      {/* Projects section */}
       <section aria-label="Projects" className="py-40 px-[4%] bg-neutral-100">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -55,12 +53,12 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             <Link
               href={`/${locale}/projects/quran-apps-directory`}
               className="group flex flex-col rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-neutral-300"
-              aria-label={`${t("projects.quranAppsDirectory")} - ${t("projects.launched")}`}
+              aria-label={`${t("projects.quranAppsDirectory.title")} - ${t("projects.launched")}`}
             >
               <div className="relative aspect-video">
                 <Image
                   src="/home-projects-2.avif"
-                  alt={`${t("projects.quranAppsDirectory")} - A comprehensive directory of Quran applications`}
+                  alt={`${t("projects.quranAppsDirectory.title")} - A comprehensive directory of Quran applications`}
                   fill
                   className="object-cover rounded-xl border border-neutral-300"
                   priority
@@ -68,7 +66,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
               </div>
               <div className="flex items-center justify-between p-4 bg-neutral-100">
                 <h3 className="text-2xl font-bold text-emerald-900">
-                  {t("projects.quranAppsDirectory")}
+                  {t("projects.quranAppsDirectory.title")}
                 </h3>
                 <div className="bg-emerald-800 opacity-60 text-white text-sm font-semibold px-2 py-0.5 rounded-full min-w-max">
                   {t("projects.launched")}
@@ -83,7 +81,6 @@ export default async function Home({ params: { locale } }: { params: { locale: s
         </div>
       </section>
 
-      {/* Library section */}
       <section className="py-40 px-[4%] bg-white">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="flex flex-col items-center text-center mb-12">
@@ -207,7 +204,6 @@ export default async function Home({ params: { locale } }: { params: { locale: s
         </div>
       </section>
 
-      {/* FAQ section */}
       <section id="faqs" className="py-16">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center gap-2 mb-12">
@@ -271,7 +267,6 @@ export default async function Home({ params: { locale } }: { params: { locale: s
         </div>
       </section>
 
-      {/* Disclaimer section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -314,70 +309,6 @@ export default async function Home({ params: { locale } }: { params: { locale: s
           </div>
         </div>
       </section>
-      
-      {/* Footer section */}
-      <section className="relative bg-[#193B2D] py-20 overflow-hidden">
-        {/* Background image with blur effect */}
-        <div 
-          className="absolute inset-0 opacity-[0.16] scale-[1.48] rotate-[10.7deg] skew-x-[10.7deg]"
-          style={{
-            maskImage: 'radial-gradient(50% 100% at 50% 0%, black 0%, transparent 100%)',
-            WebkitMaskImage: 'radial-gradient(50% 100% at 50% 0%, black 0%, transparent 100%)',
-            filter: 'blur(3px)',
-          }}
-        >
-          <Image
-            src="/home-footer-bg.png"
-            alt=""
-            fill
-            className="object-cover"
-            style={{ objectPosition: '36.7% 79%' }}
-          />
-        </div>
-
-        {/* Content */}
-        <div className="container mx-auto px-4 relative text-neutral-100">
-          {/* CTA */}
-          <Link
-            href="https://discord.gg/24CskUbuuB"
-            target="_blank"
-            rel="noopener"
-            className="flex items-center justify-center me-auto max-w-max gap-4 mb-20 hover:opacity-90 transition-opacity"
-          >
-            <h2 className="text-4xl font-bold text-neutral-100 font-doran text-right">
-              {t("footer.cta")}
-            </h2>
-
-            <ForwardArrow silent size={26} />
-          </Link>
-
-          {/* Footer bottom */}
-          <div className="flex items-center justify-between gap-6">
-            <div>
-              <p className="text-[#868E8B] text-center" style={{letterSpacing: '-0.5px'}}>
-                {t("footer.copyright")}
-              </p>
-                <Image
-                  src="/home-footer-ayah.svg"
-                  alt=""
-                  className="object-cover grayscale invert"
-                  width={230}
-                  height={46}
-                />
-            </div>
-
-            <Link href={`/${locale}`}>
-              <Image
-                src="/logo.svg"
-                alt="Itqan"
-                width={80}
-                height={80}
-                className="brightness-0 contrast-200 grayscale invert saturate-200"
-              />
-            </Link>
-          </div>
-        </div>
-      </section>
-    </main>
+    </>
   );
 }

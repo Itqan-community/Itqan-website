@@ -5,6 +5,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import "@/app/globals.css";
 import Navbar from "@/app/components/Navbar";
+import Footer from "../components/Footer";
 // import { headers } from "next/headers";
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: Locale } }): Promise<Metadata> {
@@ -85,10 +86,11 @@ export default async function RootLayout({ children, params }: Props) {
   const messages = await getMessages();
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-      <body className="bg-gray-100">
+      <body className="bg-gray-100 flex flex-col min-h-screen">
         <NextIntlClientProvider messages={messages}>
           <Navbar locale={locale} />
           {children}
+          <Footer locale={locale} />
         </NextIntlClientProvider>
       </body>
     </html>
