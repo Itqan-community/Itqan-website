@@ -9,9 +9,30 @@
       "description": "Open source technical projects to enrich the technology available to developers in the field of Quranic technologies",
       "launched": "Launched",
       "inProgress": "In Progress",
-      "quranAppsDirectory": "Quran Apps Directory",
       "searchExperience": "Elevating Quranic Apps Search Experience",
-      "exploreAll": "Explore All Projects"
+      "exploreAll": "Explore All Projects",
+      "badge": "Objectives",
+      "headline": "Open source technical projects to enrich the technology available to developers in the field of Quranic technologies. Any developer or researcher can participate, develop, or benefit from them.",
+      "rolesLabel": "Roles Needed:",
+      "quranAppsDirectory": {
+        "title": "Quran Apps Directory",
+        "shortDescription": "Objective: To serve Muslims worldwide by providing a platform to collect and categorize digital applications related to the Quran. The project aims to facilitate access to the best technological solutions that support the Book of Allah, including reading, recitation, memorization, interpretation, Tajweed, and other Quranic fields.",
+        "roles": "Technical Development, UI/UX Design, Research and Data Collection, Sharia Specialists to ensure the accuracy of the applications.",
+        "link": "https://quran-apps.itqan.dev/en",
+        "image": "https://framerusercontent.com/images/xf0voPym2iy4wrGfoxO89ATdQjQ.png"
+      },
+      "advancedSearch": {
+        "title": "Advanced Quran Search Technology",
+        "shortDescription": "A project aimed at developing advanced search technologies in the Quranic text, to facilitate access to verses and Quranic information with high accuracy and speed.",
+        "roles": "Technical Development, Research and Data Collection, Sharia Specialists.",
+        "image": "https://framerusercontent.com/images/jQwDDtFkcNRmtUabxjTAr3LI6k.jpg"
+      },
+      "quranContentManagementSystem": {
+        "title": "Quran Content Management System",
+        "shortDescription": "A project aimed at developing a content management system for the Quranic text, to facilitate access to verses and Quranic information with high accuracy and speed.",
+        "roles": "Technical Development, Research and Data Collection, Sharia Specialists.",
+        "image": ""
+      }
     },
     "library": {
       "title": "Technical Library of the Noble Quran",
@@ -64,10 +85,6 @@
         "growth": "Looking for a specialized community to push you forward"
       },
       "cta": "Join Itqan Community"
-    },
-    "footer": {
-      "cta": "Join us to serve the greater purpose",
-      "copyright": "All rights reserved under the open source license © Itqan 1446 AH"
     }
   },
   "categories": {
@@ -80,5 +97,9 @@
     "reports": "Reports",
     "discord": "Join Itqan Community",
     "logo": "Itqan"
+  },
+  "footer": {
+    "cta": "Join us to serve the greater purpose",
+    "copyright": "All rights reserved under the open source license © Itqan 1446 AH"
   }
 }
