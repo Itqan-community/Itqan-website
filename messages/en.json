@@ -159,5 +159,101 @@
       "author": "King Fahd Glorious Qur'an Printing Complex",
       "link": "https://qurancomplex.gov.sa/techquran/dev/"
     }
+  },
+  "resources2": {
+    "tableHeader": {
+      "title": "Title",
+      "description": "Description",
+      "link": "Link",
+      "author": "Source"
+    },
+    "mushafs": {
+      "title": "Mushafs",
+      "mushafMadinah": {
+        "title": "Digital copy of Mus'haf al-Madinah",
+        "description": "A digital version of the Madinah Mushaf, where the Quranic text has been converted into pure digital content by producing the entire Madinah Mushaf as digital files using advanced vector graphics. This technology allows the creation of digital images with unlimited quality and high precision in two-dimensional display data.",
+        "link": "https://dm.qurancomplex.gov.sa/#download-isdarat"
+      },
+      "unicodeUthmanicFonts": {
+        "title": "Unicode Uthmanic Fonts", 
+        "description": "A computer font specifically designed for displaying Quranic text in accordance with the Uthmani script. It was built to comply with the Unicode global standard, which is a universal system that enables data to transfer across different systems and devices without any concern of being displayed in a corrupted manner.",
+        "link": "https://fonts.qurancomplex.gov.sa/ten-readings/"
+      },
+      "author": "King Fahd Glorious Qur'an Printing Complex"
+    },
+    "fonts": {
+      "title": "Fonts",
+      "unicodeUthmanicFonts": {
+        "title": "Unicode Uthmanic Fonts",
+        "description": "A computer font specifically designed for displaying Quranic text in accordance with the Uthmani script. It was built to comply with the Unicode global standard, which is a universal system that enables data to transfer across different systems and devices without any concern of being displayed in a corrupted manner.",
+        "author": "King Fahd Glorious Qur'an Printing Complex",
+        "link": "https://fonts.qurancomplex.gov.sa/ten-readings/"
+      }
+    },
+    "tafsir": {
+      "quranicVocabulary": {
+        "title": "Qur'anic Vocabulary Meanings",
+        "description": "This file contains an explanation of the meanings of Quranic vocabulary and the interpretation of its verses, organized by surah and verse. This explanation aims to simplify the understanding of the Quranic text by clarifying the connotations of words and illustrating their linguistic and legal contexts. The file provides deep insights into the fundamental Quranic concepts, with a focus on interpretive aspects that help the reader grasp the Quranic intentions.",
+        "link": "/docs/meaning_word_project_content.xlsx"
+      },
+      "tafsirIbnKathir": {
+        "title": "Tafsir Ibn Kathir",
+        "description": "This file contains the interpretation of the Noble Quran (Tafsir Ibn Kathir), divided by surahs and verses, and is based on the Dar Ibn Al-Jawzi edition.",
+        "link": "/docs/tafsir_katheer_project_content.csv"
+      },
+      "tafsirSaadi": {
+        "title": "Tafsir As-Saadi", 
+        "description": "This file contains the interpretation of Sheikh Abd al-Rahman al-Sa'di, divided by surahs and verses. It is based on the Dar Ibn al-Jawzi edition.",
+        "link": "tafsir_saadi_project_content_20250303110355.xlsx"
+      },
+      "tafsirMukhtasar": {
+        "title": "Tafsir Al-Mukhtasar",
+        "description": "Tafsir Al-Mukhtasar with Maqasid (7th edition), this book stands out due to its:\n\n1- Clarity and simplicity of expression, avoiding verbose and complex language.\n2- Focus solely on interpreting verses and clarifying their meanings, without delving into issues of recitations, grammar, jurisprudence, and similar topics.\n3- Explanation of Quranic vocabulary within the interpretation itself.\n4- Adherence to the methodology of the early Muslim predecessors, following what the Quran and Sunnah indicate.",
+        "link": "الطبعة السابعة من المختصر مع المقاصد.xlsx"
+      },
+      "author": "Tafsir Center for Qur'anic Studies"
+    },
+    "translations": {
+      "title": "Quran Encyclopedia Translations",
+      "description": "Quran encyclopedia features trustworthy translations of the meanings and exegeses of the noble Qur'an in many world languages. These renditions have been prepared by reliable translators under the careful supervision of specialized bodies. They are both accessible and shareable on social media.\n\nObjectives:\n\n1. Creating a free electronic reference of the exegeses and translations of the meanings of the noble Qur'an, following the methodology of Ahl-us-Sunnah wal-Jamaa`ah; to replace the unreliable references currently available on the Internet.\n\n2. Providing a variety of electronic versions of the, translations, exegeses, and other related information that can be used on smart devices, applications, and systems.\n\n3. Giving free and easy access to authentic translations and exegeses through search engines and global sources of information.\n\n4. Developing the exegeses and translations by involving specialists and concerned individual in the revision, assessment, and correction of the translations of and information related to Qur'anic verses using electronic assessment and correction systems.",
+      "author": "The Noble Qur'an Encyclopedia",
+      "link": "https://quranenc.com/en/home/api/"
+    },
+    "linguistics": {
+      "title": "Linguistic",
+      "quranicDataset": {
+        "title": "Quranic Dataset for Text Processing",
+        "description": "This dataset aims to provide a comprehensive and computationally accessible linguistic resource for Classical Arabic. It addresses the critical need for structured and in-depth data for studying and analyzing Quranic text.\n\nThe dataset consists of three integrated layers:\n\n1- Orthographic layer: Includes standard and Uthmani Quranic script, along with texts, phonetic transcription, English translation, and dual indexing.\n\n2- Morphological layer: Features precise part-of-speech tagging, detailed morphological and grammatical properties, and information about roots and original words.\n\n3- Syntactic layer: Provides the first complete, computationally processable syntactic encoding of the entire Quran, using a new hybrid framework combining structural and dependency syntax.",
+        "author": "Noor Bayan",
+        "link": "https://data.mendeley.com/datasets/rk96pn66m4/1"
+      }
+    },
+    "tajweed": {
+      "title": "Tajweed",
+      "ahkamTajweed": {
+        "title": "Ahkam Al-Tajweed - Ahmed Al-Tawil",
+        "description": "A comprehensive and accessible reference for learning and applying Tajweed rules for the Holy Quran. It features a unique organization by surahs and verses, making it easy to connect theoretical rules directly to practical application on the Mushaf. The book aims to simplify Tajweed rules for various levels and is an excellent training tool for improving recitation and perfecting the articulation and characteristics of letters.",
+        "author": "Ahmed Al-Tawil",
+        "link": "/docs/tajweed_aya_project_content.xlsx"
+      }
+    },
+    "audio": {
+      "title": "Audio",
+      "mp3Quran": {
+        "title": "MP3 Quran",
+        "description": "The library provides comprehensive access to diverse Quranic resources. This interface allows Browse lists of languages, surahs, narrations (rewayat), and reciters, in addition to detailed information about surahs, types of mushafs, and videos. It also offers access to the latest recitations and videos, as well as live broadcasts of Makkah and Madinah channels. Furthermore, the interface includes features for retrieving tafsir (exegesis) links, tadabbur (contemplation), and verse timings, making it a powerful tool for integrating Quranic content into various applications and websites.",
+        "author": "Quran Audio Library",
+        "link": "https://mp3quran.org/ar/api"
+      }
+    },
+    "other": {
+      "title": "Other",
+      "quranTests": {
+        "title": "Verses Divided for Easy, Medium, and Hard Tests",
+        "description": "This table provides organized data for Quranic verses, specifically categorized for testing and memorization assessment, indicating the difficulty level for each verse (easy, medium, hard). The table includes essential information for each verse such as: the verse text, its original number, cumulative order (ascending and descending), and surah number. It also provides additional fields for specifying the part, page, and line numbers, making it easy to reference the Mushaf. This structured data allows users to design diverse and effective memorization tests tailored to different levels and abilities.",
+        "author": "Quran Encyclopedia",
+        "link": "/docs/الآيات مقسم للاختبارات سهل - وسط - صعب.xlsx"
+      }
+    }
   }
 }
