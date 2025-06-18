@@ -101,5 +101,16 @@
   "footer": {
     "cta": "Join us to serve the greater purpose",
     "copyright": "All rights reserved under the open source license © Itqan 1446 AH"
+  },
+  "blog": {
+    "badge": "Quranic Reports",
+    "headline1": "Itqan Library is your #1 assistant for developing outstanding Quranic apps",
+    "headline2": "We provide digital and technical resources for open source use",
+    "opensourceLicense": {
+      "title": "Open Source License",
+      "description": "Open Source License",
+      "link": "/en/blog/opensource-license",
+      "image": "https://framerusercontent.com/images/G8uJNCaWecFfK2tv4OTWHkDNY.png"
+    }
   }
 }

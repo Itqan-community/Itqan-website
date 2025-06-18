@@ -87,6 +87,17 @@
       "cta": "انضم لمجتمع إتقان"
     }
   },
+  "blog": {
+    "badge": "تقارير قرآنية",
+    "headline1": "مكتبة إتـقان هي مساعـدك الأول في تطوير تطبيقـــات القرآن الكريم المميزة",
+    "headline2": "نوفّــر المصـادر الرقمية والتقنيّة للاستخــدام مفتـوح المصـدر",
+    "opensourceLicense": {
+      "title": "رخص النشر",
+      "description": "رخص النشر",
+      "link": "/ar/blog/opensource-license",
+      "image": "https://framerusercontent.com/images/G8uJNCaWecFfK2tv4OTWHkDNY.png"
+    }
+  },
   "categories": {
     "title": "التصنيفات"
   },
