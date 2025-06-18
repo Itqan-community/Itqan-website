@@ -111,6 +111,18 @@
       "description": "Open Source License",
       "link": "/en/blog/opensource-license",
       "image": "https://framerusercontent.com/images/G8uJNCaWecFfK2tv4OTWHkDNY.png"
+    },
+    "developmentGuide": {
+      "title": "Development Guide",
+      "description": "A comprehensive guide to developing Quranic applications using open source resources.",
+      "link": "https://drive.google.com/file/d/1iHRWy_lz-o4F0Y2ZshSYSQWdtJM2aDZE/view",
+      "image": "https://framerusercontent.com/images/your-development-guide-image.png"
+    },
+    "evaluationGuide": {
+      "title": "The Guidebook for Evaluating Emerging Quranic Technology Projects",
+      "description": "In the era of technological innovation, this guide represents a unique tool for anyone seeking to evaluate emerging Quranic tech projects or assess their own project. It offers a clear and robust evaluation methodology that assists both evaluators and project owners in conducting an accurate assessment of the quality of these projects and ensuring the sustainability of their impact.\n\nContents of the Guide:\nThe guide includes an objective evaluation matrix based on a precise analytical approach, along with detailed evaluation criteria and axes, most notably:\n- Originality of the idea and its ability to meet current and future needs.\n- Team competence and the integration of roles and expertise.\n- Maturity of the prototype, readiness for implementation, and practical suitability.\n- Project sustainability and the quality of work and growth plans.\n\nHow to Make Use of This Guide?\nRely on it as a comprehensive reference for objective and accurate project evaluation.\nBenefit from its criteria to identify strengths and weaknesses in your project and improve it.\nDevelop a clear vision of quality and excellence standards in Quranic tech projects.\n\nTowards promising Quranic tech projects.\nDownload the guide now.",
+      "link": "https://drive.google.com/file/d/1iHRWy_lz-o4F0Y2ZshSYSQWdtJM2aDZE/view",
+      "image": "https://framerusercontent.com/images/your-evaluation-guide-image.png"
     }
   }
 }

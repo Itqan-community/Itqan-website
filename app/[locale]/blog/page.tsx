@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import ForwardArrow from "../../components/ForwardArrow";
+import { FaFileDownload } from "react-icons/fa";
 
 export default function Blog() {
   const t = useTranslations("blog");
@@ -22,7 +23,7 @@ export default function Blog() {
         </div>
       </div>
       {/* Blog card: full width */}
-      <div className="w-full flex">
+      <div className="w-full flex flex-col gap-8">
         <Link href={t("opensourceLicense.link") || "#"} className="group flex flex-col rounded-xl overflow-hidden hover:shadow-2xl transition-shadow w-full max-w-4xl">
           <div className="relative aspect-video w-full">
             <Image
@@ -39,7 +40,42 @@ export default function Blog() {
               <h4 className="text-xl font-bold text-emerald-900">{t("opensourceLicense.title")}</h4>
               <ForwardArrow silent size={22} />
             </div>
-            {/* <p className="text-neutral-700 text-base leading-relaxed mb-2 text-start">{t("opensourceLicense.description")}</p> */}
+          </div>
+        </Link>
+
+        <Link href={t("developmentGuide.link") || "#"} target="_blank" className="group flex flex-col rounded-xl overflow-hidden hover:shadow-2xl transition-shadow w-full max-w-4xl">
+          <div className="relative aspect-video w-full">
+            <Image
+              src={t("developmentGuide.image")}
+              alt={t("developmentGuide.title")}
+              fill
+              className="object-cover rounded-xl"
+              sizes="100vw"
+            />
+          </div>
+          <div className="flex flex-col gap-2 py-6 px-4 items-start">
+            <div className="flex items-center justify-between gap-2 mb-2 w-full">
+              <h4 className="text-xl font-bold text-emerald-900">{t("developmentGuide.title")}</h4>
+              <FaFileDownload size={22} />
+            </div>
+          </div>
+        </Link>
+
+        <Link href={t("evaluationGuide.link") || "#"} target="_blank" className="group flex flex-col rounded-xl overflow-hidden hover:shadow-2xl transition-shadow w-full max-w-4xl">
+          <div className="relative aspect-video w-full">
+            <Image
+              src={t("evaluationGuide.image")}
+              alt={t("evaluationGuide.title")}
+              fill
+              className="object-cover rounded-xl"
+              sizes="100vw"
+            />
+          </div>
+          <div className="flex flex-col gap-2 py-6 px-4 items-start">
+            <div className="flex items-center justify-between gap-2 mb-2 w-full">
+              <h4 className="text-xl font-bold text-emerald-900">{t("evaluationGuide.title")}</h4>
+              <FaFileDownload size={22} />
+            </div>
           </div>
         </Link>
       </div>
