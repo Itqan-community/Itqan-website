@@ -89,7 +89,9 @@ export default async function RootLayout({ children, params }: Props) {
       <body className="bg-gray-100 flex flex-col min-h-screen">
         <NextIntlClientProvider messages={messages}>
           <Navbar locale={locale} />
-          {children}
+          <main className="flex-1">
+            {children}
+          </main>
           <Footer locale={locale} />
         </NextIntlClientProvider>
       </body>
