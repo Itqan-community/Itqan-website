@@ -63,6 +63,7 @@ export const projectsData: Record<string, ProjectData> = {
       "2.rolesItems.1",
       "2.rolesItems.2",
     ],
+    projectLink: "",
     projectLinkText: "2.projectLinkText",
     discordText: "2.discordText",
     discordLink: "2.discordLink",
@@ -88,6 +89,7 @@ export const projectsData: Record<string, ProjectData> = {
       "3.rolesItems.2",
       "3.rolesItems.3"
     ],
+    projectLink: "",
     projectLinkText: "3.projectLinkText",
     discordText: "3.discordText",
     discordLink: "3.discordLink",
