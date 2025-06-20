@@ -54,7 +54,7 @@ export default function Projects({ params }: ProjectsProps) {
       {/* Second and Third projects row */}
       <div className="w-full flex flex-col lg:flex-row justify-between gap-4 sm:gap-6">
         {/* Second project */}
-        <div className="group flex flex-col overflow-hidden hover:shadow-2xl transition-shadow rounded-xl cursor-pointer flex-1">
+        <Link href={`/${locale}/projects/2`} className="group flex flex-col overflow-hidden hover:shadow-2xl transition-shadow rounded-xl cursor-pointer flex-1">
           <div className="relative aspect-video w-full">
             <Image
               src={t("advancedSearch.image")}
@@ -72,10 +72,10 @@ export default function Projects({ params }: ProjectsProps) {
               {t("inProgress")}
             </div>
           </div>
-        </div>
+        </Link>
         
         {/* Third project */}
-        <div className="group flex flex-col overflow-hidden hover:shadow-2xl transition-shadow rounded-xl cursor-pointer flex-1">
+        <Link href={`/${locale}/projects/3`} className="group flex flex-col overflow-hidden hover:shadow-2xl transition-shadow rounded-xl cursor-pointer flex-1">
           <div className="relative aspect-video w-full">
             <Image
               src={t("quranContentManagementSystem.image")}
@@ -93,7 +93,7 @@ export default function Projects({ params }: ProjectsProps) {
               {t("inProgress")}
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     </section>
   );

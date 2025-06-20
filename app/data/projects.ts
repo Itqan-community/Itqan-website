@@ -9,7 +9,7 @@ export interface ProjectData {
   importanceItems: string[];
   rolesTitle: string;
   rolesItems: string[];
-  projectLink: string;
+  projectLink?: string;
   projectLinkText: string;
   discordText: string;
   discordLink: string;
@@ -47,29 +47,52 @@ export const projectsData: Record<string, ProjectData> = {
   },
   "2": {
     id: "2",
-    title: "تقنية البحث المتقدم في القرآن الكريم",
-    subtitle: "مشروع لتطوير تقنيات بحث متقدمة في القرآن الكريم",
-    contentImage: "https://framerusercontent.com/images/jQwDDtFkcNRmtUabxjTAr3LI6k.jpg",
-    description: "مشروع لتطوير تقنيات بحث متقدمة في القرآن الكريم تمكن المستخدمين من البحث بطريقة ذكية وفعالة.",
-    importanceTitle: "أهمية المشروع:",
+    title: "2.title",
+    subtitle: "2.subtitle",
+    headerImage: "2.headerImage",
+    contentImage: "2.contentImage",
+    description: "2.description",
+    importanceTitle: "2.importanceTitle",
     importanceItems: [
-      "تحسين تجربة البحث في القرآن الكريم.",
-      "توفير أدوات بحث متقدمة للمستخدمين.",
-      "تسهيل الوصول للآيات والتفسيرات."
+      "2.importanceItems.1",
+      "2.importanceItems.2", 
+      "2.importanceItems.3"
     ],
-    rolesTitle: "أدوار مطلوبة:",
+    rolesTitle: "2.rolesTitle",
     rolesItems: [
-      "مطوري الذكاء الاصطناعي.",
-      "مطوري واجهات المستخدم.",
-      "متخصصون في معالجة اللغة العربية.",
-      "باحثون في علوم القرآن."
+      "2.rolesItems.1",
+      "2.rolesItems.2",
     ],
-    projectLink: "https://example.com/advanced-search",
-    projectLinkText: "رابط المشروع",
-    discordText: "انضم لمجتمعنا على",
-    discordLink: "https://discord.gg/24CskUbuuB",
-    discordImage: "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
-    status: "inProgress"
+    projectLinkText: "2.projectLinkText",
+    discordText: "2.discordText",
+    discordLink: "2.discordLink",
+    discordImage: "2.discordImage",
+    status: "launched"
+  },
+  "3": {
+    id: "3",
+    title: "3.title",
+    subtitle: "3.subtitle",
+    headerImage: "3.headerImage",
+    contentImage: "3.contentImage",
+    description: "3.description",
+    importanceTitle: "3.importanceTitle",
+    importanceItems: [
+      "3.importanceItems.1",
+      "3.importanceItems.2", 
+      "3.importanceItems.3"
+    ],
+    rolesTitle: "1.rolesTitle",
+    rolesItems: [
+      "3.rolesItems.1",
+      "3.rolesItems.2",
+      "3.rolesItems.3"
+    ],
+    projectLinkText: "3.projectLinkText",
+    discordText: "3.discordText",
+    discordLink: "3.discordLink",
+    discordImage: "3.discordImage",
+    status: "launched"
   }
   // Add more projects here as needed
 };

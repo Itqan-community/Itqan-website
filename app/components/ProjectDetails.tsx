@@ -94,12 +94,13 @@ export default async function ProjectDetails({
       <div className="max-w-6xl mx-auto mt-8 sm:mt-12 px-4 sm:px-6 py-8 sm:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
           {/* Image */}
-          <div className="relative aspect-[9/16] w-full max-w-sm mx-auto lg:max-w-none">
+          <div className="relative w-full max-w-sm mx-auto lg:max-w-none lg:mt-0 h-fit">
             <Image
               src={t(contentImage)}
               alt={t(title)}
-              fill
-              className="object-contain rounded-xl"
+              width={500}
+              height={800}
+              className="w-full h-auto max-h-[600px] object-contain rounded-xl"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
             />
           </div>
@@ -138,15 +139,17 @@ export default async function ProjectDetails({
               </ul>
             </div>
 
-            <div className="pt-4">
-              <LinkBtn
-                title={t(projectLinkText)}
-                href={t(projectLink)}
-                target="_blank"
-                variant="fill"
-                locale={locale}
-              />
-            </div>
+            {projectLink && (
+              <div className="pt-4">
+                <LinkBtn
+                  title={t(projectLinkText)}
+                  href={t(projectLink)}
+                  target="_blank"
+                  variant="fill"
+                  locale={locale}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
