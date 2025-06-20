@@ -25,7 +25,7 @@ export default function NavbarLink({
         pathname === `/${locale}${href}`
           ? "text-green-600 underline underline-offset-2"
           : "text-green-800"
-      } hover:text-green-700 font-semibold`}
+      } hover:text-green-700 font-semibold text-sm sm:text-base transition-colors duration-200`}
     >
       {t(text)}
     </Link>

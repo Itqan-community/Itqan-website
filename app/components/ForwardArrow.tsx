@@ -1,9 +1,14 @@
-import { getLocale } from "next-intl/server";
 import { FaArrowRight } from "react-icons/fa";
 
-export default async function ForwardArrow({ silent, size = 16 }: { silent?: boolean, size?: number }) {
-  const locale = await getLocale();
-  
+export default function ForwardArrow({ 
+  silent, 
+  size = 16, 
+  locale = "en" 
+}: { 
+  silent?: boolean, 
+  size?: number,
+  locale?: string 
+}) {
   return (
     <FaArrowRight 
       size={size}
