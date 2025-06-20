@@ -23,7 +23,7 @@ interface ProjectDetailsProps {
   importanceItems: string[];
   rolesTitle: string;
   rolesItems: string[];
-  projectLink: string;
+  projectLink?: string;
   projectLinkText: string;
   
   // Discord section
@@ -139,7 +139,7 @@ export default async function ProjectDetails({
               </ul>
             </div>
 
-            {projectLink && (
+            {projectLink && projectLink !== "" && (
               <div className="pt-4">
                 <LinkBtn
                   title={t(projectLinkText)}
