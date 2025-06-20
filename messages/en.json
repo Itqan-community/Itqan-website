@@ -32,6 +32,32 @@
         "shortDescription": "A project aimed at developing a content management system for the Quranic text, to facilitate access to verses and Quranic information with high accuracy and speed.",
         "roles": "Technical Development, Research and Data Collection, Sharia Specialists.",
         "image": ""
+      },
+      "1": {
+        "title": "Quran Apps Directory",
+        "subtitle": "Objective: To serve Muslims worldwide by providing a platform to collect and categorize digital applications related to the Quran. The project aims to facilitate access to the best technological solutions that support the Book of Allah, including reading, recitation, memorization, interpretation, Tajweed, and other Quranic fields.",
+        "headerImage": "/images/projects/1/poster.png",
+        "contentImage": "/images/projects/1/preview-en.jpg",
+        "description": "Objective: To serve Muslims worldwide by providing a platform to collect and categorize digital applications related to the Quran. The project aims to facilitate access to the best technological solutions that support the Book of Allah, including reading, recitation, memorization, interpretation, Tajweed, and other Quranic fields.",
+        "importanceTitle": "Project Importance:",
+        "importanceItems": {
+          "1": "Simplifying Access: Providing easy access to the most important Quranic applications across various fields.",
+          "2": "Enhanced Searchability: Facilitating the search for applications that meet user needs.",
+          "3": "Seamless Sharing: Creating an easy mechanism for sharing Quranic applications."
+        },
+        "rolesTitle": "Roles Needed:",
+        "rolesItems": {
+          "1": "Technical Development: Building and maintaining the platform's infrastructure.",
+          "2": "UI/UX Design: Designing user interfaces and optimizing the user experience.",
+          "3": "Research and Data Collection: Identifying, gathering, and classifying relevant applications.",
+          "4": "Sharia Specialists: Ensuring the accuracy and authenticity of the Quranic content."
+        },
+        "projectLink": "https://quran-apps.itqan.dev/en",
+        "projectLinkText": "Project Link",
+        "discordText": "Join our community on",
+        "discordLink": "https://discord.gg/24CskUbuuB",
+        "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
+        "relatedProjectsTitle": "Related Projects"
       }
     },
     "library": {

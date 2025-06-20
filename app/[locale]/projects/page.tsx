@@ -3,8 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaCog } from "react-icons/fa";
 
-export default function Projects() {
+interface ProjectsProps {
+  params: {
+    locale: string;
+  };
+}
+
+export default function Projects({ params }: ProjectsProps) {
+  const { locale } = params;
   const t = useTranslations("home.projects");
+  
   return (
     <section className="py-20 px-8 bg-neutral-100 w-full max-w-7xl mx-auto flex flex-col items-center" id="projects">
       <div className="flex flex-col items-center mb-12">
@@ -20,7 +28,7 @@ export default function Projects() {
       </div>
       {/* First project */}
       <div className="w-full flex mb-8">
-        <Link href={t("quranAppsDirectory.link") || "#"} target="_blank" className="group flex flex-col overflow-hidden hover:shadow-2xl transition-shadow w-full rounded-xl">
+        <Link href={`/${locale}/projects/1`} className="group flex flex-col overflow-hidden hover:shadow-2xl transition-shadow w-full rounded-xl">
           <div className="relative aspect-video w-full">
             <Image
               src={t("quranAppsDirectory.image")}
