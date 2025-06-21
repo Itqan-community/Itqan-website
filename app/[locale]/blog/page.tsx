@@ -1,11 +1,18 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import ForwardArrow from "../../components/ForwardArrow";
 import { FaFileAlt, FaFileDownload } from "react-icons/fa";
 
-export default function Blog({ params }: { params: { locale: string } }) {
-  const t = useTranslations("blog");
+interface BlogProps {
+  params: {
+    locale: string;
+  };
+}
+
+export default async function Blog({ params }: BlogProps) {
+  const t = await getTranslations("blog");
+  
   return (
     <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto bg-neutral-100 flex flex-col items-center" id="blogs">
       <div className="w-full flex flex-col items-start mb-8 sm:mb-12">
@@ -24,8 +31,9 @@ export default function Blog({ params }: { params: { locale: string } }) {
       
       {/* Blog cards */}
       <div className="w-full flex flex-col gap-6 sm:gap-8">
+        {/* Open Source License Article */}
         <Link 
-          href={t("opensourceLicense.link") || "#"} 
+          href={`/${params.locale}/blog/opensource-license`}
           className="group flex flex-col rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 w-full max-w-4xl"
         >
           <div className="relative aspect-video w-full">
@@ -45,12 +53,15 @@ export default function Blog({ params }: { params: { locale: string } }) {
               </h4>
               <ForwardArrow silent size={22} locale={params.locale} />
             </div>
+            <p className="text-sm text-neutral-600">
+              {t("opensourceLicense.description")}
+            </p>
           </div>
         </Link>
 
+        {/* Development Guide - Internal Article */}
         <Link 
-          href={t("developmentGuide.link") || "#"} 
-          target="_blank" 
+          href={`/${params.locale}/blog/development-guide`}
           className="group flex flex-col rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 w-full max-w-4xl"
         >
           <div className="relative aspect-video w-full">
@@ -67,14 +78,18 @@ export default function Blog({ params }: { params: { locale: string } }) {
               <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
                 {t("developmentGuide.title")}
               </h4>
-              <FaFileDownload size={22} />
+              <ForwardArrow silent size={22} locale={params.locale} />
             </div>
+            <p className="text-sm text-neutral-600">
+              {t("developmentGuide.description")}
+            </p>
           </div>
         </Link>
 
+        {/* Evaluation Guide - External Link */}
         <Link 
-          href={t("evaluationGuide.link") || "#"} 
-          target="_blank" 
+          href={`/${params.locale}/blog/evaluation-guide`}
+          rel="noopener noreferrer"
           className="group flex flex-col rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 w-full max-w-4xl"
         >
           <div className="relative aspect-video w-full">
@@ -91,8 +106,11 @@ export default function Blog({ params }: { params: { locale: string } }) {
               <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
                 {t("evaluationGuide.title")}
               </h4>
-              <FaFileDownload size={22} />
+              <ForwardArrow silent size={22} locale={params.locale} />
             </div>
+            <p className="text-sm text-neutral-600">
+              {t("evaluationGuide.description")}
+            </p>
           </div>
         </Link>
       </div>
