@@ -35,14 +35,14 @@ export default async function Home({ params: { locale } }: { params: { locale: s
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-8">
             <Link 
-              href={`/${locale}/projects/elevating-quranic-apps-search-experience`}
+              href={`/${locale}/projects/1`}
               className="group flex flex-col rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-neutral-300"
-              aria-label={`${t("projects.searchExperience")} - ${t("projects.inProgress")}`}
+              aria-label={`${t("projects.1.title")} - ${t("projects.launched")}`}
             >
               <div className="relative aspect-video">
                 <Image
-                  src="/home-projects-1.avif"
-                  alt={`${t("projects.searchExperience")} - Project to enhance search functionality in Quran applications`}
+                  src={t("projects.1.headerImage")}
+                  alt={`${t("projects.1.title")} - ${t("projects.1.subtitle")}`}
                   fill
                   className="object-cover rounded-xl border border-neutral-300"
                   priority
@@ -50,23 +50,23 @@ export default async function Home({ params: { locale } }: { params: { locale: s
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 bg-neutral-100 gap-2">
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
-                  {t("projects.searchExperience")}
+                  {t("projects.1.title")}
                 </h3>
                 <div className="bg-emerald-800 opacity-60 text-white text-sm font-semibold px-2 py-0.5 rounded-full w-fit">
-                  {t("projects.inProgress")}
+                  {t("projects.launched")}
                 </div>
               </div>
             </Link>
 
             <Link
-              href={`/${locale}/projects/quran-apps-directory`}
+              href={`/${locale}/projects/2`}
               className="group flex flex-col rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-neutral-300"
-              aria-label={`${t("projects.quranAppsDirectory.title")} - ${t("projects.launched")}`}
+              aria-label={`${t("projects.2.title")} - ${t("projects.inProgress")}`}
             >
               <div className="relative aspect-video">
                 <Image
-                  src="/home-projects-2.avif"
-                  alt={`${t("projects.quranAppsDirectory.title")} - A comprehensive directory of Quran applications`}
+                  src={t("projects.2.headerImage")}
+                  alt={`${t("projects.2.title")} - ${t("projects.2.subtitle")}`}
                   fill
                   className="object-cover rounded-xl border border-neutral-300"
                   priority
@@ -74,10 +74,10 @@ export default async function Home({ params: { locale } }: { params: { locale: s
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 bg-neutral-100 gap-2">
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
-                  {t("projects.quranAppsDirectory.title")}
+                  {t("projects.2.title")}
                 </h3>
                 <div className="bg-emerald-800 opacity-60 text-white text-sm font-semibold px-2 py-0.5 rounded-full w-fit">
-                  {t("projects.launched")}
+                  {t("projects.inProgress")}
                 </div>
               </div>
             </Link>
@@ -101,33 +101,6 @@ export default async function Home({ params: { locale } }: { params: { locale: s
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            <Link
-              href={`/${locale}/resources/recitation`}
-              className="flex flex-col rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="relative aspect-video">
-                <Image
-                  src="/home-lib-1.avif"
-                  alt={t("library.recitation.title")}
-                  fill
-                  className="object-cover rounded-xl border border-neutral-300"
-                />
-              </div>
-              <div className="flex flex-col gap-2 p-4 sm:py-6">
-                <div className="flex items-center gap-2 justify-between">
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
-                    {t("library.recitation.title")}
-                  </h3>
-                  <div className="text-emerald-600">
-                    <ForwardArrow silent locale={locale} />
-                  </div>
-                </div>
-                <p className="text-neutral-600 text-sm sm:text-base">
-                  {t("library.recitation.description")}
-                </p>
-              </div>
-            </Link>
-
             <Link
               href={`/${locale}/resources/mushaf-fonts`}
               className="flex flex-col rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
@@ -156,13 +129,13 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             </Link>
 
             <Link
-              href={`/${locale}/resources/tafseer`}
+              href={`/${locale}/resources/recitation`}
               className="flex flex-col rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
               <div className="relative aspect-video">
                 <Image
-                  src="/home-lib-3.avif"
-                  alt={t("library.tafseer.title")}
+                  src="/home-lib-1.avif"
+                  alt={t("library.recitation.title")}
                   fill
                   className="object-cover rounded-xl border border-neutral-300"
                 />
@@ -170,41 +143,14 @@ export default async function Home({ params: { locale } }: { params: { locale: s
               <div className="flex flex-col gap-2 p-4 sm:py-6">
                 <div className="flex items-center gap-2 justify-between">
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
-                    {t("library.tafseer.title")}
+                    {t("library.recitation.title")}
                   </h3>
                   <div className="text-emerald-600">
                     <ForwardArrow silent locale={locale} />
                   </div>
                 </div>
                 <p className="text-neutral-600 text-sm sm:text-base">
-                  {t("library.tafseer.description")}
-                </p>
-              </div>
-            </Link>
-
-            <Link
-              href={`/${locale}/resources/digital-mushaf-layout`}
-              className="flex flex-col rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="relative aspect-video">
-                <Image
-                  src="/home-lib-4.avif"
-                  alt={t("library.digitalMushaf.title")}
-                  fill
-                  className="object-cover rounded-xl border border-neutral-300"
-                />
-              </div>
-              <div className="flex flex-col gap-2 p-4 sm:py-6">
-                <div className="flex items-center gap-2 justify-between">
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
-                    {t("library.digitalMushaf.title")}
-                  </h3>
-                  <div className="text-emerald-600">
-                    <ForwardArrow silent locale={locale} />
-                  </div>
-                </div>
-                <p className="text-neutral-600 text-sm sm:text-base">
-                  {t("library.digitalMushaf.description")}
+                  {t("library.recitation.description")}
                 </p>
               </div>
             </Link>
