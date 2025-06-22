@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import "@/app/globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "../components/Footer";
+import Head from "next/head";
+import SocialMeta from "../components/SocialMeta";
 // import { headers } from "next/headers";
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: Locale } }): Promise<Metadata> {
@@ -86,6 +88,15 @@ export default async function RootLayout({ children, params }: Props) {
   const messages = await getMessages();
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+    <Head>
+      {/* Favicon icons */}
+      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+      <SocialMeta />
+    </Head>
       <body className="bg-gray-100 flex flex-col min-h-screen">
         <NextIntlClientProvider messages={messages}>
           <Navbar locale={locale} />
