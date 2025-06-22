@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { seoData } from '../data/seoData'
 import { getLocale } from 'next-intl/server'
 

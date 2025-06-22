@@ -8,18 +8,20 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";
 import SocialMeta from "../components/SocialMeta";
+import { seoData } from "../data/seoData";
 // import { headers } from "next/headers";
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: Locale } }): Promise<Metadata> {
   const messages = await getMessages();
   const t = messages.home as { title: string; description: string };
+  const meta = seoData[locale as 'en' | 'ar'];
 
   return {
     title: {
       default: "Itqan",
       template: "%s | Itqan"
     },
-    description: t.description,
+    description: meta.description,
     keywords: ["Quran", "Technology", "Muslim", "Open Source", "Community", "Quran Apps"],
     authors: [{ name: "Itqan Community" }],
     creator: "Itqan Community",
@@ -38,15 +40,15 @@ export async function generateMetadata({ params: { locale } }: { params: { local
       },
     },
     openGraph: {
-      title: t.title,
-      description: t.description,
-      url: '/',
+      title: meta.title,
+      description: meta.description,
+      url: meta.url,
       siteName: 'Itqan',
       locale: locale,
       type: 'website',
       images: [
         {
-          url: '/og-image.jpg', // Make sure to add this image to your public folder
+          url: meta.image,
           width: 1200,
           height: 630,
           alt: 'Itqan - Serving Quran is our greatest Ghayah',
@@ -55,10 +57,10 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     },
     twitter: {
       card: 'summary_large_image',
-      title: t.title,
-      description: t.description,
-      images: ['/og-image.jpg'], // Same image as OpenGraph
-      creator: '@itqan', // Add your Twitter handle
+      title: meta.title,
+      description: meta.description,
+      images: [meta.image],
+      creator: '@itqan',
     },
     robots: {
       index: true,
@@ -95,7 +97,6 @@ export default async function RootLayout({ children, params }: Props) {
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       <link rel="manifest" href="/site.webmanifest" />
-      <SocialMeta />
     </Head>
       <body className="bg-gray-100 flex flex-col min-h-screen">
         <NextIntlClientProvider messages={messages}>
