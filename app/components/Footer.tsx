@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import ForwardArrow from "./ForwardArrow";
+import { FaDiscord, FaEnvelope } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default async function Footer({ locale, }: { locale: string }) {
   const t = await getTranslations("footer");
@@ -42,23 +45,40 @@ export default async function Footer({ locale, }: { locale: string }) {
 
             <ForwardArrow silent size={24} locale={locale} />
           </Link>
-
           <div className="flex flex-col gap-2">
             <p className="text-[#cbcfce] text-sm sm:text-base font-bold text-center lg:text-start" style={{letterSpacing: '-0.5px'}}>
               {t("contact")}:
             </p>
-            <div className="flex flex-col gap-1 items-center lg:items-start">
-              <Link href="mailto:connect@itqan.dev" className="text-[#868E8B] text-sm sm:text-base hover:opacity-80 transition-opacity" style={{letterSpacing: '-0.5px'}}>
-                connect@itqan.dev
+            <div className="sm:flex sm:flex-col gap-1 items-start">
+              <div className="flex gap-8 md:hidden justify-center">
+                <Link href="mailto:connect@itqan.dev" className="text-[#868E8B] hover:opacity-80 transition-opacity">
+                  <FaEnvelope size={20} />
+                </Link>
+                <Link href="https://github.com/Itqan-community" target="_blank" rel="noopener" className="text-[#868E8B] hover:opacity-80 transition-opacity">
+                  <FaGithub size={20} />
+                </Link>
+                <Link href="https://discord.gg/24CskUbuuB" target="_blank" rel="noopener" className="text-[#868E8B] hover:opacity-80 transition-opacity">
+                  <FaDiscord size={20} />
+                </Link>
+                <Link href="https://x.com/itqan_community" target="_blank" rel="noopener" className="text-[#868E8B] hover:opacity-80 transition-opacity">
+                  <FaXTwitter size={20} />
+                </Link>
+              </div>
+              <Link href="mailto:connect@itqan.dev" className="hidden md:flex text-[#868E8B] hover:opacity-80 transition-opacity items-center gap-2">
+                <FaEnvelope size={20} />
+                <span className="text-sm sm:text-base" style={{letterSpacing: '-0.5px'}}>connect@itqan.dev</span>
               </Link>
-              <Link href="https://github.com/Itqan-community" target="_blank" rel="noopener" className="text-[#868E8B] text-sm sm:text-base hover:opacity-80 transition-opacity" style={{letterSpacing: '-0.5px'}}>
-                github.com/Itqan-community
+              <Link href="https://github.com/Itqan-community" target="_blank" rel="noopener" className="hidden md:flex text-[#868E8B] hover:opacity-80 transition-opacity items-center gap-2">
+                <FaGithub size={20} />
+                <span className="text-sm sm:text-base" style={{letterSpacing: '-0.5px'}}>Itqan-community</span>
               </Link>
-              <Link href="https://discord.gg/24CskUbuuB" target="_blank" rel="noopener" className="text-[#868E8B] text-sm sm:text-base hover:opacity-80 transition-opacity" style={{letterSpacing: '-0.5px'}}>
-                discord.gg/24CskUbuuB
+              <Link href="https://discord.gg/24CskUbuuB" target="_blank" rel="noopener" className="hidden md:flex text-[#868E8B] hover:opacity-80 transition-opacity items-center gap-2">
+                <FaDiscord size={20} />
+                <span className="text-sm sm:text-base" style={{letterSpacing: '-0.5px'}}>Discord</span>
               </Link>
-              <Link href="https://x.com/itqan_community" target="_blank" rel="noopener" className="text-[#868E8B] text-sm sm:text-base hover:opacity-80 transition-opacity" style={{letterSpacing: '-0.5px'}}>
-                x.com/itqan_community
+              <Link href="https://x.com/itqan_community" target="_blank" rel="noopener" className="hidden md:flex text-[#868E8B] hover:opacity-80 transition-opacity items-center gap-2">
+                <FaXTwitter size={20} />
+                <span className="text-sm sm:text-base" style={{letterSpacing: '-0.5px'}}>@itqan_community</span>
               </Link>
             </div>
           </div>
