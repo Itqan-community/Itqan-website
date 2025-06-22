@@ -28,22 +28,44 @@ export default async function Footer({ locale, }: { locale: string }) {
 
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 relative text-neutral-100">
-        {/* CTA */}
-        <Link
-          href="https://discord.gg/24CskUbuuB"
-          target="_blank"
-          rel="noopener"
-          className="flex items-center justify-center me-auto max-w-max gap-3 sm:gap-4 mb-12 sm:mb-16 lg:mb-20 hover:opacity-90 transition-opacity mx-auto"
-        >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-100 font-doran text-center">
-            {t("cta")}
-          </h2>
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8 lg:gap-0 mb-12 lg:mb-0">
+          {/* CTA */}
+          <Link
+            href="https://discord.gg/24CskUbuuB"
+            target="_blank"
+            rel="noopener"
+            className="flex items-center justify-center gap-3 hover:opacity-90 transition-opacity"
+          >
+            <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-neutral-100 font-doran text-center">
+              {t("cta")}
+            </h2>
 
-          <ForwardArrow silent size={24} locale={locale} />
-        </Link>
+            <ForwardArrow silent size={24} locale={locale} />
+          </Link>
+
+          <div className="flex flex-col gap-2">
+            <p className="text-[#cbcfce] text-sm sm:text-base font-bold text-center lg:text-start" style={{letterSpacing: '-0.5px'}}>
+              {t("contact")}:
+            </p>
+            <div className="flex flex-col gap-1 items-center lg:items-start">
+              <Link href="mailto:connect@itqan.dev" className="text-[#868E8B] text-sm sm:text-base hover:opacity-80 transition-opacity" style={{letterSpacing: '-0.5px'}}>
+                connect@itqan.dev
+              </Link>
+              <Link href="https://github.com/Itqan-community" target="_blank" rel="noopener" className="text-[#868E8B] text-sm sm:text-base hover:opacity-80 transition-opacity" style={{letterSpacing: '-0.5px'}}>
+                github.com/Itqan-community
+              </Link>
+              <Link href="https://discord.gg/24CskUbuuB" target="_blank" rel="noopener" className="text-[#868E8B] text-sm sm:text-base hover:opacity-80 transition-opacity" style={{letterSpacing: '-0.5px'}}>
+                discord.gg/24CskUbuuB
+              </Link>
+              <Link href="https://x.com/itqan_community" target="_blank" rel="noopener" className="text-[#868E8B] text-sm sm:text-base hover:opacity-80 transition-opacity" style={{letterSpacing: '-0.5px'}}>
+                x.com/itqan_community
+              </Link>
+            </div>
+          </div>
+        </div>
 
         {/* Footer bottom */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8 mt-12">
           <div className="text-center sm:text-left">
             <p className="text-[#868E8B] text-sm sm:text-base mb-4 sm:mb-0" style={{letterSpacing: '-0.5px'}}>
               {t("copyright")}

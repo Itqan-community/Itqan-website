@@ -7,7 +7,6 @@ import "@/app/globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "../components/Footer";
 import Head from "next/head";
-import SocialMeta from "../components/SocialMeta";
 import { seoData } from "../data/seoData";
 // import { headers } from "next/headers";
 
