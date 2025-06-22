@@ -10,14 +10,14 @@ export default async function Home({ params: { locale } }: { params: { locale: s
     <>
       <section 
         aria-label="Hero"
-        className="flex flex-col items-center justify-center min-h-[calc(100vh-73px)] px-4 sm:px-6 lg:px-8 bg-[url('/home-hero.avif')] bg-center bg-cover bg-no-repeat bg-[#81ffb8]/50 bg-blend-overlay"
+        className="flex flex-col items-center justify-center min-h-[calc(100vh-73px)] px-4 sm:px-6 lg:px-8 bg-[url('/home-hero.avif')] bg-center bg-cover bg-no-repeat bg-[#88ffbc66]/40 bg-blend-overlay"
       >
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-[#6bb38b] leading-tight">
+        <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-emerald-600 leading-tight">
             {t("title")}
           </h1>
-          <p className="text-lg sm:text-xl font-semibold mt-4">{t("description")}</p>
-          <p className="text-lg sm:text-xl font-semibold mb-8 sm:mb-10">{t("description2")}</p>
+          <p className="text-lg sm:text-xl font-semibold mt-4 text-emerald-900">{t("description")}</p>
+          <p className="text-lg sm:text-xl font-semibold mb-8 sm:mb-10 text-emerald-900">{t("description2")}</p>
           <LinkBtn title={t("discord")} href={`https://discord.gg/24CskUbuuB`} target="_blank" locale={locale} />
         </div>
       </section>

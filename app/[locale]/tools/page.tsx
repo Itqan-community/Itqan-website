@@ -13,7 +13,7 @@ export default function Tools({ params }: { params: { locale: string } }) {
             <span className="text-sm font-medium rounded-full">{t("title")}</span>
             <FaTools size={16} />
           </div>
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-emerald-900 leading-relaxed" >
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-emerald-900 leading-relaxed" >
             {t("title")}
           </h3>
         </div>

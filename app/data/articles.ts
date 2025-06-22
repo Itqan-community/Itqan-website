@@ -57,7 +57,7 @@ const articles: Record<string, Article> = {
     ],
     conclusionTitle: "opensourceLicense.conclusionTitle",
     conclusion: "opensourceLicense.conclusion",
-    externalLink: "opensourceLicense.link",
+    externalLink: "",
     externalLinkText: "opensourceLicense.externalLinkText",
     discordText: "opensourceLicense.discordText",
     discordLink: "opensourceLicense.discordLink",

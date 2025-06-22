@@ -17,7 +17,7 @@ export default function Resources() {
             <span className="text-sm font-medium rounded-full">{t("badge")}</span>
             <FaBoxOpen size={16} />
           </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-emerald-900 leading-relaxed mb-4">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-emerald-900 leading-relaxed mb-4">
             {t("headline1")} <br /> {t("headline2")}
           </h1>
         </div>

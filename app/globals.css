@@ -52,6 +52,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter);
+  font-weight: 600;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -69,7 +70,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   font-family: var(--font-doran);
   font-weight: 800;
   line-height: 1.5 !important;
@@ -107,9 +108,14 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   /* Focus styles for accessibility */
-  *:focus {
+  /* *:focus {
     outline: 2px solid #059669;
     outline-offset: 2px;
+  } */
+  
+  /* Remove focus outlines globally */
+  *:focus {
+    outline: none !important;
   }
   
   /* Button and link hover effects */

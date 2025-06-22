@@ -22,7 +22,7 @@ export default async function Blog({ params }: BlogProps) {
             <FaFileAlt size={16} />
           </div>
           <div className="flex flex-col gap-2 items-start">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-emerald-900 text-start leading-relaxed">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-emerald-900 text-start leading-relaxed">
               {t("headline1")} <br /> {t("headline2")}
             </h1>
           </div>
@@ -34,7 +34,7 @@ export default async function Blog({ params }: BlogProps) {
         {/* Open Source License Article */}
         <Link 
           href={`/${params.locale}/blog/opensource-license`}
-          className="group flex flex-col rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 w-full max-w-4xl"
+          className="group flex flex-col rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 w-full max-w-3xl"
         >
           <div className="relative aspect-video w-full">
             <Image
@@ -53,7 +53,7 @@ export default async function Blog({ params }: BlogProps) {
               </h4>
               <ForwardArrow silent size={22} locale={params.locale} />
             </div>
-            <p className="text-sm text-neutral-600">
+            <p className="text-basic text-neutral-600">
               {t("opensourceLicense.description")}
             </p>
           </div>
@@ -62,7 +62,7 @@ export default async function Blog({ params }: BlogProps) {
         {/* Development Guide - Internal Article */}
         <Link 
           href={`/${params.locale}/blog/development-guide`}
-          className="group flex flex-col rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 w-full max-w-4xl"
+          className="group flex flex-col rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 w-full max-w-3xl"
         >
           <div className="relative aspect-video w-full">
             <Image
@@ -80,7 +80,7 @@ export default async function Blog({ params }: BlogProps) {
               </h4>
               <ForwardArrow silent size={22} locale={params.locale} />
             </div>
-            <p className="text-sm text-neutral-600">
+            <p className="text-basic text-neutral-600">
               {t("developmentGuide.description")}
             </p>
           </div>
@@ -90,7 +90,7 @@ export default async function Blog({ params }: BlogProps) {
         <Link 
           href={`/${params.locale}/blog/evaluation-guide`}
           rel="noopener noreferrer"
-          className="group flex flex-col rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 w-full max-w-4xl"
+          className="group flex flex-col rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 w-full max-w-3xl"
         >
           <div className="relative aspect-video w-full">
             <Image
@@ -108,7 +108,7 @@ export default async function Blog({ params }: BlogProps) {
               </h4>
               <ForwardArrow silent size={22} locale={params.locale} />
             </div>
-            <p className="text-sm text-neutral-600">
+            <p className="text-basic text-neutral-600">
               {t("evaluationGuide.description")}
             </p>
           </div>

@@ -21,9 +21,9 @@ export default function Projects({ params }: ProjectsProps) {
             <span className="text-sm font-medium rounded-full">{t("badge")}</span>
             <FaCog size={16} />
           </div>
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-emerald-900 leading-relaxed text-center" >
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-emerald-900 leading-relaxed text-center" >
             {t("headline")}
-          </h3>
+          </h1>
         </div>
       </div>
       
