@@ -5,11 +5,19 @@
 [build.environment]
   NEXT_USE_NETLIFY_EDGE = "true"
   NEXT_TELEMETRY_DISABLED = "1"
+  NEXT_PUBLIC_BASE_URL = "https://itqan.dev"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Handle client-side routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200 
+  status = 200
+
+# Force HTTPS
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload" 

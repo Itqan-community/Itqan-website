@@ -4,7 +4,7 @@ const withNextIntl = require('next-intl/plugin')();
 const nextConfig = {
   output: 'standalone',
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'itqan.dev'],
     unoptimized: true,
   },
   // Enable static exports for Netlify
