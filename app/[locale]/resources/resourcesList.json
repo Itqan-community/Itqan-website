@@ -2,6 +2,7 @@
   "resourcesList": [
     {
       "category": "mushafs",
+      "categoryTitle": "mushafs.title",
       "items": [
         {
           "title": "mushafs.mushafMadinah.title",
@@ -21,6 +22,7 @@
     },
     {
       "category": "fonts",
+      "categoryTitle": "fonts.title",
       "items": [
         {
           "title": "fonts.unicodeUthmanicFonts.title",
@@ -33,6 +35,7 @@
     },
     {
       "category": "tafsir", 
+      "categoryTitle": "tafsir.title",
       "items": [
         {
           "title": "tafsir.quranicVocabulary.title",
@@ -66,6 +69,7 @@
     },
     {
       "category": "translations",
+      "categoryTitle": "translations.title",
       "items": [
         {
           "title": "translations.title",
@@ -78,6 +82,7 @@
     },
     {
       "category": "linguistics",
+      "categoryTitle": "linguistics.title",
       "items": [
         {
           "title": "linguistics.quranicDataset.title",
@@ -90,6 +95,7 @@
     },
     {
       "category": "tajweed",
+      "categoryTitle": "tajweed.title",
       "items": [
         {
           "title": "tajweed.ahkamTajweed.title",
@@ -102,6 +108,7 @@
     },
     {
       "category": "audio",
+      "categoryTitle": "audio.title",
       "items": [
         {
           "title": "audio.mp3Quran.title",
@@ -114,6 +121,7 @@
     },
     {
       "category": "other",
+      "categoryTitle": "other.title",
       "items": [
         {
           "title": "other.quranTests.title",
