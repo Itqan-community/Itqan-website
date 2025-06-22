@@ -3,9 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import LinkBtn from "../components/LinkBtn";
 import ForwardArrow from "../components/ForwardArrow";
-
+import resourcesList from "./resources/resourcesList.json";
+import { FaDownload } from "react-icons/fa";
 export default async function Home({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations("home");
+  const t2 = await getTranslations("resources2");
+  const resources = resourcesList.resourcesList[0].items;
   return (
     <>
       <section 
@@ -59,14 +62,14 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             </Link>
 
             <Link
-              href={`/${locale}/projects/2`}
+              href={`/${locale}/projects/3`}
               className="group flex flex-col rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-neutral-300"
-              aria-label={`${t("projects.2.title")} - ${t("projects.inProgress")}`}
+              aria-label={`${t("projects.3.title")} - ${t("projects.inProgress")}`}
             >
               <div className="relative aspect-video">
                 <Image
-                  src={t("projects.2.headerImage")}
-                  alt={`${t("projects.2.title")} - ${t("projects.2.subtitle")}`}
+                  src={t("projects.3.headerImage")}
+                  alt={`${t("projects.3.title")} - ${t("projects.3.subtitle")}`}
                   fill
                   className="object-cover rounded-xl border border-neutral-300"
                   priority
@@ -74,7 +77,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 bg-neutral-100 gap-2">
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
-                  {t("projects.2.title")}
+                  {t("projects.3.title")}
                 </h3>
                 <div className="bg-emerald-800 opacity-60 text-white text-sm font-semibold px-2 py-0.5 rounded-full w-fit">
                   {t("projects.inProgress")}
@@ -101,59 +104,34 @@ export default async function Home({ params: { locale } }: { params: { locale: s
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            <Link
-              href={`/${locale}/resources/mushaf-fonts`}
-              className="flex flex-col rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="relative aspect-video">
-                <Image
-                  src="/home-lib-2.avif"
-                  alt={t("library.mushafFonts.title")}
-                  fill
-                  className="object-cover rounded-xl object-[50%_28%] border border-neutral-300"
-                />
-              </div>
-              <div className="flex flex-col gap-2 p-4 sm:py-6">
-                <div className="flex items-center gap-2 justify-between">
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
-                    {t("library.mushafFonts.title")}
-                  </h3>
-                  <div className="text-emerald-600">
-                    <ForwardArrow silent locale={locale} />
+            {resources.map((item: any) => (
+              <Link 
+                href={t2(item.title)} 
+                target="_blank" 
+                download={t2(item.download)}
+                className="flex flex-col gap-2 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1"
+              >
+                  <h4 className="text-lg sm:text-xl font-bold mb-2">{t2(item.title)}</h4>
+                  <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
+                    {t2(item.description)}
+                  </p>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-emerald-900 gap-2 mt-auto">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-neutral-500">{t2("tableHeader.author")}:</span>
+                      <span className="text-sm text-neutral-500 font-medium">{t2(item.author)}</span>
+                    </div>
+                    {t2(item.download) ? (
+                      <FaDownload size={16} />
+                    ) : (
+                      <ForwardArrow size={16} silent locale={locale} />
+                    )}
                   </div>
-                </div>
-                <p className="text-neutral-600 text-sm sm:text-base">
-                  {t("library.mushafFonts.description")}
-                </p>
-              </div>
-            </Link>
+              </Link>
+            ))}
+          </div>
 
-            <Link
-              href={`/${locale}/resources/recitation`}
-              className="flex flex-col rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="relative aspect-video">
-                <Image
-                  src="/home-lib-1.avif"
-                  alt={t("library.recitation.title")}
-                  fill
-                  className="object-cover rounded-xl border border-neutral-300"
-                />
-              </div>
-              <div className="flex flex-col gap-2 p-4 sm:py-6">
-                <div className="flex items-center gap-2 justify-between">
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
-                    {t("library.recitation.title")}
-                  </h3>
-                  <div className="text-emerald-600">
-                    <ForwardArrow silent locale={locale} />
-                  </div>
-                </div>
-                <p className="text-neutral-600 text-sm sm:text-base">
-                  {t("library.recitation.description")}
-                </p>
-              </div>
-            </Link>
+          <div className="flex justify-center mt-8 sm:mt-12">
+            <LinkBtn title={t("discoverResources")} href={`/${locale}/resources`} variant="outline" locale={locale} />
           </div>
         </div>
       </section>
