@@ -55,7 +55,7 @@
         },
         "projectLink": "https://quran-apps.itqan.dev/ar",
         "projectLinkText": "رابط المشروع",
-        "discordText": "انضم لمجتمعنا على",
+        "discordText": "إنضم لمجتمعنا على",
         "discordLink": "https://discord.gg/24CskUbuuB", 
         "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
         "relatedProjectsTitle": "مشاريع ذات صلة"
@@ -79,7 +79,7 @@
         },
         "projectLink": "https://quran-apps.itqan.dev/ar",
         "projectLinkText": "رابط المشروع",
-        "discordText": "انضم لمجتمعنا على",
+        "discordText": "إنضم لمجتمعنا على",
         "discordLink": "https://discord.gg/24CskUbuuB",
         "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
         "relatedProjectsTitle": "مشاريع ذات صلة"
@@ -104,7 +104,7 @@
         },
         "projectLink": "",
         "projectLinkText": "رابط المشروع",
-        "discordText": "انضم لمجتمعنا على",
+        "discordText": "إنضم لمجتمعنا على",
         "discordLink": "https://discord.gg/24CskUbuuB",
         "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
         "relatedProjectsTitle": "مشاريع ذات صلة"
@@ -135,7 +135,7 @@
       "subtitle": "ما يسأله الآخرون عن المجتمع",
       "questions": {
         "join": {
-          "title": "لماذا قد أرغب بالانضمام لمجتمع إتقان",
+          "title": "لماذا قد أرغب بالإنضمام لمجتمع إتقان",
           "answer": "مجتمع إتقان هو مكان رائع لتكون محاطًا بمطورين شغوفين يسعون إلى تطوير مهاراتهم وخدمة غايات إيمانية أكبر منّا جميعا، من خلال التواصل مع آخرين ذوي فكر مشابه، والحصول على آراء حول عملك وبرمجياتك."
         },
         "support": {
@@ -160,7 +160,7 @@
         "solo": "أنت المطور الوحيد في شركتك أو فريقك",
         "growth": "تبحث عن مجتمع متخصص يدفعك للأمام"
       },
-      "cta": "انضم لمجتمع إتقان"
+      "cta": "إنضم لمجتمع إتقان"
     }
   },
   "resources": {
@@ -195,7 +195,7 @@
     "tools": "الأدوات"
   },
   "footer": {
-    "cta": "انضم إلينا لخدمة الغاية الكبرى",
+    "cta": "إنضم إلينا لخدمة الغاية الكبرى",
     "copyright": "جميع الحقوق محفوظة وفقًا لرخصة المصدر المفتوح © إتقان ١٤٤٦ هـ",
     "contact": "تواصل معنا"
   },
@@ -234,7 +234,7 @@
       "conclusionTitle": "التوصية لمجتمع إتقان",
       "conclusion": "استناداً إلى النتائج التي توصلنا إليها، نوصي بأن يتم اعتماد رخصة MIT لأي محتوى أو برمجيات يتم نشرها في المجتمع. تُعدّ رخصة MIT خيارًا مرنًا يعزز من الانتشار والتعاون، مع تحملها لقيود أقل فيما يتعلق بالاستخدام التجاري والذكاء الاصطناعي.",
       "externalLinkText": "اقرأ المقال كاملاً",
-      "discordText": "انضم إلى مجتمعنا على",
+      "discordText": "إنضم إلى مجتمعنا على",
       "discordLink": "https://discord.gg/24CskUbuuB",
       "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png"
     },
@@ -268,7 +268,7 @@
       "conclusionTitle": "الخلاصة",
       "conclusion": "حمّل الدليل الآن، وحوّل أفكارك لواقع متميـز.",
       "externalLinkText": "تحميل الدليل",
-      "discordText": "انضم إلى مجتمعنا على",
+      "discordText": "إنضم إلى مجتمعنا على",
       "discordLink": "https://discord.gg/24CskUbuuB",
       "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
       "externalLink": "/docs/reports/2.pdf"
@@ -303,7 +303,7 @@
       "conclusionTitle": "الخلاصة",
       "conclusion": "نحو مشاريع قرآنية تقنية واعدة. حمّل الدليل الآن.",
       "externalLinkText": "تحميل الدليل",
-      "discordText": "انضم إلى مجتمعنا على",
+      "discordText": "إنضم إلى مجتمعنا على",
       "discordLink": "https://discord.gg/24CskUbuuB",
       "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
       "externalLink": "/docs/reports/3.pdf"
