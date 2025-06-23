@@ -75,7 +75,7 @@ export const projectsData: Record<string, ProjectData> = {
     title: "3.title",
     subtitle: "3.subtitle",
     headerImage: "3.headerImage",
-    contentImage: "3.contentImage",
+    contentImage: "3.headerImage",
     description: "3.description",
     importanceTitle: "3.importanceTitle",
     importanceItems: [

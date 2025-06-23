@@ -23,87 +23,43 @@ export default function Resources() {
         </div>
       </div>
 
-      {/* Resources Table */}
-      <div className="w-full">
-        {/* Desktop Table */}
-        <div className="hidden lg:block">
-          {resourcesList.resourcesList.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="mb-8">
-              <div className="bg-emerald-800 text-white px-6 py-3 rounded-t-xl">
-                <h2 className="text-lg font-semibold">{t2(category.categoryTitle)}</h2>
-              </div>
-              <div className="bg-white rounded-b-xl shadow-lg overflow-hidden">
-                <table className="w-full">
-                  <thead className="bg-emerald-50">
-                    <tr>
-                      <th className="px-6 py-4 text-start font-semibold text-emerald-900">{t2("tableHeader.title")}</th>
-                      <th className="px-6 py-4 text-start font-semibold text-emerald-900">{t2("tableHeader.description")}</th>
-                      <th className="px-6 py-4 text-start font-semibold text-emerald-900">{t2("tableHeader.author")}</th>
-                      <th className="px-6 py-4 text-start font-semibold text-emerald-900">{t2("tableHeader.link")}</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    {category.items.map((item, itemIndex) => (
-                      <tr key={itemIndex} className="hover:bg-gray-50 transition-colors">
-                        <td className="px-6 py-4 text-start">
-                          <div className="font-medium text-emerald-900">{t2(item.title)}</div>
-                        </td>
-                        <td className="px-6 py-4 text-start">
-                          <div className="text-sm text-gray-600 max-w-md line-clamp-3">
-                            {t2(item.description)}
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 text-start">
-                          <div className="text-sm text-gray-500">{t2(item.author)}</div>
-                        </td>
-                        <td className="px-6 py-4 text-start">
-                          {t2(item.link) && (
-                            <Link
-                              href={t2(item.link) as string}
-                              target="_blank"
-                              download={item.download}
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-800 transition-colors"
-                            >
-                              {item.download ? <FaDownload size={16} /> : <FaExternalLinkAlt size={16} />}
-                            </Link>
-                          )}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+      {/* Resources Grid */}
+      <div className="w-full space-y-8">
+        {resourcesList.resourcesList.map((category, categoryIndex) => (
+          <div key={categoryIndex}>
+            <div className="bg-emerald-800 text-white px-6 py-3 rounded-t-xl">
+              <h2 className="text-lg font-semibold">{t2(category.categoryTitle)}</h2>
             </div>
-          ))}
-        </div>
-
-        {/* Mobile Cards */}
-        <div className="lg:hidden space-y-8">
-          {resourcesList.resourcesList.map((category, categoryIndex) => (
-            <div key={categoryIndex}>
-              <div className="bg-emerald-800 text-white px-4 py-3 rounded-t-xl">
-                <h2 className="text-base font-semibold">{t2(category.categoryTitle)}</h2>
-              </div>
-              <div className="bg-white rounded-b-xl shadow-lg divide-y divide-gray-200">
+            <div className="bg-white rounded-b-xl shadow-lg">
+              <div className="grid grid-cols-1 divide-y divide-gray-200">
                 {category.items.map((item, itemIndex) => (
-                  <div key={itemIndex} className="p-4 hover:bg-gray-50 transition-colors">
-                    <div className="space-y-3">
-                      <div className="flex items-start justify-between">
-                        <h3 className="font-medium text-emerald-900 text-base">{t2(item.title)}</h3>
+                  <div key={itemIndex} className="p-6 hover:bg-gray-50 transition-colors">
+                    <div className="flex flex-col gap-4">
+                      <div className="flex items-start justify-between gap-4">
+                        <h3 className="font-medium text-emerald-900 text-lg">{t2(item.title)}</h3>
                         {t2(item.link) && (
                           <Link
                             href={t2(item.link) as string}
                             target="_blank"
                             download={item.download}
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-emerald-600 hover:text-emerald-800 transition-colors flex-shrink-0"
+                            className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-800 transition-colors flex-shrink-0"
                           >
-                            {item.download ? <FaDownload size={14} /> : <FaExternalLinkAlt size={14} />}
+                            {item.download ? (
+                              <>
+                                <FaDownload size={16} />
+                                <span className="hidden sm:inline">{t2("download")}</span>
+                              </>
+                            ) : (
+                              <>
+                                <FaExternalLinkAlt size={16} />
+                                <span className="hidden sm:inline">{t2("visit")}</span>
+                              </>
+                            )}
                           </Link>
                         )}
                       </div>
-                      <p className="text-sm text-gray-600 leading-relaxed">
+                      <p className="text-gray-600 leading-relaxed">
                         {t2(item.description)}
                       </p>
                       <div className="text-sm text-gray-500">
@@ -114,8 +70,8 @@ export default function Resources() {
                 ))}
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );
