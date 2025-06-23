@@ -161,7 +161,7 @@ export default async function ProjectDetails({
             href={t(discordLink)}
             target="_blank"
             rel="noopener"
-            className="group bg-white rounded-3xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 hover:shadow-lg transition-all duration-200 max-w-md w-full"
+            className="group justify-center bg-white rounded-3xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 hover:shadow-lg transition-all duration-200 max-w-md w-full"
           >
             <div className="relative w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0">
               <Image
