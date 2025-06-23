@@ -358,6 +358,7 @@
       }
     },
     "tafsir": {
+      "title": "Tafsir",
       "quranicVocabulary": {
         "title": "Qur'anic Vocabulary Meanings",
         "description": "This file contains an explanation of the meanings of Quranic vocabulary and the interpretation of its verses, organized by surah and verse. This explanation aims to simplify the understanding of the Quranic text by clarifying the connotations of words and illustrating their linguistic and legal contexts. The file provides deep insights into the fundamental Quranic concepts, with a focus on interpretive aspects that help the reader grasp the Quranic intentions.",
