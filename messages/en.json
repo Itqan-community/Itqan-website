@@ -326,6 +326,8 @@
     }
   },
   "resources2": {
+    "visit": "View",
+    "download": "Download",
     "tableHeader": {
       "title": "Title",
       "description": "Description",

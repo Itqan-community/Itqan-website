@@ -326,6 +326,8 @@
     }
   },
   "resources2": {
+    "visit": "عرض المصدر",
+    "download": "تحميل",
     "tableHeader": {
       "title": "العنوان",
       "description": "الوصف",
