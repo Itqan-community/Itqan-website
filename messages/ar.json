@@ -3,7 +3,7 @@
     "title": "خِـدمَة كِـتاب الله غـايتُنا الكُـبرى",
     "description": "نهدف لبناء أكبر مجتمع لتطوير تقنيات القرآن الكريم مفتوحة المصدر",
     "description2": "وتحسين تجربة الاستخدام لخدمة المسلمين حول العالم",
-    "discord": "إنضم لمجتمع إتقان",
+    "discord": "انضم لمجتمع إتقان",
     "discoverResources": "استكشف جميع الموارد",
     "projects": {
       "title": "المشاريع",
@@ -23,7 +23,7 @@
         "image": "https://framerusercontent.com/images/xf0voPym2iy4wrGfoxO89ATdQjQ.png"
       },
       "advancedSearch": {
-        "title": "تقنية البحث المتقدم في القرآن الكريم",
+        "title": "تقنية البحث القرآني",
         "shortDescription": "مشروع يهدف إلى تطوير تقنيات بحث متقدمة في نصوص القرآن الكريم، لتسهيل الوصول إلى الآيات والمعلومات القرآنية بدقة وسرعة عالية.",
         "roles": "التطوير التقني، البحث وجمع البيانات، مختصون شرعيون.",
         "image": "https://framerusercontent.com/images/jQwDDtFkcNRmtUabxjTAr3LI6k.jpg"
@@ -55,13 +55,13 @@
         },
         "projectLink": "https://quran-apps.itqan.dev/ar",
         "projectLinkText": "رابط المشروع",
-        "discordText": "إنضم لمجتمعنا على",
+        "discordText": "انضم لمجتمعنا على",
         "discordLink": "https://discord.gg/24CskUbuuB", 
         "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
         "relatedProjectsTitle": "مشاريع ذات صلة"
       },
       "2": {
-        "title": "تقنية البحث المتقدم في القرآن الكريم",
+        "title": "تقنية البحث القرآني",
         "subtitle": "يهدف المشروع إلى تطوير تقنية بحث مبتكرة ومتقدمة تتيح للمستخدمين الوصول إلى نصوص القرآن الكريم بسرعة ودقة. من خلال استخدام الذكاء الاصطناعي وخوارزميات البحث المتطورة، يساعد على تحسين تجربة البحث ودعم الباحثين والمطورين في تحليل النصوص القرآنية.",
         "headerImage": "/images/projects/2/poster.png",
         "contentImage": "/images/projects/2/preview-ar.png",
@@ -79,7 +79,7 @@
         },
         "projectLink": "https://quran-apps.itqan.dev/ar",
         "projectLinkText": "رابط المشروع",
-        "discordText": "إنضم لمجتمعنا على",
+        "discordText": "انضم لمجتمعنا على",
         "discordLink": "https://discord.gg/24CskUbuuB",
         "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
         "relatedProjectsTitle": "مشاريع ذات صلة"
@@ -104,7 +104,7 @@
         },
         "projectLink": "",
         "projectLinkText": "رابط المشروع",
-        "discordText": "إنضم لمجتمعنا على",
+        "discordText": "انضم لمجتمعنا على",
         "discordLink": "https://discord.gg/24CskUbuuB",
         "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
         "relatedProjectsTitle": "مشاريع ذات صلة"
@@ -190,7 +190,7 @@
     "projects": "المشاريع",
     "resources": "الموارد",
     "reports": "التقارير",
-    "discord": "إنضم لمجتمع إتقان",
+    "discord": "انضم لمجتمع إتقان",
     "logo": "إتقان",
     "tools": "الأدوات"
   },
@@ -234,7 +234,7 @@
       "conclusionTitle": "التوصية لمجتمع إتقان",
       "conclusion": "استناداً إلى النتائج التي توصلنا إليها، نوصي بأن يتم اعتماد رخصة MIT لأي محتوى أو برمجيات يتم نشرها في المجتمع. تُعدّ رخصة MIT خيارًا مرنًا يعزز من الانتشار والتعاون، مع تحملها لقيود أقل فيما يتعلق بالاستخدام التجاري والذكاء الاصطناعي.",
       "externalLinkText": "اقرأ المقال كاملاً",
-      "discordText": "إنضم إلى مجتمعنا على",
+      "discordText": "انضم إلى مجتمعنا على",
       "discordLink": "https://discord.gg/24CskUbuuB",
       "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png"
     },
@@ -268,7 +268,7 @@
       "conclusionTitle": "الخلاصة",
       "conclusion": "حمّل الدليل الآن، وحوّل أفكارك لواقع متميـز.",
       "externalLinkText": "تحميل الدليل",
-      "discordText": "إنضم إلى مجتمعنا على",
+      "discordText": "انضم إلى مجتمعنا على",
       "discordLink": "https://discord.gg/24CskUbuuB",
       "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
       "externalLink": "/docs/reports/2.pdf"
@@ -303,7 +303,7 @@
       "conclusionTitle": "الخلاصة",
       "conclusion": "نحو مشاريع قرآنية تقنية واعدة. حمّل الدليل الآن.",
       "externalLinkText": "تحميل الدليل",
-      "discordText": "إنضم إلى مجتمعنا على",
+      "discordText": "انضم إلى مجتمعنا على",
       "discordLink": "https://discord.gg/24CskUbuuB",
       "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
       "externalLink": "/docs/reports/3.pdf"
