@@ -199,6 +199,10 @@
     "copyright": "All rights reserved under the open source license © Itqan 1447 AH",
     "contact": "Contact Us"
   },
+  "analytics": {
+    "trackButtonClick": "Track Button Click",
+    "trackFormSubmit": "Track Form Submit"
+  },
   "blog": {
     "badge": "Quranic Reports",
     "headline1": "Itqan Library is your #1 assistant for developing outstanding Quranic apps",

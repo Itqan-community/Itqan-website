@@ -7,6 +7,8 @@ import "@/app/globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "../components/Footer";
 import { seoData } from "../data/seoData";
+import GoogleAnalytics from "@/app/components/GoogleAnalytics";
+import PageTracking from "@/app/components/PageTracking";
 // import { headers } from "next/headers";
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: Locale } }): Promise<Metadata> {
@@ -103,6 +105,8 @@ export default async function RootLayout({ children, params }: Props) {
             {children}
           </main>
           <Footer locale={locale} />
+          <GoogleAnalytics />
+          <PageTracking />
         </NextIntlClientProvider>
       </body>
     </html>
