@@ -412,7 +412,7 @@
       "ahkamTajweed": {
         "title": "Ahkam Al-Tajweed - Ahmed Al-Tawil",
         "description": "A comprehensive and accessible reference for learning and applying Tajweed rules for the Holy Quran. It features a unique organization by surahs and verses, making it easy to connect theoretical rules directly to practical application on the Mushaf. The book aims to simplify Tajweed rules for various levels and is an excellent training tool for improving recitation and perfecting the articulation and characteristics of letters.",
-        "author": "Ahmed Al-Tawil",
+        "author": "Tafsir Center for Qur'anic Studies",
         "link": "/docs/tajweed_aya_project_content.xlsx"
       }
     },
@@ -422,7 +422,7 @@
         "title": "MP3 Quran",
         "description": "The library provides comprehensive access to diverse Quranic resources. This interface allows Browse lists of languages, surahs, narrations (rewayat), and reciters, in addition to detailed information about surahs, types of mushafs, and videos. It also offers access to the latest recitations and videos, as well as live broadcasts of Makkah and Madinah channels. Furthermore, the interface includes features for retrieving tafsir (exegesis) links, tadabbur (contemplation), and verse timings, making it a powerful tool for integrating Quranic content into various applications and websites.",
         "author": "Quran Audio Library",
-        "link": "https://mp3quran.org/ar/api"
+        "link": "https://mp3quran.org/eng/api"
       }
     },
     "other": {
@@ -430,7 +430,7 @@
       "quranTests": {
         "title": "Verses Divided for Easy, Medium, and Hard Tests",
         "description": "This table provides organized data for Quranic verses, specifically categorized for testing and memorization assessment, indicating the difficulty level for each verse (easy, medium, hard). The table includes essential information for each verse such as: the verse text, its original number, cumulative order (ascending and descending), and surah number. It also provides additional fields for specifying the part, page, and line numbers, making it easy to reference the Mushaf. This structured data allows users to design diverse and effective memorization tests tailored to different levels and abilities.",
-        "author": "Quran Encyclopedia",
+        "author": "Maknon",
         "link": "/docs/الآيات مقسم للاختبارات سهل - وسط - صعب.xlsx"
       }
     }
