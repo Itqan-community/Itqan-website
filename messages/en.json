@@ -1,13 +1,13 @@
 {
   "home": {
     "title": "Serving Quran is our greatest Ghayah",
-    "description": "We are building the largest community for developing the Quranic technology",
+    "description": "We are building the largest community for developing Quranic technology",
     "description2": "and improving the user experience for Muslims around the world",
     "discord": "Join Itqan Community",
     "discoverResources": "Explore All Resources",
     "projects": {
       "title": "Projects", 
-      "description": "Open source technical projects to enrich the technology available to developers in the field of Quranic technologies",
+      "description": "Open-source technical projects to enrich the technology available to developers in the field of Quranic technologies",
       "launched": "Launched",
       "inProgress": "In Progress",
       "searchExperience": "Elevating Quranic Apps Search Experience",
@@ -327,7 +327,14 @@
       "description": "The King Fahd Glorious Qur'an Printing Complex offers a specialized platform for developers, providing advanced digital resources and tools to facilitate the integration of Holy Qur'an content into various applications and software. This platform includes high-quality digital copies of Mus'haf al-Madinah in vector format, ideal for printing, software development, and educational systems.It also supplies Unicode Uthmanic Fonts supporting various narrations (such as Hafs, Warsh, Shu'bah, Qaloun, Duri, and Susi), ensuring accurate and aesthetic display of Quranic text on smart devices and digital platforms. Additionally, the platform provides comprehensive databases with detailed information for each verse, including jozz number, surah name, page number, and verse text in multiple formats. Developers can also access trusted resources like Tafseer Muyassar and Muyassar of Ghareeb Al-Quran, along with versatile tools in formats like Excel, JSON, and PDF, all aimed at enriching digital Quranic content and fostering innovation in Qur'an-related applications.",
       "author": "King Fahd Glorious Qur'an Printing Complex",
       "link": "https://qurancomplex.gov.sa/techquran/dev/"
+    },
+    "Quranpedia": {
+      "title": "Quranpedia",
+      "description": "The Quranpedia API provides a comprehensive set of functionalities related to the Holy Quran, enabling developers to easily integrate rich Quranic data into their applications. This API allows for searching various types of content such as notes, fatwas, topics, and books. It also offers detailed access to Mushaf information, including compressed files containing Surah data in SVG and JSON formats. Developers can retrieve detailed information about Surahs and Ayahs, including available translations in multiple languages, as well as data on reciters, topics, and categories. The API also allows access to specific books, fatwas, and notes, making it a powerful tool for creating integrated and content-rich Quranic applications without the need for authentication.",
+      "author": "Osoul Foundation",
+      "link": "https://api.quranpedia.net/docs/"
     }
+
   },
   "resources2": {
     "visit": "View",
