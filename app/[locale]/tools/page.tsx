@@ -86,7 +86,7 @@ export default function Tools({ params }: { params: { locale: string } }) {
             className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex flex-col">
-              <h4 className="text-lg sm:text-xl font-bold mb-2">{t("Quranpedia.title")}</h4>
+              <h4 className="text-lg sm:text-xl font-bold mb-2">{t("mp3quran.title")}</h4>
               <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                 {t("mp3quran.description")}
               </p>
@@ -107,7 +107,7 @@ export default function Tools({ params }: { params: { locale: string } }) {
             className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex flex-col">
-              <h4 className="text-lg sm:text-xl font-bold mb-2">{t("Quranpedia.title")}</h4>
+              <h4 className="text-lg sm:text-xl font-bold mb-2">{t("quranenc.title")}</h4>
               <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                 {t("quranenc.description")}
               </p>
