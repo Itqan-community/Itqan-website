@@ -72,10 +72,10 @@
       "categoryTitle": "translations.title",
       "items": [
         {
-          "title": "translations.title",
-          "description": "translations.description",
-          "link": "translations.link",
-          "author": "translations.author",
+          "title": "translations.quranenc.title",
+          "description": "translations.quranenc.description",
+          "link": "translations.quranenc.link",
+          "author": "translations.quranenc.author",
           "download": false
         }
       ]
