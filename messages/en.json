@@ -406,10 +406,13 @@
       "author": "Tafsir Center for Qur'anic Studies"
     },
     "translations": {
+      "title": "Translations",
+      "quranenc"{
       "title": "Quran Encyclopedia Translations",
       "description": "Quran encyclopedia features trustworthy translations of the meanings and exegeses of the noble Qur'an in many world languages. These renditions have been prepared by reliable translators under the careful supervision of specialized bodies. They are both accessible and shareable on social media.\n\nObjectives:\n\n1. Creating a free electronic reference of the exegeses and translations of the meanings of the noble Qur'an, following the methodology of Ahl-us-Sunnah wal-Jamaa`ah; to replace the unreliable references currently available on the Internet.\n\n2. Providing a variety of electronic versions of the, translations, exegeses, and other related information that can be used on smart devices, applications, and systems.\n\n3. Giving free and easy access to authentic translations and exegeses through search engines and global sources of information.\n\n4. Developing the exegeses and translations by involving specialists and concerned individual in the revision, assessment, and correction of the translations of and information related to Qur'anic verses using electronic assessment and correction systems.",
       "author": "The Noble Qur'an Encyclopedia",
       "link": "https://quranenc.com/en/home/api/"
+      }
     },
     "linguistics": {
       "title": "Linguistic",
