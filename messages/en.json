@@ -130,6 +130,10 @@
         "description": "Quran tafseer data in multiple languages with verse and surah aggregation information. Tafseer is available in different formats, including JSON and SQLITE"
       }
     },
+    "partners": {
+      "title": "Our Partners",
+      "description": "We collaborate with leading organizations and platforms in the Quranic technology space to deliver exceptional solutions and resources to our community."
+    },
     "faqs": {
       "title": "Frequently Asked Questions",
       "subtitle": "What others ask about the community",

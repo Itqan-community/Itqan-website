@@ -5,6 +5,20 @@ import LinkBtn from "../components/LinkBtn";
 import ForwardArrow from "../components/ForwardArrow";
 import resourcesList from "./resources/resourcesList.json";
 import { FaDownload } from "react-icons/fa";
+
+// Partner data
+const partners = [
+  { name: "Nuqayah", image: "/images/partners/nuqayah.svg", href: "https://nuqayah.com" },
+  { name: "GTAF", image: "/images/partners/gtaf.svg", href: "https://gtaf.org/" },
+  { name: "MP3 Quran", image: "/images/partners/mp3quran.png", href: "https://mp3quran.net" },
+  { name: "PakData", image: "/images/partners/pakdata.png", href: "https://pakdata.com" },
+  { name: "Quran", image: "/images/partners/quran.png", href: "https://quran.com" },
+  { name: "QuranPedia", image: "/images/partners/quranpedia.png", href: "https://quranpedia.net/" },
+  { name: "Tafsir", image: "/images/partners/tafsir.png", href: "https://tafsir.net" },
+  { name: "Tarteel", image: "/images/partners/tarteel.png", href: "https://www.tarteel.ai" },
+  { name: "Zad Group", image: "/images/partners/zadgroup.png", href: "https://zadgroup.net/" },
+];
+
 export default async function Home({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations("home");
   const t2 = await getTranslations("resources2");
@@ -138,6 +152,41 @@ export default async function Home({ params: { locale } }: { params: { locale: s
 
           <div className="flex justify-center mt-8 sm:mt-12">
             <LinkBtn title={t("discoverResources")} href={`/${locale}/resources`} variant="outline" locale={locale} />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-100">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-emerald-900 mb-4">
+              {t("partners.title")}
+            </h2>
+            <p className="text-emerald-700 text-base sm:text-lg max-w-3xl">
+              {t("partners.description")}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
+            {partners.map((partner, index) => (
+              <Link
+                key={index}
+                href={partner.href}
+                target="_blank"
+                className="group"
+                aria-label={`Visit ${partner.name}`}
+              >
+                <div className="w-32 sm:w-40 lg:w-48 h-20 sm:h-24 lg:h-28 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex items-center justify-center p-4">
+                  <Image
+                    src={partner.image}
+                    alt={partner.name}
+                    width={120}
+                    height={80}
+                    className="max-w-full max-h-full object-contain transition-all duration-300"
+                  />
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
