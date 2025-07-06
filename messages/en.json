@@ -356,8 +356,10 @@
       "title": "Title",
       "description": "Description",
       "link": "Link",
-      "author": "Source"
+      "author": "Source",
+      "license": "License"
     },
+    "resourceLicense": "MIT License",
     "mushafs": {
       "title": "Mushafs",
       "mushafMadinah": {

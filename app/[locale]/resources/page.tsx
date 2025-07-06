@@ -62,8 +62,13 @@ export default function Resources() {
                       <p className="text-gray-600 leading-relaxed">
                         {t2(item.description)}
                       </p>
-                      <div className="text-sm text-gray-500">
-                        <span className="font-medium">{t2("tableHeader.author")}:</span> {t2(item.author)}
+                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-4">
+                        <div className="text-sm text-gray-500">
+                          <span className="font-medium">{t2("tableHeader.author")}:</span> {t2(item.author)}
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          <span className="font-medium">{t2("tableHeader.license")}:</span> {t2(item.license)}
+                        </div>
                       </div>
                     </div>
                   </div>

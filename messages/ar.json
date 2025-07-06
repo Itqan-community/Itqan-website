@@ -356,8 +356,10 @@
       "title": "العنوان",
       "description": "الوصف",
       "link": "الرابط",
-      "author": "المصدر"
+      "author": "المصدر",
+      "license": "الرخصة"
     },
+    "resourceLicense": "رخصة إم آي تي",
     "mushafs": {
       "title": "المصاحف",
       "mushafMadinah": {

@@ -116,9 +116,15 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                     {t2(item.description)}
                   </p>
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-emerald-900 gap-2 mt-auto">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm text-neutral-500">{t2("tableHeader.author")}:</span>
-                      <span className="text-sm text-neutral-500 font-medium">{t2(item.author)}</span>
+                    <div className="flex flex-col text-emerald-900 gap-2 mt-auto">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm text-neutral-500">{t2("tableHeader.author")}:</span>
+                        <span className="text-sm text-neutral-500 font-medium">{t2(item.author)}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm text-neutral-500">{t2("tableHeader.license")}:</span>
+                        <span className="text-sm text-neutral-500 font-medium">{t2("resourceLicense")}</span>
+                      </div>
                     </div>
                     {t2(item.download) ? (
                       <FaDownload size={16} />

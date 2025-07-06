@@ -2,20 +2,22 @@
   "resourcesList": [
     {
       "category": "mushafs",
-      "categoryTitle": "mushafs.title",
+      "categoryTitle": "mushafs.title", 
       "items": [
         {
           "title": "mushafs.mushafMadinah.title",
           "description": "mushafs.mushafMadinah.description",
-          "link": "mushafs.mushafMadinah.link", 
+          "link": "mushafs.mushafMadinah.link",
           "author": "mushafs.author",
+          "license": "resourceLicense",
           "download": false
         },
         {
           "title": "mushafs.unicodeUthmanicFonts.title",
-          "description": "mushafs.unicodeUthmanicFonts.description",
+          "description": "mushafs.unicodeUthmanicFonts.description", 
           "link": "mushafs.unicodeUthmanicFonts.link",
           "author": "mushafs.author",
+          "license": "resourceLicense",
           "download": false
         }
       ]
@@ -29,12 +31,13 @@
           "description": "fonts.unicodeUthmanicFonts.description",
           "link": "fonts.unicodeUthmanicFonts.link",
           "author": "fonts.unicodeUthmanicFonts.author",
+          "license": "resourceLicense",
           "download": false
         }
       ]
     },
     {
-      "category": "tafsir", 
+      "category": "tafsir",
       "categoryTitle": "tafsir.title",
       "items": [
         {
@@ -42,6 +45,7 @@
           "description": "tafsir.quranicVocabulary.description",
           "link": "tafsir.quranicVocabulary.link",
           "author": "tafsir.author",
+          "license": "resourceLicense",
           "download": true
         },
         {
@@ -49,6 +53,7 @@
           "description": "tafsir.tafsirIbnKathir.description",
           "link": "tafsir.tafsirIbnKathir.link",
           "author": "tafsir.author",
+          "license": "resourceLicense",
           "download": true
         },
         {
@@ -56,6 +61,7 @@
           "description": "tafsir.tafsirSaadi.description",
           "link": "tafsir.tafsirSaadi.link",
           "author": "tafsir.author",
+          "license": "resourceLicense",
           "download": true
         },
         {
@@ -63,6 +69,7 @@
           "description": "tafsir.tafsirMukhtasar.description",
           "link": "tafsir.tafsirMukhtasar.link",
           "author": "tafsir.author",
+          "license": "resourceLicense",
           "download": true
         }
       ]
@@ -76,6 +83,7 @@
           "description": "translations.quranenc.description",
           "link": "translations.quranenc.link",
           "author": "translations.quranenc.author",
+          "license": "resourceLicense",
           "download": false
         }
       ]
@@ -89,6 +97,7 @@
           "description": "linguistics.quranicDataset.description",
           "link": "linguistics.quranicDataset.link",
           "author": "linguistics.quranicDataset.author",
+          "license": "resourceLicense",
           "download": false
         }
       ]
@@ -102,6 +111,7 @@
           "description": "tajweed.ahkamTajweed.description",
           "link": "tajweed.ahkamTajweed.link",
           "author": "tajweed.ahkamTajweed.author",
+          "license": "resourceLicense",
           "download": true
         }
       ]
@@ -115,6 +125,7 @@
           "description": "audio.mp3Quran.description",
           "link": "audio.mp3Quran.link",
           "author": "audio.mp3Quran.author",
+          "license": "resourceLicense",
           "download": false
         }
       ]
@@ -128,6 +139,7 @@
           "description": "other.quranTests.description",
           "link": "other.quranTests.link",
           "author": "other.quranTests.author",
+          "license": "resourceLicense",
           "download": true
         }
       ]
