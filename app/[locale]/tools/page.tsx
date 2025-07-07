@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { FaTools } from "react-icons/fa";
+import { FaTools, FaDownload, FaExternalLinkAlt } from "react-icons/fa";
 import ForwardArrow from "../../components/ForwardArrow";
 
 export default function Tools({ params }: { params: { locale: string } }) {
@@ -13,7 +13,7 @@ export default function Tools({ params }: { params: { locale: string } }) {
             <span className="text-sm font-medium rounded-full">{t("title")}</span>
             <FaTools size={16} />
           </div>
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-emerald-900 leading-relaxed" >
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-emerald-900 leading-relaxed" >
             {t("title")}
           </h3>
         </div>
@@ -25,7 +25,7 @@ export default function Tools({ params }: { params: { locale: string } }) {
             className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex flex-col">
-              <h4 className="text-lg sm:text-xl font-bold mb-2">{t("suraApi.title")}</h4>
+              <h4 className="text-lg sm:text-xl font-semibold mb-2">{t("suraApi.title")}</h4>
               <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                 {t("suraApi.description")}
               </p>
@@ -46,7 +46,7 @@ export default function Tools({ params }: { params: { locale: string } }) {
             className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex flex-col">
-              <h4 className="text-lg sm:text-xl font-bold mb-2">{t("devPlatform.title")}</h4>
+              <h4 className="text-lg sm:text-xl font-semibold mb-2">{t("devPlatform.title")}</h4>
               <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                 {t("devPlatform.description")}
               </p>
@@ -66,7 +66,7 @@ export default function Tools({ params }: { params: { locale: string } }) {
             className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex flex-col">
-              <h4 className="text-lg sm:text-xl font-bold mb-2">{t("Quranpedia.title")}</h4>
+              <h4 className="text-lg sm:text-xl font-semibold mb-2">{t("Quranpedia.title")}</h4>
               <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                 {t("Quranpedia.description")}
               </p>
@@ -86,7 +86,7 @@ export default function Tools({ params }: { params: { locale: string } }) {
             className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex flex-col">
-              <h4 className="text-lg sm:text-xl font-bold mb-2">{t("mp3quran.title")}</h4>
+              <h4 className="text-lg sm:text-xl font-semibold mb-2">{t("mp3quran.title")}</h4>
               <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                 {t("mp3quran.description")}
               </p>
@@ -107,7 +107,7 @@ export default function Tools({ params }: { params: { locale: string } }) {
             className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex flex-col">
-              <h4 className="text-lg sm:text-xl font-bold mb-2">{t("quranenc.title")}</h4>
+              <h4 className="text-lg sm:text-xl font-semibold mb-2">{t("quranenc.title")}</h4>
               <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                 {t("quranenc.description")}
               </p>
@@ -128,7 +128,7 @@ export default function Tools({ params }: { params: { locale: string } }) {
             className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex flex-col">
-              <h4 className="text-lg sm:text-xl font-bold mb-2">{t("quranScriptFontTool.title")}</h4>
+              <h4 className="text-lg sm:text-xl font-semibold mb-2">{t("quranScriptFontTool.title")}</h4>
               <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                 {t("quranScriptFontTool.description")}
               </p>
@@ -149,7 +149,7 @@ export default function Tools({ params }: { params: { locale: string } }) {
             className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex flex-col">
-              <h4 className="text-lg sm:text-xl font-bold mb-2">{t("arabicUnicodeTool.title")}</h4>
+              <h4 className="text-lg sm:text-xl font-semibold mb-2">{t("arabicUnicodeTool.title")}</h4>
               <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                 {t("arabicUnicodeTool.description")}
               </p>
@@ -170,7 +170,7 @@ export default function Tools({ params }: { params: { locale: string } }) {
             className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex flex-col">
-              <h4 className="text-lg sm:text-xl font-bold mb-2">{t("quranComFrontend.title")}</h4>
+              <h4 className="text-lg sm:text-xl font-semibold mb-2">{t("quranComFrontend.title")}</h4>
               <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                 {t("quranComFrontend.description")}
               </p>
@@ -191,7 +191,7 @@ export default function Tools({ params }: { params: { locale: string } }) {
             className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex flex-col">
-              <h4 className="text-lg sm:text-xl font-bold mb-2">{t("quranComAndroid.title")}</h4>
+              <h4 className="text-lg sm:text-xl font-semibold mb-2">{t("quranComAndroid.title")}</h4>
               <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                 {t("quranComAndroid.description")}
               </p>
@@ -212,7 +212,7 @@ export default function Tools({ params }: { params: { locale: string } }) {
             className="flex flex-col gap-4 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex flex-col">
-              <h4 className="text-lg sm:text-xl font-bold mb-2">{t("quranComIOS.title")}</h4>
+              <h4 className="text-lg sm:text-xl font-semibold mb-2">{t("quranComIOS.title")}</h4>
               <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                 {t("quranComIOS.description")}
               </p>

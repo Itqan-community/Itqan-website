@@ -3,14 +3,6 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/inter.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'Doran';
   src: url('/fonts/doran-bold.woff2') format('woff2');
   font-weight: 700;
@@ -29,7 +21,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-inter: 'Inter', sans-serif;
+  --font-rubik: 'Rubik', sans-serif;
   --font-doran: 'Doran', sans-serif;
 }
 
@@ -51,8 +43,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter);
-  font-weight: 600;
+  font-family: var(--font-rubik);
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -65,7 +57,7 @@ body {
 
 html,
 body {
-  font-family: var(--font-inter);
+  font-family: var(--font-rubik);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -76,8 +68,8 @@ h1, h2 {
   line-height: 1.5 !important;
 }
 
-.font-inter {
-  font-family: var(--font-inter);
+.font-rubik {
+  font-family: var(--font-rubik);
 }
 
 .font-doran {

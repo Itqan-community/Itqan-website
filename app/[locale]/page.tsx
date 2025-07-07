@@ -30,11 +30,11 @@ export default async function Home({ params: { locale } }: { params: { locale: s
         className="flex flex-col items-center justify-center min-h-[calc(100vh-73px)] px-4 sm:px-6 lg:px-8 bg-[url('/home-hero.avif')] bg-center bg-cover bg-no-repeat bg-[#88ffbc66]/40 bg-blend-overlay"
       >
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-emerald-600 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-semibold text-emerald-600 leading-tight">
             {t("title")}
           </h1>
-          <p className="text-lg sm:text-xl font-semibold mt-4 text-emerald-900">{t("description")}</p>
-          <p className="text-lg sm:text-xl font-semibold mb-8 sm:mb-10 text-emerald-900">{t("description2")}</p>
+          <p className="text-lg sm:text-xl  mt-4 text-emerald-900">{t("description")}</p>
+          <p className="text-lg sm:text-xl  mb-8 sm:mb-10 text-emerald-900">{t("description2")}</p>
           <LinkBtn title={t("discord")} href={`https://discord.gg/24CskUbuuB`} target="_blank" locale={locale} />
         </div>
       </section>
@@ -42,7 +42,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       <section aria-label="Projects" className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-100">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-emerald-900 mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-emerald-900 mb-4 sm:mb-6">
               {t("projects.title")}
             </h2>
             <p className="text-base sm:text-lg text-emerald-700 mb-6 sm:mb-8 max-w-3xl mx-auto">
@@ -66,10 +66,10 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                 />
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 bg-neutral-100 gap-2">
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900">
                   {t("projects.1.title")}
                 </h3>
-                <div className="bg-emerald-800 opacity-60 text-white text-sm font-semibold px-2 py-0.5 rounded-full w-fit">
+                <div className="bg-emerald-800 opacity-60 text-white text-sm  px-2 py-0.5 rounded-full w-fit">
                   {t("projects.launched")}
                 </div>
               </div>
@@ -90,10 +90,10 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                 />
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 bg-neutral-100 gap-2">
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900">
                   {t("projects.3.title")}
                 </h3>
-                <div className="bg-emerald-800 opacity-60 text-white text-sm font-semibold px-2 py-0.5 rounded-full w-fit">
+                <div className="bg-emerald-800 opacity-60 text-white text-sm  px-2 py-0.5 rounded-full w-fit">
                   {t("projects.inProgress")}
                 </div>
               </div>
@@ -109,7 +109,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       <section className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-emerald-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-emerald-900 mb-4">
               {t("library.title")}
             </h2>
             <p className="text-emerald-700 text-base sm:text-lg max-w-3xl">
@@ -126,7 +126,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                   download={item.download}
                   className="flex flex-col gap-2"
                 >
-                  <h4 className="text-lg sm:text-xl font-bold mb-2">{t2(item.title)}</h4>
+                  <h4 className="text-lg sm:text-xl font-semibold mb-2">{t2(item.title)}</h4>
                   <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                     {t2(item.description)}
                   </p>
@@ -166,7 +166,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       <section className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-100">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-emerald-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-emerald-900 mb-4">
               {t("partners.title")}
             </h2>
             <p className="text-emerald-700 text-base sm:text-lg max-w-3xl">
@@ -204,7 +204,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             <p className="text-lg sm:text-xl font-medium text-emerald-900 text-center">
               {t("faqs.title")}
             </p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-emerald-600 text-center">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-emerald-600 text-center">
               {t("faqs.subtitle")}
             </h2>
           </div>
@@ -264,7 +264,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       <section className="py-12 sm:py-16 bg-white px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-lg sm:text-xl text-emerald-900 mb-4 font-inter">
+            <h2 className="text-lg sm:text-xl text-emerald-900 mb-4 font-semibold font-rubik">
               {t("community.title")}
             </h2>
             <p className="text-2xl sm:text-3xl font-bold text-emerald-600 font-doran leading-normal">
@@ -275,27 +275,27 @@ export default async function Home({ params: { locale } }: { params: { locale: s
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
-            <div className="text-emerald-900 text-center font-semibold pb-4 border-b border-neutral-200 text-sm sm:text-base">
+            <div className="text-emerald-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
               {t("community.points.resources")}
             </div>
             
-            <div className="text-emerald-900 text-center font-semibold pb-4 border-b border-neutral-200 text-sm sm:text-base">
+            <div className="text-emerald-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
               {t("community.points.development")}
             </div>
 
-            <div className="text-emerald-900 text-center font-semibold pb-4 border-b border-neutral-200 text-sm sm:text-base">
+            <div className="text-emerald-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
               {t("community.points.review")}
             </div>
 
-            <div className="text-emerald-900 text-center font-semibold pb-4 border-b border-neutral-200 text-sm sm:text-base">
+            <div className="text-emerald-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
               {t("community.points.ux")}
             </div>
 
-            <div className="text-emerald-900 text-center font-semibold text-sm sm:text-base">
+            <div className="text-emerald-900 text-center  text-sm sm:text-base">
               {t("community.points.solo")}
             </div>
 
-            <div className="text-emerald-900 text-center font-semibold text-sm sm:text-base">
+            <div className="text-emerald-900 text-center  text-sm sm:text-base">
               {t("community.points.growth")}
             </div>
           </div>

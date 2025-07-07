@@ -285,17 +285,17 @@ export default async function ArticleDetails({
           <div className="scale-x-[-1]">
             <ForwardArrow silent size={16} locale={locale} />
           </div>
-          <span className="font-semibold text-sm sm:text-base">{t("backToBlog")}</span>
+          <span className=" text-sm sm:text-base">{t("backToBlog")}</span>
         </Link>
       </div>
 
       {/* Header Section */}
       <div className="relative" id="cover">
         <div className="text-center mt-8 sm:mt-12 px-4 sm:px-6">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 leading-tight text-emerald-900">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 leading-tight text-emerald-900">
             {t(title)}
           </h1>
-          <p className="text-base sm:text-lg max-w-4xl mx-auto leading-relaxed mb-6 text-neutral-500 font-semibold">
+          <p className="text-base sm:text-lg max-w-4xl mx-auto leading-relaxed mb-6 text-neutral-500 ">
             {t(subtitle)}
           </p>
         </div>
@@ -321,14 +321,14 @@ export default async function ArticleDetails({
           <div className="flex flex-col gap-12">
             {/* Types Section */}
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-neutral-900 mb-4 font-inter">
+              <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-rubik">
                 {detailedContent.types.title}
               </h3>
               <div className="space-y-4">
                 {detailedContent.types.content.map((item, index) => (
                   <div key={index}>
-                    <h4 className="font-semibold text-neutral-900 mb-2 font-inter">{item.subtitle}</h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 font-semibold">{item.text}</p>
+                    <h4 className=" text-neutral-900 mb-2 font-rubik">{item.subtitle}</h4>
+                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 ">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -336,14 +336,14 @@ export default async function ArticleDetails({
 
             {/* Requirements Section */}
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-neutral-900 mb-4 font-inter">
+              <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-rubik">
                 {detailedContent.requirements.title}
               </h3>
               <div className="space-y-4">
                 {detailedContent.requirements.content.map((item, index) => (
                   <div key={index}>
-                    <h4 className="font-semibold text-neutral-900 mb-2 font-inter">{item.subtitle}</h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 font-semibold">{item.text}</p>
+                    <h4 className=" text-neutral-900 mb-2 font-rubik">{item.subtitle}</h4>
+                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 ">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -351,7 +351,7 @@ export default async function ArticleDetails({
 
             {/* License Comparison Table */}
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-neutral-900 mb-4 font-inter">
+              <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-rubik">
                 {locale === 'ar' ? "مقارنة بين الرخص المتاحة واستخداماتها" : "Comparison of Available Licenses and Their Uses"}
               </h3>
               <div className="overflow-x-auto -mx-4 sm:mx-0">
@@ -360,19 +360,19 @@ export default async function ArticleDetails({
                     <table className="min-w-full divide-y divide-neutral-300 text-sm">
                       <thead>
                         <tr className="bg-neutral-50">
-                          <th scope="col" className="whitespace-nowrap border border-neutral-300 px-3 py-2 text-start font-semibold text-neutral-900 font-inter">
+                          <th scope="col" className="whitespace-nowrap border border-neutral-300 px-3 py-2 text-start  text-neutral-900 font-rubik">
                             {locale === 'ar' ? "الرخصة" : "License"}
                           </th>
-                          <th scope="col" className="whitespace-nowrap border border-neutral-300 px-3 py-2 text-start font-semibold text-neutral-900 font-inter">
+                          <th scope="col" className="whitespace-nowrap border border-neutral-300 px-3 py-2 text-start  text-neutral-900 font-rubik">
                             {locale === 'ar' ? "النوع" : "Type"}
                           </th>
-                          <th scope="col" className="whitespace-nowrap border border-neutral-300 px-3 py-2 text-start font-semibold text-neutral-900 font-inter">
+                          <th scope="col" className="whitespace-nowrap border border-neutral-300 px-3 py-2 text-start  text-neutral-900 font-rubik">
                             {locale === 'ar' ? "الميزات الأساسية" : "Key Features"}
                           </th>
-                          <th scope="col" className="whitespace-nowrap border border-neutral-300 px-3 py-2 text-start font-semibold text-neutral-900 font-inter">
+                          <th scope="col" className="whitespace-nowrap border border-neutral-300 px-3 py-2 text-start  text-neutral-900 font-rubik">
                             {locale === 'ar' ? "الأفضل للمشاريع" : "Best For"}
                           </th>
-                          <th scope="col" className="whitespace-nowrap border border-neutral-300 px-3 py-2 text-start font-semibold text-neutral-900 font-inter">
+                          <th scope="col" className="whitespace-nowrap border border-neutral-300 px-3 py-2 text-start  text-neutral-900 font-rubik">
                             {locale === 'ar' ? "القيود" : "Restrictions"}
                           </th>
                         </tr>
@@ -380,11 +380,11 @@ export default async function ArticleDetails({
                       <tbody className="divide-y divide-neutral-300">
                         {licenseComparisonData.map((row, index) => (
                           <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-neutral-50'}>
-                            <td className="whitespace-normal border border-neutral-300 px-3 py-2 font-semibold text-neutral-500">{row.license}</td>
-                            <td className="whitespace-normal border border-neutral-300 px-3 py-2 font-semibold text-neutral-500">{row.type}</td>
-                            <td className="whitespace-normal border border-neutral-300 px-3 py-2 font-semibold text-neutral-500">{row.features}</td>
-                            <td className="whitespace-normal border border-neutral-300 px-3 py-2 font-semibold text-neutral-500">{row.bestFor}</td>
-                            <td className="whitespace-normal border border-neutral-300 px-3 py-2 font-semibold text-neutral-500">{row.restrictions}</td>
+                            <td className="whitespace-normal border border-neutral-300 px-3 py-2  text-neutral-500">{row.license}</td>
+                            <td className="whitespace-normal border border-neutral-300 px-3 py-2  text-neutral-500">{row.type}</td>
+                            <td className="whitespace-normal border border-neutral-300 px-3 py-2  text-neutral-500">{row.features}</td>
+                            <td className="whitespace-normal border border-neutral-300 px-3 py-2  text-neutral-500">{row.bestFor}</td>
+                            <td className="whitespace-normal border border-neutral-300 px-3 py-2  text-neutral-500">{row.restrictions}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -396,14 +396,14 @@ export default async function ArticleDetails({
 
             {/* Challenges Section */}
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-neutral-900 mb-4 font-inter">
+              <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-rubik">
                 {detailedContent.challenges.title}
               </h3>
               <div className="space-y-4">
                 {detailedContent.challenges.content.map((item, index) => (
                   <div key={index}>
-                    <h4 className="font-semibold text-neutral-900 mb-2 font-inter">{item.subtitle}</h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 font-semibold">{item.text}</p>
+                    <h4 className=" text-neutral-900 mb-2 font-rubik">{item.subtitle}</h4>
+                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 ">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -416,14 +416,14 @@ export default async function ArticleDetails({
           <div className="flex flex-col gap-12">
             {/* What Offers Section */}
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-neutral-900 mb-4 font-inter">
+              <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-rubik">
                 {developmentGuideContent.whatOffers.title}
               </h3>
               <div className="space-y-4">
                 {developmentGuideContent.whatOffers.content.map((item, index) => (
                   <div key={index}>
-                    <h4 className="font-semibold text-neutral-900 mb-2 font-inter">{item.subtitle}</h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 font-semibold">{item.text}</p>
+                    <h4 className=" text-neutral-900 mb-2 font-rubik">{item.subtitle}</h4>
+                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 ">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -431,14 +431,14 @@ export default async function ArticleDetails({
 
             {/* How to Benefit Section */}
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-neutral-900 mb-4 font-inter">
+              <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-rubik">
                 {developmentGuideContent.howToBenefit.title}
               </h3>
               <div className="space-y-4">
                 {developmentGuideContent.howToBenefit.content.map((item, index) => (
                   <div key={index}>
-                    <h4 className="font-semibold text-neutral-900 mb-2 font-inter">{item.subtitle}</h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 font-semibold">{item.text}</p>
+                    <h4 className=" text-neutral-900 mb-2 font-rubik">{item.subtitle}</h4>
+                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 ">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -451,14 +451,14 @@ export default async function ArticleDetails({
           <div className="flex flex-col gap-12">
             {/* Contents Section */}
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-neutral-900 mb-4 font-inter">
+              <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-rubik">
                 {evaluationGuideContent.contents.title}
               </h3>
               <div className="space-y-4">
                 {evaluationGuideContent.contents.content.map((item, index) => (
                   <div key={index}>
-                    <h4 className="font-semibold text-neutral-900 mb-2 font-inter">{item.subtitle}</h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 font-semibold">{item.text}</p>
+                    <h4 className=" text-neutral-900 mb-2 font-rubik">{item.subtitle}</h4>
+                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 ">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -466,14 +466,14 @@ export default async function ArticleDetails({
 
             {/* How to Use Section */}
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-neutral-900 mb-4 font-inter">
+              <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-rubik">
                 {evaluationGuideContent.howToUse.title}
               </h3>
               <div className="space-y-4">
                 {evaluationGuideContent.howToUse.content.map((item, index) => (
                   <div key={index}>
-                    <h4 className="font-semibold text-neutral-900 mb-2 font-inter">{item.subtitle}</h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 font-semibold">{item.text}</p>
+                    <h4 className=" text-neutral-900 mb-2 font-rubik">{item.subtitle}</h4>
+                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 ">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -490,7 +490,7 @@ export default async function ArticleDetails({
             download
             className="bg-neutral-50 rounded-xl p-6 border border-neutral-200 cursor-pointer flex items-center justify-between mt-8"
           >
-            <p className="text-sm sm:text-base leading-relaxed  font-semibold">
+            <p className="text-sm sm:text-base leading-relaxed  ">
               {t(conclusion)}
             </p>
             <FaDownload size={20} />

@@ -76,7 +76,7 @@ export default function MobileMenu({ locale, NavbarLinks }: MobileMenuProps) {
         >
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-neutral-200">
-            <h2 className="text-xl font-bold text-emerald-900">
+            <h2 className="text-xl font-semibold text-emerald-900">
               {t("logo")}
             </h2>
             <button

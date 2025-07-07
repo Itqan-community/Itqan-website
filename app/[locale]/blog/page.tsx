@@ -22,7 +22,7 @@ export default async function Blog({ params }: BlogProps) {
             <FaFileAlt size={16} />
           </div>
           <div className="flex flex-col gap-2 items-start">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-emerald-900 text-start leading-relaxed">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-emerald-900 text-start leading-relaxed">
               {t("headline1")} <br /> {t("headline2")}
             </h1>
           </div>
@@ -48,7 +48,7 @@ export default async function Blog({ params }: BlogProps) {
           </div>
           <div className="flex flex-col gap-2 py-4 sm:py-6 px-4 sm:px-6 items-start">
             <div className="flex items-center justify-between gap-2 mb-2 w-full">
-              <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
+              <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900">
                 {t("opensourceLicense.title")}
               </h4>
               <ForwardArrow silent size={22} locale={params.locale} />
@@ -75,7 +75,7 @@ export default async function Blog({ params }: BlogProps) {
           </div>
           <div className="flex flex-col gap-2 py-4 sm:py-6 px-4 sm:px-6 items-start">
             <div className="flex items-center justify-between gap-2 mb-2 w-full">
-              <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
+              <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900">
                 {t("developmentGuide.title")}
               </h4>
               <ForwardArrow silent size={22} locale={params.locale} />
@@ -103,7 +103,7 @@ export default async function Blog({ params }: BlogProps) {
           </div>
           <div className="flex flex-col gap-2 py-4 sm:py-6 px-4 sm:px-6 items-start">
             <div className="flex items-center justify-between gap-2 mb-2 w-full">
-              <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
+              <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900">
                 {t("evaluationGuide.title")}
               </h4>
               <ForwardArrow silent size={22} locale={params.locale} />

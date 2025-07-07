@@ -21,7 +21,7 @@ export default function Projects({ params }: ProjectsProps) {
             <span className="text-sm font-medium rounded-full">{t("badge")}</span>
             <FaCog size={16} />
           </div>
-          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-emerald-900 leading-relaxed text-center" >
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-emerald-900 leading-relaxed text-center" >
             {t("headline")}
           </h1>
         </div>
@@ -41,10 +41,10 @@ export default function Projects({ params }: ProjectsProps) {
             />
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-4 sm:p-6">
-            <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900" >
+            <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900" >
               {t("quranAppsDirectory.title")}
             </h4>
-            <div className="bg-emerald-800 opacity-60 text-white text-sm font-semibold px-2 py-0.5 rounded-full w-fit">
+            <div className="bg-emerald-800 opacity-60 text-white text-sm  px-2 py-0.5 rounded-full w-fit">
               {t("launched")}
             </div>
           </div>
@@ -65,10 +65,10 @@ export default function Projects({ params }: ProjectsProps) {
             />
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-4 sm:p-6">
-            <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900" >
+            <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900" >
               {t("advancedSearch.title")}
             </h4>
-            <div className="bg-emerald-800 opacity-60 text-white text-sm font-semibold px-2 py-0.5 rounded-full w-fit">
+            <div className="bg-emerald-800 opacity-60 text-white text-sm  px-2 py-0.5 rounded-full w-fit">
               {t("inProgress")}
             </div>
           </div>
@@ -86,10 +86,10 @@ export default function Projects({ params }: ProjectsProps) {
             />
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-4 sm:p-6">
-            <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-emerald-900">
+            <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900">
               {t("quranContentManagementSystem.title")}
             </h4>
-            <div className="bg-emerald-800 opacity-60 text-white text-sm font-semibold px-2 py-0.5 rounded-full w-fit">
+            <div className="bg-emerald-800 opacity-60 text-white text-sm  px-2 py-0.5 rounded-full w-fit">
               {t("inProgress")}
             </div>
           </div>

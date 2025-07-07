@@ -19,7 +19,7 @@ export default function Resources() {
             <span className="text-sm font-medium rounded-full">{t("badge")}</span>
             <FaBoxOpen size={16} />
           </div>
-          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-emerald-900 leading-relaxed mb-4">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-emerald-900 leading-relaxed mb-4">
             {t("headline1")} <br /> {t("headline2")}
           </h1>
         </div>
@@ -30,7 +30,7 @@ export default function Resources() {
         {resourcesList.resourcesList.map((category, categoryIndex) => (
           <div key={categoryIndex}>
             <div className="bg-emerald-800 text-white px-6 py-3 rounded-t-xl">
-              <h2 className="text-lg font-semibold">{t2(category.categoryTitle)}</h2>
+              <h2 className="text-lg ">{t2(category.categoryTitle)}</h2>
             </div>
             <div className="bg-white rounded-b-xl shadow-lg">
               <div className="grid grid-cols-1 divide-y divide-gray-200">

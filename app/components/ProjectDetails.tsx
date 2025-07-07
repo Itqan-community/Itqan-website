@@ -70,24 +70,25 @@ export default async function ProjectDetails({
       {/* Header Section */}
       <div className="relative" id="cover">
         <div className="text-center mt-8 sm:mt-12 px-4 sm:px-6">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 leading-tight">
             {t(title)}
           </h3>
-          <p className="text-base sm:text-lg max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg max-w-4xl mx-auto leading-relaxed mb-6 text-neutral-500">
             {t(subtitle)}
           </p>
         </div>
-        {/* {headerImage && (
-          <div className="w-full h-64 md:h-96 relative">
+        {headerImage && (
+          <div className="max-w-6xl mx-auto w-full h-64 md:h-96 relative mt-8">
             <Image
               src={t(headerImage)}
               alt={t(title)}
               fill
               className="object-cover rounded-lg"
               sizes="100vw"
+              priority
             />
           </div>
-        )} */}
+        )}
       </div>
 
       {/* Content Section */}
