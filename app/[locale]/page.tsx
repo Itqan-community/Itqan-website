@@ -137,7 +137,12 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="text-sm text-neutral-500">{t2("tableHeader.license")}:</span>
-                        <span className="text-sm text-neutral-500 font-medium">{t2("resourceLicense")}</span>
+                        <Link 
+                          href={`/${locale}/blog/opensource-license`}
+                          className="text-sm text-neutral-500 font-medium text-emerald-600 hover:text-emerald-800 transition-colors"
+                        >
+                          {t2("resourceLicense")}
+                        </Link>
                       </div>
                     </div>
                     {t2(item.download) ? (

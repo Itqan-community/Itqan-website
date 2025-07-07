@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { FaBoxOpen, FaDownload, FaExternalLinkAlt } from "react-icons/fa";
@@ -7,6 +8,7 @@ import resourcesList from "./resourcesList.json";
 export default function Resources() {
   const t = useTranslations("resources");
   const t2 = useTranslations("resources2");
+  const locale = useLocale();
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto bg-neutral-100 flex flex-col items-center" id="resources">
@@ -67,7 +69,13 @@ export default function Resources() {
                           <span className="font-medium">{t2("tableHeader.author")}:</span> {t2(item.author)}
                         </div>
                         <div className="text-sm text-gray-500">
-                          <span className="font-medium">{t2("tableHeader.license")}:</span> {t2(item.license)}
+                          <span className="font-medium">{t2("tableHeader.license")}:</span>{" "}
+                          <Link 
+                            href={`/${locale}/blog/opensource-license`}
+                            className="text-emerald-600 hover:text-emerald-800 transition-colors"
+                          >
+                            {t2(item.license)}
+                          </Link>
                         </div>
                       </div>
                     </div>
