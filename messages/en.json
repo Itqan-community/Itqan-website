@@ -349,9 +349,37 @@
         "description": "Quran encyclopedia features trustworthy translations of the meanings and exegeses of the noble Qur'an in many world languages. These renditions have been prepared by reliable translators under the careful supervision of specialized bodies. They are both accessible and shareable on social media. Objectives: 1. Creating a free electronic reference of the exegeses and translations of the meanings of the noble Qur'an, following the methodology of Ahl-us-Sunnah wal-Jamaa`ah; to replace the unreliable references currently available on the Internet. 2. Providing a variety of electronic versions of the, translations, exegeses, and other related information that can be used on smart devices, applications, and systems. 3. Giving free and easy access to authentic translations and exegeses through search engines and global sources of information. 4. Developing the exegeses and translations by involving specialists and concerned individual in the revision, assessment, and correction of the translations of and information related to Qur'anic verses using electronic assessment and correction systems.",
         "author": "The Noble Qur'an Encyclopedia",
         "link": "https://quranenc.com/en/home/api/"
+    },
+    "quranScriptFontTool": {
+      "title": "Quran Script and Font Compatibility Tool",
+      "description": "The Quran Script and Font Rendering Tool is used to check the compatibility of different Quranic scripts with various fonts.",
+      "author": "QUL",
+      "link": "https://qul.tarteel.ai/word_text_proofreadings"
+    },
+    "arabicUnicodeTool": {
+      "title": "Arabic Character Unicode Value Tool",
+      "description": "This tool shows the Unicode value for characters in a provided input. This tool is useful for identifying and verifying the Unicode points associated with each Arabic character, helping to detect missing or unsupported Unicode points in fonts.",
+      "author": "QUL",
+      "link": "https://qul.tarteel.ai/community/chars_info"
+    },
+    "quranComFrontend": {
+      "title": "Quran.com Frontend",
+      "description": "This project is the frontend for Quran.com. It is built on top of Next.js, a popular framework that takes the trouble and setup of setting up an isomorphic react app.",
+      "author": "Quran.com",
+      "link": "https://github.com/quran/quran.com-frontend-next"
+    },
+    "quranComAndroid": {
+      "title": "Quran.com for Android",
+      "description": "A simple (Madani based) Quran app for Android.",
+      "author": "Quran.com",
+      "link": "https://github.com/quran/quran_android"
+    },
+    "quranComIOS": {
+      "title": "Quran.com for iOS",
+      "description": "QuranEngine is the open-source iOS library that powers the Quran.com iOS App. This repository contains approximately 99% of the Quran.com iOS App code, providing you with a robust foundation to build Quran-related applications.",
+      "author": "Quran.com",
+      "link": "https://github.com/quran/quran-ios"
     }
-
-
   },
   "resources2": {
     "visit": "View",
@@ -385,6 +413,12 @@
         "description": "A computer font specifically designed for displaying Quranic text in accordance with the Uthmani script. It was built to comply with the Unicode global standard, which is a universal system that enables data to transfer across different systems and devices without any concern of being displayed in a corrupted manner.",
         "author": "King Fahd Glorious Qur'an Printing Complex",
         "link": "https://fonts.qurancomplex.gov.sa/ten-readings/"
+      },
+      "digitalKhatt": {
+        "title": "DigitalKhatt",
+        "description": "DigitalKhatt is an Arabic typesetter based on a Metafont-designed parametric font that can generate a glyph with a given width during layout and justification while respecting the curvilinear nature of Arabic letters. The typesetter extends the OpenType layout engine to support the varying width and shape of the glyphs.",
+        "author": "DigitalKhatt",
+        "link": "https://digitalkhatt.org/about"
       }
     },
     "tafsir": {

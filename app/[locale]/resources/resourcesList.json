@@ -33,6 +33,14 @@
           "author": "fonts.unicodeUthmanicFonts.author",
           "license": "resourceLicense",
           "download": false
+        },
+        {
+          "title": "fonts.digitalKhatt.title",
+          "description": "fonts.digitalKhatt.description",
+          "link": "fonts.digitalKhatt.link",
+          "author": "fonts.digitalKhatt.author",
+          "license": "resourceLicense",
+          "download": false
         }
       ]
     },
