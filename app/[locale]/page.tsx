@@ -118,40 +118,42 @@ export default async function Home({ params: { locale } }: { params: { locale: s
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {resources.map((item: any) => (
-              <Link 
-                href={t2(item.title)} 
-                target="_blank" 
-                download={t2(item.download)}
-                className="flex flex-col gap-2 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1"
-              >
+            {resources.map((item: any, index: number) => (
+              <div key={index} className="flex flex-col gap-2 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1">
+                <Link 
+                  href={t2(item.link)} 
+                  target="_blank" 
+                  download={item.download}
+                  className="flex flex-col gap-2"
+                >
                   <h4 className="text-lg sm:text-xl font-bold mb-2">{t2(item.title)}</h4>
                   <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                     {t2(item.description)}
                   </p>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-emerald-900 gap-2 mt-auto">
-                    <div className="flex flex-col text-emerald-900 gap-2 mt-auto">
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm text-neutral-500">{t2("tableHeader.author")}:</span>
-                        <span className="text-sm text-neutral-500 font-medium">{t2(item.author)}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm text-neutral-500">{t2("tableHeader.license")}:</span>
-                        <Link 
-                          href={`/${locale}/blog/opensource-license`}
-                          className="text-sm text-neutral-500 font-medium text-emerald-600 hover:text-emerald-800 transition-colors"
-                        >
-                          {t2("resourceLicense")}
-                        </Link>
-                      </div>
+                </Link>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-emerald-900 gap-2 mt-auto">
+                  <div className="flex flex-col text-emerald-900 gap-2 mt-auto">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-neutral-500">{t2("tableHeader.author")}:</span>
+                      <span className="text-sm text-neutral-500 font-medium">{t2(item.author)}</span>
                     </div>
-                    {t2(item.download) ? (
-                      <FaDownload size={16} />
-                    ) : (
-                      <ForwardArrow size={16} silent locale={locale} />
-                    )}
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-neutral-500">{t2("tableHeader.license")}:</span>
+                      <Link 
+                        href={`/${locale}/blog/opensource-license`}
+                        className="text-sm text-neutral-500 font-medium text-emerald-600 hover:text-emerald-800 transition-colors"
+                      >
+                        {t2("resourceLicense")}
+                      </Link>
+                    </div>
                   </div>
-              </Link>
+                  {item.download ? (
+                    <FaDownload size={16} />
+                  ) : (
+                    <ForwardArrow size={16} silent locale={locale} />
+                  )}
+                </div>
+              </div>
             ))}
           </div>
 
