@@ -1,6 +1,18 @@
 import { MetadataRoute } from 'next'
 
-export default function StructuredData() {
+interface StructuredDataProps {
+  type?: string;
+  data?: {
+    title: string;
+    description: string;
+    image?: string;
+    publishDate?: string;
+    url: string;
+    projectLink?: string;
+  };
+}
+
+export default function StructuredData({ type, data }: StructuredDataProps) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://itqan.dev'
   
   const organizationSchema = {
@@ -85,32 +97,6 @@ export default function StructuredData() {
     }
   }
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Itqan Community: Advancing Quran Technology - مجتمع إتقان: تطوير تقنيات القرآن",
-    "description": "Itqan (إتقان) community is dedicated to building the largest open-source ecosystem for Quran technologies, serving Muslims worldwide through innovative digital solutions.",
-    "image": `${baseUrl}/images/hero-image.jpg`,
-    "author": {
-      "@type": "Organization",
-      "name": "Itqan Community - مجتمع إتقان"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Itqan - إتقان",
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${baseUrl}/images/logo.png`
-      }
-    },
-    "datePublished": "2024-01-01",
-    "dateModified": new Date().toISOString().split('T')[0],
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": baseUrl
-    }
-  }
-
   const projectSchema = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
@@ -142,6 +128,88 @@ export default function StructuredData() {
     ]
   }
 
+  // Generate dynamic schemas based on type and data
+  let dynamicSchema;
+  
+  if (type === "article" && data) {
+    dynamicSchema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": data.title,
+      "description": data.description,
+      "image": data.image || `${baseUrl}/images/hero-image.jpg`,
+      "author": {
+        "@type": "Organization",
+        "name": "Itqan Community - مجتمع إتقان"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Itqan - إتقان",
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${baseUrl}/images/logo.png`
+        }
+      },
+      "datePublished": data.publishDate || "2024-01-01",
+      "dateModified": new Date().toISOString().split('T')[0],
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": data.url
+      },
+      "url": data.url
+    };
+  } else if (type === "project" && data) {
+    dynamicSchema = {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": data.title,
+      "description": data.description,
+      "url": data.url,
+      "applicationCategory": "Quran Technology",
+      "operatingSystem": "Web",
+      "author": {
+        "@type": "Organization",
+        "name": "Itqan Community - مجتمع إتقان"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Itqan - إتقان"
+      },
+      "offers": data.projectLink ? {
+        "@type": "Offer",
+        "url": data.projectLink,
+        "availability": "https://schema.org/InStock"
+      } : undefined
+    };
+  } else {
+    // Default article schema
+    dynamicSchema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Itqan Community: Advancing Quran Technology - مجتمع إتقان: تطوير تقنيات القرآن",
+      "description": "Itqan (إتقان) community is dedicated to building the largest open-source ecosystem for Quran technologies, serving Muslims worldwide through innovative digital solutions.",
+      "image": `${baseUrl}/images/hero-image.jpg`,
+      "author": {
+        "@type": "Organization",
+        "name": "Itqan Community - مجتمع إتقان"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Itqan - إتقان",
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${baseUrl}/images/logo.png`
+        }
+      },
+      "datePublished": "2024-01-01",
+      "dateModified": new Date().toISOString().split('T')[0],
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": baseUrl
+      }
+    };
+  }
+
   return (
     <>
       <script
@@ -159,7 +227,7 @@ export default function StructuredData() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(articleSchema)
+          __html: JSON.stringify(dynamicSchema)
         }}
       />
       <script
