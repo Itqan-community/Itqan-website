@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import LinkBtn from "../components/LinkBtn";
 import ForwardArrow from "../components/ForwardArrow";
+import SEOKeywords from "../components/SEOKeywords";
 import resourcesList from "./resources/resourcesList.json";
 import { FaDownload } from "react-icons/fa";
 
@@ -25,6 +26,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
   const resources = resourcesList.resourcesList[0].items;
   return (
     <>
+      <SEOKeywords />
       <section 
         aria-label="Hero"
         className="flex flex-col items-center justify-center min-h-[calc(100vh-73px)] px-4 sm:px-6 lg:px-8 bg-[url('/home-hero.avif')] bg-center bg-cover bg-no-repeat bg-[#88ffbc66]/40 bg-blend-overlay"

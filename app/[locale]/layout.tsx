@@ -14,8 +14,7 @@ import StructuredData from "@/app/components/StructuredData";
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: Locale } }): Promise<Metadata> {
   const messages = await getMessages();
-  const t = messages.home as { title: string; description: string };
-  const meta = seoData[locale as 'en' | 'ar'];
+  const meta = seoData[locale as keyof typeof seoData];
 
   return {
     title: {
@@ -23,10 +22,17 @@ export async function generateMetadata({ params: { locale } }: { params: { local
       template: locale === 'ar' ? '%s | إتقان' : '%s | ITQAN'
     },
     description: meta.description,
-    keywords: ["Quran", "Technology", "Muslim", "Open Source", "Community", "Quran Apps", "Islamic Technology", "Quran Development", "Muslim Developers", "Quranic Applications"],
-    authors: [{ name: "Itqan Community" }],
-    creator: "Itqan Community",
-    publisher: "Itqan Community",
+    keywords: [
+      "itqan", "اتقان", "ITQAN", "إتقان",
+      "Quran Technology", "Islamic Technology", "Quran Development", 
+      "Muslim Developers", "Quran Apps", "Islamic Software",
+      "Open Source", "Community", "Quranic Applications",
+      "Quran Technology Community", "مجتمع تقنيات القرآن",
+      "تطوير تطبيقات القرآن", "تقنيات إسلامية", "مطورون مسلمون"
+    ],
+    authors: [{ name: "Itqan Community - مجتمع إتقان" }],
+    creator: "Itqan Community - مجتمع إتقان",
+    publisher: "Itqan Community - مجتمع إتقان",
     formatDetection: {
       email: false,
       address: false,
@@ -123,8 +129,7 @@ export default async function RootLayout({ children, params }: Props) {
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         
         {/* Structured Data */}
-        <StructuredData type="organization" data={{}} />
-        <StructuredData type="website" data={{}} />
+        <StructuredData />
       </head>
       <body className="bg-gray-100 flex flex-col min-h-screen" suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
