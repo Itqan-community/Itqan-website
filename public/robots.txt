@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://itqan.dev/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Allow all other content
+Allow: /ar/
+Allow: /en/
+Allow: /projects/
+Allow: /resources/
+Allow: /blog/
+Allow: /tools/
+
+# Crawl delay (optional)
+Crawl-delay: 1 

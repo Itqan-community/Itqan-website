@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 import { seoData } from "../data/seoData";
 import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import PageTracking from "@/app/components/PageTracking";
+import StructuredData from "@/app/components/StructuredData";
 // import { headers } from "next/headers";
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: Locale } }): Promise<Metadata> {
@@ -22,7 +23,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
       template: locale === 'ar' ? '%s | إتقان' : '%s | ITQAN'
     },
     description: meta.description,
-    keywords: ["Quran", "Technology", "Muslim", "Open Source", "Community", "Quran Apps"],
+    keywords: ["Quran", "Technology", "Muslim", "Open Source", "Community", "Quran Apps", "Islamic Technology", "Quran Development", "Muslim Developers", "Quranic Applications"],
     authors: [{ name: "Itqan Community" }],
     creator: "Itqan Community",
     publisher: "Itqan Community",
@@ -33,7 +34,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     },
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
     alternates: {
-      canonical: '/',
+      canonical: `/${locale}`,
       languages: {
         'ar': '/ar',
         'en': '/en',
@@ -73,6 +74,11 @@ export async function generateMetadata({ params: { locale } }: { params: { local
         'max-snippet': -1,
       },
     },
+    verification: {
+      google: 'your-google-verification-code',
+      yandex: 'your-yandex-verification-code',
+      yahoo: 'your-yahoo-verification-code',
+    },
   };
 }
 
@@ -91,6 +97,14 @@ export default async function RootLayout({ children, params }: Props) {
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <head>
+        {/* Essential Meta Tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="theme-color" content="#059669" />
+        <meta name="msapplication-TileColor" content="#059669" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content={locale === 'ar' ? 'إتقان' : 'ITQAN'} />
+        
         {/* Google Fonts - Rubik */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -102,8 +116,17 @@ export default async function RootLayout({ children, params }: Props) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        
+        {/* DNS Prefetch for performance */}
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        
+        {/* Structured Data */}
+        <StructuredData type="organization" data={{}} />
+        <StructuredData type="website" data={{}} />
       </head>
-      <body className="bg-gray-100 flex flex-col min-h-screen">
+      <body className="bg-gray-100 flex flex-col min-h-screen" suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <Navbar locale={locale} />
           <main className="flex-1">

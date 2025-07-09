@@ -149,4 +149,8 @@ export function getArticleById(id: string): Article | undefined {
 
 export function getAllArticles(): Article[] {
   return Object.values(articles);
+}
+
+export function getArticleIds(): string[] {
+  return Object.keys(articles);
 } 

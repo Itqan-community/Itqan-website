@@ -190,6 +190,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                     width={120}
                     height={80}
                     className="max-w-full max-h-full object-contain transition-all duration-300"
+                    style={{ width: 'auto', height: 'auto' }}
                   />
                 </div>
               </Link>
