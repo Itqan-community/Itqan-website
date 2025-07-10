@@ -226,7 +226,7 @@ export default async function ArticleDetails({
         },
         {
           subtitle: locale === 'ar' ? "ساهم في بناء استراتيجيتك من خلاله لتحقيق أثرٍ طويل المدى." : "Contribute to building your strategy through it to achieve long-term impact.",
-          text: locale === 'ar' ? "ابني استراتيجية شاملة لتحقيق تأثير طويل المدى في مجال التقنيات القرآنية." : "Build a comprehensive strategy to achieve long-term impact in the Quranic technology field."
+          text: locale === 'ar' ? "قم ببناء استراتيجية شاملة لتحقيق تأثير طويل المدى في مجال التقنيات القرآنية." : "Build a comprehensive strategy to achieve long-term impact in the Quranic technology field."
         }
       ]
     }
@@ -419,14 +419,14 @@ export default async function ArticleDetails({
               <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-rubik">
                 {developmentGuideContent.whatOffers.title}
               </h3>
-              <div className="space-y-4">
+              <ul className="list-disc list-inside space-y-4">
                 {developmentGuideContent.whatOffers.content.map((item, index) => (
-                  <div key={index}>
-                    <h4 className=" text-neutral-900 mb-2 font-rubik">{item.subtitle}</h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 ">{item.text}</p>
-                  </div>
+                  <li key={index} className="text-neutral-500">
+                    <span className="font-rubik text-neutral-900">{item.subtitle}</span>
+                    <p className="text-sm sm:text-base leading-relaxed mt-2 ml-5">{item.text}</p>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             {/* How to Benefit Section */}
@@ -434,14 +434,14 @@ export default async function ArticleDetails({
               <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-rubik">
                 {developmentGuideContent.howToBenefit.title}
               </h3>
-              <div className="space-y-4">
+              <ul className="list-disc list-inside space-y-4">
                 {developmentGuideContent.howToBenefit.content.map((item, index) => (
-                  <div key={index}>
-                    <h4 className=" text-neutral-900 mb-2 font-rubik">{item.subtitle}</h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 ">{item.text}</p>
-                  </div>
+                  <li key={index}>
+                    <span className="font-rubik text-neutral-900">{item.subtitle}</span>
+                    <p className="text-sm sm:text-base leading-relaxed mt-2 ml-5 text-neutral-500">{item.text}</p>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         )}
@@ -454,14 +454,14 @@ export default async function ArticleDetails({
               <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-rubik">
                 {evaluationGuideContent.contents.title}
               </h3>
-              <div className="space-y-4">
+              <ul className="list-disc list-inside space-y-4">
                 {evaluationGuideContent.contents.content.map((item, index) => (
-                  <div key={index}>
-                    <h4 className=" text-neutral-900 mb-2 font-rubik">{item.subtitle}</h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 ">{item.text}</p>
-                  </div>
+                  <li key={index}>
+                    <span className="font-rubik text-neutral-900">{item.subtitle}</span>
+                    <p className="text-sm sm:text-base leading-relaxed mt-2 ml-5 text-neutral-500">{item.text}</p>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             {/* How to Use Section */}
@@ -469,14 +469,14 @@ export default async function ArticleDetails({
               <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-rubik">
                 {evaluationGuideContent.howToUse.title}
               </h3>
-              <div className="space-y-4">
+              <ul className="list-disc list-inside space-y-4">
                 {evaluationGuideContent.howToUse.content.map((item, index) => (
-                  <div key={index}>
-                    <h4 className=" text-neutral-900 mb-2 font-rubik">{item.subtitle}</h4>
-                    <p className="text-sm sm:text-base leading-relaxed text-neutral-500 ">{item.text}</p>
-                  </div>
+                  <li key={index}>
+                    <span className="font-rubik text-neutral-900">{item.subtitle}</span>
+                    <p className="text-sm sm:text-base leading-relaxed mt-2 ml-5 text-neutral-500">{item.text}</p>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         )}

@@ -132,7 +132,7 @@
     },
     "partners": {
       "title": "Our Partners",
-      "description": "We collaborate with leading organizations and platforms in the Quranic technology space to deliver exceptional solutions and resources to our community."
+      "description": "We collaborate with leading organizations and platforms in the Quranic technology space to deliver exceptional solutions and resources to our community"
     },
     "faqs": {
       "title": "Frequently Asked Questions",
@@ -209,8 +209,8 @@
   },
   "blog": {
     "badge": "Quranic Reports",
-    "headline1": "Itqan Library is your #1 assistant for developing outstanding Quranic apps",
-    "headline2": "We provide digital and technical resources for open source use",
+    "headline1": "We provide you with specialized articles and reports on Quranic technologies",
+    "headline2": "to help you develop outstanding and sustainable Quranic applications",
     "backToBlog": "Back to Reports",
     "opensourceLicense": {
       "title": "Publishing Licenses",
@@ -248,7 +248,7 @@
     },
     "developmentGuide": {
       "title": "Your Guide to Develop Quranic Applications",
-      "subtitle": "Analysis results of open source software licenses for the Itqan community",
+      "subtitle": "A comprehensive guide to developing distinguished Quranic applications",
       "description": "Developing Quranic applications is a unique challenge where multiple fields intersect. This guide has been prepared to serve as a mentor and assistant for those interested in establishing distinguished Quranic applications, through practical guidelines that matter and help developers and founders build impactful and sustainable Quranic applications.",
       "author": "Itqan Team",
       "publishDate": "January 10, 2024",
@@ -283,7 +283,7 @@
     },
     "evaluationGuide": {
       "title": "The Guidebook for Evaluating Emerging Quranic Technology Projects",
-      "subtitle": "Analysis results of open source software licenses for the Itqan community",
+      "subtitle": "A comprehensive guide to evaluating emerging Quranic technology projects",
       "description": "In the era of technological innovation, this guide represents a unique tool for anyone seeking to evaluate emerging Quranic tech projects or assess their own project. It offers a clear and robust evaluation methodology that assists both evaluators and project owners in conducting an accurate assessment of the quality of these projects and ensuring the sustainability of their impact.",
       "author": "Itqan Team",
       "publishDate": "January 5, 2024",

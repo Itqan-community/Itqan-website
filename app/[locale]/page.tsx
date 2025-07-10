@@ -171,7 +171,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-emerald-900 mb-4">
               {t("partners.title")}
             </h2>
-            <p className="text-emerald-700 text-base sm:text-lg max-w-3xl">
+            <p className="text-emerald-700 text-base sm:text-lg max-w-3xl whitespace-pre-line">
               {t("partners.description")}
             </p>
           </div>
