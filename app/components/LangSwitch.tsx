@@ -13,7 +13,7 @@ export default function LangSwitch({ locale }: { locale: string}) {
       href={`/${toggleLocale}${pathname.substring(3)}`}
       className="text-emerald-900 hover:text-emerald-800  flex items-center gap-1 sm:gap-2 transition-colors duration-200 p-2 rounded-lg hover:bg-emerald-50"
     >
-      <span className="text-sm sm:text-base">{toggleLocale === "ar" ? "ع" : "E"}</span>
+      <span className={`text-sm sm:text-base ${locale === "en" ? "!relative !top-[-3px]" : ""}`}>{toggleLocale === "ar" ? "ع" : "E"}</span>
       <FaGlobe size={18} className="sm:w-5 sm:h-5" />
     </Link>
   );
