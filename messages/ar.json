@@ -20,13 +20,13 @@
         "shortDescription": "يهدف إلى خدمة عموم المسلمين من خلال توفير منصة لجمع وتصنيف التطبيقات الرقمية المتعلقة بالقرآن الكريم، يسعى المشروع إلى تسهيل الوصول إلى أفضل الحلول التقنية التي تخدم كتاب الله، سواء في القراءة، التسميع، الحفظ، التفسير، التجويد، أو غيرها من المجالات القرآنية.",
         "roles": "التطوير التقني، تصميم الواجهات وتجربة الاستخدام، البحث وجمع البيانات، مختصون شرعيون لضمان سلامة التطبيقات.",
         "link": "https://quran-apps.itqan.dev/ar",
-        "image": "https://framerusercontent.com/images/xf0voPym2iy4wrGfoxO89ATdQjQ.png"
+        "image": "/images/projects/1/poster.png"
       },
       "advancedSearch": {
         "title": "تقنية البحث القرآني",
         "shortDescription": "مشروع يهدف إلى تطوير تقنيات بحث متقدمة في نصوص القرآن الكريم، لتسهيل الوصول إلى الآيات والمعلومات القرآنية بدقة وسرعة عالية.",
         "roles": "التطوير التقني، البحث وجمع البيانات، مختصون شرعيون.",
-        "image": "https://framerusercontent.com/images/jQwDDtFkcNRmtUabxjTAr3LI6k.jpg"
+        "image": "/images/projects/2/poster.png"
       },
       "quranContentManagementSystem": {
         "title": "نظام إدارة المحتوى القرآني",
@@ -57,7 +57,7 @@
         "projectLinkText": "رابط المشروع",
         "discordText": "انضم لمجتمعنا على",
         "discordLink": "https://discord.gg/24CskUbuuB", 
-        "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
+        "discordImage": "/discord-join.png",
         "relatedProjectsTitle": "مشاريع ذات صلة"
       },
       "2": {
@@ -81,7 +81,7 @@
         "projectLinkText": "رابط المشروع",
         "discordText": "انضم لمجتمعنا على",
         "discordLink": "https://discord.gg/24CskUbuuB",
-        "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
+        "discordImage": "/discord-join.png",
         "relatedProjectsTitle": "مشاريع ذات صلة"
       },
       "3": {
@@ -106,7 +106,7 @@
         "projectLinkText": "رابط المشروع",
         "discordText": "انضم لمجتمعنا على",
         "discordLink": "https://discord.gg/24CskUbuuB",
-        "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
+        "discordImage": "/discord-join.png",
         "relatedProjectsTitle": "مشاريع ذات صلة"
       }
     },
@@ -219,8 +219,8 @@
       "author": "فريق إتقان",
       "publishDate": "15 يناير 2024",
       "readTime": "8 دقائق قراءة",
-      "headerImage": "https://framerusercontent.com/images/G8uJNCaWecFfK2tv4OTWHkDNY.png",
-      "image": "https://framerusercontent.com/images/G8uJNCaWecFfK2tv4OTWHkDNY.png",
+      "headerImage": "/images/reports/1.png",
+      "image": "/images/reports/1.png",
       "link": "/ar/blog/opensource-license",
       "sections": {
         "comparison": {
@@ -244,7 +244,7 @@
       "externalLinkText": "اقرأ المقال كاملاً",
       "discordText": "انضم إلى مجتمعنا على",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png"
+      "discordImage": "/discord-join.png"
     },
     "developmentGuide": {
       "title": "دليلك لتأسيس التطبيقات القرآنية",
@@ -278,7 +278,7 @@
       "externalLinkText": "تحميل الدليل",
       "discordText": "انضم إلى مجتمعنا على",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
+      "discordImage": "/discord-join.png",
       "externalLink": "/docs/reports/2.pdf"
     },
     "evaluationGuide": {
@@ -313,7 +313,7 @@
       "externalLinkText": "تحميل الدليل",
       "discordText": "انضم إلى مجتمعنا على",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
+      "discordImage": "/discord-join.png",
       "externalLink": "/docs/reports/3.pdf"
     }
   },

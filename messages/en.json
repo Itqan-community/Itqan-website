@@ -20,13 +20,13 @@
         "shortDescription": "Objective: To serve Muslims worldwide by providing a platform to collect and categorize digital applications related to the Quran. The project aims to facilitate access to the best technological solutions that support the Book of Allah, including reading, recitation, memorization, interpretation, Tajweed, and other Quranic fields.",
         "roles": "Technical Development, UI/UX Design, Research and Data Collection, Sharia Specialists to ensure the accuracy of the applications.",
         "link": "https://quran-apps.itqan.dev/en",
-        "image": "https://framerusercontent.com/images/xf0voPym2iy4wrGfoxO89ATdQjQ.png"
+        "image": "/images/projects/1/poster.png"
       },
       "advancedSearch": {
         "title": "Advanced Quran Search Technology",
         "shortDescription": "A project aimed at developing advanced search technologies in the Quranic text, to facilitate access to verses and Quranic information with high accuracy and speed.",
         "roles": "Technical Development, Research and Data Collection, Sharia Specialists.",
-        "image": "https://framerusercontent.com/images/jQwDDtFkcNRmtUabxjTAr3LI6k.jpg"
+        "image": "/images/projects/2/poster.png"
       },
       "quranContentManagementSystem": {
         "title": "Quran Content Management System",
@@ -57,7 +57,7 @@
         "projectLinkText": "Project Link",
         "discordText": "Join our community on",
         "discordLink": "https://discord.gg/24CskUbuuB",
-        "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
+        "discordImage": "/images/discord-join.png",
         "relatedProjectsTitle": "Related Projects"
       },
       "2": {
@@ -81,7 +81,7 @@
         "projectLinkText": "Project Link",
         "discordText": "Join our community on",
         "discordLink": "https://discord.gg/24CskUbuuB",
-        "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
+        "discordImage": "/images/discord-join.png",
         "relatedProjectsTitle": "Related Projects"
       },
       "3": {
@@ -106,7 +106,7 @@
         "projectLinkText": "Project Link",
         "discordText": "Join our community on",
         "discordLink": "https://discord.gg/24CskUbuuB",
-        "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
+        "discordImage": "/images/discord-join.png",
         "relatedProjectsTitle": "Related Projects"
       }
     },
@@ -219,8 +219,8 @@
       "author": "Itqan Team",
       "publishDate": "January 15, 2024",
       "readTime": "8 min read",
-      "headerImage": "https://framerusercontent.com/images/G8uJNCaWecFfK2tv4OTWHkDNY.png",
-      "image": "https://framerusercontent.com/images/G8uJNCaWecFfK2tv4OTWHkDNY.png",
+      "headerImage": "/images/reports/1.png",
+      "image": "/images/reports/1.png",
       "link": "/en/blog/opensource-license",
       "sections": {
         "comparison": {
@@ -244,7 +244,7 @@
       "externalLinkText": "Read Full Article",
       "discordText": "Join our community on",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png"
+      "discordImage": "/images/discord-join.png"
     },
     "developmentGuide": {
       "title": "Your Guide to Develop Quranic Applications",
@@ -278,7 +278,7 @@
       "externalLinkText": "Download Guide",
       "discordText": "Join our community on",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
+      "discordImage": "/images/discord-join.png",
       "externalLink": "/docs/reports/2.pdf"
     },
     "evaluationGuide": {
@@ -313,7 +313,7 @@
       "externalLinkText": "Download Guide",
       "discordText": "Join our community on",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "https://framerusercontent.com/images/Ri5w6GeCX6EnuInjlzF0MBTw.png",
+      "discordImage": "/images/discord-join.png",
       "externalLink": "/docs/reports/3.pdf"
     }
   },

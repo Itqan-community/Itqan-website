@@ -30,6 +30,12 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       <section 
         aria-label="Hero"
         className="flex flex-col items-center justify-center min-h-[calc(100vh-73px)] px-4 sm:px-6 lg:px-8 bg-[url('/home-hero.avif')] bg-center bg-cover bg-no-repeat bg-[#88ffbc66]/40 bg-blend-overlay"
+        style={{
+          backgroundImage: 'url(/home-hero.avif)',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
       >
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-semibold text-emerald-600 leading-tight">
@@ -65,6 +71,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                   fill
                   className="object-cover rounded-xl border border-neutral-300"
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 bg-neutral-100 gap-2">
@@ -89,6 +96,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                   fill
                   className="object-cover rounded-xl border border-neutral-300"
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 bg-neutral-100 gap-2">
@@ -193,6 +201,8 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                     height={80}
                     className="max-w-full max-h-full object-contain transition-all duration-300"
                     style={{ width: 'auto', height: 'auto' }}
+                    loading="lazy"
+                    sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
                   />
                 </div>
               </Link>

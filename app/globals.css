@@ -76,11 +76,6 @@ h1, h2 {
   font-family: var(--font-doran);
 }
 
-/* Smooth transitions for better UX */
-* {
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-}
-
 /* Responsive utilities */
 @layer utilities {
   .text-balance {
@@ -110,7 +105,7 @@ h1, h2 {
     outline: none !important;
   }
   
-  /* Button and link hover effects */
+  /* Button and link hover effects - only apply to specific elements */
   .hover-lift {
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   }
@@ -120,7 +115,7 @@ h1, h2 {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
   
-  /* Card hover effects */
+  /* Card hover effects - only apply to specific elements */
   .card-hover {
     transition: all 0.3s ease-in-out;
   }

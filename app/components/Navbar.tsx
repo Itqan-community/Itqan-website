@@ -42,6 +42,8 @@ export default async function Navbar({ locale }: { locale: string }) {
             width={64}
             height={64}
             className="h-10 md:h-14 w-auto"
+            priority
+            sizes="(max-width: 768px) 40px, 56px"
           />
         </Link>
         <div className="hidden md:flex gap-6 lg:gap-8 items-center">

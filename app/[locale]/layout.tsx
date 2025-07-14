@@ -10,6 +10,7 @@ import { seoData } from "../data/seoData";
 import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import PageTracking from "@/app/components/PageTracking";
 import StructuredData from "@/app/components/StructuredData";
+import PerformanceMonitor from "@/app/components/PerformanceMonitor";
 // import { headers } from "next/headers";
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: Locale } }): Promise<Metadata> {
@@ -111,7 +112,12 @@ export default async function RootLayout({ children, params }: Props) {
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content={locale === 'ar' ? 'إتقان' : 'ITQAN'} />
         
-        {/* Google Fonts - Rubik */}
+        {/* Preload critical resources */}
+        <link rel="preload" href="/fonts/doran-bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/doran-extrabold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" />
+        
+        {/* Google Fonts - Optimized loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
@@ -128,6 +134,11 @@ export default async function RootLayout({ children, params }: Props) {
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         
+        {/* Resource hints for external domains */}
+        <link rel="preconnect" href="https://discord.gg" />
+        <link rel="preconnect" href="https://github.com" />
+        <link rel="preconnect" href="https://x.com" />
+        
         {/* Structured Data */}
         <StructuredData />
       </head>
@@ -140,6 +151,7 @@ export default async function RootLayout({ children, params }: Props) {
           <Footer locale={locale} />
           <GoogleAnalytics />
           <PageTracking />
+          <PerformanceMonitor />
         </NextIntlClientProvider>
       </body>
     </html>

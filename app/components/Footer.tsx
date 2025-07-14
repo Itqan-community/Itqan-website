@@ -26,6 +26,8 @@ export default async function Footer({ locale, }: { locale: string }) {
           fill
           className="object-cover"
           style={{ objectPosition: '36.7% 79%' }}
+          loading="lazy"
+          sizes="100vw"
         />
       </div>
 
@@ -96,6 +98,8 @@ export default async function Footer({ locale, }: { locale: string }) {
               className="object-cover grayscale invert mx-auto sm:mx-0"
               width={200}
               height={40}
+              loading="lazy"
+              sizes="(max-width: 640px) 200px, 200px"
             />
           </div>
 
@@ -106,6 +110,8 @@ export default async function Footer({ locale, }: { locale: string }) {
               width={60}
               height={60}
               className="brightness-0 contrast-200 grayscale invert saturate-200 sm:w-20 sm:h-20"
+              loading="lazy"
+              sizes="(max-width: 640px) 60px, 80px"
             />
           </Link>
         </div>
