@@ -7,10 +7,13 @@ const nextConfig = {
   output: 'standalone',
   images: {
     domains: ['localhost', 'itqan.dev'],
-    unoptimized: false, // Enable image optimization
+    unoptimized: true, // Temporarily disable image optimization to fix production issues
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   // Enable static exports for Netlify
   trailingSlash: true,

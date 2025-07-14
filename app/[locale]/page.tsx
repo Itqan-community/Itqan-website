@@ -4,6 +4,7 @@ import Image from "next/image";
 import LinkBtn from "../components/LinkBtn";
 import ForwardArrow from "../components/ForwardArrow";
 import SEOKeywords from "../components/SEOKeywords";
+import SafeImage from "../components/SafeImage";
 import resourcesList from "./resources/resourcesList.json";
 import { FaDownload } from "react-icons/fa";
 
@@ -65,7 +66,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
               aria-label={`${t("projects.1.title")} - ${t("projects.launched")}`}
             >
               <div className="relative aspect-video">
-                <Image
+                <SafeImage
                   src={t("projects.1.headerImage")}
                   alt={`${t("projects.1.title")} - ${t("projects.1.subtitle")}`}
                   fill
@@ -90,7 +91,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
               aria-label={`${t("projects.3.title")} - ${t("projects.inProgress")}`}
             >
               <div className="relative aspect-video">
-                <Image
+                <SafeImage
                   src={t("projects.3.headerImage")}
                   alt={`${t("projects.3.title")} - ${t("projects.3.subtitle")}`}
                   fill
@@ -194,7 +195,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                 aria-label={`Visit ${partner.name}`}
               >
                 <div className="w-32 sm:w-40 lg:w-48 h-20 sm:h-24 lg:h-28 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex items-center justify-center p-4">
-                  <Image
+                  <SafeImage
                     src={partner.image}
                     alt={partner.name}
                     width={120}
