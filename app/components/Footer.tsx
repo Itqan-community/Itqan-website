@@ -21,7 +21,7 @@ export default async function Footer({ locale, }: { locale: string }) {
         }}
       >
         <Image
-          src="/home-footer-bg.png"
+          src="/images/home/footer-bg.avif"
           alt=""
           fill
           className="object-cover"
@@ -93,7 +93,7 @@ export default async function Footer({ locale, }: { locale: string }) {
               {t("copyright")}
             </p>
             <Image
-              src="/home-footer-ayah.svg"
+              src="/images/home/footer-ayah.avif"
               alt=""
               className="object-cover grayscale invert mx-auto sm:mx-0"
               width={200}

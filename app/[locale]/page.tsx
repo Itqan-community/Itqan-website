@@ -14,11 +14,11 @@ const partners = [
   { name: "GTAF", image: "/images/partners/gtaf.svg", href: "https://gtaf.org/" },
   { name: "MP3 Quran", image: "/images/partners/mp3quran.png", href: "https://mp3quran.net" },
   { name: "PakData", image: "/images/partners/pakdata.png", href: "https://pakdata.com" },
-  { name: "Quran", image: "/images/partners/quran.png", href: "https://quran.com" },
-  { name: "QuranPedia", image: "/images/partners/quranpedia.png", href: "https://quranpedia.net/" },
-  { name: "Tafsir", image: "/images/partners/tafsir.png", href: "https://tafsir.net" },
+  { name: "Quran", image: "/images/partners/quran.avif", href: "https://quran.com" },
+  { name: "QuranPedia", image: "/images/partners/quranpedia.avif", href: "https://quranpedia.net/" },
+  { name: "Tafsir", image: "/images/partners/tafsir.avif", href: "https://tafsir.net" },
   { name: "Tarteel", image: "/images/partners/tarteel.png", href: "https://www.tarteel.ai" },
-  { name: "Zad Group", image: "/images/partners/zadgroup.png", href: "https://zadgroup.net/" },
+  { name: "Zad Group", image: "/images/partners/zadgroup.avif", href: "https://zadgroup.net/" },
 ];
 
 export default async function Home({ params: { locale } }: { params: { locale: string } }) {
@@ -30,9 +30,8 @@ export default async function Home({ params: { locale } }: { params: { locale: s
       <SEOKeywords />
       <section 
         aria-label="Hero"
-        className="flex flex-col items-center justify-center min-h-[calc(100vh-73px)] px-4 sm:px-6 lg:px-8 bg-[url('/home-hero.avif')] bg-center bg-cover bg-no-repeat bg-[#88ffbc66]/40 bg-blend-overlay"
+        className="flex flex-col items-center justify-center min-h-[calc(100vh-73px)] px-4 sm:px-6 lg:px-8 bg-[url('/images/home/hero-bg.avif')] bg-center bg-cover bg-no-repeat"
         style={{
-          backgroundImage: 'url(/home-hero.avif)',
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
@@ -152,7 +151,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
                       <span className="text-sm text-neutral-500">{t2("tableHeader.license")}:</span>
                       <Link 
                         href={`/${locale}/blog/opensource-license`}
-                        className="text-sm text-neutral-500 font-medium text-emerald-600 hover:text-emerald-800 transition-colors"
+                        className="text-sm font-medium text-emerald-600 hover:text-emerald-800 transition-colors"
                       >
                         {t2("resourceLicense")}
                       </Link>

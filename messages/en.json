@@ -20,25 +20,25 @@
         "shortDescription": "Objective: To serve Muslims worldwide by providing a platform to collect and categorize digital applications related to the Quran. The project aims to facilitate access to the best technological solutions that support the Book of Allah, including reading, recitation, memorization, interpretation, Tajweed, and other Quranic fields.",
         "roles": "Technical Development, UI/UX Design, Research and Data Collection, Sharia Specialists to ensure the accuracy of the applications.",
         "link": "https://quran-apps.itqan.dev/en",
-        "image": "/images/projects/1/poster.png"
+        "image": "/images/projects/1/poster.avif"
       },
       "advancedSearch": {
         "title": "Advanced Quran Search Technology",
         "shortDescription": "A project aimed at developing advanced search technologies in the Quranic text, to facilitate access to verses and Quranic information with high accuracy and speed.",
         "roles": "Technical Development, Research and Data Collection, Sharia Specialists.",
-        "image": "/images/projects/2/poster.png"
+        "image": "/images/projects/2/poster.avif"
       },
       "quranContentManagementSystem": {
         "title": "Quran Content Management System",
         "shortDescription": "A project aimed at developing a content management system for the Quranic text, to facilitate access to verses and Quranic information with high accuracy and speed.",
         "roles": "Technical Development, Research and Data Collection, Sharia Specialists.",
-        "image": "/images/projects/3/poster.png"
+        "image": "/images/projects/3/poster.avif"
       },
       "1": {
         "title": "Quran Apps Directory",
         "subtitle": "Objective: To serve Muslims worldwide by providing a platform to collect and categorize digital applications related to the Quran. The project aims to facilitate access to the best technological solutions that support the Book of Allah, including reading, recitation, memorization, interpretation, Tajweed, and other Quranic fields.",
-        "headerImage": "/images/projects/1/poster.png",
-        "contentImage": "/images/projects/1/preview-en.jpg",
+        "headerImage": "/images/projects/1/poster.avif",
+        "contentImage": "/images/projects/1/preview-en.avif",
         "description": "Objective: To serve Muslims worldwide by providing a platform to collect and categorize digital applications related to the Quran. The project aims to facilitate access to the best technological solutions that support the Book of Allah, including reading, recitation, memorization, interpretation, Tajweed, and other Quranic fields.",
         "importanceTitle": "Project Importance:",
         "importanceItems": {
@@ -57,14 +57,14 @@
         "projectLinkText": "Project Link",
         "discordText": "Join our community on",
         "discordLink": "https://discord.gg/24CskUbuuB",
-        "discordImage": "/images/discord-join.png",
+        "discordImage": "/community.avif",
         "relatedProjectsTitle": "Related Projects"
       },
       "2": {
         "title": "Quranic Advanced Search Technology",
         "subtitle": "The project aims to develop an innovative and advanced search technology that enables users to access Qur'anic texts quickly and accurately. By leveraging artificial intelligence and advanced search algorithms, it enhances the search experience and supports researchers and developers in analyzing Qur'anic texts.",
-        "headerImage": "/images/projects/2/poster.png",
-        "contentImage": "/images/projects/2/preview-ar.png", 
+        "headerImage": "/images/projects/2/poster.avif",
+        "contentImage": "/images/projects/2/preview-ar.avif", 
         "description": "The project aims to create and develop open-source tools that enable word-matching search and semantic search, allowing users to find content based on the intended meaning by understanding context, word roots, meanings, and similar verses. This initiative contributes to enhancing the understanding of the Qur'an, supporting researchers, and assisting memorizers, ultimately making Qur'anic applications more effective and interactive.",
         "importanceTitle": "Project Importance:",
         "importanceItems": {
@@ -81,14 +81,14 @@
         "projectLinkText": "Project Link",
         "discordText": "Join our community on",
         "discordLink": "https://discord.gg/24CskUbuuB",
-        "discordImage": "/images/discord-join.png",
+        "discordImage": "/community.avif",
         "relatedProjectsTitle": "Related Projects"
       },
       "3": {
         "title": "Quran Content Management System",
         "subtitle": "The project aims to build an integrated system for managing Quranic content that enables users to access Quranic resources easily and effectively. It provides a centralized platform for Quranic resources such as Tafsir, Quranic texts, and software libraries, with built-in mechanisms for managing updates and intellectual property rights.",
-        "headerImage": "/images/projects/3/poster.png", 
-        "contentImage": "/images/projects/3/preview-en.jpg",
+        "headerImage": "/images/projects/3/poster.avif", 
+        "contentImage": "/images/projects/3/preview-en.avif",
         "description": "The project aims to build an integrated system for managing Quranic content that enables users to access Quranic resources easily and effectively. It provides a centralized platform for Quranic resources such as Tafsir, Quranic texts, and software libraries, with built-in mechanisms for managing updates and intellectual property rights.",
         "importanceTitle": "Project Importance:",
         "importanceItems": {
@@ -106,7 +106,7 @@
         "projectLinkText": "Project Link",
         "discordText": "Join our community on",
         "discordLink": "https://discord.gg/24CskUbuuB",
-        "discordImage": "/images/discord-join.png",
+        "discordImage": "/community.avif",
         "relatedProjectsTitle": "Related Projects"
       }
     },
@@ -244,7 +244,7 @@
       "externalLinkText": "Read Full Article",
       "discordText": "Join our community on",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "/images/discord-join.png"
+      "discordImage": "/community.avif"
     },
     "developmentGuide": {
       "title": "Your Guide to Develop Quranic Applications",
@@ -253,8 +253,8 @@
       "author": "Itqan Team",
       "publishDate": "January 10, 2024",
       "readTime": "10 min read",
-      "headerImage": "/images/reports/2.png",
-      "image": "/images/reports/2.png",
+      "headerImage": "/images/reports/2.avif",
+      "image": "/images/reports/2.avif",
       "link": "/docs/reports/2.pdf",
       "sections": {
         "whatOffers": {
@@ -278,7 +278,7 @@
       "externalLinkText": "Download Guide",
       "discordText": "Join our community on",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "/images/discord-join.png",
+      "discordImage": "/community.avif",
       "externalLink": "/docs/reports/2.pdf"
     },
     "evaluationGuide": {
@@ -288,8 +288,8 @@
       "author": "Itqan Team",
       "publishDate": "January 5, 2024",
       "readTime": "15 min read",
-      "headerImage": "/images/reports/3.png",
-      "image": "/images/reports/3.png",
+      "headerImage": "/images/reports/3.avif",
+      "image": "/images/reports/3.avif",
       "link": "/docs/reports/3.pdf",
       "sections": {
         "contents": {
@@ -313,7 +313,7 @@
       "externalLinkText": "Download Guide",
       "discordText": "Join our community on",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "/images/discord-join.png",
+      "discordImage": "/community.avif",
       "externalLink": "/docs/reports/3.pdf"
     }
   },
