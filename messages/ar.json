@@ -57,7 +57,7 @@
         "projectLinkText": "رابط المشروع",
         "discordText": "انضم لمجتمعنا على",
         "discordLink": "https://discord.gg/24CskUbuuB", 
-        "discordImage": "/community.avif",
+        "discordImage": "/images/community.avif",
         "relatedProjectsTitle": "مشاريع ذات صلة"
       },
       "2": {
@@ -81,7 +81,7 @@
         "projectLinkText": "رابط المشروع",
         "discordText": "انضم لمجتمعنا على",
         "discordLink": "https://discord.gg/24CskUbuuB",
-        "discordImage": "/community.avif",
+        "discordImage": "/images/community.avif",
         "relatedProjectsTitle": "مشاريع ذات صلة"
       },
       "3": {
@@ -106,9 +106,10 @@
         "projectLinkText": "رابط المشروع",
         "discordText": "انضم لمجتمعنا على",
         "discordLink": "https://discord.gg/24CskUbuuB",
-        "discordImage": "/community.avif",
+        "discordImage": "/images/community.avif",
         "relatedProjectsTitle": "مشاريع ذات صلة"
-      }
+      },
+      "discord": "ديسكورد"
     },
     "library": {
       "title": "مكـتبة القُــرْآنِ الكَــرِيمِ التقنية",
@@ -244,7 +245,7 @@
       "externalLinkText": "اقرأ المقال كاملاً",
       "discordText": "انضم إلى مجتمعنا على",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "/community.avif"
+      "discordImage": "/images/community.avif"
     },
     "developmentGuide": {
       "title": "دليلك لتأسيس التطبيقات القرآنية",
@@ -278,7 +279,7 @@
       "externalLinkText": "تحميل الدليل",
       "discordText": "انضم إلى مجتمعنا على",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "/community.avif",
+      "discordImage": "/images/community.avif",
       "externalLink": "/docs/reports/2.pdf"
     },
     "evaluationGuide": {
@@ -313,7 +314,7 @@
       "externalLinkText": "تحميل الدليل",
       "discordText": "انضم إلى مجتمعنا على",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "/community.avif",
+      "discordImage": "/images/community.avif",
       "externalLink": "/docs/reports/3.pdf"
     }
   },

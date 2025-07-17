@@ -1,9 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import LinkBtn from "./LinkBtn";
 import SafeImage from "./SafeImage";
 import { getTranslations } from "next-intl/server";
-import { FaArrowLeft } from "react-icons/fa";
 import ForwardArrow from "./ForwardArrow";
 
 interface ProjectDetailsProps {
@@ -146,7 +144,7 @@ export default async function ProjectDetails({
                 <div className="pt-4">
                   <LinkBtn 
                     title={t(projectLinkText)} 
-                    href={projectLink} 
+                    href={t(projectLink)} 
                     target="_blank" 
                     variant="outline" 
                     locale={locale} 
@@ -159,28 +157,8 @@ export default async function ProjectDetails({
       </section>
 
       {/* Discord Section */}
-      <section className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-100">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex flex-col items-center gap-4 sm:gap-6">
-            <h3 className="text-lg sm:text-xl font-semibold text-emerald-900">
-              {t(discordText)}
-            </h3>
-            <Link 
-              href={discordLink}
-              target="_blank"
-              className="group flex items-center gap-3 hover:opacity-90 transition-opacity"
-            >
-              <SafeImage
-                src={t(discordImage)}
-                alt="Discord"
-                width={200}
-                height={60}
-                className="object-contain"
-                sizes="200px"
-              />
-            </Link>
-          </div>
-        </div>
+      <section className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-100 flex justify-center">
+        <LinkBtn title={t(discordText) + ' ' + t('discord')} href={`https://discord.gg/24CskUbuuB`} target="_blank" variant="outline" locale={locale} />
       </section>
     </div>
   );

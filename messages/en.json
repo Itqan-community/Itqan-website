@@ -57,7 +57,7 @@
         "projectLinkText": "Project Link",
         "discordText": "Join our community on",
         "discordLink": "https://discord.gg/24CskUbuuB",
-        "discordImage": "/community.avif",
+        "discordImage": "/images/community.avif",
         "relatedProjectsTitle": "Related Projects"
       },
       "2": {
@@ -81,7 +81,7 @@
         "projectLinkText": "Project Link",
         "discordText": "Join our community on",
         "discordLink": "https://discord.gg/24CskUbuuB",
-        "discordImage": "/community.avif",
+        "discordImage": "/images/community.avif",
         "relatedProjectsTitle": "Related Projects"
       },
       "3": {
@@ -106,9 +106,10 @@
         "projectLinkText": "Project Link",
         "discordText": "Join our community on",
         "discordLink": "https://discord.gg/24CskUbuuB",
-        "discordImage": "/community.avif",
+        "discordImage": "/images/community.avif",
         "relatedProjectsTitle": "Related Projects"
-      }
+      },
+      "discord": "Discord"
     },
     "library": {
       "title": "Technical Library of the Noble Quran",
@@ -244,7 +245,7 @@
       "externalLinkText": "Read Full Article",
       "discordText": "Join our community on",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "/community.avif"
+      "discordImage": "/images/community.avif"
     },
     "developmentGuide": {
       "title": "Your Guide to Develop Quranic Applications",
@@ -278,7 +279,7 @@
       "externalLinkText": "Download Guide",
       "discordText": "Join our community on",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "/community.avif",
+      "discordImage": "/images/community.avif",
       "externalLink": "/docs/reports/2.pdf"
     },
     "evaluationGuide": {
@@ -313,7 +314,7 @@
       "externalLinkText": "Download Guide",
       "discordText": "Join our community on",
       "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "/community.avif",
+      "discordImage": "/images/community.avif",
       "externalLink": "/docs/reports/3.pdf"
     }
   },
