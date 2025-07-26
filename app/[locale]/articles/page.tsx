@@ -8,8 +8,10 @@ import ForwardArrow from "../../components/ForwardArrow";
 import { getTranslations } from "next-intl/server";
 
 const ARTICLES_QUERY = defineQuery(`*[_type == "article"]{
-  title,
+  name,
   slug,
+  title,
+  subtitle,
   description,
   image{
     _type,
@@ -47,7 +49,7 @@ export default async function ArticlesPage({
           </div>
           <div className="flex flex-col gap-2 items-start">
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-emerald-900 text-start leading-relaxed">
-            {t("headline1")} <br /> {t("headline2")}
+              {t("headline1")} <br /> {t("headline2")}
             </h1>
           </div>
         </div>
@@ -60,6 +62,10 @@ export default async function ArticlesPage({
           const title = typeof article?.title === 'object' 
             ? article.title[locale] || article.title.ar || article.title.en || ''
             : article?.title || '';
+          
+          const subtitle = typeof article?.subtitle === 'object'
+            ? article.subtitle[locale] || article.subtitle.ar || article.subtitle.en || ''
+            : article?.subtitle || '';
           
           const description = typeof article?.description === 'object'
             ? article.description[locale] || article.description.ar || article.description.en || ''
