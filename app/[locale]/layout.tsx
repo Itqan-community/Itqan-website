@@ -10,6 +10,7 @@ import { seoData } from "../data/seoData";
 import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import PageTracking from "@/app/components/PageTracking";
 import StructuredData from "@/app/components/StructuredData";
+import { SanityLive } from "../sanity/live";
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: Locale } }): Promise<Metadata> {
   const messages = await getMessages();
@@ -147,6 +148,7 @@ export default async function RootLayout({ children, params }: Props) {
             {children}
           </main>
           <Footer locale={locale} />
+          <SanityLive />
           <GoogleAnalytics />
           <PageTracking />
         </NextIntlClientProvider>
