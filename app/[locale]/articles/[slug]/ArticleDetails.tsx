@@ -4,6 +4,7 @@ import Link from "next/link";
 import { urlFor } from "@/app/sanity/image";
 import { Locale } from "@/i18n/routing";
 import ForwardArrow from "../../../components/ForwardArrow";
+import { FaDownload } from "react-icons/fa";
 
 interface ArticleDetailsProps {
   article: {
@@ -24,6 +25,12 @@ interface ArticleDetailsProps {
         }>;
         columns?: Array<{ [key: string]: string }>;
         rows?: Array<{ [key: string]: string }>;
+        file?: {
+          asset: {
+            _ref: string;
+            url: string;
+          };
+        };
       }>;
     }>;
   };
@@ -38,6 +45,12 @@ export default async function ArticleDetails({ article, locale }: ArticleDetails
     if (!content) return '';
     if (typeof content === 'string') return content;
     return content[locale] || content.ar || content.en || '';
+  };
+
+  // Helper function to get file URL
+  const getFileUrl = (file: any) => {
+    if (!file || !file.asset) return null;
+    return file.asset.url || null;
   };
 
   // Render content blocks
@@ -121,6 +134,27 @@ export default async function ArticleDetails({ article, locale }: ArticleDetails
                   </div>
                 </div>
               </div>
+            )}
+          </div>
+        );
+
+      case 'downloadable':
+        const fileUrl = getFileUrl(block.file);
+        return (
+          <div key={getLocalizedContent(block.title)} className="mb-8">
+            {fileUrl && (
+              <Link
+                href={fileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="bg-neutral-50 rounded-xl p-6 border border-neutral-200 cursor-pointer flex items-center justify-between mt-8"
+              >
+                <p className="text-sm sm:text-base leading-relaxed">
+                  {getLocalizedContent(block.title)}
+                </p>
+                <FaDownload size={20} />
+              </Link>
             )}
           </div>
         );

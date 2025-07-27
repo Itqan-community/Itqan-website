@@ -27,7 +27,12 @@ const ARTICLE_QUERY = defineQuery(`*[_type == "article" && slug.current == $slug
         description
       },
       columns[],
-      rows[]
+      rows[]{
+        cells[]
+      },
+      file{
+        asset->
+      }
     }
   }
 }`);
