@@ -20,8 +20,8 @@ const NavbarLinks = [
     text: "resources",
   },
   {
-    href: "/blog",
-    text: "reports",
+    href: "/articles",
+    text: "articles",
   },
   {
     href: "/tools",

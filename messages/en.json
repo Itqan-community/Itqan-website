@@ -194,7 +194,7 @@
     "home": "Home",
     "projects": "Projects", 
     "resources": "Resources",
-    "reports": "Reports",
+    "articles": "Articles",
     "discord": "Join Itqan Community",
     "logo": "Itqan",
     "tools": "Tools"
@@ -208,115 +208,11 @@
     "trackButtonClick": "Track Button Click",
     "trackFormSubmit": "Track Form Submit"
   },
-  "blog": {
+  "articles": {
     "badge": "Quranic Reports",
     "headline1": "We provide you with specialized articles and reports on Quranic technologies",
     "headline2": "to help you develop outstanding and sustainable Quranic applications",
-    "backToBlog": "Back to Reports",
-    "opensourceLicense": {
-      "title": "Publishing Licenses",
-      "subtitle": "Analysis results of open source software licenses for the Itqan community",
-      "description": "A comprehensive guide to publishing licenses and their crucial role in the development of Quranic technologies, including detailed analysis of different license types and their implications for the community.",
-      "author": "Itqan Team",
-      "publishDate": "January 15, 2024",
-      "readTime": "8 min read",
-      "headerImage": "/images/reports/1.png",
-      "image": "/images/reports/1.png",
-      "link": "/en/blog/opensource-license",
-      "sections": {
-        "comparison": {
-          "title": "License Comparison",
-          "content": "A detailed comparison of available licenses and their specific uses for different types of projects."
-        },
-        "challenges": {
-          "title": "Challenges of Current Licenses",
-          "content": "Current licenses face various challenges in addressing modern concerns like AI usage and commercial exploitation."
-        }
-      },
-      "keyPointsTitle": "Key Points",
-      "keyPoints": {
-        "1": "Copyleft licenses require modifications to remain open source",
-        "2": "Permissive licenses allow broader use including commercial applications",
-        "3": "Current licenses lack comprehensive AI/ML usage restrictions",
-        "4": "MIT License is recommended for maximizing distribution and collaboration"
-      },
-      "conclusionTitle": "Recommendation for the Itqan Community",
-      "conclusion": "Based on our findings, we recommend adopting the MIT License for any content or software published within the community. The MIT License is a flexible option that promotes distribution and collaboration, while imposing fewer restrictions regarding commercial use and AI.",
-      "externalLinkText": "Read Full Article",
-      "discordText": "Join our community on",
-      "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "/images/community.avif"
-    },
-    "developmentGuide": {
-      "title": "Your Guide to Develop Quranic Applications",
-      "subtitle": "A comprehensive guide to developing distinguished Quranic applications",
-      "description": "Developing Quranic applications is a unique challenge where multiple fields intersect. This guide has been prepared to serve as a mentor and assistant for those interested in establishing distinguished Quranic applications, through practical guidelines that matter and help developers and founders build impactful and sustainable Quranic applications.",
-      "author": "Itqan Team",
-      "publishDate": "January 10, 2024",
-      "readTime": "10 min read",
-      "headerImage": "/images/reports/2.avif",
-      "image": "/images/reports/2.avif",
-      "link": "/docs/reports/2.pdf",
-      "sections": {
-        "whatOffers": {
-          "title": "What does the guide offer?",
-          "content": "The guide covers instructions to help you with building and evaluating your Quranic app idea, developing your own work model and standards, and more."
-        },
-        "howToBenefit": {
-          "title": "How can I benefit from the guide?",
-          "content": "Use the guide as a mentor to transform your ideas into actionable plans and achieve long-term impact."
-        }
-      },
-      "keyPointsTitle": "Key Takeaways",
-      "keyPoints": {
-        "1": "Building and evaluating your Quranic app idea",
-        "2": "Developing your own work model and standards",
-        "3": "Maturing your vision regarding implementation and growth",
-        "4": "Building the founding team for your project"
-      },
-      "conclusionTitle": "Conclusion",
-      "conclusion": "Download the guide now and turn your ideas into an outstanding reality.",
-      "externalLinkText": "Download Guide",
-      "discordText": "Join our community on",
-      "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "/images/community.avif",
-      "externalLink": "/docs/reports/2.pdf"
-    },
-    "evaluationGuide": {
-      "title": "The Guidebook for Evaluating Emerging Quranic Technology Projects",
-      "subtitle": "A comprehensive guide to evaluating emerging Quranic technology projects",
-      "description": "In the era of technological innovation, this guide represents a unique tool for anyone seeking to evaluate emerging Quranic tech projects or assess their own project. It offers a clear and robust evaluation methodology that assists both evaluators and project owners in conducting an accurate assessment of the quality of these projects and ensuring the sustainability of their impact.",
-      "author": "Itqan Team",
-      "publishDate": "January 5, 2024",
-      "readTime": "15 min read",
-      "headerImage": "/images/reports/3.avif",
-      "image": "/images/reports/3.avif",
-      "link": "/docs/reports/3.pdf",
-      "sections": {
-        "contents": {
-          "title": "Contents of the Guide",
-          "content": "The guide includes an objective evaluation matrix based on a precise analytical approach, along with detailed evaluation criteria and axes."
-        },
-        "howToUse": {
-          "title": "How to Make Use of This Guide?",
-          "content": "Rely on it as a comprehensive reference for objective and accurate project evaluation."
-        }
-      },
-      "keyPointsTitle": "Key Points",
-      "keyPoints": {
-        "1": "Originality of the idea and its ability to meet current and future needs",
-        "2": "Team competence and the integration of roles and expertise",
-        "3": "Maturity of the prototype, readiness for implementation, and practical suitability",
-        "4": "Project sustainability and the quality of work and growth plans"
-      },
-      "conclusionTitle": "Conclusion",
-      "conclusion": "Towards promising Quranic tech projects. Download the guide now.",
-      "externalLinkText": "Download Guide",
-      "discordText": "Join our community on",
-      "discordLink": "https://discord.gg/24CskUbuuB",
-      "discordImage": "/images/community.avif",
-      "externalLink": "/docs/reports/3.pdf"
-    }
+    "backToArticles": "Back to Articles"
   },
   "tools": {
     "title": "Tools (APIs)",

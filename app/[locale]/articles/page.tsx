@@ -27,7 +27,7 @@ export default async function ArticlesPage({
   params: { locale: Locale };
 }) {
   const { data: articles } = await sanityFetch({ query: ARTICLES_QUERY });
-  const t = await getTranslations("blog");
+  const t = await getTranslations("articles");
 
   // Helper function to safely get image URL
   const getImageUrl = (image: any) => {

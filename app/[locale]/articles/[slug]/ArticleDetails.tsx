@@ -38,7 +38,7 @@ interface ArticleDetailsProps {
 }
 
 export default async function ArticleDetails({ article, locale }: ArticleDetailsProps) {
-  const t = await getTranslations("blog");
+  const t = await getTranslations("articles");
 
   // Helper function to safely extract localized content
   const getLocalizedContent = (content: string | { [key: string]: string } | undefined) => {
@@ -175,7 +175,7 @@ export default async function ArticleDetails({ article, locale }: ArticleDetails
           <div className="scale-x-[-1]">
             <ForwardArrow silent size={16} locale={locale} />
           </div>
-          <span className="text-sm sm:text-base">{t("backToBlog")}</span>
+          <span className="text-sm sm:text-base">{t("backToArticles")}</span>
         </Link>
       </div>
 
