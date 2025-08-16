@@ -1,18 +1,60 @@
-import { useTranslations } from "next-intl";
-import Image from "next/image";
 import Link from "next/link";
+import { defineQuery } from "next-sanity";
+import { sanityFetch } from "@/app/sanity/live";
+import { Locale } from "@/i18n/routing";
 import SafeImage from "../../components/SafeImage";
 import { FaCog } from "react-icons/fa";
+import { getTranslations } from "next-intl/server";
+import { urlFor } from "../../sanity/image";
 
-interface ProjectsProps {
-  params: {
-    locale: string;
-  };
+const PROJECTS_QUERY = defineQuery(`*[_type == "project"]{
+  name,
+  slug,
+  title,
+  description,
+  status,
+  image{
+    _type,
+    alt,
+    caption,
+    asset->
+  }
+}`);
+
+interface ProjectsPageProps {
+  params: { locale: Locale };
 }
 
-export default function Projects({ params }: ProjectsProps) {
-  const { locale } = params;
-  const t = useTranslations("home.projects");
+export default async function ProjectsPage({ params: { locale } }: ProjectsPageProps) {
+  const { data: projects } = await sanityFetch({ query: PROJECTS_QUERY });
+  const t = await getTranslations("home.projects");
+
+  // Helper function to safely get image URL
+  const getImageUrl = (image: any) => {
+    try {
+      if (!image || !image.asset) return null;
+      return urlFor(image).url();
+    } catch (error) {
+      console.error('Error generating image URL:', error);
+      return null;
+    }
+  };
+
+  // Ensure projects is an array and filter out invalid projects
+  const validProjects = Array.isArray(projects) 
+    ? projects.filter((project: any) => project && project.name && project.title)
+    : [];
+
+  // Sort projects: launched first, then in-progress
+  const sortedProjects = validProjects.sort((a: any, b: any) => {
+    if (a.status === 'launched' && b.status !== 'launched') return -1;
+    if (a.status !== 'launched' && b.status === 'launched') return 1;
+    return 0;
+  });
+
+  // Get the first project (launched) for the main card
+  const mainProject = sortedProjects[0];
+  const otherProjects = sortedProjects.slice(1);
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-neutral-100 w-full max-w-7xl mx-auto flex flex-col items-center" id="projects">
@@ -28,70 +70,80 @@ export default function Projects({ params }: ProjectsProps) {
         </div>
       </div>
 
-      <div className="w-full flex mb-6 sm:mb-8">
-        <Link href={`/${locale}/projects/1`} className="group flex flex-col overflow-hidden hover:shadow-2xl transition-shadow w-full rounded-xl">
-          <div className="relative aspect-video w-full">
-            <SafeImage
-              src={t("quranAppsDirectory.image")}
-              alt={t("quranAppsDirectory.title")}
-              fill
-              className="object-cover object-[27%_64%] rounded-xl border border-neutral-300"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 70vw"
-              priority
-            />
-          </div>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-4 sm:p-6">
-            <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900">
-              {t("quranAppsDirectory.title")}
-            </h4>
-            <div className="bg-emerald-800 opacity-60 text-white text-sm px-2 py-0.5 rounded-full w-fit">
-              {t("launched")}
+      {/* Main Project Card */}
+      {mainProject && (
+        <div className="w-full flex mb-6 sm:mb-8">
+          <Link 
+            href={`/${locale}/projects/${mainProject.slug?.current || mainProject.name}`} 
+            className="group flex flex-col overflow-hidden hover:shadow-2xl transition-shadow w-full rounded-xl"
+          >
+            <div className="relative aspect-video w-full">
+              <SafeImage
+                src={getImageUrl(mainProject.image) || '/images/projects/default.jpg'}
+                alt={typeof mainProject.title === 'object' ? mainProject.title[locale] || mainProject.title.en : mainProject.title || 'Project'}
+                fill
+                className="object-cover object-[27%_64%] rounded-xl border border-neutral-300"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 70vw"
+                priority
+              />
             </div>
-          </div>
-        </Link>
-      </div>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-4 sm:p-6">
+              <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900">
+                {typeof mainProject.title === 'object' 
+                  ? mainProject.title[locale] || mainProject.title.en 
+                  : mainProject.title || 'Project'}
+              </h4>
+              <div className="bg-emerald-800 opacity-60 text-white text-sm px-2 py-0.5 rounded-full w-fit">
+                {mainProject.status === 'launched' ? t("launched") : t("inProgress")}
+              </div>
+            </div>
+          </Link>
+        </div>
+      )}
 
-      <div className="w-full flex flex-col lg:flex-row justify-between gap-4 sm:gap-6">
-        <Link href={`/${locale}/projects/2`} className="group flex flex-col overflow-hidden hover:shadow-2xl transition-shadow rounded-xl cursor-pointer flex-1">
-          <div className="relative aspect-video w-full">
-            <SafeImage
-              src={t("advancedSearch.image")}
-              alt={t("advancedSearch.title")}
-              fill
-              className="object-cover rounded-xl border border-neutral-300"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 35vw"
-            />
-          </div>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-4 sm:p-6">
-            <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900">
-              {t("advancedSearch.title")}
-            </h4>
-            <div className="bg-emerald-800 opacity-60 text-white text-sm px-2 py-0.5 rounded-full w-fit">
-              {t("inProgress")}
-            </div>
-          </div>
-        </Link>
+      {/* Other Projects */}
+      {otherProjects.length > 0 && (
+        <div className="w-full flex flex-col lg:flex-row justify-between gap-4 sm:gap-6">
+          {otherProjects.map((project: any) => {
+            const title = typeof project.title === 'object' 
+              ? project.title[locale] || project.title.en 
+              : project.title || 'Project';
 
-        <Link href={`/${locale}/projects/3`} className="group flex flex-col overflow-hidden hover:shadow-2xl transition-shadow rounded-xl cursor-pointer flex-1">
-          <div className="relative aspect-video w-full">
-            <SafeImage
-              src={t("quranContentManagementSystem.image")}
-              alt={t("quranContentManagementSystem.title")}
-              fill
-              className="object-cover rounded-xl border border-neutral-300"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 35vw"
-            />
-          </div>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-4 sm:p-6">
-            <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900">
-              {t("quranContentManagementSystem.title")}
-            </h4>
-            <div className="bg-emerald-800 opacity-60 text-white text-sm px-2 py-0.5 rounded-full w-fit">
-              {t("inProgress")}
-            </div>
-          </div>
-        </Link>
-      </div>
+            return (
+              <Link 
+                key={project.slug?.current || project.name || `project-${Math.random()}`}
+                href={`/${locale}/projects/${project.slug?.current || project.name}`} 
+                className="group flex flex-col overflow-hidden hover:shadow-2xl transition-shadow rounded-xl cursor-pointer flex-1"
+              >
+                <div className="relative aspect-video w-full">
+                  <SafeImage
+                    src={getImageUrl(project.image) || '/images/projects/default.jpg'}
+                    alt={title}
+                    fill
+                    className="object-cover rounded-xl border border-neutral-300"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 35vw"
+                  />
+                </div>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-4 sm:p-6">
+                  <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900">
+                    {title}
+                  </h4>
+                  <div className="bg-emerald-800 opacity-60 text-white text-sm px-2 py-0.5 rounded-full w-fit">
+                    {project.status === 'launched' ? t("launched") : t("inProgress")}
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      )}
+
+      {/* No projects message */}
+      {validProjects.length === 0 && (
+        <div className="text-center py-12">
+          <p className="text-neutral-600 text-lg">No projects available at the moment.</p>
+        </div>
+      )}
     </section>
   );
 }
