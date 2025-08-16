@@ -15,6 +15,9 @@
       "badge": "Objectives",
       "headline": "Open source technical projects to enrich the technology available to developers in the field of Quranic technologies. Any developer or researcher can participate, develop, or benefit from them.",
       "rolesLabel": "Roles Needed:",
+      "downloadFile": "Download File",
+      "visitProject": "Visit Project",
+      "joinDiscord": "Join our Discord community",
       "quranAppsDirectory": {
         "title": "Quran Apps Directory",
         "shortDescription": "Objective: To serve Muslims worldwide by providing a platform to collect and categorize digital applications related to the Quran. The project aims to facilitate access to the best technological solutions that support the Book of Allah, including reading, recitation, memorization, interpretation, Tajweed, and other Quranic fields.",

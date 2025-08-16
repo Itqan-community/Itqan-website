@@ -7,6 +7,24 @@ import SEOKeywords from "../components/SEOKeywords";
 import SafeImage from "../components/SafeImage";
 import resourcesList from "./resources/resourcesList.json";
 import { FaDownload } from "react-icons/fa";
+import { defineQuery } from "next-sanity";
+import { sanityFetch } from "@/app/sanity/live";
+import { Locale } from "@/i18n/routing";
+import { urlFor } from "../sanity/image";
+
+const PROJECTS_QUERY = defineQuery(`*[_type == "project"]{
+  name,
+  slug,
+  title,
+  description,
+  status,
+  image{
+    _type,
+    alt,
+    caption,
+    asset->
+  }
+}`);
 
 // Partner data
 const partners = [
@@ -21,10 +39,36 @@ const partners = [
   { name: "Zad Group", image: "/images/partners/zadgroup.avif", href: "https://zadgroup.net/" },
 ];
 
-export default async function Home({ params: { locale } }: { params: { locale: string } }) {
+export default async function Home({ params: { locale } }: { params: { locale: Locale } }) {
   const t = await getTranslations("home");
   const t2 = await getTranslations("resources2");
   const resources = resourcesList.resourcesList[0].items;
+  const { data: projects } = await sanityFetch({ query: PROJECTS_QUERY });
+
+  // Helper function to safely get image URL
+  const getImageUrl = (image: any) => {
+    try {
+      if (!image || !image.asset) return null;
+      return urlFor(image).url();
+    } catch (error) {
+      console.error('Error generating image URL:', error);
+      return null;
+    }
+  };
+
+  // Sort projects: launched first, then in-progress, and take first 2
+  const validProjects = Array.isArray(projects) 
+    ? projects.filter((project: any) => project && project.name && project.title)
+    : [];
+
+  const sortedProjects = validProjects
+    .sort((a: any, b: any) => {
+      if (a.status === 'launched' && b.status !== 'launched') return -1;
+      if (a.status !== 'launched' && b.status === 'launched') return 1;
+      return 0;
+    })
+    .slice(0, 2);
+
   return (
     <>
       <SEOKeywords />
@@ -58,61 +102,56 @@ export default async function Home({ params: { locale } }: { params: { locale: s
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-8">
-            <Link 
-              href={`/${locale}/projects/1`}
-              className="group flex flex-col rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-neutral-300"
-              aria-label={`${t("projects.1.title")} - ${t("projects.launched")}`}
-            >
-              <div className="relative aspect-video">
-                <SafeImage
-                  src={t("projects.1.headerImage")}
-                  alt={`${t("projects.1.title")} - ${t("projects.1.subtitle")}`}
-                  fill
-                  className="object-cover rounded-xl border border-neutral-300"
-                  priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 bg-neutral-100 gap-2">
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900">
-                  {t("projects.1.title")}
-                </h3>
-                <div className="bg-emerald-800 opacity-60 text-white text-sm  px-2 py-0.5 rounded-full w-fit">
-                  {t("projects.launched")}
-                </div>
-              </div>
-            </Link>
+          {sortedProjects.length > 0 ? (
+            <>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-8">
+                {sortedProjects.map((project: any, index: number) => {
+                  const title = typeof project.title === 'object' 
+                    ? project.title[locale] || project.title.en 
+                    : project.title || 'Project';
+                  const description = typeof project.description === 'object'
+                    ? project.description[locale] || project.description.en
+                    : project.description || '';
 
-            <Link
-              href={`/${locale}/projects/3`}
-              className="group flex flex-col rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-neutral-300"
-              aria-label={`${t("projects.3.title")} - ${t("projects.inProgress")}`}
-            >
-              <div className="relative aspect-video">
-                <SafeImage
-                  src={t("projects.3.headerImage")}
-                  alt={`${t("projects.3.title")} - ${t("projects.3.subtitle")}`}
-                  fill
-                  className="object-cover rounded-xl border border-neutral-300"
-                  priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+                  return (
+                    <Link 
+                      key={project.slug?.current || project.name || `project-${index}`}
+                      href={`/${locale}/projects/${project.slug?.current || project.name}`}
+                      className="group flex flex-col rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-neutral-300"
+                      aria-label={`${title} - ${project.status === 'launched' ? t("projects.launched") : t("projects.inProgress")}`}
+                    >
+                      <div className="relative aspect-video">
+                        <SafeImage
+                          src={getImageUrl(project.image) || '/images/projects/default.jpg'}
+                          alt={`${title} - ${description}`}
+                          fill
+                          className="object-cover rounded-xl border border-neutral-300"
+                          priority={index === 0}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 bg-neutral-100 gap-2">
+                        <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900">
+                          {title}
+                        </h3>
+                        <div className="bg-emerald-800 opacity-60 text-white text-sm  px-2 py-0.5 rounded-full w-fit">
+                          {project.status === 'launched' ? t("projects.launched") : t("projects.inProgress")}
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 bg-neutral-100 gap-2">
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-emerald-900">
-                  {t("projects.3.title")}
-                </h3>
-                <div className="bg-emerald-800 opacity-60 text-white text-sm  px-2 py-0.5 rounded-full w-fit">
-                  {t("projects.inProgress")}
-                </div>
-              </div>
-            </Link>
-          </div>
 
-          <div className="flex justify-center mt-8 sm:mt-12">
-            <LinkBtn title={t("projects.exploreAll")} href={`/${locale}/projects`} variant="outline" locale={locale} />
-          </div>
+              <div className="flex justify-center mt-8 sm:mt-12">
+                <LinkBtn title={t("projects.exploreAll")} href={`/${locale}/projects`} variant="outline" locale={locale} />
+              </div>
+            </>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-neutral-600 text-lg">No projects available at the moment.</p>
+            </div>
+          )}
         </div>
       </section>
 
