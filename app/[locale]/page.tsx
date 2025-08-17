@@ -12,7 +12,7 @@ import { sanityFetch } from "@/app/sanity/live";
 import { Locale } from "@/i18n/routing";
 import { urlFor } from "../sanity/image";
 
-const PROJECTS_QUERY = defineQuery(`*[_type == "project"]{
+const PROJECTS_QUERY = defineQuery(`*[_type == "project" && (slug.current == "quran-apps-directory" || slug.current == "content-management-system")]{
   name,
   slug,
   title,
@@ -56,18 +56,18 @@ export default async function Home({ params: { locale } }: { params: { locale: L
     }
   };
 
-  // Sort projects: launched first, then in-progress, and take first 2
+  // Filter and validate the fetched projects
   const validProjects = Array.isArray(projects) 
     ? projects.filter((project: any) => project && project.name && project.title)
     : [];
 
+  // Sort projects: launched first, then in-progress
   const sortedProjects = validProjects
     .sort((a: any, b: any) => {
       if (a.status === 'launched' && b.status !== 'launched') return -1;
       if (a.status !== 'launched' && b.status === 'launched') return 1;
       return 0;
-    })
-    .slice(0, 2);
+    });
 
   return (
     <>
