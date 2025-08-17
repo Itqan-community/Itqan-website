@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-import Image from "next/image";
 import LinkBtn from "../components/LinkBtn";
 import ForwardArrow from "../components/ForwardArrow";
 import SEOKeywords from "../components/SEOKeywords";
