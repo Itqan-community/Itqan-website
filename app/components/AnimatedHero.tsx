@@ -23,6 +23,9 @@ export default function AnimatedHero({ locale }: { locale: string }) {
   const rotationValues = useMemo(() => {
     return isRTL ? [8, 4, 0, -4, -8] : [-8, -4, 0, 4, 8];
   }, [isRTL]);
+  const xOffsets = useMemo(() => {
+    return isRTL ? [0, 16, 0, -16, 0] : [0, -16, 0, 16, 0];
+  }, [isRTL]);
 
   const bowAnimationDuration = 0.4;
   const bowAnimationDelay = 1.4;
@@ -54,23 +57,26 @@ export default function AnimatedHero({ locale }: { locale: string }) {
           }}
         >
           {cards.map((card, i) => {
-            const offsets = [0, -40, -60, -40, 0];
+            const offsets = [0, -40, -80, -40, 0];
             const yFinal = offsets[i];
             // Use memoized rotation values
             const rotation = rotationValues[i];
             // Also flip initial rotation for RTL
             const initialRotation = 0;
+            // Scale up middle card during bow animation
+            const finalScale = i === 2 ? 1.4 : 1;
 
             return (
               <motion.div
                 key={`${card}-${locale}-${key}`} // Add locale and key to force re-render on language change
                 className="h-40 w-28 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg"
-                initial={{ opacity: 0, y: 100, rotate: initialRotation, scale: 0.8 }}
+                initial={{ opacity: 0, y: 100, rotate: initialRotation, scale: 0.8, x: 0 }}
                 animate={{
                   opacity: [0, 1, 1],
                   y: [100, yFinal],
+                  x: [0, xOffsets[i]],
                   rotate: [initialRotation, rotation],
-                  scale: 1,
+                  scale: [1, 1, finalScale],
                   transition: {
                     duration: 0.6,
                     ease: [0.175, 0.885, 0.32, 1.275], // Bounce easing
@@ -83,19 +89,29 @@ export default function AnimatedHero({ locale }: { locale: string }) {
                       duration: bowAnimationDuration,
                       ease: eaInOutg,
                     },
+                    x: {
+                      delay: bowAnimationDelay,
+                      duration: bowAnimationDuration,
+                      ease: eaInOutg,
+                    },
                     rotate: {
+                      delay: bowAnimationDelay,
+                      duration: bowAnimationDuration
+                    },
+                    scale: {
+                      times: [0, 0, 1],
                       delay: bowAnimationDelay,
                       duration: bowAnimationDuration
                     }
                   },
                 }}
-                whileHover={{
-                  scale: 1.2,
-                  transition: { 
-                    duration: 0.3,
-                    ease: "easeOut"
-                  }
-                }}
+                // whileHover={{
+                //   scale: 1.2,
+                //   transition: { 
+                //     duration: 0.3,
+                //     ease: "easeOut"
+                //   }
+                // }}
               />
             );
           })}
