@@ -57,19 +57,19 @@ export default function AnimatedHero({ locale }: { locale: string }) {
           }}
         >
           {cards.map((card, i) => {
-            const offsets = [0, -40, -80, -40, 0];
+            const offsets = [0, -40, -90, -40, 0];
             const yFinal = offsets[i];
             // Use memoized rotation values
             const rotation = rotationValues[i];
             // Also flip initial rotation for RTL
             const initialRotation = 0;
             // Scale up middle card during bow animation
-            const finalScale = i === 2 ? 1.4 : 1;
+            const finalScale = i === 2 ? 1.3 : 1;
 
             return (
               <motion.div
                 key={`${card}-${locale}-${key}`} // Add locale and key to force re-render on language change
-                className="h-40 w-28 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg"
+                className="h-[240px] w-[190px] rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg"
                 initial={{ opacity: 0, y: 100, rotate: initialRotation, scale: 0.8, x: 0 }}
                 animate={{
                   opacity: [0, 1, 1],
