@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
-import "@/app/globals.css";
+import "../globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "../components/Footer";
 
@@ -133,8 +133,7 @@ export default async function RootLayout({ children, params }: Props) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
         
-        {/* Preload critical CSS */}
-        <link rel="preload" href="/app/globals.css" as="style" />
+
         
         {/* Favicon icons */}
         <link rel="icon" href="/favicon.ico" />
