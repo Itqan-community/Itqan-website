@@ -51,11 +51,22 @@ const partners = [
   { name: "Zad Group", image: "/images/partners/zadgroup.avif", href: "https://zadgroup.net/" },
 ];
 
+// Force dynamic rendering for better performance
+export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // Revalidate every hour
+
 export default async function Home({ params: { locale } }: { params: { locale: Locale } }) {
   const t = await getTranslations("home");
   const t2 = await getTranslations("resources2");
-  const { data: projects } = await sanityFetch({ query: PROJECTS_QUERY });
-  const { data: resources } = await sanityFetch({ query: RESOURCES_QUERY });
+  
+  // Fetch data in parallel for better performance
+  const [projectsResult, resourcesResult] = await Promise.all([
+    sanityFetch({ query: PROJECTS_QUERY }),
+    sanityFetch({ query: RESOURCES_QUERY })
+  ]);
+  
+  const { data: projects } = projectsResult;
+  const { data: resources } = resourcesResult;
 
   // Helper function to safely get image URL
   const getImageUrl = (image: any) => {
