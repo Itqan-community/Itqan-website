@@ -92,7 +92,7 @@ const nextConfig = {
           },
         ],
       },
-      {
+                   {
         source: '/api/(.*)',
         headers: [
           {

@@ -160,6 +160,8 @@ export default async function RootLayout({ children, params }: Props) {
         <meta name="format-detection" content="address=no" />
         <meta name="format-detection" content="email=no" />
         
+
+        
         {/* Structured Data */}
         <StructuredData />
       </head>

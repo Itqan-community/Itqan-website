@@ -6,17 +6,6 @@ import { useEffect, useMemo, useState } from "react";
 // Force dynamic rendering to prevent caching issues
 export const dynamic = 'force-dynamic';
 
-// Add cache-busting headers
-export const generateMetadata = () => {
-  return {
-    other: {
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
-      'Pragma': 'no-cache',
-      'Expires': '0'
-    }
-  };
-};
-
 const cards = [1, 2, 3, 4, 5];
 
 export default function AnimatedHero({ locale }: { locale: string }) {
@@ -25,11 +14,9 @@ export default function AnimatedHero({ locale }: { locale: string }) {
   
   // Force re-render when locale changes
   const [key, setKey] = useState(0);
-  const [timestamp, setTimestamp] = useState(Date.now());
   
   useEffect(() => {
     setKey(prev => prev + 1);
-    setTimestamp(Date.now());
   }, [locale]);
 
   // Memoize rotation values to prevent unnecessary recalculations
@@ -46,7 +33,7 @@ export default function AnimatedHero({ locale }: { locale: string }) {
     <section className="flex min-h-screen items-center justify-center bg-white">
       <div className="flex flex-col items-center gap-4">
         <motion.div
-          key={`container-${key}-${timestamp}`} // Force re-render of container with timestamp
+          key={`container-${key}`} // Force re-render of container
           initial="hidden"
           // animate="visible"
           variants={{
@@ -76,7 +63,7 @@ export default function AnimatedHero({ locale }: { locale: string }) {
 
             return (
               <motion.div
-                key={`${card}-${locale}-${key}-${timestamp}`} // Add locale, key, and timestamp to force re-render on language change
+                key={`${card}-${locale}-${key}`} // Add locale and key to force re-render on language change
                 className="h-40 w-28 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg"
                 initial={{ opacity: 0, y: 100, rotate: initialRotation, scale: 0.8 }}
                 animate={{
@@ -115,7 +102,7 @@ export default function AnimatedHero({ locale }: { locale: string }) {
         </motion.div>
 
         <motion.h1 
-          key={`title-${locale}-${key}-${timestamp}`} // Add locale, key, and timestamp to force re-render on language change
+          key={`title-${locale}-${key}`} // Add locale and key to force re-render on language change
           className="text-4xl font-bold text-emerald-900"
           initial={{ opacity: 0, y: 50 }}
           animate={{
