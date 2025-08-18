@@ -96,7 +96,7 @@ export default async function Home({ params: { locale } }: { params: { locale: L
   return (
     <>
       <SEOKeywords />
-      <AnimatedHero />
+      <AnimatedHero locale={locale} />
       <section 
         aria-label="Hero"
         className="flex flex-col items-center justify-center min-h-[calc(100vh-73px)] px-4 sm:px-6 lg:px-8 bg-[url('/images/home/hero-bg.avif')] bg-center bg-cover bg-no-repeat"
