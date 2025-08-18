@@ -32,7 +32,6 @@ const nextConfig = {
   // Enable experimental features for better performance
   experimental: {
     optimizePackageImports: ['react-icons'],
-    optimizeCss: true,
     turbo: {
       rules: {
         '*.svg': {

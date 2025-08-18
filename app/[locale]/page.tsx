@@ -11,6 +11,19 @@ import { sanityFetch } from "@/app/sanity/live";
 import { Locale } from "@/i18n/routing";
 import { urlFor } from "../sanity/image";
 
+// Partner data
+const partners = [
+  { name: "Nuqayah", image: "/images/partners/nuqayah.svg", href: "https://nuqayah.com" },
+  { name: "GTAF", image: "/images/partners/gtaf.svg", href: "https://gtaf.org/" },
+  { name: "MP3 Quran", image: "/images/partners/mp3quran.png", href: "https://mp3quran.net" },
+  { name: "PakData", image: "/images/partners/pakdata.png", href: "https://pakdata.com" },
+  { name: "Quran", image: "/images/partners/quran.avif", href: "https://quran.com" },
+  { name: "QuranPedia", image: "/images/partners/quranpedia.avif", href: "https://quranpedia.net/" },
+  { name: "Tafsir", image: "/images/partners/tafsir.avif", href: "https://tafsir.net" },
+  { name: "Tarteel", image: "/images/partners/tarteel.png", href: "https://www.tarteel.ai" },
+  { name: "Zad Group", image: "/images/partners/zadgroup.avif", href: "https://zadgroup.net/" },
+];
+
 const PROJECTS_QUERY = defineQuery(`*[_type == "project" && (slug.current == "quran-apps-directory" || slug.current == "content-management-system")]{
   name,
   slug,
@@ -37,19 +50,6 @@ const RESOURCES_QUERY = defineQuery(`*[_type == "resource"]{
     asset->
   }
 }`);
-
-// Partner data
-const partners = [
-  { name: "Nuqayah", image: "/images/partners/nuqayah.svg", href: "https://nuqayah.com" },
-  { name: "GTAF", image: "/images/partners/gtaf.svg", href: "https://gtaf.org/" },
-  { name: "MP3 Quran", image: "/images/partners/mp3quran.png", href: "https://mp3quran.net" },
-  { name: "PakData", image: "/images/partners/pakdata.png", href: "https://pakdata.com" },
-  { name: "Quran", image: "/images/partners/quran.avif", href: "https://quran.com" },
-  { name: "QuranPedia", image: "/images/partners/quranpedia.avif", href: "https://quranpedia.net/" },
-  { name: "Tafsir", image: "/images/partners/tafsir.avif", href: "https://tafsir.net" },
-  { name: "Tarteel", image: "/images/partners/tarteel.png", href: "https://www.tarteel.ai" },
-  { name: "Zad Group", image: "/images/partners/zadgroup.avif", href: "https://zadgroup.net/" },
-];
 
 // Force dynamic rendering for better performance
 export const dynamic = 'force-dynamic';

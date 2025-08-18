@@ -6,13 +6,12 @@ import { notFound } from "next/navigation";
 import "@/app/globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "../components/Footer";
-import LoadingProgressBar from "@/app/components/LoadingProgressBar";
-import PerformanceOptimizer from "@/app/components/PerformanceOptimizer";
+
 
 import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import PageTracking from "@/app/components/PageTracking";
 import StructuredData from "@/app/components/StructuredData";
-import { SanityLive } from "../sanity/live";
+
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: Locale } }): Promise<Metadata> {
   const messages = await getMessages();
@@ -166,16 +165,13 @@ export default async function RootLayout({ children, params }: Props) {
         <StructuredData />
       </head>
       <body className="bg-gray-100 flex flex-col min-h-screen" suppressHydrationWarning>
-        <NextIntlClientProvider messages={messages}>
-          <LoadingProgressBar />
-          <PerformanceOptimizer />
-          <Navbar locale={locale} />
+                 <NextIntlClientProvider messages={messages}>
+           <Navbar locale={locale} />
           <main className="flex-1">
             {children}
           </main>
-          <Footer locale={locale} />
-          <SanityLive />
-          <GoogleAnalytics />
+                     <Footer locale={locale} />
+           <GoogleAnalytics />
           <PageTracking />
         </NextIntlClientProvider>
       </body>
