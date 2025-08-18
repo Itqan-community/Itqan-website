@@ -5,6 +5,12 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
+  // Performance optimizations
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: false,
+  swcMinify: true,
+  
   images: {
     domains: ['localhost', 'itqan.dev'],
     unoptimized: true, // Temporarily disable image optimization to fix production issues
@@ -19,15 +25,22 @@ const nextConfig = {
       { protocol: 'https', hostname: 'placehold.co' },
     ]
   },
+  
   // Enable static exports for Netlify
   trailingSlash: true,
-  // Performance optimizations
-  compress: true,
-  poweredByHeader: false,
-  generateEtags: false,
+  
   // Enable experimental features for better performance
   experimental: {
     optimizePackageImports: ['react-icons'],
+    optimizeCss: true,
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
   },
   // Headers for better caching and compression
   async headers() {
@@ -47,6 +60,10 @@ const nextConfig = {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
           },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
         ],
       },
       {
@@ -64,6 +81,24 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/api/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate',
           },
         ],
       },

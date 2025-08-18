@@ -1,11 +1,10 @@
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-import Image from "next/image";
 import LinkBtn from "../components/LinkBtn";
 import ForwardArrow from "../components/ForwardArrow";
 import SEOKeywords from "../components/SEOKeywords";
 import SafeImage from "../components/SafeImage";
-import resourcesList from "./resources/resourcesList.json";
+
 import { FaDownload } from "react-icons/fa";
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "@/app/sanity/live";
@@ -26,6 +25,19 @@ const PROJECTS_QUERY = defineQuery(`*[_type == "project" && (slug.current == "qu
   }
 }`);
 
+const RESOURCES_QUERY = defineQuery(`*[_type == "resource"]{
+  name,
+  title,
+  category,
+  description,
+  author,
+  license,
+  externalUrl,
+  file{
+    asset->
+  }
+}`);
+
 // Partner data
 const partners = [
   { name: "Nuqayah", image: "/images/partners/nuqayah.svg", href: "https://nuqayah.com" },
@@ -39,11 +51,22 @@ const partners = [
   { name: "Zad Group", image: "/images/partners/zadgroup.avif", href: "https://zadgroup.net/" },
 ];
 
+// Force dynamic rendering for better performance
+export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // Revalidate every hour
+
 export default async function Home({ params: { locale } }: { params: { locale: Locale } }) {
   const t = await getTranslations("home");
   const t2 = await getTranslations("resources2");
-  const resources = resourcesList.resourcesList[0].items;
-  const { data: projects } = await sanityFetch({ query: PROJECTS_QUERY });
+  
+  // Fetch data in parallel for better performance
+  const [projectsResult, resourcesResult] = await Promise.all([
+    sanityFetch({ query: PROJECTS_QUERY }),
+    sanityFetch({ query: RESOURCES_QUERY })
+  ]);
+  
+  const { data: projects } = projectsResult;
+  const { data: resources } = resourcesResult;
 
   // Helper function to safely get image URL
   const getImageUrl = (image: any) => {
@@ -166,45 +189,73 @@ export default async function Home({ params: { locale } }: { params: { locale: L
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {resources.map((item: any, index: number) => (
-              <div key={index} className="flex flex-col gap-2 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1">
-                <Link 
-                  href={t2(item.link)} 
-                  target="_blank" 
-                  download={item.download}
-                  className="flex flex-col gap-2"
-                >
-                  <h4 className="text-lg sm:text-xl font-semibold mb-2">{t2(item.title)}</h4>
-                  <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
-                    {t2(item.description)}
-                  </p>
-                </Link>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-emerald-900 gap-2 mt-auto">
-                  <div className="flex flex-col text-emerald-900 gap-2 mt-auto">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm text-neutral-500">{t2("tableHeader.author")}:</span>
-                      <span className="text-sm text-neutral-500 font-medium">{t2(item.author)}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm text-neutral-500">{t2("tableHeader.license")}:</span>
-                      <Link 
-                        href={`/${locale}/blog/opensource-license`}
-                        className="text-sm font-medium text-emerald-600 hover:text-emerald-800 transition-colors"
-                      >
-                        {t2("resourceLicense")}
-                      </Link>
-                    </div>
-                  </div>
-                  {item.download ? (
-                    <FaDownload size={16} />
-                  ) : (
-                    <ForwardArrow size={16} silent locale={locale} />
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+             {Array.isArray(resources) && resources.length > 0 ? (
+               resources
+                 .slice(0, 2)
+                 .map((resource: any, index: number) => {
+                   const title = typeof resource.title === 'object' 
+                     ? resource.title[locale] || resource.title.en 
+                     : resource.title || 'Resource';
+                   const description = typeof resource.description === 'object'
+                     ? resource.description[locale] || resource.description.en
+                     : resource.description || '';
+                   const author = typeof resource.author === 'object'
+                     ? resource.author[locale] || resource.author.en
+                     : resource.author || '';
+                   const license = typeof resource.license === 'object'
+                     ? resource.license[locale] || resource.license.en
+                     : resource.license || '';
+                   // Determine if it's a download or external link
+                   const isDownload = resource.file && resource.file.asset;
+                   const link = isDownload 
+                     ? resource.file.asset.url 
+                     : (resource.externalUrl || '');
+
+                   return (
+                     <div key={resource.name || `resource-${index}`} className="flex flex-col gap-2 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1">
+                       <Link 
+                         href={link} 
+                         target="_blank" 
+                         download={isDownload}
+                         className="flex flex-col gap-2"
+                       >
+                         <h4 className="text-lg sm:text-xl font-semibold mb-2">{title}</h4>
+                         <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
+                           {description}
+                         </p>
+                       </Link>
+                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-emerald-900 gap-2 mt-auto">
+                         <div className="flex flex-col text-emerald-900 gap-2 mt-auto">
+                           <div className="flex items-center gap-2">
+                             <span className="text-sm text-neutral-500">{t2("tableHeader.author")}:</span>
+                             <span className="text-sm text-neutral-500 font-medium">{author}</span>
+                           </div>
+                           <div className="flex items-center gap-2">
+                             <span className="text-sm text-neutral-500">{t2("tableHeader.license")}:</span>
+                             <Link 
+                               href={`/${locale}/blog/opensource-license`}
+                               className="text-sm font-medium text-emerald-600 hover:text-emerald-800 transition-colors"
+                             >
+                               {license}
+                             </Link>
+                           </div>
+                         </div>
+                         {isDownload ? (
+                           <FaDownload size={16} />
+                         ) : (
+                           <ForwardArrow size={16} silent locale={locale} />
+                         )}
+                       </div>
+                     </div>
+                   );
+                 })
+             ) : (
+               <div className="col-span-2 text-center py-12">
+                 <p className="text-neutral-600 text-lg">No resources available at the moment.</p>
+               </div>
+             )}
+           </div>
 
           <div className="flex justify-center mt-8 sm:mt-12">
             <LinkBtn title={t("discoverResources")} href={`/${locale}/resources`} variant="outline" locale={locale} />
