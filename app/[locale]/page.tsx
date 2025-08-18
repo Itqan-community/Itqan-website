@@ -10,6 +10,7 @@ import { defineQuery } from "next-sanity";
 import { sanityFetch } from "@/app/sanity/live";
 import { Locale } from "@/i18n/routing";
 import { urlFor } from "../sanity/image";
+import AnimatedHero from "../components/AnimatedHero";
 
 // Partner data
 const partners = [
@@ -95,6 +96,7 @@ export default async function Home({ params: { locale } }: { params: { locale: L
   return (
     <>
       <SEOKeywords />
+      <AnimatedHero />
       <section 
         aria-label="Hero"
         className="flex flex-col items-center justify-center min-h-[calc(100vh-73px)] px-4 sm:px-6 lg:px-8 bg-[url('/images/home/hero-bg.avif')] bg-center bg-cover bg-no-repeat"
