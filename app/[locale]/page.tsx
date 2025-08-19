@@ -369,10 +369,10 @@ export default async function Home({ params: { locale } }: { params: { locale: L
       <section className="py-12 sm:py-16 bg-white px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-lg sm:text-xl text-emerald-900 mb-4 font-semibold font-rubik">
+            <h2 className="text-lg sm:text-xl text-emerald-900 mb-4 font-semibold font-fustat">
               {t("community.title")}
             </h2>
-            <p className="text-2xl sm:text-3xl font-bold text-emerald-600 font-doran leading-normal">
+            <p className="text-2xl sm:text-3xl font-bold text-emerald-600 font-fustat leading-normal">
               {t("community.subtitle1")}
               <br />
               {t("community.subtitle2")}

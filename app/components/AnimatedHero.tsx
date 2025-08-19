@@ -34,7 +34,7 @@ export default function AnimatedHero({ locale }: { locale: string }) {
 
   return (
     <section className="flex min-h-screen items-center justify-center bg-white">
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-12">
         <motion.div
           key={`container-${key}`} // Force re-render of container
           initial="hidden"
@@ -69,7 +69,7 @@ export default function AnimatedHero({ locale }: { locale: string }) {
             return (
               <motion.div
                 key={`${card}-${locale}-${key}`} // Add locale and key to force re-render on language change
-                className="h-[240px] w-[190px] rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg"
+                className="h-[240px] w-[190px] rounded-2xl bg-gradient-to-t from-[#96c0ab] to-[#669b80] shadow-lg"
                 initial={{ opacity: 0, y: 100, rotate: initialRotation, scale: 0.8, x: 0 }}
                 animate={{
                   opacity: [0, 1, 1],
@@ -117,9 +117,9 @@ export default function AnimatedHero({ locale }: { locale: string }) {
           })}
         </motion.div>
 
-        <motion.h1 
+        <motion.div 
           key={`title-${locale}-${key}`} // Add locale and key to force re-render on language change
-          className="text-4xl font-bold text-emerald-900"
+          className="text-4xl font-bold text-[#669b80]"
           initial={{ opacity: 0, y: 50 }}
           animate={{
             opacity: 1,
@@ -131,8 +131,12 @@ export default function AnimatedHero({ locale }: { locale: string }) {
             }
           }}
         >
-          Beautiful Cards
-        </motion.h1>
+          <div>
+            <h1 className="font-[900] text-5xl text-[#669b80] text-center mb-8">خِـدمَة كِـتاب الله غـايتُنا الكُـبرى</h1>
+            <p className="text-2xl font-system font-bold text-neutral-900 text-center">نهدف لبناء أكبر مجتمع لتطوير تقنيات القرآن الكريم مفتوحة المصدر</p>
+            <p className="text-2xl font-system font-bold text-neutral-900 text-center">وتحسين تجربة الاستخدام لخدمة المسلمين حول العالم</p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

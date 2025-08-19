@@ -41,7 +41,7 @@ export default async function Footer({ locale, }: { locale: string }) {
             rel="noopener"
             className="flex items-center justify-center gap-3 hover:opacity-90 transition-opacity"
           >
-            <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-neutral-100 font-doran text-center">
+            <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-neutral-100 font-fustat text-center">
               {t("cta")}
             </h2>
 
