@@ -1,42 +1,41 @@
 "use client";
 
 import { Easing, motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
 // Force dynamic rendering to prevent caching issues
 export const dynamic = 'force-dynamic';
 
-const cards = [1, 2, 3, 4, 5];
+const cards = [
+  { id: 1, image: '/images/home/hero-card-headset.svg' },
+  { id: 2, image: '/images/home/hero-card-laptop.svg' },
+  { id: 3, image: '/images/home/hero-card-mushaf.svg' },
+  { id: 4, image: '/images/home/hero-card-phone.svg' },
+  { id: 5, image: '/images/home/hero-card-vr.svg' },
+];
 
 export default function AnimatedHero({ locale }: { locale: string }) {
   // Use locale prop instead of window.location.pathname
   const isRTL = locale === 'ar';
-  
-  // Force re-render when locale changes
-  const [key, setKey] = useState(0);
-  
-  useEffect(() => {
-    setKey(prev => prev + 1);
-  }, [locale]);
 
   // Memoize rotation values to prevent unnecessary recalculations
   const rotationValues = useMemo(() => {
-    return isRTL ? [8, 4, 0, -4, -8] : [-8, -4, 0, 4, 8];
+    return isRTL ? [6, 3, 0, -3, -6] : [-6, -3, 0, 3, 6];
   }, [isRTL]);
   const xOffsets = useMemo(() => {
     return isRTL ? [0, 16, 0, -16, 0] : [0, -16, 0, 16, 0];
   }, [isRTL]);
 
-  const bowAnimationDuration = 0.4;
-  const bowAnimationDelay = 1.4;
+  const bowAnimationDuration = 0.5;
+  const bowAnimationDelay = 1.5;
   const cardsFadeInDelay = 0.4;
-  const eaInOutg: Easing = [.36,.01,.25,1.16];
+  const eaInOut: Easing = [.36,.01,.25,1.16];
 
   return (
     <section className="flex min-h-screen items-center justify-center bg-white">
       <div className="flex flex-col items-center gap-12">
         <motion.div
-          key={`container-${key}`} // Force re-render of container
           initial="hidden"
           // animate="visible"
           variants={{
@@ -68,9 +67,15 @@ export default function AnimatedHero({ locale }: { locale: string }) {
 
             return (
               <motion.div
-                key={`${card}-${locale}-${key}`} // Add locale and key to force re-render on language change
-                className="h-[240px] w-[190px] rounded-2xl bg-gradient-to-t from-[#96c0ab] to-[#669b80] shadow-lg"
-                initial={{ opacity: 0, y: 100, rotate: initialRotation, scale: 0.8, x: 0 }}
+                key={`${card.id}-${locale}`} // Add locale and key to force re-render on language change
+                className="h-40 w-40 rounded-2xl overflow-hidden"
+                initial={{ 
+                  opacity: 0, 
+                  y: 100, 
+                  rotate: initialRotation, 
+                  scale: 0.8, 
+                  x: 0,
+                }}
                 animate={{
                   opacity: [0, 1, 1],
                   y: [100, yFinal],
@@ -82,17 +87,17 @@ export default function AnimatedHero({ locale }: { locale: string }) {
                     ease: [0.175, 0.885, 0.32, 1.275], // Bounce easing
                     opacity: {
                       duration: 0.8,
-                      delay: i === 0 ? .5 : (((i+1)/cards.length * cardsFadeInDelay) + .5), // Each card starts appearing when previous is 50% done
+                      delay: i === 0 ? .5 : (((i+1)/cards.length * cardsFadeInDelay) + .4), // Each card starts appearing when previous is 50% done
                     },
                     y: {
                       delay: bowAnimationDelay,
                       duration: bowAnimationDuration,
-                      ease: eaInOutg,
+                      ease: eaInOut,
                     },
                     x: {
                       delay: bowAnimationDelay,
                       duration: bowAnimationDuration,
-                      ease: eaInOutg,
+                      ease: eaInOut,
                     },
                     rotate: {
                       delay: bowAnimationDelay,
@@ -112,13 +117,34 @@ export default function AnimatedHero({ locale }: { locale: string }) {
                 //     ease: "easeOut"
                 //   }
                 // }}
-              />
+              >
+                <motion.div
+                  className="w-full h-full relative"
+                >
+                  {i === 2 && (
+                    <motion.div
+                      className="absolute z-0 inset-0 rounded-2xl"
+                      style={{
+                        background: 'linear-gradient(to bottom right, #669b80, #84c4a6)'
+                      }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{
+                        delay: bowAnimationDelay,
+                        duration: bowAnimationDuration,
+                        ease: "easeInOut",
+                      }}
+                    />
+                  )}
+                  <Image src={card.image} alt={`Hero Card ${card.id}`} width={190} height={240} className="w-full h-full object-cover absolute inset-0 z-10" />
+                </motion.div>
+              </motion.div>
             );
           })}
         </motion.div>
 
         <motion.div 
-          key={`title-${locale}-${key}`} // Add locale and key to force re-render on language change
+          key={`title-${locale}`} // Add locale and key to force re-render on language change
           className="text-4xl font-bold text-[#669b80]"
           initial={{ opacity: 0, y: 50 }}
           animate={{
