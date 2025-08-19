@@ -21,10 +21,10 @@ export default function AnimatedHero({ locale }: { locale: string }) {
 
   // Memoize rotation values to prevent unnecessary recalculations
   const rotationValues = useMemo(() => {
-    return isRTL ? [6, 3, 0, -3, -6] : [-6, -3, 0, 3, 6];
+    return isRTL ? [4, 2, 0, -2, -4] : [-4, -2, 0, 2, 4];
   }, [isRTL]);
   const xOffsets = useMemo(() => {
-    return isRTL ? [0, 16, 0, -16, 0] : [0, -16, 0, 16, 0];
+    return isRTL ? [0, 8, 0, -8, 0] : [0, -8, 0, 8, 0];
   }, [isRTL]);
 
   const bowAnimationDuration = 0.5;
@@ -33,8 +33,8 @@ export default function AnimatedHero({ locale }: { locale: string }) {
   const eaInOut: Easing = [.36,.01,.25,1.16];
 
   return (
-    <section className="flex min-h-screen items-center justify-center bg-white">
-      <div className="flex flex-col items-center gap-12">
+    <section className="flex min-h-screen items-center justify-center bg-white overflow-x-hidden px-4">
+      <div className="flex flex-col items-center gap-8 md:gap-12">
         <motion.div
           initial="hidden"
           // animate="visible"
@@ -45,37 +45,37 @@ export default function AnimatedHero({ locale }: { locale: string }) {
               },
             },
           }}
-          className="flex gap-4"
-          animate={{
-            gap: ["1rem", "3rem"],
-            transition: {
-              delay: bowAnimationDelay,
-              duration: bowAnimationDuration,
-              ease: "easeInOut",
-            }
-          }}
+          className="flex gap-2 md:gap-4"
+                     animate={{
+             gap: ["1rem", "3rem"],
+             transition: {
+               delay: bowAnimationDelay,
+               duration: bowAnimationDuration,
+               ease: "easeInOut",
+             }
+           }}
         >
-          {cards.map((card, i) => {
-            const offsets = [0, -40, -90, -40, 0];
-            const yFinal = offsets[i];
+                     {cards.map((card, i) => {
+             const offsets = [0, -20, -40, -20, 0];
+             const yFinal = offsets[i];
             // Use memoized rotation values
             const rotation = rotationValues[i];
             // Also flip initial rotation for RTL
             const initialRotation = 0;
-            // Scale up middle card during bow animation
-            const finalScale = i === 2 ? 1.3 : 1;
+                         // Scale up middle card during bow animation
+             const finalScale = i === 2 ? 1.2 : 1;
 
             return (
-              <motion.div
-                key={`${card.id}-${locale}`} // Add locale and key to force re-render on language change
-                className="h-40 w-40 rounded-2xl overflow-hidden"
-                initial={{ 
-                  opacity: 0, 
-                  y: 100, 
-                  rotate: initialRotation, 
-                  scale: 0.8, 
-                  x: 0,
-                }}
+                             <motion.div
+                 key={`${card.id}-${locale}`} // Add locale and key to force re-render on language change
+                                   className="h-24 w-24 sm:h-32 sm:w-32 md:h-48 md:w-48 lg:h-56 lg:w-56 rounded-xl md:rounded-2xl overflow-hidden"
+                 initial={{ 
+                   opacity: 0, 
+                   y: 100, 
+                   rotate: initialRotation, 
+                   scale: 0.8, 
+                   x: 0,
+                 }}
                 animate={{
                   opacity: [0, 1, 1],
                   y: [100, yFinal],
@@ -122,11 +122,8 @@ export default function AnimatedHero({ locale }: { locale: string }) {
                   className="w-full h-full relative"
                 >
                   {i === 2 && (
-                    <motion.div
-                      className="absolute z-0 inset-0 rounded-2xl"
-                      style={{
-                        background: 'linear-gradient(to bottom right, #669b80, #84c4a6)'
-                      }}
+                                         <motion.div
+                       className="absolute z-0 inset-0 rounded-2xl bg-gradient-to-br from-primary-600 to-primary-400"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{
@@ -136,33 +133,33 @@ export default function AnimatedHero({ locale }: { locale: string }) {
                       }}
                     />
                   )}
-                  <Image src={card.image} alt={`Hero Card ${card.id}`} width={190} height={240} className="w-full h-full object-cover absolute inset-0 z-10" />
+                                     <Image src={card.image} alt={`Hero Card ${card.id}`} width={160} height={160} className="w-full h-full object-cover absolute inset-0 z-10" />
                 </motion.div>
               </motion.div>
             );
           })}
         </motion.div>
 
-        <motion.div 
-          key={`title-${locale}`} // Add locale and key to force re-render on language change
-          className="text-4xl font-bold text-[#669b80]"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            transition: {
-              duration: bowAnimationDuration,
-              delay: bowAnimationDelay + 0.2, // Increased delay to appear after cards
-              ease: [0.19, 1, 0.22, 1],
-            }
-          }}
-        >
-          <div>
-            <h1 className="font-[900] text-5xl text-[#669b80] text-center mb-8">خِـدمَة كِـتاب الله غـايتُنا الكُـبرى</h1>
-            <p className="text-2xl font-system font-bold text-neutral-900 text-center">نهدف لبناء أكبر مجتمع لتطوير تقنيات القرآن الكريم مفتوحة المصدر</p>
-            <p className="text-2xl font-system font-bold text-neutral-900 text-center">وتحسين تجربة الاستخدام لخدمة المسلمين حول العالم</p>
-          </div>
-        </motion.div>
+                 <motion.div 
+           key={`title-${locale}`} // Add locale and key to force re-render on language change
+           className="text-2xl md:text-4xl font-bold text-primary-600"
+           initial={{ opacity: 0, y: 50 }}
+           animate={{
+             opacity: 1,
+             y: 0,
+             transition: {
+               duration: bowAnimationDuration,
+               delay: bowAnimationDelay + 0.2, // Increased delay to appear after cards
+               ease: [0.19, 1, 0.22, 1],
+             }
+           }}
+         >
+           <div className="px-4">
+             <h1 className="font-[900] text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-600 text-center mb-4 md:mb-8 leading-tight">خِـدمَة كِـتاب الله غـايتُنا الكُـبرى</h1>
+             <p className="text-sm sm:text-base md:text-xl font-system font-semibold text-neutral-900 text-center leading-relaxed">نهدف لبناء أكبر مجتمع لتطوير تقنيات القرآن الكريم مفتوحة المصدر</p>
+             <p className="text-sm sm:text-base md:text-xl font-system font-semibold text-neutral-900 text-center leading-relaxed">وتحسين تجربة الاستخدام لخدمة المسلمين حول العالم</p>
+           </div>
+         </motion.div>
       </div>
     </section>
   );

@@ -1,17 +1,20 @@
+import { IconType } from "react-icons";
 import { FaArrowRight } from "react-icons/fa";
 
 export default function ForwardArrow({ 
   silent, 
   size = 16, 
-  locale = "en" 
+  locale = "en",
+  icon: Icon = FaArrowRight
 }: { 
   silent?: boolean, 
   size?: number,
-  locale?: string 
+  locale?: string,
+  icon?: IconType
 }) {
   return (
-    <FaArrowRight 
-      size={size}
+    <Icon
+      size={size} 
       className={`inline-block ${locale === "ar" ? "scale-x-[-1]" : ""} ${silent ? "pointer-events-none" : ""}`}
     />
   );

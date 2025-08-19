@@ -182,7 +182,7 @@ export default async function ArticleDetails({ article, locale }: ArticleDetails
       {/* Header Section */}
       <div className="relative" id="cover">
         <div className="text-center mt-8 sm:mt-12 px-4 sm:px-6">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 leading-tight text-emerald-900">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 leading-tight text-primary-900">
             {getLocalizedContent(article.title)}
           </h1>
           {article.subtitle && (
