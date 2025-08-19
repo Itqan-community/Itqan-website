@@ -98,15 +98,18 @@ export default async function Home({ params: { locale } }: { params: { locale: L
       <SEOKeywords />
       <AnimatedHero locale={locale} />
 
-      <section aria-label="Projects" className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-100">
+      <section aria-label="Projects" className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-primary-900 mb-4 sm:mb-6">
-              {t("projects.title")}
-            </h2>
-            <p className="text-base sm:text-lg text-primary-700 mb-6 sm:mb-8 max-w-3xl mx-auto">
-              {t("projects.description")}
-            </p>
+          <div className="flex flex-col sm:flex-row items-start sm:justify-between mb-8 sm:mb-12">
+            <div className="text-start max-w-[635px]">
+              <h2 className="text-5xl font-bold text-neutral-900 mb-4">
+                {t("projects.title")}
+              </h2>
+              <p className="text-2xl text-primary-700">
+                {t("projects.description")}
+              </p>
+            </div>
+            <LinkBtn title={t("projects.exploreAll")} href={`/${locale}/projects`} variant="outline" locale={locale} />
           </div>
 
           {sortedProjects.length > 0 ? (
@@ -124,34 +127,34 @@ export default async function Home({ params: { locale } }: { params: { locale: L
                     <Link 
                       key={project.slug?.current || project.name || `project-${index}`}
                       href={`/${locale}/projects/${project.slug?.current || project.name}`}
-                      className="group flex flex-col rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-neutral-300"
+                      className="flex flex-col rounded-xl overflow-hidden group"
                       aria-label={`${title} - ${project.status === 'launched' ? t("projects.launched") : t("projects.inProgress")}`}
                     >
-                      <div className="relative aspect-video">
+                      <div className="relative aspect-video overflow-hidden rounded-[20px] cursor-pointer">
                         <SafeImage
                           src={getImageUrl(project.image) || '/images/projects/default.jpg'}
                           alt={`${title} - ${description}`}
                           fill
-                          className="object-cover rounded-xl border border-neutral-300"
+                          className="object-cover rounded-[20px] transition-transform duration-300 group-hover:scale-110"
                           priority={index === 0}
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                       </div>
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 bg-neutral-100 gap-2">
-                        <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-primary-900">
-                          {title}
-                        </h3>
-                        <div className="bg-primary-800 opacity-60 text-white text-sm  px-2 py-0.5 rounded-full w-fit">
-                          {project.status === 'launched' ? t("projects.launched") : t("projects.inProgress")}
+                                             <div className="flex flex-col sm:flex-col items-start p-4 bg-neutral-50 gap-2">
+                          <div className={`text-white text-sm px-2 py-0.5 rounded-full w-fit ${
+                            project.status === 'launched' 
+                              ? 'bg-green-600' 
+                              : 'bg-yellow-600'
+                          }`}>
+                            {project.status === 'launched' ? t("projects.launched") : t("projects.inProgress")}
+                          </div>
+                          <h3 className="text-lg sm:text-xl lg:text-3xl font-semibold text-primary-900">
+                            {title}
+                          </h3>
                         </div>
-                      </div>
                     </Link>
                   );
                 })}
-              </div>
-
-              <div className="flex justify-center mt-8 sm:mt-12">
-                <LinkBtn title={t("projects.exploreAll")} href={`/${locale}/projects`} variant="outline" locale={locale} />
               </div>
             </>
           ) : (
@@ -164,13 +167,16 @@ export default async function Home({ params: { locale } }: { params: { locale: L
 
       <section className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-primary-900 mb-4">
-              {t("library.title")}
-            </h2>
-            <p className="text-primary-700 text-base sm:text-lg max-w-3xl">
-              {t("library.description")}
-            </p>
+          <div className="flex flex-col sm:flex-row items-start sm:justify-between mb-8 sm:mb-12">
+            <div className="text-start max-w-[635px]">
+              <h2 className="text-5xl font-bold text-neutral-900 mb-4">
+                {t("library.title")}
+              </h2>
+              <p className="text-2xl text-primary-700">
+                {t("library.description")}
+              </p>
+            </div>
+            <LinkBtn title={t("discoverResources")} href={`/${locale}/resources`} variant="outline" locale={locale} />
           </div>
 
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
@@ -197,7 +203,7 @@ export default async function Home({ params: { locale } }: { params: { locale: L
                      : (resource.externalUrl || '');
 
                    return (
-                     <div key={resource.name || `resource-${index}`} className="flex flex-col gap-2 p-4 sm:p-6 rounded-xl bg-white hover:shadow-xl shadow-neutral-200 transition-all duration-300 hover:-translate-y-1">
+                     <div key={resource.name || `resource-${index}`} className="flex flex-col gap-2 p-4 sm:p-6 rounded-xl bg-neutral-50 cursor-pointer group">
                        <Link 
                          href={link} 
                          target="_blank" 
@@ -225,11 +231,9 @@ export default async function Home({ params: { locale } }: { params: { locale: L
                              </Link>
                            </div>
                          </div>
-                         {isDownload ? (
-                           <FaDownload size={16} />
-                         ) : (
-                           <ForwardArrow size={16} silent locale={locale} />
-                         )}
+                         <div className={`transition-transform duration-300 ${locale === 'ar' ? 'group-hover:-translate-x-2' : 'group-hover:translate-x-2'}`}>
+                           <ForwardArrow size={16} locale={locale} />
+                         </div>
                        </div>
                      </div>
                    );
@@ -240,10 +244,6 @@ export default async function Home({ params: { locale } }: { params: { locale: L
                </div>
              )}
            </div>
-
-          <div className="flex justify-center mt-8 sm:mt-12">
-            <LinkBtn title={t("discoverResources")} href={`/${locale}/resources`} variant="outline" locale={locale} />
-          </div>
         </div>
       </section>
 
