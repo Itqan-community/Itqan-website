@@ -99,15 +99,17 @@ export default async function Home({ params: { locale } }: { params: { locale: L
       <section aria-label="Projects" className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-50">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row items-start sm:justify-between mb-8 sm:mb-12">
-            <div className="text-start max-w-[635px]">
-              <h2 className="text-5xl font-bold text-neutral-900 mb-4">
+            <div className="text-start max-w-[635px] mb-6 sm:mb-0">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
                 {t("projects.title")}
               </h2>
-              <p className="text-2xl text-primary-700">
+              <p className="text-xl sm:text-2xl text-primary-700 mb-6 sm:mb-0">
                 {t("projects.description")}
               </p>
             </div>
-            <LinkBtn title={t("projects.exploreAll")} href={`/${locale}/projects`} variant="outline" locale={locale} />
+            <div className="w-full sm:w-auto">
+              <LinkBtn title={t("projects.exploreAll")} href={`/${locale}/projects`} variant="outline" locale={locale} />
+            </div>
           </div>
 
           {sortedProjects.length > 0 ? (
@@ -166,15 +168,17 @@ export default async function Home({ params: { locale } }: { params: { locale: L
       <section className="pb-16 sm:pb-20 lg:pb-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-50">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row items-start sm:justify-between mb-8 sm:mb-12">
-            <div className="text-start max-w-[635px]">
-              <h2 className="text-5xl font-bold text-neutral-900 mb-4">
+            <div className="text-start max-w-[635px] mb-6 sm:mb-0">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
                 {t("library.title")}
               </h2>
-              <p className="text-2xl text-primary-700">
+              <p className="text-xl sm:text-2xl text-primary-700 mb-6 sm:mb-0">
                 {t("library.description")}
               </p>
             </div>
-            <LinkBtn title={t("discoverResources")} href={`/${locale}/resources`} variant="outline" locale={locale} />
+            <div className="w-full sm:w-auto">
+              <LinkBtn title={t("discoverResources")} href={`/${locale}/resources`} variant="outline" locale={locale} />
+            </div>
           </div>
 
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
@@ -247,12 +251,12 @@ export default async function Home({ params: { locale } }: { params: { locale: L
 
       <section className="pt-16 sm:pt-20 lg:pt-40 bg-white">
         <div className="mx-auto">
-          <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
+          <div className="flex flex-col items-center text-center mb-8 sm:mb-12 px-4 sm:px-6 lg:px-[4%]">
             <div className="max-w-[635px]">
-              <h2 className="text-[40px] font-bold text-neutral-900 mb-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-neutral-900 mb-4">
                 {t("partners.title")}
               </h2>
-              <p className="text-2xl text-primary-700">
+              <p className="text-xl sm:text-2xl text-primary-700">
                 {t("partners.description")}
               </p>
             </div>
@@ -288,10 +292,10 @@ export default async function Home({ params: { locale } }: { params: { locale: L
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
             <div className="max-w-[635px]">
-              <p className="text-2xl text-primary-700 mb-4">
+              <p className="text-xl sm:text-2xl text-primary-700 mb-4">
                 {t("community.title")}
               </p>
-              <h2 className="text-[40px] font-bold text-neutral-900">
+              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-neutral-900">
                 {t("community.subtitle1")}
                 <br />
                 {t("community.subtitle2")}
@@ -388,10 +392,10 @@ export default async function Home({ params: { locale } }: { params: { locale: L
         <div className="max-w-4xl mx-auto">
                       <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
               <div className="max-w-[635px]">
-                <h2 className="text-[40px] font-bold text-neutral-900 mb-4">
+                <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-neutral-900 mb-4">
                   {t("faqs.title")}
                 </h2>
-                <p className="text-2xl text-primary-700">
+                <p className="text-xl sm:text-2xl text-primary-700">
                   {t("faqs.subtitle")}
                 </p>
               </div>
