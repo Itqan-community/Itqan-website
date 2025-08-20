@@ -1,15 +1,13 @@
 import { getTranslations } from "next-intl/server";
+import { defineQuery } from "next-sanity";
+import { sanityFetch } from "@/app/sanity/live";
+import { Locale } from "@/i18n/routing";
+import { urlFor } from "../sanity/image";
 import Link from "next/link";
 import LinkBtn from "../components/LinkBtn";
 import ForwardArrow from "../components/ForwardArrow";
 import SEOKeywords from "../components/SEOKeywords";
 import SafeImage from "../components/SafeImage";
-
-import { FaDownload } from "react-icons/fa";
-import { defineQuery } from "next-sanity";
-import { sanityFetch } from "@/app/sanity/live";
-import { Locale } from "@/i18n/routing";
-import { urlFor } from "../sanity/image";
 import AnimatedHero from "../components/AnimatedHero";
 
 // Partner data
@@ -165,7 +163,7 @@ export default async function Home({ params: { locale } }: { params: { locale: L
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-white">
+      <section className="pb-16 sm:pb-20 lg:pb-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-50">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row items-start sm:justify-between mb-8 sm:mb-12">
             <div className="text-start max-w-[635px]">
@@ -203,7 +201,7 @@ export default async function Home({ params: { locale } }: { params: { locale: L
                      : (resource.externalUrl || '');
 
                    return (
-                     <div key={resource.name || `resource-${index}`} className="flex flex-col gap-2 p-4 sm:p-6 rounded-xl bg-neutral-50 cursor-pointer group">
+                     <div key={resource.name || `resource-${index}`} className="flex flex-col gap-2 p-4 sm:p-6 rounded-xl bg-white cursor-pointer group">
                        <Link 
                          href={link} 
                          target="_blank" 
@@ -247,34 +245,35 @@ export default async function Home({ params: { locale } }: { params: { locale: L
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-100">
-        <div className="max-w-7xl mx-auto">
+      <section className="pt-16 sm:pt-20 lg:pt-40 bg-white">
+        <div className="mx-auto">
           <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-primary-900 mb-4">
-              {t("partners.title")}
-            </h2>
-            <p className="text-primary-700 text-base sm:text-lg max-w-3xl whitespace-pre-line">
-              {t("partners.description")}
-            </p>
+            <div className="max-w-[635px]">
+              <h2 className="text-5xl font-bold text-neutral-900 mb-4">
+                {t("partners.title")}
+              </h2>
+              <p className="text-2xl text-primary-700">
+                {t("partners.description")}
+              </p>
+            </div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 border border-neutral-200 border-b-0">
             {partners.map((partner, index) => (
               <Link
                 key={index}
                 href={partner.href}
                 target="_blank"
-                className="group"
+                className={`group bg-white border-e border-b border-neutral-200 `}
                 aria-label={`Visit ${partner.name}`}
               >
-                <div className="w-32 sm:w-40 lg:w-48 h-20 sm:h-24 lg:h-28 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex items-center justify-center p-4">
+                <div className="h-[200px] flex items-center justify-center overflow-hidden">
                   <SafeImage
                     src={partner.image}
                     alt={partner.name}
                     width={120}
                     height={80}
-                    className="max-w-full max-h-full object-contain transition-all duration-300"
-                    style={{ width: 'auto', height: 'auto' }}
+                    className="w-1/2 h-1/2 object-contain transition-transform duration-300 group-hover:scale-110"
                     loading="lazy"
                     sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
                   />
@@ -285,16 +284,65 @@ export default async function Home({ params: { locale } }: { params: { locale: L
         </div>
       </section>
 
-      <section id="faqs" className="py-12 sm:py-16 px-4 sm:px-6">
+      <section className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-50">
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col items-center gap-2 mb-8 sm:mb-12">
-            <p className="text-lg sm:text-xl font-medium text-primary-900 text-center">
-              {t("faqs.title")}
-            </p>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-primary-600 text-center">
-              {t("faqs.subtitle")}
-            </h2>
+                     <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
+             <div className="max-w-[635px]">
+               <h2 className="text-5xl font-bold text-neutral-900 mb-4">
+                 {t("community.title")}
+               </h2>
+               <p className="text-2xl text-primary-700">
+                 {t("community.subtitle1")}
+                 <br />
+                 {t("community.subtitle2")}
+               </p>
+             </div>
+           </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
+            <div className="text-primary-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
+              {t("community.points.resources")}
+            </div>
+            
+            <div className="text-primary-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
+              {t("community.points.development")}
+            </div>
+
+            <div className="text-primary-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
+              {t("community.points.review")}
+            </div>
+
+            <div className="text-primary-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
+              {t("community.points.ux")}
+            </div>
+
+            <div className="text-primary-900 text-center  text-sm sm:text-base">
+              {t("community.points.solo")}
+            </div>
+
+            <div className="text-primary-900 text-center  text-sm sm:text-base">
+              {t("community.points.growth")}
+            </div>
           </div>
+
+          <div className="text-center mt-8 sm:mt-12 flex justify-center">
+            <LinkBtn title={t("community.cta")} href={`https://discord.gg/24CskUbuuB`} target="_blank" variant="outline" locale={locale} />
+          </div>
+        </div>
+      </section>
+
+      <section id="faqs" className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-white">
+        <div className="max-w-4xl mx-auto">
+                      <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
+              <div className="max-w-[635px]">
+                <h2 className="text-5xl font-bold text-neutral-900 mb-4">
+                  {t("faqs.title")}
+                </h2>
+                <p className="text-2xl text-primary-700">
+                  {t("faqs.subtitle")}
+                </p>
+              </div>
+            </div>
 
           <div className="max-w-3xl mx-auto">
             <details className="border-b border-neutral-200">
@@ -344,51 +392,6 @@ export default async function Home({ params: { locale } }: { params: { locale: L
                 {t("faqs.questions.topics.answer")}
               </div>
             </details>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12 sm:py-16 bg-white px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-lg sm:text-xl text-primary-900 mb-4 font-semibold font-fustat">
-              {t("community.title")}
-            </h2>
-            <p className="text-2xl sm:text-3xl font-bold text-primary-600 font-fustat leading-normal">
-              {t("community.subtitle1")}
-              <br />
-              {t("community.subtitle2")}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
-            <div className="text-primary-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
-              {t("community.points.resources")}
-            </div>
-            
-            <div className="text-primary-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
-              {t("community.points.development")}
-            </div>
-
-            <div className="text-primary-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
-              {t("community.points.review")}
-            </div>
-
-            <div className="text-primary-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
-              {t("community.points.ux")}
-            </div>
-
-            <div className="text-primary-900 text-center  text-sm sm:text-base">
-              {t("community.points.solo")}
-            </div>
-
-            <div className="text-primary-900 text-center  text-sm sm:text-base">
-              {t("community.points.growth")}
-            </div>
-          </div>
-
-          <div className="text-center mt-8 sm:mt-12 flex justify-center">
-            <LinkBtn title={t("community.cta")} href={`https://discord.gg/24CskUbuuB`} target="_blank" variant="outline" locale={locale} />
           </div>
         </div>
       </section>
