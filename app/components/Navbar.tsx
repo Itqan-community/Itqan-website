@@ -47,7 +47,7 @@ export default async function Navbar({ locale }: { locale: string }) {
             sizes="(max-width: 768px) 40px, 56px"
           />
         </Link>
-        <div className="hidden md:flex gap-6 lg:gap-8 items-center">
+        <div className="hidden md:flex gap-6 lg:gap-8 items-center ms-auto me-4">
           {NavbarLinks.map((link) => (
             <NavbarLink key={link.href} context={link} locale={locale as string} />
           ))}
