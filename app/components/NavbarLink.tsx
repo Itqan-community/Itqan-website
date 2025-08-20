@@ -18,7 +18,7 @@ export default async function NavbarLink({
   return (
     <Link
       href={`/${locale}${href}`}
-      className={` hover:text-primary-600 hover:underline text-sm sm:text-base transition-colors duration-200 font-semibold`}
+      className="text-[14px] font-semibold px-2 py-1 hover:text-primary-600 hover:bg-primary-50 rounded-md transition-colors duration-200"
     >
       {t(text)}
     </Link>

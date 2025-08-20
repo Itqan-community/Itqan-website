@@ -22,12 +22,12 @@ export default function LinkBtn({
 
   const baseStyles = variant === "text" 
     ? "flex items-center gap-2 max-w-fit text-sm sm:text-base text-neutral-900 hover:text-primary-600"
-    : "rounded-full !px-3 sm:!px-4 !py-2 sm:!py-3 flex items-center gap-2 max-w-fit text-sm sm:text-base";
+    : "rounded-full !px-3 sm:!px-4 flex items-center gap-2 max-w-fit text-sm sm:text-base";
 
   const variantStyles = variant === "fill" 
     ? "bg-primary-600 hover:bg-primary-700 text-white hover:shadow-lg"
     : variant === "outline"
-    ? "shadow-[0_0_0_1px_rgba(163,163,163,1)] hover:shadow-[0_0_0_2px_rgba(163,163,163,1)] text-neutral-700 duration-200"
+    ? "!py-2 shadow-[0_0_0_1px_rgba(163,163,163,1)] hover:bg-primary-50 text-neutral-700 duration-200"
     : "";
 
   return (

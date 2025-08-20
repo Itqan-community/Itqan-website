@@ -3,6 +3,7 @@
 import { Easing, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
+import AnimatedBg from "./AnimatedBg";
 
 const cards = [
   { id: 1, image: '/images/home/hero-card-headset.svg' },
@@ -24,14 +25,15 @@ export default function AnimatedHero({ locale }: { locale: string }) {
     return isRTL ? [0, 8, 0, -8, 0] : [0, -8, 0, 8, 0];
   }, [isRTL]);
 
-  const bowAnimationDuration = 0.5;
-  const bowAnimationDelay = 1.5;
+  const bowAnimationDuration = 0.32;
+  const bowAnimationDelay = 1.2;
   const cardsFadeInDelay = 0.4;
   const eaInOut: Easing = [.36,.01,.25,1.16];
 
   return (
-    <section className="flex min-h-screen items-center justify-center bg-white overflow-x-hidden px-4">
-      <div className="flex flex-col items-center gap-8 md:gap-12">
+    <section className="relative flex min-h-screen items-center justify-center bg-white overflow-x-hidden px-4">
+      <AnimatedBg />
+      <div className="relative z-10 flex flex-col items-center gap-12 md:gap-20 mt-[20vh]">
         <motion.div
           initial="hidden"
           // animate="visible"
@@ -53,8 +55,9 @@ export default function AnimatedHero({ locale }: { locale: string }) {
            }}
         >
                      {cards.map((card, i) => {
-             const offsets = [0, -20, -40, -20, 0];
-             const yFinal = offsets[i];
+             const offsets = [0, -30, -60, -30, 0];
+             const desktopOffsets = [0, -35, -75, -35, 0];
+             const yFinal = window.innerWidth >= 768 ? desktopOffsets[i] : offsets[i];
             // Use memoized rotation values
             const rotation = rotationValues[i];
             // Also flip initial rotation for RTL
@@ -152,18 +155,13 @@ export default function AnimatedHero({ locale }: { locale: string }) {
            }}
          >
            <div className="px-4 max-w-[100vw]">
-             <h1 className="font-[900] text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-600 text-center mb-4 md:mb-8 leading-tight">
+             <h1 className="font-[900] text-2xl sm:text-3xl md:text-4xl lg:text-[56px] text-primary-600 text-center mb-4 md:mb-8 leading-tight">
                {locale === 'ar' ? 'خِـدمَة كِـتاب الله غـايتُنا الكُـبرى' : 'Serving Quran is our greatest Ghayah'}
              </h1>
-             <p className="text-sm sm:text-base md:text-xl font-system font-semibold text-neutral-900 text-center leading-relaxed">
+             <p className="text-[17.5px] font-system font-normal text-neutral-900 text-center leading-relaxed max-w-[579px] mx-auto">
                {locale === 'ar' 
-                 ? 'نهدف لبناء أكبر مجتمع لتطوير تقنيات القرآن الكريم مفتوحة المصدر'
-                 : 'We are building the largest community for developing Quranic technology'}
-             </p>
-             <p className="text-sm sm:text-base md:text-xl font-system font-semibold text-neutral-900 text-center leading-relaxed">
-               {locale === 'ar'
-                 ? 'وتحسين تجربة الاستخدام لخدمة المسلمين حول العالم'
-                 : 'and improving the user experience for Muslims around the world'}
+                 ? 'نهدف لبناء أكبر مجتمع تقني يركز على تطوير تطبيقات القرآن الكريم وتحسين تجربة المستخدم لخدمة المسلمين حول العالم'
+                 : 'We are building the largest community for developing Quranic technology and improving the user experience for Muslims around the world'}
              </p>
            </div>
          </motion.div>

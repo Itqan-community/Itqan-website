@@ -10,6 +10,7 @@ import SEOKeywords from "../components/SEOKeywords";
 import SafeImage from "../components/SafeImage";
 import AnimatedHero from "../components/AnimatedHero";
 
+
 // Partner data
 const partners = [
   { name: "Nuqayah", image: "/images/partners/nuqayah.svg", href: "https://nuqayah.com" },
