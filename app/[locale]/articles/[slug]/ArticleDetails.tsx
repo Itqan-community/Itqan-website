@@ -60,7 +60,7 @@ export default async function ArticleDetails({ article, locale }: ArticleDetails
         return (
           <div key={getLocalizedContent(block.title)} className="mb-8">
             {block.title && (
-              <h4 className="text-neutral-900 mb-2 font-rubik">
+              <h4 className="text-neutral-900 mb-2 font-fustat">
                 {getLocalizedContent(block.title)}
               </h4>
             )}
@@ -76,7 +76,7 @@ export default async function ArticleDetails({ article, locale }: ArticleDetails
         return (
           <div key={getLocalizedContent(block.title)} className="mb-8">
             {block.title && (
-              <h4 className="text-neutral-900 mb-2 font-rubik">
+              <h4 className="text-neutral-900 mb-2 font-fustat">
                 {getLocalizedContent(block.title)}
               </h4>
             )}
@@ -84,7 +84,7 @@ export default async function ArticleDetails({ article, locale }: ArticleDetails
               <ul className="list-disc list-inside space-y-4">
                 {block.points.map((point: any, index: number) => (
                   <li key={index} className="text-neutral-500">
-                    <span className="font-rubik text-neutral-900">
+                    <span className="font-fustat text-neutral-900">
                       {getLocalizedContent(point.title)}
                     </span>
                     <p className="text-sm sm:text-base leading-relaxed mt-2 ml-5">
@@ -101,7 +101,7 @@ export default async function ArticleDetails({ article, locale }: ArticleDetails
         return (
           <div key={getLocalizedContent(block.title)} className="mb-8">
             {block.title && (
-              <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-rubik">
+              <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-fustat">
                 {getLocalizedContent(block.title)}
               </h3>
             )}
@@ -113,7 +113,7 @@ export default async function ArticleDetails({ article, locale }: ArticleDetails
                       <thead>
                         <tr className="bg-neutral-50">
                           {block.columns.map((column: any, index: number) => (
-                            <th key={index} className="whitespace-nowrap border border-neutral-300 px-3 py-2 text-start text-neutral-900 font-rubik">
+                            <th key={index} className="whitespace-nowrap border border-neutral-300 px-3 py-2 text-start text-neutral-900 font-fustat">
                               {getLocalizedContent(column)}
                             </th>
                           ))}
@@ -182,7 +182,7 @@ export default async function ArticleDetails({ article, locale }: ArticleDetails
       {/* Header Section */}
       <div className="relative" id="cover">
         <div className="text-center mt-8 sm:mt-12 px-4 sm:px-6">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 leading-tight text-emerald-900">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 leading-tight text-primary-900">
             {getLocalizedContent(article.title)}
           </h1>
           {article.subtitle && (
@@ -214,7 +214,7 @@ export default async function ArticleDetails({ article, locale }: ArticleDetails
             {article.contentSections.map((section: any, sectionIndex: number) => (
               <section key={sectionIndex}>
                 {section.title && (
-                  <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-rubik">
+                  <h3 className="text-lg sm:text-xl font-semibold text-neutral-900 mb-4 font-fustat">
                     {getLocalizedContent(section.title)}
                   </h3>
                 )}

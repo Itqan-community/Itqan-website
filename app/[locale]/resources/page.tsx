@@ -74,7 +74,7 @@ export default async function ResourcesPage({ params: { locale } }: ResourcesPag
             <span className="text-sm font-medium rounded-full">{t("badge")}</span>
             <FaBoxOpen size={16} />
           </div>
-          <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-emerald-900 leading-relaxed mb-4">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-primary-900 leading-relaxed mb-4">
             {t("headline1")} <br /> {t("headline2")}
           </h1>
         </div>
@@ -88,7 +88,7 @@ export default async function ResourcesPage({ params: { locale } }: ResourcesPag
 
           return (
             <div key={category}>
-              <div className="bg-emerald-800 text-white px-6 py-3 rounded-t-xl">
+              <div className="bg-primary-800 text-white px-6 py-3 rounded-t-xl">
                 <h2 className="text-lg">{categoryTitles[category]}</h2>
               </div>
               <div className="bg-white rounded-b-xl shadow-lg">
@@ -127,14 +127,14 @@ export default async function ResourcesPage({ params: { locale } }: ResourcesPag
                       <div key={itemIndex} className="p-6 hover:bg-gray-50 transition-colors">
                         <div className="flex flex-col gap-4">
                                                                                   <div className="flex items-start justify-between gap-4">
-                               <h3 className="font-medium text-emerald-900 text-lg">{title}</h3>
+                               <h3 className="font-medium text-primary-900 text-lg">{title}</h3>
                                {(hasFile || hasExternalUrl) && (
                                                                 <Link
                                    href={linkUrl}
                                    target="_blank"
                                    download={isDownload}
                                    rel="noopener noreferrer"
-                                   className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-800 transition-colors flex-shrink-0"
+                                   className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-800 transition-colors flex-shrink-0"
                                  >
                                 {isDownload ? (
                                   <>
@@ -161,7 +161,7 @@ export default async function ResourcesPage({ params: { locale } }: ResourcesPag
                               <span className="font-medium">{t2("tableHeader.license")}:</span>{" "}
                               <Link 
                                 href={`/${locale}/blog/opensource-license`}
-                                className="text-emerald-600 hover:text-emerald-800 transition-colors"
+                                className="text-primary-600 hover:text-primary-800 transition-colors"
                               >
                                 {license}
                               </Link>

@@ -49,7 +49,7 @@ export default async function ProjectDetails({
         return (
           <div key={block._key || `block-${Math.random()}`} className="mb-8">
             {blockTitle && (
-              <h4 className="text-lg sm:text-xl font-bold text-emerald-900 mb-4">
+              <h4 className="text-lg sm:text-xl font-bold text-primary-900 mb-4">
                 {blockTitle}
               </h4>
             )}
@@ -65,7 +65,7 @@ export default async function ProjectDetails({
         return (
           <div key={block._key || `block-${Math.random()}`} className="mb-8">
             {blockTitle && (
-              <h4 className="text-lg sm:text-xl font-bold text-emerald-900 mb-4">
+              <h4 className="text-lg sm:text-xl font-bold text-primary-900 mb-4">
                 {blockTitle}
               </h4>
             )}
@@ -81,7 +81,7 @@ export default async function ProjectDetails({
                   
                   return (
                     <li key={index} className="flex items-start gap-2">
-                      <span className="text-emerald-600 mt-1">•</span>
+                      <span className="text-primary-600 mt-1">•</span>
                       <div>
                         {pointTitle && (
                           <p className="text-sm sm:text-base font-medium text-neutral-800">{pointTitle}</p>
@@ -102,7 +102,7 @@ export default async function ProjectDetails({
         return (
           <div key={block._key || `block-${Math.random()}`} className="mb-8">
             {blockTitle && (
-              <h4 className="text-lg sm:text-xl font-bold text-emerald-900 mb-4">
+              <h4 className="text-lg sm:text-xl font-bold text-primary-900 mb-4">
                 {blockTitle}
               </h4>
             )}
@@ -144,7 +144,7 @@ export default async function ProjectDetails({
         return (
           <div key={block._key || `block-${Math.random()}`} className="mb-8">
             {blockTitle && (
-              <h4 className="text-lg sm:text-xl font-bold text-emerald-900 mb-4">
+              <h4 className="text-lg sm:text-xl font-bold text-primary-900 mb-4">
                 {blockTitle}
               </h4>
             )}
@@ -171,7 +171,7 @@ export default async function ProjectDetails({
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8">
         <Link 
           href={`/${locale}/projects`}
-          className="inline-flex items-center gap-2 text-emerald-900 hover:text-emerald-700 transition-colors"
+          className="inline-flex items-center gap-2 text-primary-900 hover:text-primary-700 transition-colors"
         >
           <div className="scale-x-[-1]">
             <ForwardArrow silent size={16} locale={locale} />

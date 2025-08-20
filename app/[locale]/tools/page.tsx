@@ -30,7 +30,7 @@ export default async function ToolsPage({
             <span className="text-sm font-medium rounded-full">{t("title")}</span>
             <FaTools size={16} />
           </div>
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-emerald-900 leading-relaxed" >
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-primary-900 leading-relaxed" >
             {t("title")}
           </h3>
         </div>
@@ -61,7 +61,7 @@ export default async function ToolsPage({
                   <p className="text-neutral-600 text-sm sm:text-base font-medium leading-relaxed mb-4">
                     {description}
                   </p>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-emerald-900 gap-2">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-primary-900 gap-2">
                     <div className="flex items-center gap-2">
                       <span className="text-sm text-neutral-500">{t("author")}:</span>
                       <span className="text-sm text-neutral-500 font-medium">{author}</span>

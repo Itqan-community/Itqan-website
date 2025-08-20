@@ -116,22 +116,16 @@ export default async function RootLayout({ children, params }: Props) {
       <head>
         {/* Essential Meta Tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="theme-color" content="#059669" />
-        <meta name="msapplication-TileColor" content="#059669" />
+        <meta name="theme-color" content="#669B80" />
+<meta name="msapplication-TileColor" content="#669B80" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content={locale === 'ar' ? 'إتقان' : 'ITQAN'} />
         
         {/* Preload critical resources */}
-        <link rel="preload" href="/fonts/doran-bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/doran-extrabold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Fustat-VariableFont_wght.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
         <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" />
         <link rel="preload" href="/images/home/hero-bg.avif" as="image" type="image/avif" />
-        
-        {/* Google Fonts - Optimized loading with display=swap */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
         
 
         
@@ -144,8 +138,6 @@ export default async function RootLayout({ children, params }: Props) {
         
         {/* DNS Prefetch for performance */}
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         <link rel="dns-prefetch" href="//cdn.sanity.io" />
         
         {/* Resource hints for external domains */}
@@ -159,6 +151,8 @@ export default async function RootLayout({ children, params }: Props) {
         <meta name="format-detection" content="date=no" />
         <meta name="format-detection" content="address=no" />
         <meta name="format-detection" content="email=no" />
+        
+
         
         {/* Structured Data */}
         <StructuredData />
