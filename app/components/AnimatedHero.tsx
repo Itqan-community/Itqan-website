@@ -3,6 +3,7 @@
 import { Easing, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
+import AnimatedBg from "./AnimatedBg";
 
 const cards = [
   { id: 1, image: '/images/home/hero-card-headset.svg' },
@@ -30,8 +31,9 @@ export default function AnimatedHero({ locale }: { locale: string }) {
   const eaInOut: Easing = [.36,.01,.25,1.16];
 
   return (
-    <section className="flex min-h-screen items-center justify-center bg-white overflow-x-hidden px-4">
-      <div className="flex flex-col items-center gap-8 md:gap-12">
+    <section className="relative flex min-h-screen items-center justify-center bg-white overflow-x-hidden px-4">
+      <AnimatedBg />
+      <div className="relative z-10 flex flex-col items-center gap-8 md:gap-12">
         <motion.div
           initial="hidden"
           // animate="visible"
