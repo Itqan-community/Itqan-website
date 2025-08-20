@@ -25,7 +25,7 @@ export default function AnimatedHero({ locale }: { locale: string }) {
     return isRTL ? [0, 8, 0, -8, 0] : [0, -8, 0, 8, 0];
   }, [isRTL]);
 
-  const bowAnimationDuration = 0.4;
+  const bowAnimationDuration = 0.32;
   const bowAnimationDelay = 1.2;
   const cardsFadeInDelay = 0.4;
   const eaInOut: Easing = [.36,.01,.25,1.16];
