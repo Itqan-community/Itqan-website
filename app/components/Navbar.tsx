@@ -47,11 +47,11 @@ export default async function Navbar({ locale }: { locale: string }) {
             sizes="(max-width: 768px) 40px, 56px"
           />
         </Link>
-        <div className="hidden md:flex gap-6 lg:gap-8 items-center ms-auto me-4">
+        <div className="hidden md:flex gap-4 items-center ms-auto me-4">
           {NavbarLinks.map((link) => (
             <NavbarLink key={link.href} context={link} locale={locale as string} />
           ))}
-          <LinkBtn title={t("discord")} href={`https://discord.gg/24CskUbuuB`} target="_blank" variant="text" locale={locale} icon={LuArrowUpRight} />
+          <LinkBtn title={t("discord")} href={`https://discord.gg/24CskUbuuB`} target="_blank" variant="outline" locale={locale} icon={LuArrowUpRight} />
         </div>
         <div className="hidden md:block">
           <LangSwitch locale={locale as string} />
