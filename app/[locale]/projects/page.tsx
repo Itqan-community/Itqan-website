@@ -25,6 +25,9 @@ interface ProjectsPageProps {
   params: { locale: Locale };
 }
 
+// Force dynamic rendering to ensure fresh data
+export const dynamic = 'force-dynamic';
+
 export default async function ProjectsPage({ params: { locale } }: ProjectsPageProps) {
   const { data: projects } = await sanityFetch({ query: PROJECTS_QUERY });
   const t = await getTranslations("home.projects");

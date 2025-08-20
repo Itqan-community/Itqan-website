@@ -50,7 +50,8 @@ const RESOURCES_QUERY = defineQuery(`*[_type == "resource"]{
   }
 }`);
 
-
+// Force dynamic rendering to ensure fresh data
+export const dynamic = 'force-dynamic';
 
 export default async function Home({ params: { locale } }: { params: { locale: Locale } }) {
   const t = await getTranslations("home");

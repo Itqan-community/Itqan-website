@@ -41,7 +41,7 @@ const nextConfig = {
       },
     },
   },
-  // Headers for security
+  // Headers for security and cache control
   async headers() {
     return [
       {
@@ -62,6 +62,10 @@ const nextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
           },
         ],
       },

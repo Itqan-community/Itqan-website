@@ -22,6 +22,9 @@ interface ResourcesPageProps {
   params: { locale: Locale };
 }
 
+// Force dynamic rendering to ensure fresh data
+export const dynamic = 'force-dynamic';
+
 export default async function ResourcesPage({ params: { locale } }: ResourcesPageProps) {
   const { data: resources } = await sanityFetch({ query: RESOURCES_QUERY });
   const t = await getTranslations("resources");

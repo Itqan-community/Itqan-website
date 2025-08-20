@@ -44,6 +44,9 @@ interface ArticlePageProps {
   };
 }
 
+// Force dynamic rendering to ensure fresh data
+export const dynamic = 'force-dynamic';
+
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const { data: article } = await sanityFetch({ 
     query: ARTICLE_QUERY,
