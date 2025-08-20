@@ -43,6 +43,13 @@ export default async function ArticlesPage({
     }
   };
 
+  // Helper function to safely extract localized content
+  const getLocalizedContent = (content: string | { [key: string]: string } | undefined) => {
+    if (!content) return '';
+    if (typeof content === 'string') return content;
+    return content[locale] || content.ar || content.en || '';
+  };
+
   return (
     <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto bg-neutral-100 flex flex-col items-center" id="articles">
       <div className="w-full flex flex-col items-start mb-8 sm:mb-12">
@@ -61,19 +68,9 @@ export default async function ArticlesPage({
       {/* Articles cards */}
       <div className="w-full flex flex-col gap-6 sm:gap-8">
         {articles.map((article: any) => {
-          // Extract localized content
-          const title = typeof article?.title === 'object' 
-            ? article.title[locale] || article.title.ar || article.title.en || ''
-            : article?.title || '';
-          
-          const subtitle = typeof article?.subtitle === 'object'
-            ? article.subtitle[locale] || article.subtitle.ar || article.subtitle.en || ''
-            : article?.subtitle || '';
-          
-          const description = typeof article?.description === 'object'
-            ? article.description[locale] || article.description.ar || article.description.en || ''
-            : article?.description || '';
-
+          const title = getLocalizedContent(article?.title);
+          const subtitle = getLocalizedContent(article?.subtitle);
+          const description = getLocalizedContent(article?.description);
           const imageUrl = getImageUrl(article?.image);
 
           return (
