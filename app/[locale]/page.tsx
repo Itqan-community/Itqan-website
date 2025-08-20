@@ -50,9 +50,7 @@ const RESOURCES_QUERY = defineQuery(`*[_type == "resource"]{
   }
 }`);
 
-// Force dynamic rendering for better performance
-export const dynamic = 'force-dynamic';
-export const revalidate = 3600; // Revalidate every hour
+
 
 export default async function Home({ params: { locale } }: { params: { locale: Locale } }) {
   const t = await getTranslations("home");
