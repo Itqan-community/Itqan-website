@@ -45,21 +45,9 @@ export default function PerformanceOptimizer() {
       }
     };
 
-    // Service Worker registration for caching
-    const registerServiceWorker = async () => {
-      if ('serviceWorker' in navigator) {
-        try {
-          await navigator.serviceWorker.register('/sw.js');
-        } catch (error) {
-          console.log('Service Worker registration failed:', error);
-        }
-      }
-    };
-
     // Initialize all optimizations
     preloadResources();
     setupIntersectionObserver();
-    registerServiceWorker();
 
     // Cleanup
     return () => {

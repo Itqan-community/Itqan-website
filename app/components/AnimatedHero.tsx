@@ -4,9 +4,6 @@ import { Easing, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
-// Force dynamic rendering to prevent caching issues
-export const dynamic = 'force-dynamic';
-
 const cards = [
   { id: 1, image: '/images/home/hero-card-headset.svg' },
   { id: 2, image: '/images/home/hero-card-laptop.svg' },
