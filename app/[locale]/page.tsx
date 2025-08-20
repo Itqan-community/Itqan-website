@@ -249,7 +249,7 @@ export default async function Home({ params: { locale } }: { params: { locale: L
         <div className="mx-auto">
           <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
             <div className="max-w-[635px]">
-              <h2 className="text-5xl font-bold text-neutral-900 mb-4">
+              <h2 className="text-[40px] font-bold text-neutral-900 mb-4">
                 {t("partners.title")}
               </h2>
               <p className="text-2xl text-primary-700">
@@ -286,47 +286,100 @@ export default async function Home({ params: { locale } }: { params: { locale: L
 
       <section className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-50">
         <div className="max-w-4xl mx-auto">
-                     <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
-             <div className="max-w-[635px]">
-               <h2 className="text-5xl font-bold text-neutral-900 mb-4">
-                 {t("community.title")}
-               </h2>
-               <p className="text-2xl text-primary-700">
-                 {t("community.subtitle1")}
-                 <br />
-                 {t("community.subtitle2")}
-               </p>
-             </div>
-           </div>
+          <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
+            <div className="max-w-[635px]">
+              <p className="text-2xl text-primary-700 mb-4">
+                {t("community.title")}
+              </p>
+              <h2 className="text-[40px] font-bold text-neutral-900">
+                {t("community.subtitle1")}
+                <br />
+                {t("community.subtitle2")}
+              </h2>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
-            <div className="text-primary-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
+            <div className="text-primary-900 font-semibold opacity-80 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
               {t("community.points.resources")}
             </div>
             
-            <div className="text-primary-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
+            <div className="text-primary-900 font-semibold opacity-80 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
               {t("community.points.development")}
             </div>
 
-            <div className="text-primary-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
+            <div className="text-primary-900 font-semibold opacity-80 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
               {t("community.points.review")}
             </div>
 
-            <div className="text-primary-900 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
+            <div className="text-primary-900 font-semibold opacity-80 text-center  pb-4 border-b border-neutral-200 text-sm sm:text-base">
               {t("community.points.ux")}
             </div>
 
-            <div className="text-primary-900 text-center  text-sm sm:text-base">
+            <div className="text-primary-900 font-semibold opacity-80 text-center  text-sm sm:text-base">
               {t("community.points.solo")}
             </div>
 
-            <div className="text-primary-900 text-center  text-sm sm:text-base">
+            <div className="text-primary-900 font-semibold opacity-80 text-center  text-sm sm:text-base">
               {t("community.points.growth")}
             </div>
           </div>
 
-          <div className="text-center mt-8 sm:mt-12 flex justify-center">
-            <LinkBtn title={t("community.cta")} href={`https://discord.gg/24CskUbuuB`} target="_blank" variant="outline" locale={locale} />
+          {/* Community Join Section */}
+          <div className="mt-16 sm:mt-20 flex items-center justify-center gap-6 sm:gap-8">
+            {/* Member Count */}
+            <div className="flex items-center">
+              <p className="font-semibold ">
+                {locale === 'ar' ? '+ ١٥٠٠ عضو' : '+ 1,500 members'}
+              </p>
+            </div>
+
+            {/* Profile Images - Middle (Overlapping) */}
+            <div className={`flex items-center ${locale === 'ar' ? 'flex-row-reverse' : 'flex-row'}`}>
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-white shadow-md">
+                <SafeImage 
+                  src="https://framerusercontent.com/images/YdxSIdS9T4Qcehm3obXdZS78I.jpg" 
+                  alt="Community member" 
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-white shadow-md -ml-2 sm:-ml-3">
+                <SafeImage 
+                  src="https://framerusercontent.com/images/RMGqFGBG4fl8mGaHLZFtZkZdk.jpg" 
+                  alt="Community member" 
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-white shadow-md -ml-2 sm:-ml-3">
+                <SafeImage 
+                  src="https://framerusercontent.com/images/npcY47BF91ZeTvivxEV3VEVQcg.jpg" 
+                  alt="Community member" 
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-cover object-left"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Join Link */}
+            <div className="flex items-center">
+              <LinkBtn 
+                title={locale === 'ar' ? 'انضم للمجتمع' : 'Join Community'} 
+                href="https://discord.gg/24CskUbuuB" 
+                target="_blank" 
+                variant="text" 
+                locale={locale} 
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -335,7 +388,7 @@ export default async function Home({ params: { locale } }: { params: { locale: L
         <div className="max-w-4xl mx-auto">
                       <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
               <div className="max-w-[635px]">
-                <h2 className="text-5xl font-bold text-neutral-900 mb-4">
+                <h2 className="text-[40px] font-bold text-neutral-900 mb-4">
                   {t("faqs.title")}
                 </h2>
                 <p className="text-2xl text-primary-700">
