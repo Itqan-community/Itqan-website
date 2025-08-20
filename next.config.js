@@ -65,7 +65,7 @@ const nextConfig = {
           },
           {
             key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
+            value: 'no-cache, no-store, must-revalidate, s-maxage=10, stale-while-revalidate',
           },
         ],
       },
