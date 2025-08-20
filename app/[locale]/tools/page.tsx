@@ -14,6 +14,9 @@ const TOOLS_QUERY = defineQuery(`*[_type == "tool"]{
   url
 }`);
 
+// Force dynamic rendering to ensure fresh data
+export const dynamic = 'force-dynamic';
+
 export default async function ToolsPage({
   params: { locale },
 }: {

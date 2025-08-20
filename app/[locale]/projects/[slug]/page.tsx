@@ -57,6 +57,9 @@ interface ProjectPageProps {
   };
 }
 
+// Force dynamic rendering to ensure fresh data
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params: { slug, locale } }: ProjectPageProps): Promise<Metadata> {
   const { data: project } = await sanityFetch({
     query: PROJECT_QUERY,
