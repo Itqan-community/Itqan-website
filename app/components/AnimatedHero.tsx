@@ -154,10 +154,20 @@ export default function AnimatedHero({ locale }: { locale: string }) {
              }
            }}
          >
-           <div className="px-4">
-             <h1 className="font-[900] text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-600 text-center mb-4 md:mb-8 leading-tight">خِـدمَة كِـتاب الله غـايتُنا الكُـبرى</h1>
-             <p className="text-sm sm:text-base md:text-xl font-system font-semibold text-neutral-900 text-center leading-relaxed">نهدف لبناء أكبر مجتمع لتطوير تقنيات القرآن الكريم مفتوحة المصدر</p>
-             <p className="text-sm sm:text-base md:text-xl font-system font-semibold text-neutral-900 text-center leading-relaxed">وتحسين تجربة الاستخدام لخدمة المسلمين حول العالم</p>
+           <div className="px-4 max-w-[100vw]">
+             <h1 className="font-[900] text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary-600 text-center mb-4 md:mb-8 leading-tight">
+               {locale === 'ar' ? 'خِـدمَة كِـتاب الله غـايتُنا الكُـبرى' : 'Serving Quran is our greatest Ghayah'}
+             </h1>
+             <p className="text-sm sm:text-base md:text-xl font-system font-semibold text-neutral-900 text-center leading-relaxed">
+               {locale === 'ar' 
+                 ? 'نهدف لبناء أكبر مجتمع لتطوير تقنيات القرآن الكريم مفتوحة المصدر'
+                 : 'We are building the largest community for developing Quranic technology'}
+             </p>
+             <p className="text-sm sm:text-base md:text-xl font-system font-semibold text-neutral-900 text-center leading-relaxed">
+               {locale === 'ar'
+                 ? 'وتحسين تجربة الاستخدام لخدمة المسلمين حول العالم'
+                 : 'and improving the user experience for Muslims around the world'}
+             </p>
            </div>
          </motion.div>
       </div>
