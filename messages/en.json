@@ -85,7 +85,8 @@
     "backToArticles": "Back to Articles"
   },
   "tools": {
-    "title": "Tools (APIs)",
+    "title": "Tools",
+    "description": "A collection of useful tools for developers of Quranic applications",
     "author": "Author"
   },
   "resources2": {

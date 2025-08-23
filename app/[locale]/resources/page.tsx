@@ -69,19 +69,18 @@ export default async function ResourcesPage({ params: { locale } }: ResourcesPag
    };
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto bg-neutral-100 flex flex-col items-center" id="resources">
-      {/* Hero Section */}
-      <div className="w-full flex flex-col lg:flex-row items-center gap-6 sm:gap-8 mb-12 sm:mb-16">
-        <div className="flex-1 flex flex-col gap-4">
-          <div className="flex items-center max-w-max px-3 py-1 rounded-full gap-2 text-neutral-100 bg-neutral-900">
-            <span className="text-sm font-medium rounded-full">{t("badge")}</span>
-            <FaBoxOpen size={16} />
+    <section aria-label="Resources" className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-50">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col sm:flex-row items-start sm:justify-between mb-8 sm:mb-12">
+          <div className="text-start max-w-[635px] mb-6 sm:mb-0">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
+              {t("badge")}
+            </h2>
+            <p className="text-xl sm:text-2xl text-primary-700 mb-6 sm:mb-0">
+            {t("headline1")} {t("headline2")}
+            </p>
           </div>
-          <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-primary-900 leading-relaxed mb-4">
-            {t("headline1")} <br /> {t("headline2")}
-          </h1>
         </div>
-      </div>
 
       {/* Resources Grid */}
       <div className="w-full space-y-8">
@@ -179,6 +178,7 @@ export default async function ResourcesPage({ params: { locale } }: ResourcesPag
             </div>
           );
         })}
+      </div>
       </div>
     </section>
   );
