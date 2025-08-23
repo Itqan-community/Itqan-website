@@ -21,14 +21,14 @@ const ARTICLES_QUERY = defineQuery(`*[_type == "article"]{
   }
 }`);
 
+interface ArticlesPageProps {
+  params: { locale: Locale };
+}
+
 // Force dynamic rendering to ensure fresh data
 export const dynamic = 'force-dynamic';
 
-export default async function ArticlesPage({
-  params: { locale },
-}: {
-  params: { locale: Locale };
-}) {
+export default async function ArticlesPage({ params: { locale } }: ArticlesPageProps) {
   const { data: articles } = await sanityFetch({ query: ARTICLES_QUERY });
   const t = await getTranslations("articles");
 
@@ -51,59 +51,59 @@ export default async function ArticlesPage({
   };
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto bg-neutral-100 flex flex-col items-center" id="articles">
-      <div className="w-full flex flex-col items-start mb-8 sm:mb-12">
-        <div className="flex flex-col items-start gap-4 mb-6">
-          <div className="flex items-center max-w-max px-3 py-1 rounded-full gap-2 text-neutral-100 bg-neutral-900">
-            <span className="text-sm font-medium rounded-full">{t("badge")}</span>
-          </div>
-          <div className="flex flex-col gap-2 items-start">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-primary-900 text-start leading-relaxed">
-              {t("headline1")} <br /> {t("headline2")}
-            </h1>
+    <section aria-label="Articles" className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-50">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col sm:flex-row items-start sm:justify-between mb-8 sm:mb-12">
+          <div className="text-start max-w-[635px] mb-6 sm:mb-0">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
+              {t('badge')}
+            </h2>
+            <p className="text-xl sm:text-2xl text-primary-700 mb-6 sm:mb-0">
+              {t("headline1")} {t("headline2")}
+            </p>
           </div>
         </div>
-      </div>
-      
-      {/* Articles cards */}
-      <div className="w-full flex flex-col gap-6 sm:gap-8">
-        {articles.map((article: any) => {
-          const title = getLocalizedContent(article?.title);
-          const subtitle = getLocalizedContent(article?.subtitle);
-          const description = getLocalizedContent(article?.description);
-          const imageUrl = getImageUrl(article?.image);
 
-          return (
-            <Link 
-              key={article?.slug?.current}
-              href={`/${locale}/articles/${article?.slug?.current}`}
-              className="group flex flex-col rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 w-full max-w-3xl"
-            >
-              {imageUrl && (
-                <div className="relative aspect-video w-full">
-                  <Image
-                    src={imageUrl}
-                    alt={title}
-                    fill
-                    className="object-cover rounded-xl"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 70vw"
-                  />
+        {/* Articles cards */}
+        <div className="w-full flex flex-col gap-6 sm:gap-8">
+          {articles.map((article: any) => {
+            const title = getLocalizedContent(article?.title);
+            const subtitle = getLocalizedContent(article?.subtitle);
+            const description = getLocalizedContent(article?.description);
+            const imageUrl = getImageUrl(article?.image);
+
+            return (
+              <Link 
+                key={article?.slug?.current}
+                href={`/${locale}/articles/${article?.slug?.current}`}
+                className="group flex flex-col rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 w-full max-w-3xl"
+              >
+                {imageUrl && (
+                  <div className="relative aspect-video w-full">
+                    <Image
+                      src={imageUrl}
+                      alt={title}
+                      fill
+                      className="object-cover rounded-xl"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 70vw"
+                    />
+                  </div>
+                )}
+                <div className="flex flex-col gap-2 py-4 sm:py-6 px-4 sm:px-6 items-start">
+                  <div className="flex items-center justify-between gap-2 mb-2 w-full">
+                    <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-primary-900">
+                      {title}
+                    </h4>
+                    <ForwardArrow silent size={22} locale={locale} />
+                  </div>
+                  <p className="text-basic text-neutral-600">
+                    {description}
+                  </p>
                 </div>
-              )}
-              <div className="flex flex-col gap-2 py-4 sm:py-6 px-4 sm:px-6 items-start">
-                <div className="flex items-center justify-between gap-2 mb-2 w-full">
-                  <h4 className="text-lg sm:text-xl lg:text-2xl font-semibold text-primary-900">
-                    {title}
-                  </h4>
-                  <ForwardArrow silent size={22} locale={locale} />
-                </div>
-                <p className="text-basic text-neutral-600">
-                  {description}
-                </p>
-              </div>
-            </Link>
-          );
-        })}
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

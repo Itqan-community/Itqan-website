@@ -26,16 +26,17 @@ export default async function ToolsPage({
   const t = await getTranslations("tools");
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto bg-neutral-100 flex flex-col" id="tools">
-      <div className="flex flex-col mb-8 sm:mb-12 w-full">
-        <div className="flex flex-col gap-4 mb-6">
-          <div className="flex items-center max-w-max px-3 py-1 rounded-full gap-2 text-neutral-100 bg-neutral-900">
-            <span className="text-sm font-medium rounded-full">{t("title")}</span>
-            <FaTools size={16} />
+    <section aria-label="Tools" className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-50">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col sm:flex-row items-start sm:justify-between mb-8 sm:mb-12">
+          <div className="text-start max-w-[635px] mb-6 sm:mb-0">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
+              {t("title")}
+            </h2>
+            <p className="text-xl sm:text-2xl text-primary-700 mb-6 sm:mb-0">
+              {t("description")}
+            </p>
           </div>
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-primary-900 leading-relaxed" >
-            {t("title")}
-          </h3>
         </div>
         <div className="flex flex-col gap-6 sm:gap-8">
           {tools.map((tool: any) => {

@@ -61,42 +61,42 @@ export default async function ProjectDetails({
           </div>
         );
       
-      case 'bullets':
-        return (
-          <div key={block._key || `block-${Math.random()}`} className="mb-8">
-            {blockTitle && (
-              <h4 className="text-lg sm:text-xl font-bold text-primary-900 mb-4">
-                {blockTitle}
-              </h4>
-            )}
-            {block.points && Array.isArray(block.points) && (
-              <ul className="space-y-2">
-                {block.points.map((point: any, index: number) => {
-                  const pointTitle = typeof point.title === 'object' && point.title
-                    ? point.title[locale] || point.title.en
-                    : point.title || '';
-                  const pointDescription = typeof point.description === 'object' && point.description
-                    ? point.description[locale] || point.description.en
-                    : point.description || '';
-                  
-                  return (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className="text-primary-600 mt-1">•</span>
-                      <div>
-                        {pointTitle && (
-                          <p className="text-sm sm:text-base font-medium text-neutral-800">{pointTitle}</p>
-                        )}
-                        {pointDescription && (
-                          <p className="text-sm text-neutral-600 mt-1">{pointDescription}</p>
-                        )}
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
-          </div>
-        );
+             case 'bullets':
+         return (
+           <div key={block._key || `block-${Math.random()}`} className="mb-8">
+             {blockTitle && (
+               <h4 className="text-[28px] font-bold text-primary-700 mb-4">
+                 {blockTitle}
+               </h4>
+             )}
+             {block.points && Array.isArray(block.points) && (
+               <ul className="space-y-2">
+                 {block.points.map((point: any, index: number) => {
+                   const pointTitle = typeof point.title === 'object' && point.title
+                     ? point.title[locale] || point.title.en
+                     : point.title || '';
+                   const pointDescription = typeof point.description === 'object' && point.description
+                     ? point.description[locale] || point.description.en
+                     : point.description || '';
+                   
+                   return (
+                     <li key={index} className="flex items-start gap-2">
+                       <span className="text-neutral-600 mt-1">•</span>
+                       <div>
+                         {pointTitle && (
+                           <p className="text-sm sm:text-base font-medium text-neutral-800">{pointTitle}</p>
+                         )}
+                         {pointDescription && (
+                           <p className="text-sm text-neutral-600 mt-1">{pointDescription}</p>
+                         )}
+                       </div>
+                     </li>
+                   );
+                 })}
+               </ul>
+             )}
+           </div>
+         );
       
       case 'table':
         return (
@@ -167,62 +167,52 @@ export default async function ProjectDetails({
 
   return (
     <article className="min-h-screen w-auto">
-      {/* Back Button */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8">
-        <Link 
-          href={`/${locale}/projects`}
-          className="inline-flex items-center gap-2 text-primary-900 hover:text-primary-700 transition-colors"
-        >
-          <div className="scale-x-[-1]">
-            <ForwardArrow silent size={16} locale={locale} />
-          </div>
-          <span className="font-medium text-sm sm:text-base">{t("exploreAll")}</span>
-        </Link>
-      </div>
 
-      {/* Header Section */}
-      <div className="relative" id="cover">
-        <div className="text-center mt-8 sm:mt-12 px-4 sm:px-6">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 leading-tight">
+      {/* Header Section - centered */}
+      <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20 bg-white" id="cover">
+        <div className="max-w-6xl w-full mx-auto text-center">
+          <h3 className="text-[56px] font-semibold text-primary-700 mb-6 leading-tight">
             {title}
           </h3>
           {subDescription && (
-            <p className="text-base sm:text-lg max-w-4xl mx-auto leading-relaxed mb-6 text-neutral-500">
+            <p className="text-[20px] font-normal max-w-3xl mx-auto leading-relaxed mb-12">
               {subDescription}
             </p>
           )}
+                     {project.image && (
+             <div className="w-full">
+               <div className="w-full aspect-[2/1] relative">
+                                   <SafeImage
+                    src={getImageUrl(project.image) || '/images/projects/default.jpg'}
+                    alt={title || 'Project image'}
+                    fill
+                    className="object-cover rounded-[32px]"
+                    sizes="100vw"
+                    priority
+                  />
+               </div>
+             </div>
+           )}
         </div>
-        {project.image && (
-          <div className="max-w-6xl mx-auto w-full h-64 md:h-96 relative mt-8">
-            <SafeImage
-              src={getImageUrl(project.image) || '/images/projects/default.jpg'}
-              alt={title || 'Project image'}
-              fill
-              className="object-cover rounded-lg"
-              sizes="100vw"
-              priority
-            />
-          </div>
-        )}
       </div>
 
-      {/* Content Section */}
-      <section className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-white">
+             {/* Content Section */}
+       <section className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-50">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
-            {/* Image */}
-            {project.subImage && (
-              <div className="relative w-full max-w-sm mx-auto lg:max-w-none lg:mt-0 h-fit">
-                <SafeImage
-                  src={getImageUrl(project.subImage) || '/images/projects/default.jpg'}
-                  alt={title || 'Project sub image'}
-                  width={500}
-                  height={800}
-                  className="w-full h-auto max-h-[600px] object-contain rounded-xl"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
-                />
-              </div>
-            )}
+                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+                         {/* Image */}
+             {project.subImage && (
+               <div className="relative w-full max-w-sm mx-auto lg:max-w-none lg:mt-0 h-fit">
+                  <SafeImage
+                    src={getImageUrl(project.subImage) || '/images/projects/default.jpg'}
+                    alt={title || 'Project sub image'}
+                    width={500}
+                    height={800}
+                    className="w-full h-auto max-h-[800px] object-cover rounded-[32px]"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
+                  />
+               </div>
+             )}
 
             {/* Content */}
             <div className="space-y-6">

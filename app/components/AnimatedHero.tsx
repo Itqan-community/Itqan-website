@@ -33,7 +33,7 @@ export default function AnimatedHero({ locale }: { locale: string }) {
   return (
     <section className="relative flex min-h-screen items-center justify-center bg-white overflow-x-hidden px-4">
       <AnimatedBg />
-      <div className="relative z-10 flex flex-col items-center gap-12 md:gap-20 mt-[20vh]">
+      <div className="relative z-10 flex flex-col items-center gap-12 md:gap-20">
         <motion.div
           initial="hidden"
           // animate="visible"

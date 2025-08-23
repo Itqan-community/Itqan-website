@@ -13,15 +13,16 @@ import AnimatedHero from "../components/AnimatedHero";
 
 // Partner data
 const partners = [
+  { name: "Maknon", image: "/images/partners/maknon.png", href: "https://maknon.org.sa/" },
+  { name: "Tafsir", image: "/images/partners/tafsir.avif", href: "https://tafsir.net" },
+  { name: "Quran", image: "/images/partners/quran.avif", href: "https://quran.com" },
+  { name: "Tarteel", image: "/images/partners/tarteel.svg", href: "https://www.tarteel.ai" },
+  { name: "QuranPedia", image: "/images/partners/quranpedia.avif", href: "https://quranpedia.net/" },
   { name: "Nuqayah", image: "/images/partners/nuqayah.svg", href: "https://nuqayah.com" },
+  { name: "Zad Group", image: "/images/partners/zadgroup.avif", href: "https://zadgroup.net/" },
+  { name: "PakData", image: "/images/partners/pakdata.svg", href: "https://pakdata.com" },
   { name: "GTAF", image: "/images/partners/gtaf.svg", href: "https://gtaf.org/" },
   { name: "MP3 Quran", image: "/images/partners/mp3quran.png", href: "https://mp3quran.net" },
-  { name: "PakData", image: "/images/partners/pakdata.png", href: "https://pakdata.com" },
-  { name: "Quran", image: "/images/partners/quran.avif", href: "https://quran.com" },
-  { name: "QuranPedia", image: "/images/partners/quranpedia.avif", href: "https://quranpedia.net/" },
-  { name: "Tafsir", image: "/images/partners/tafsir.avif", href: "https://tafsir.net" },
-  { name: "Tarteel", image: "/images/partners/tarteel.png", href: "https://www.tarteel.ai" },
-  { name: "Zad Group", image: "/images/partners/zadgroup.avif", href: "https://zadgroup.net/" },
 ];
 
 const PROJECTS_QUERY = defineQuery(`*[_type == "project" && (slug.current == "quran-apps-directory" || slug.current == "content-management-system")]{
@@ -262,7 +263,7 @@ export default async function Home({ params: { locale } }: { params: { locale: L
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 border border-neutral-200 border-b-0">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 border border-neutral-200 border-b-0 shadow-[inset_0_-1px_0_0_#e5e5e5]">
             {partners.map((partner, index) => (
               <Link
                 key={index}
