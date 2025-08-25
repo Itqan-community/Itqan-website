@@ -331,16 +331,16 @@ export default async function Home({ params: { locale } }: { params: { locale: L
           </div>
 
           {/* Community Join Section */}
-          <div className="mt-16 sm:mt-20 flex items-center justify-center gap-6 sm:gap-8">
+          {/* <div className="mt-16 sm:mt-20 flex items-center justify-center gap-6 sm:gap-8"> */}
             {/* Member Count */}
-            <div className="flex items-center">
+            {/* <div className="flex items-center">
               <p className="font-semibold ">
                 {locale === 'ar' ? '+ ١٥٠٠ عضو' : '+ 1,500 members'}
               </p>
-            </div>
+            </div> */}
 
             {/* Profile Images - Middle (Overlapping) */}
-            <div className={`flex items-center ${locale === 'ar' ? 'flex-row-reverse' : 'flex-row'}`}>
+            {/* <div className={`flex items-center ${locale === 'ar' ? 'flex-row-reverse' : 'flex-row'}`}>
               <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-white shadow-md">
                 <SafeImage 
                   src="https://framerusercontent.com/images/YdxSIdS9T4Qcehm3obXdZS78I.jpg" 
@@ -373,10 +373,10 @@ export default async function Home({ params: { locale } }: { params: { locale: L
                   loading="lazy"
                 />
               </div>
-            </div>
+            </div> */}
 
             {/* Join Link */}
-            <div className="flex items-center">
+            {/* <div className="flex items-center">
               <LinkBtn 
                 title={locale === 'ar' ? 'انضم للمجتمع' : 'Join Community'} 
                 href="https://discord.gg/24CskUbuuB" 
@@ -385,7 +385,7 @@ export default async function Home({ params: { locale } }: { params: { locale: L
                 locale={locale} 
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
