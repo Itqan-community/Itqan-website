@@ -68,7 +68,7 @@ export default async function ArticlesPage({ params: { locale } }: ArticlesPageP
           className="group flex flex-col h-full"
         >
           {imageUrl && (
-            <div className="relative w-full flex-grow overflow-hidden rounded-[20px] mb-4">
+            <div className="relative w-full aspect-video lg:flex-grow overflow-hidden rounded-[20px] mb-4">
               <Image
                 src={imageUrl}
                 alt={title}
@@ -79,10 +79,10 @@ export default async function ArticlesPage({ params: { locale } }: ArticlesPageP
             </div>
           )}
           <div className="flex flex-col gap-2">
-            <h4 className="font-semibold text-primary-900 text-xl sm:text-2xl lg:text-3xl">
+            <h4 className="font-semibold text-primary-900 text-lg sm:text-xl lg:text-2xl xl:text-3xl">
               {title}
             </h4>
-            <p className="text-neutral-600 text-base sm:text-lg">
+            <p className="text-neutral-600 text-sm sm:text-base lg:text-lg">
               {description}
             </p>
           </div>
