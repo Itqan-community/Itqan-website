@@ -31,6 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       description: 'Itqan Community Blog - Articles about Quran technology development, open source projects, and Islamic software development by the Itqan community.',
     },
     {
+      path: '/articles',
+      priority: 0.8,
+      changeFrequency: 'weekly' as const,
+      description: 'Itqan Community Articles - Articles about Quran technology development, open source projects, and Islamic software development by the Itqan community.',
+    },
+    {
       path: '/tools',
       priority: 0.8,
       changeFrequency: 'monthly' as const,

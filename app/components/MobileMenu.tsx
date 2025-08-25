@@ -51,7 +51,7 @@ export default function MobileMenu({ locale, NavbarLinks }: MobileMenuProps) {
         <LangSwitch locale={locale} />
         <button
           onClick={toggleMenu}
-          className="p-2 text-emerald-900 hover:text-emerald-700 transition-colors"
+          className="p-2 text-primary-900 hover:text-primary-700 transition-colors"
           aria-label="Toggle menu"
         >
           {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
@@ -76,7 +76,7 @@ export default function MobileMenu({ locale, NavbarLinks }: MobileMenuProps) {
         >
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-neutral-200">
-            <h2 className="text-xl font-semibold text-emerald-900">
+            <h2 className="text-xl font-semibold text-primary-900">
               {t("logo")}
             </h2>
             <button
@@ -94,7 +94,7 @@ export default function MobileMenu({ locale, NavbarLinks }: MobileMenuProps) {
               <Link
                 key={link.href}
                 href={`/${locale}${link.href}`}
-                className="px-6 py-4 text-lg font-medium text-emerald-900 hover:text-emerald-700 hover:bg-emerald-50 transition-all duration-200 border-b border-neutral-100"
+                className="px-6 py-4 text-lg font-medium text-primary-900 hover:text-primary-700 hover:bg-primary-50 transition-all duration-200 border-b border-neutral-100"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t(link.text)}

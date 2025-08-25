@@ -1,7 +1,5 @@
-"use client";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
-import { usePathname } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 
 interface NavbarLinkProps {
   context: {
@@ -11,21 +9,16 @@ interface NavbarLinkProps {
   locale: string;
 }
 
-export default function NavbarLink({
+export default async function NavbarLink({
   context: { href, text },
   locale,
 }: NavbarLinkProps) {
-  const t = useTranslations("nav");
-  const pathname = usePathname();
+  const t = await getTranslations("nav");
 
   return (
     <Link
       href={`/${locale}${href}`}
-      className={`${
-        pathname === `/${locale}${href}`
-          ? "text-green-600 underline underline-offset-2"
-          : "text-green-800"
-      } hover:text-green-700  text-sm sm:text-base transition-colors duration-200`}
+      className="text-[14px] font-semibold px-2 py-1 hover:text-primary-600 hover:bg-primary-50 rounded-md transition-colors duration-200"
     >
       {t(text)}
     </Link>

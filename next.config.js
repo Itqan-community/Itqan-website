@@ -5,6 +5,12 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
+  // Performance optimizations
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: false,
+  swcMinify: true,
+  
   images: {
     domains: ['localhost', 'itqan.dev'],
     unoptimized: true, // Temporarily disable image optimization to fix production issues
@@ -14,18 +20,28 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      { protocol: 'https', hostname: 'cdn.sanity.io' },
+      { protocol: 'https', hostname: 'placehold.co' },
+    ]
   },
+  
   // Enable static exports for Netlify
   trailingSlash: true,
-  // Performance optimizations
-  compress: true,
-  poweredByHeader: false,
-  generateEtags: false,
+  
   // Enable experimental features for better performance
   experimental: {
     optimizePackageImports: ['react-icons'],
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
   },
-  // Headers for better caching and compression
+  // Headers for security and cache control
   async headers() {
     return [
       {
@@ -43,23 +59,13 @@ const nextConfig = {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
           },
-        ],
-      },
-      {
-        source: '/images/(.*)',
-        headers: [
           {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
           },
-        ],
-      },
-      {
-        source: '/fonts/(.*)',
-        headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: 'no-cache, no-store, must-revalidate, s-maxage=10, stale-while-revalidate',
           },
         ],
       },
