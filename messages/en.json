@@ -82,7 +82,9 @@
     "badge": "Quranic Reports",
     "headline1": "We provide you with specialized articles and reports on Quranic technologies",
     "headline2": "to help you develop outstanding and sustainable Quranic applications",
-    "backToArticles": "Back to Articles"
+    "backToArticles": "Back to Articles",
+    "featured": "Featured Articles",
+    "all_articles": "All Articles"
   },
   "tools": {
     "title": "Tools",
