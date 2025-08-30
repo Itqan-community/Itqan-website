@@ -48,8 +48,6 @@ export default function NewsletterPopup({ locale }: NewsletterPopupProps) {
 
   const closePopup = () => {
     setIsOpen(false);
-    // Mark that the popup has been shown
-    localStorage.setItem("itqan-newsletter-popup-shown", "true");
   };
 
   // Close popup when clicking outside
@@ -100,6 +98,7 @@ export default function NewsletterPopup({ locale }: NewsletterPopupProps) {
       // Close popup after successful subscription
       setTimeout(() => {
         closePopup();
+        localStorage.setItem("itqan-newsletter-popup-shown", "true");
       }, 2000);
     } catch (error) {
       console.error("Newsletter subscription error:", error);

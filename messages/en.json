@@ -90,8 +90,8 @@
   },
 
   "newsletterPopup": {
-    "title": "Join Itqan Newsletter!",
-    "description": "Get the latest news and technical resources for Quranic technology directly in your inbox.",
+    "title": "Join our Newsletter!",
+    "description": "Stay close to the latest updates, news and discussions about Quranic technologies through our newsletter.",
     "namePlaceholder": "Name",
     "emailPlaceholder": "Email Address",
     "subscribe": "Subscribe Now",
