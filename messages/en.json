@@ -89,6 +89,20 @@
     "successMessage": "You have been added to the Itqan newsletter subscribers list."
   },
 
+  "newsletterPopup": {
+    "title": "Join Itqan Newsletter!",
+    "description": "Get the latest news and technical resources for Quranic technology directly in your inbox.",
+    "namePlaceholder": "Name",
+    "emailPlaceholder": "Email Address",
+    "subscribe": "Subscribe Now",
+    "submitting": "Subscribing...",
+    "later": "Maybe Later",
+    "close": "Close",
+    "successTitle": "Welcome to Itqan Newsletter!",
+    "successMessage": "Thank you for joining us. You'll receive a confirmation email shortly.",
+    "footerNote": "You can unsubscribe at any time."
+  },
+
   "articles": {
     "badge": "Quranic Reports",
     "headline1": "We provide you with specialized articles and reports on Quranic technologies",

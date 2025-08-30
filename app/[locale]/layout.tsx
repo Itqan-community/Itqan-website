@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import "../globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "../components/Footer";
+import NewsletterPopup from "../components/NewsletterPopup";
 
 
 import GoogleAnalytics from "@/app/components/GoogleAnalytics";
@@ -165,6 +166,7 @@ export default async function RootLayout({ children, params }: Props) {
             {children}
           </main>
                      <Footer locale={locale} />
+                     <NewsletterPopup locale={locale} />
                      <SanityLive />
            <GoogleAnalytics />
           <PageTracking />
