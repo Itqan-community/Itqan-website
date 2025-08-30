@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import ForwardArrow from "./ForwardArrow";
+import NewsletterSubscribe from "./NewsletterSubscribe";
 import { FaDiscord, FaEnvelope } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -44,6 +45,11 @@ export default async function Footer({ locale, }: { locale: string }) {
               <BsGithub size={30} />
             </Link>
           </div>
+        </div>
+
+        {/* Newsletter Section */}
+        <div className="flex justify-center py-12 border-t border-primary-800">
+          <NewsletterSubscribe locale={locale} />
         </div>
 
         {/* Footer bottom */}

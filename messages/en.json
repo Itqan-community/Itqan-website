@@ -78,6 +78,17 @@
     "contact": "Contact Us"
   },
 
+  "newsletter": {
+    "title": "Itqan Newsletter",
+    "description": "Subscribe to receive the Itqan newsletter. We're happy to have you join us in our journey to serve the Book of Allah through technology!",
+    "namePlaceholder": "Name",
+    "emailPlaceholder": "Email Address",
+    "subscribe": "Subscribe",
+    "submitting": "Subscribing...",
+    "successTitle": "Thank you!",
+    "successMessage": "You have been added to the Itqan newsletter subscribers list."
+  },
+
   "articles": {
     "badge": "Quranic Reports",
     "headline1": "We provide you with specialized articles and reports on Quranic technologies",
