@@ -103,20 +103,20 @@ export async function generateMetadata({ params: { slug, locale } }: ProjectPage
       siteName: locale === 'ar' ? 'إتقان' : 'ITQAN',
       locale: locale,
       type: 'website',
-      images: project.image ? [
+      images: [
         {
-          url: `${baseUrl}/api/og?title=${encodeURIComponent(projectTitle)}`,
+          url: 'https://opengraph.b-cdn.net/production/images/24f3ccc8-f60a-47ce-a95d-bcc9afdf12e0.png?token=PhACL4wnmnsbd1O7du5h2wtpTICdeSQI0X6flfPqMG0&height=630&width=1200&expires=33286317738',
           width: 1200,
           height: 630,
           alt: projectTitle,
         },
-      ] : [],
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: projectTitle,
       description: projectDescription,
-      images: project.image ? [`${baseUrl}/api/og?title=${encodeURIComponent(projectTitle)}`] : [],
+      images: ['https://opengraph.b-cdn.net/production/images/24f3ccc8-f60a-47ce-a95d-bcc9afdf12e0.png?token=PhACL4wnmnsbd1O7du5h2wtpTICdeSQI0X6flfPqMG0&height=630&width=1200&expires=33286317738'],
     },
     alternates: {
       canonical: `/${locale}/projects/${slug}`,
