@@ -37,10 +37,10 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "url": "https://discord.gg/24CskUbuuB"
+      "url": "https://community.itqan.dev"
     },
     "sameAs": [
-      "https://discord.gg/24CskUbuuB",
+      "https://community.itqan.dev",
       "https://github.com/itqan",
       "https://twitter.com/itqan"
     ],

@@ -105,7 +105,7 @@ export default function MobileMenu({ locale, NavbarLinks }: MobileMenuProps) {
             <div className="px-6 py-6 border-b border-neutral-100">
               <LinkBtn 
                 title={t("discord")} 
-                href={`https://discord.gg/24CskUbuuB`} 
+                href={`https://community.itqan.dev`} 
                 target="_blank" 
                 variant="outline" 
                 locale={locale}

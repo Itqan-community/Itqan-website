@@ -51,7 +51,7 @@ export default async function Navbar({ locale }: { locale: string }) {
           {NavbarLinks.map((link) => (
             <NavbarLink key={link.href} context={link} locale={locale as string} />
           ))}
-          <LinkBtn title={t("discord")} href={`https://discord.gg/24CskUbuuB`} target="_blank" variant="outline" locale={locale} icon={LuArrowUpRight} />
+          <LinkBtn title={t("discord")} href={`https://community.itqan.dev`} target="_blank" variant="outline" locale={locale} icon={LuArrowUpRight} />
         </div>
         <div className="hidden md:block">
           <LangSwitch locale={locale as string} />

@@ -379,7 +379,7 @@ export default async function Home({ params: { locale } }: { params: { locale: L
             {/* <div className="flex items-center">
               <LinkBtn 
                 title={locale === 'ar' ? 'انضم للمجتمع' : 'Join Community'} 
-                href="https://discord.gg/24CskUbuuB" 
+                href="https://community.itqan.dev" 
                 target="_blank" 
                 variant="text" 
                 locale={locale} 

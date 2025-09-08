@@ -58,7 +58,7 @@ Our community provides:
 - Tech support from experienced developers.
 - Shared inspiration and project mentorship.
 
-👉 **Join the conversation on [Discord](https://discord.gg/24CskUbuuB)**
+👉 **Join the conversation on [Community](https://community.itqan.dev)**
 
 ---
 

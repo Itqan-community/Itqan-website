@@ -243,7 +243,7 @@ export default async function ProjectDetails({
 
       {/* Discord Section */}
       <section className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-100 flex justify-center">
-        <LinkBtn title={t("joinDiscord")} href={`https://discord.gg/24CskUbuuB`} target="_blank" variant="outline" locale={locale} />
+        <LinkBtn title={t("joinDiscord")} href={`https://community.itqan.dev`} target="_blank" variant="outline" locale={locale} />
       </section>
     </article>
   );

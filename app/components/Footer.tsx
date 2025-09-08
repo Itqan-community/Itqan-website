@@ -20,7 +20,7 @@ export default async function Footer({ locale, }: { locale: string }) {
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-0 mb-12 lg:mb-0">
           {/* CTA */}
           <Link
-            href="https://discord.gg/24CskUbuuB"
+            href="https://community.itqan.dev"
             target="_blank"
             rel="noopener"
             className="flex items-center justify-center gap-3 hover:opacity-90 transition-opacity"
@@ -35,7 +35,7 @@ export default async function Footer({ locale, }: { locale: string }) {
             <Link href="mailto:connect@itqan.dev" className="text-white hover:-translate-y-[10%] transition-transform">
               <IoMdMailOpen size={34} />
             </Link>
-            <Link href="https://discord.gg/24CskUbuuB" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
+            <Link href="https://community.itqan.dev" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
               <BsDiscord size={34} />
             </Link>
             <Link href="https://x.com/itqan_community" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">

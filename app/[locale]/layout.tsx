@@ -132,7 +132,7 @@ export default async function RootLayout({ children, params }: Props) {
         <link rel="dns-prefetch" href="//cdn.sanity.io" />
         
         {/* Resource hints for external domains */}
-        <link rel="preconnect" href="https://discord.gg" />
+        <link rel="preconnect" href="https://community.itqan.dev" />
         <link rel="preconnect" href="https://github.com" />
         <link rel="preconnect" href="https://x.com" />
         <link rel="preconnect" href="https://cdn.sanity.io" />
