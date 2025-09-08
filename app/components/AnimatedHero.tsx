@@ -17,6 +17,24 @@ export default function AnimatedHero({ locale }: { locale: string }) {
   // Use locale prop instead of window.location.pathname
   const isRTL = locale === 'ar';
 
+  // State to track if we're on desktop (client-side only)
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  // Check window width on client side only
+  useEffect(() => {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    
+    // Initial check
+    checkIsDesktop();
+    
+    // Listen for resize events
+    window.addEventListener('resize', checkIsDesktop);
+    
+    return () => window.removeEventListener('resize', checkIsDesktop);
+  }, []);
+
   // Memoize rotation values to prevent unnecessary recalculations
   const rotationValues = useMemo(() => {
     return isRTL ? [4, 2, 0, -2, -4] : [-4, -2, 0, 2, 4];
@@ -57,7 +75,7 @@ export default function AnimatedHero({ locale }: { locale: string }) {
                      {cards.map((card, i) => {
              const offsets = [0, -30, -60, -30, 0];
              const desktopOffsets = [0, -35, -75, -35, 0];
-             const yFinal = window.innerWidth >= 768 ? desktopOffsets[i] : offsets[i];
+             const yFinal = isDesktop ? desktopOffsets[i] : offsets[i];
             // Use memoized rotation values
             const rotation = rotationValues[i];
             // Also flip initial rotation for RTL
