@@ -3,6 +3,8 @@ import { NextRequest } from 'next/server';
 
 export const runtime = 'edge';
 
+// Add basic error handling and fallback fonts
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -39,12 +41,12 @@ export async function GET(request: NextRequest) {
             justifyContent: 'center',
             backgroundColor: '#1a1a1a',
             backgroundImage: 'linear-gradient(45deg, #1a1a1a 0%, #2d3748 50%, #1a1a1a 100%)',
-            fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
             position: 'relative',
             direction: isArabic ? 'rtl' : 'ltr',
           }}
         >
-          {/* Background Pattern */}
+          {/* Simplified Background Pattern */}
           <div
             style={{
               position: 'absolute',
@@ -52,8 +54,8 @@ export async function GET(request: NextRequest) {
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23669B80' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-              opacity: 0.3,
+              backgroundColor: '#2d3748',
+              opacity: 0.1,
             }}
           />
 
@@ -180,8 +182,26 @@ export async function GET(request: NextRequest) {
     );
   } catch (e: any) {
     console.error('Error generating OG image:', e);
-    return new Response(`Failed to generate the image: ${e.message}`, {
-      status: 500,
-    });
+    
+    // Return a simple fallback response
+    const { searchParams: fallbackParams } = new URL(request.url);
+    const fallbackLocale = fallbackParams.get('locale') || 'en';
+    const fallbackTitle = fallbackLocale === 'ar' ? 'إتقان' : 'ITQAN';
+    
+    return new Response(
+      `<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1200" height="630" fill="#1a1a1a"/>
+        <text x="600" y="315" text-anchor="middle" fill="white" font-size="48" font-family="Arial, sans-serif">
+          ${fallbackTitle}
+        </text>
+      </svg>`,
+      {
+        status: 200,
+        headers: {
+          'Content-Type': 'image/svg+xml',
+          'Cache-Control': 'public, max-age=3600',
+        },
+      }
+    );
   }
 }
