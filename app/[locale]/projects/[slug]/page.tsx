@@ -61,20 +61,22 @@ interface ProjectPageProps {
 export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params: { slug, locale } }: ProjectPageProps): Promise<Metadata> {
-  const { data: project } = await sanityFetch({
-    query: PROJECT_QUERY,
-    params: { slug }
-  });
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://itqan.dev';
+  
+  try {
+    const { data: project } = await sanityFetch({
+      query: PROJECT_QUERY,
+      params: { slug }
+    });
 
-  if (!project) {
-    return {
-      title: 'Project Not Found',
-      description: 'The requested project could not be found.',
-    };
-  }
+    if (!project) {
+      return {
+        title: 'Project Not Found',
+        description: 'The requested project could not be found.',
+      };
+    }
 
   const t = await getTranslations("home.projects");
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://itqan.dev';
   
   // Get translated project title and description
   const projectTitle = typeof project.title === 'object' 
@@ -103,20 +105,20 @@ export async function generateMetadata({ params: { slug, locale } }: ProjectPage
       siteName: locale === 'ar' ? 'إتقان' : 'ITQAN',
       locale: locale,
       type: 'website',
-      images: project.image ? [
+      images: [
         {
-          url: `${baseUrl}/api/og?title=${encodeURIComponent(projectTitle)}`,
+          url: `${baseUrl}/api/og?title=${encodeURIComponent(projectTitle)}&description=${encodeURIComponent(projectDescription)}&locale=${locale}`,
           width: 1200,
           height: 630,
           alt: projectTitle,
         },
-      ] : [],
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: projectTitle,
       description: projectDescription,
-      images: project.image ? [`${baseUrl}/api/og?title=${encodeURIComponent(projectTitle)}`] : [],
+      images: [`${baseUrl}/api/og?title=${encodeURIComponent(projectTitle)}&description=${encodeURIComponent(projectDescription)}&locale=${locale}`],
     },
     alternates: {
       canonical: `/${locale}/projects/${slug}`,
@@ -126,6 +128,41 @@ export async function generateMetadata({ params: { slug, locale } }: ProjectPage
       },
     },
   };
+  } catch (error) {
+    console.error('Error generating metadata for project:', slug, error);
+    // Fallback metadata for build time
+    const fallbackTitle = locale === 'ar' ? 'مشروع' : 'Project';
+    const fallbackDescription = locale === 'ar' 
+      ? 'مشروع من مجتمع إتقان لتطوير تقنيات القرآن الكريم'
+      : 'A project from Itqan community for developing Quran technologies';
+    
+    return {
+      title: fallbackTitle,
+      description: fallbackDescription,
+      openGraph: {
+        title: fallbackTitle,
+        description: fallbackDescription,
+        url: `${baseUrl}/${locale}/projects/${slug}`,
+        siteName: locale === 'ar' ? 'إتقان' : 'ITQAN',
+        locale: locale,
+        type: 'website',
+        images: [
+          {
+            url: `${baseUrl}/api/og?title=${encodeURIComponent(fallbackTitle)}&description=${encodeURIComponent(fallbackDescription)}&locale=${locale}`,
+            width: 1200,
+            height: 630,
+            alt: fallbackTitle,
+          },
+        ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: fallbackTitle,
+        description: fallbackDescription,
+        images: [`${baseUrl}/api/og?title=${encodeURIComponent(fallbackTitle)}&description=${encodeURIComponent(fallbackDescription)}&locale=${locale}`],
+      },
+    };
+  }
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
@@ -187,18 +224,41 @@ export async function generateStaticParams() {
   try {
     const projects = await client.fetch(PROJECTS_SLUGS_QUERY);
     
-    // Generate params for both locales
+    if (!Array.isArray(projects) || projects.length === 0) {
+      console.warn('No projects found for static generation, returning fallback slugs');
+      // Return fallback project slugs for build time - only slug, not locale (handled by layout)
+      return [
+        { slug: '1' },
+        { slug: '2' },
+        { slug: '3' }
+      ];
+    }
+    
+    // Generate params - only slug needed, locale is handled by the layout
     const params = [];
     for (const project of projects) {
       if (project.slug?.current) {
-        params.push({ slug: project.slug.current, locale: "ar" });
-        params.push({ slug: project.slug.current, locale: "en" });
+        params.push({ slug: project.slug.current });
       }
+    }
+    
+    // If no valid projects, return fallback
+    if (params.length === 0) {
+      return [
+        { slug: '1' },
+        { slug: '2' },
+        { slug: '3' }
+      ];
     }
     
     return params;
   } catch (error) {
     console.error('Error generating static params:', error);
-    return [];
+    // Return fallback project slugs for build time
+    return [
+      { slug: '1' },
+      { slug: '2' },
+      { slug: '3' }
+    ];
   }
 }

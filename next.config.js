@@ -23,6 +23,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'cdn.sanity.io' },
       { protocol: 'https', hostname: 'placehold.co' },
+      { protocol: 'https', hostname: 'opengraph.b-cdn.net' },
     ]
   },
   
@@ -53,7 +54,7 @@ const nextConfig = {
           },
           {
             key: 'X-Frame-Options',
-            value: 'DENY',
+            value: 'SAMEORIGIN', // Changed from DENY to allow social media embeds
           },
           {
             key: 'X-XSS-Protection',
@@ -63,9 +64,23 @@ const nextConfig = {
             key: 'Referrer-Policy',
             value: 'strict-origin-when-cross-origin',
           },
+        ],
+      },
+      {
+        source: '/api/og',
+        headers: [
           {
             key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate, s-maxage=10, stale-while-revalidate',
+            value: 'public, max-age=86400, s-maxage=86400', // Cache OG images for 24 hours
+          },
+        ],
+      },
+      {
+        source: '/((?!api|_next/static|_next/image|favicon.ico).*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, s-maxage=10, stale-while-revalidate=86400',
           },
         ],
       },
