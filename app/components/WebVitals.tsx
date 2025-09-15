@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 export default function WebVitals() {
   useEffect(() => {
     // Dynamically import web-vitals to avoid blocking the main thread
-    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+    import('web-vitals').then((webVitals) => {
       // Send to analytics
       const sendToAnalytics = (metric: any) => {
         // Send to Google Analytics if available
@@ -23,12 +23,15 @@ export default function WebVitals() {
         }
       };
 
-      // Monitor all Core Web Vitals
-      getCLS(sendToAnalytics);
-      getFID(sendToAnalytics);
-      getFCP(sendToAnalytics);
-      getLCP(sendToAnalytics);
-      getTTFB(sendToAnalytics);
+      // Monitor all Core Web Vitals using the correct API
+      if ('onCLS' in webVitals) webVitals.onCLS(sendToAnalytics);
+      if ('onINP' in webVitals) webVitals.onINP(sendToAnalytics); // INP replaces FID
+      if ('onFCP' in webVitals) webVitals.onFCP(sendToAnalytics);
+      if ('onLCP' in webVitals) webVitals.onLCP(sendToAnalytics);
+      if ('onTTFB' in webVitals) webVitals.onTTFB(sendToAnalytics);
+      
+      // Fallback for older versions
+      if ('onFID' in webVitals) (webVitals as any).onFID(sendToAnalytics);
     }).catch((error) => {
       console.warn('Failed to load web-vitals:', error);
     });
