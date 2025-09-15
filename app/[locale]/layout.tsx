@@ -11,6 +11,7 @@ import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import PageTracking from "@/app/components/PageTracking";
 import WebVitals from "@/app/components/WebVitals";
 import StructuredData from "@/app/components/StructuredData";
+import CriticalCSS from "@/app/components/CriticalCSS";
 import { SanityLive } from "../sanity/live";
 import { seoData } from "../utils/seoData";
 
@@ -119,6 +120,9 @@ export default async function RootLayout({ children, params }: Props) {
         <link rel="preload" href="/fonts/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
         <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" />
         <link rel="preload" href="/images/home/hero-bg.avif" as="image" type="image/avif" />
+        <link rel="preload" href="/images/home/hero-card-mushaf.svg" as="image" type="image/svg+xml" />
+        <link rel="preload" href="/images/home/hero-card-laptop.svg" as="image" type="image/svg+xml" />
+        <link rel="preload" href="/images/home/hero-card-headset.svg" as="image" type="image/svg+xml" />
         
 
         
@@ -147,6 +151,9 @@ export default async function RootLayout({ children, params }: Props) {
         <meta name="format-detection" content="email=no" />
         
 
+        
+        {/* Critical CSS for LCP optimization */}
+        <CriticalCSS />
         
         {/* Structured Data */}
         <StructuredData />

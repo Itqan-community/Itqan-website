@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from 'react';
+import { yieldToMain, runWhenIdle } from '@/app/utils/taskScheduler';
 
 interface Star {
   x: number;
@@ -35,9 +36,9 @@ export default function AnimatedBg() {
     window.addEventListener('resize', resizeCanvas);
 
     // Generate stars with semi-organized grid layout
-    const generateStars = () => {
+    const generateStars = async () => {
       const stars: Star[] = [];
-      const numStars = Math.floor((canvas.width * canvas.height) / 2000); // Increased star count
+      const numStars = Math.floor((canvas.width * canvas.height) / 4000); // Reduced star count for performance
       
       // Light shades of orange, green, and primary colors
       const colors = [
@@ -86,6 +87,11 @@ export default function AnimatedBg() {
             }
           }
         }
+        
+        // Yield every 10 rows to prevent blocking
+        if (row % 10 === 0) {
+          await yieldToMain();
+        }
       }
       
       // Fill remaining stars with random positions (40% randomness)
@@ -112,7 +118,10 @@ export default function AnimatedBg() {
       return stars;
     };
 
-    starsRef.current = generateStars();
+    // Initialize stars asynchronously to avoid blocking
+    runWhenIdle(async () => {
+      starsRef.current = await generateStars();
+    });
 
     // Animation function
     const animate = (timestamp: number) => {

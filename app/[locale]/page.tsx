@@ -13,7 +13,7 @@ import dynamicImport from "next/dynamic";
 // Dynamically import AnimatedHero to reduce initial bundle size
 const AnimatedHero = dynamicImport(() => import("../components/AnimatedHero"), {
   loading: () => (
-    <div className="h-[400px] md:h-[500px] lg:h-[600px] bg-gradient-to-br from-primary-50 to-primary-100 animate-pulse" />
+    <div className="h-[100vh] bg-gradient-to-br from-primary-50 to-primary-100 animate-pulse" />
   ),
   ssr: false // This component requires client-side features
 });

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import ForwardArrow from "./ForwardArrow";
 import NewsletterSubscribe from "./NewsletterSubscribe";
-import { LuArrowRight } from "react-icons/lu";
 import { BsDiscord, BsGithub, BsTwitterX } from "react-icons/bs";
 import { IoMdMailOpen } from "react-icons/io";
 import { RiUserCommunityFill } from "react-icons/ri";
@@ -27,7 +26,7 @@ export default async function Footer({ locale, }: { locale: string }) {
               {t("cta")}
             </h2>
 
-            <ForwardArrow silent size={36} locale={locale} icon={LuArrowRight} />
+            <ForwardArrow silent size={36} locale={locale} />
           </Link>
           <div className="flex gap-8 justify-center">
             <Link href="mailto:connect@itqan.dev" className="text-white hover:-translate-y-[10%] transition-transform">

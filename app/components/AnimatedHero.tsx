@@ -151,7 +151,15 @@ export default function AnimatedHero({ locale }: { locale: string }) {
                       }}
                     />
                   )}
-                                     <Image src={card.image} alt={`Hero Card ${card.id}`} width={160} height={160} className="w-full h-full object-cover absolute inset-0 z-10" />
+                                     <Image 
+                      src={card.image} 
+                      alt={`Hero Card ${card.id}`} 
+                      width={160} 
+                      height={160} 
+                      className="w-full h-full object-cover absolute inset-0 z-10" 
+                      priority={i <= 2} // Prioritize first 3 cards
+                      loading={i <= 2 ? "eager" : "lazy"}
+                    />
                 </motion.div>
               </motion.div>
             );

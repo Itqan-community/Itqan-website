@@ -1,6 +1,5 @@
 import Link from "next/link";
 import ForwardArrow from "./ForwardArrow";
-import { IconType } from "react-icons";
 
 interface LinkBtnProps {
   title: string;
@@ -8,7 +7,6 @@ interface LinkBtnProps {
   variant?: "fill" | "outline" | "text";
   target?: string;
   locale?: string;
-  icon?: IconType;
 }
 
 export default function LinkBtn({ 
@@ -16,8 +14,7 @@ export default function LinkBtn({
   href,
   variant = "fill",
   target = "_self",
-  locale = "en",
-  icon
+  locale = "en"
 }: LinkBtnProps) {
 
   const baseStyles = variant === "text" 
@@ -36,7 +33,7 @@ export default function LinkBtn({
       target={target}
       className={`${baseStyles} ${variantStyles} ${variant === "fill" ? "hover-lift transition-all duration-200" : ""} font-semibold`}
     >
-      {title} <ForwardArrow size={16} locale={locale} icon={icon} />
+      {title} <ForwardArrow size={16} locale={locale} />
     </Link>
   );
 }

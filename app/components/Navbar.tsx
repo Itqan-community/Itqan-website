@@ -5,7 +5,6 @@ import LangSwitch from "./LangSwitch";
 import NavbarLink from "./NavbarLink";
 import LinkBtn from "./LinkBtn";
 import MobileMenu from "./MobileMenu";
-import { LuArrowUpRight } from "react-icons/lu";
 
 const NavbarLinks = [
   {
@@ -51,7 +50,7 @@ export default async function Navbar({ locale }: { locale: string }) {
           {NavbarLinks.map((link) => (
             <NavbarLink key={link.href} context={link} locale={locale as string} />
           ))}
-          <LinkBtn title={t("discord")} href={`https://community.itqan.dev`} target="_blank" variant="outline" locale={locale} icon={LuArrowUpRight} />
+          <LinkBtn title={t("discord")} href={`https://community.itqan.dev`} target="_blank" variant="outline" locale={locale} />
         </div>
         <div className="hidden md:block">
           <LangSwitch locale={locale as string} />
