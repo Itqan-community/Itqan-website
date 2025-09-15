@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 import NewsletterPopup from "../components/NewsletterPopup";
 import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import PageTracking from "@/app/components/PageTracking";
+import WebVitals from "@/app/components/WebVitals";
 import StructuredData from "@/app/components/StructuredData";
 import { SanityLive } from "../sanity/live";
 import { seoData } from "../utils/seoData";
@@ -115,6 +116,7 @@ export default async function RootLayout({ children, params }: Props) {
         
         {/* Preload critical resources */}
         <link rel="preload" href="/fonts/Fustat-VariableFont_wght.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Rubik-VariableFont_wght.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
         <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" />
         <link rel="preload" href="/images/home/hero-bg.avif" as="image" type="image/avif" />
         
@@ -129,13 +131,14 @@ export default async function RootLayout({ children, params }: Props) {
         
         {/* DNS Prefetch for performance */}
         <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//cdn.sanity.io" />
         
         {/* Resource hints for external domains */}
+        <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://community.itqan.dev" />
         <link rel="preconnect" href="https://github.com" />
         <link rel="preconnect" href="https://x.com" />
-        <link rel="preconnect" href="https://cdn.sanity.io" />
         
         {/* Performance optimizations */}
         <meta name="format-detection" content="telephone=no" />
@@ -159,6 +162,7 @@ export default async function RootLayout({ children, params }: Props) {
                      <SanityLive />
            <GoogleAnalytics />
           <PageTracking />
+          <WebVitals />
         </NextIntlClientProvider>
       </body>
     </html>

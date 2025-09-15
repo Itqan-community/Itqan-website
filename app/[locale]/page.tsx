@@ -8,7 +8,15 @@ import LinkBtn from "../components/LinkBtn";
 import ForwardArrow from "../components/ForwardArrow";
 import SEOKeywords from "../components/SEOKeywords";
 import SafeImage from "../components/SafeImage";
-import AnimatedHero from "../components/AnimatedHero";
+import dynamicImport from "next/dynamic";
+
+// Dynamically import AnimatedHero to reduce initial bundle size
+const AnimatedHero = dynamicImport(() => import("../components/AnimatedHero"), {
+  loading: () => (
+    <div className="h-[400px] md:h-[500px] lg:h-[600px] bg-gradient-to-br from-primary-50 to-primary-100 animate-pulse" />
+  ),
+  ssr: false // This component requires client-side features
+});
 
 
 // Partner data
@@ -276,11 +284,11 @@ export default async function Home({ params: { locale } }: { params: { locale: L
                   <SafeImage
                     src={partner.image}
                     alt={partner.name}
-                    width={120}
-                    height={80}
+                    width={96}
+                    height={64}
                     className="w-1/2 h-1/2 object-contain transition-transform duration-300 group-hover:scale-110"
                     loading="lazy"
-                    sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
+                    sizes="(max-width: 640px) 48px, (max-width: 768px) 60px, 96px"
                   />
                 </div>
               </Link>
