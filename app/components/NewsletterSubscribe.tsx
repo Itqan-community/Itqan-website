@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 
 interface NewsletterSubscribeProps {
@@ -16,6 +16,17 @@ export default function NewsletterSubscribe({ locale }: NewsletterSubscribeProps
   });
 
   const t = useTranslations("newsletter");
+
+  // Auto-reset success state after 2 seconds
+  useEffect(() => {
+    if (isSuccess) {
+      const timer = setTimeout(() => {
+        setIsSuccess(false);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isSuccess]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -61,7 +72,7 @@ export default function NewsletterSubscribe({ locale }: NewsletterSubscribeProps
 
   if (isSuccess) {
     return (
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-md md:max-w-4xl">
         <div className="text-center p-6 bg-primary-50 rounded-2xl border border-primary-200">
           <h4 className="text-lg font-bold text-primary-900 mb-2 font-fustat">
             {t("successTitle")}
@@ -75,7 +86,7 @@ export default function NewsletterSubscribe({ locale }: NewsletterSubscribeProps
   }
 
   return (
-    <div className="w-full max-w-md">
+    <div className="w-full max-w-md md:max-w-4xl">
       <div className="mb-4">
         <h4 className="text-lg font-bold text-neutral-100 mb-2 font-fustat">
           {t("title")}
@@ -85,8 +96,8 @@ export default function NewsletterSubscribe({ locale }: NewsletterSubscribeProps
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
+      <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4">
+        <div className="flex-1">
           <input
             type="text"
             name="name"
@@ -100,7 +111,7 @@ export default function NewsletterSubscribe({ locale }: NewsletterSubscribeProps
           />
         </div>
 
-        <div>
+        <div className="flex-1">
           <input
             type="email"
             name="email"
@@ -117,8 +128,8 @@ export default function NewsletterSubscribe({ locale }: NewsletterSubscribeProps
 
         <button
           type="submit"
-          disabled={isSubmitting || !formData.email}
-          className="w-full bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 disabled:cursor-not-allowed text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 hover-lift text-sm"
+          disabled={isSubmitting || !formData.email || !formData.name}
+          className="w-full md:w-auto md:px-8 bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 disabled:cursor-not-allowed text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 hover-lift text-sm whitespace-nowrap"
         >
           {isSubmitting ? t("submitting") : t("subscribe")}
         </button>

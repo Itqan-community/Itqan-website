@@ -3,12 +3,10 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import ForwardArrow from "./ForwardArrow";
 import NewsletterSubscribe from "./NewsletterSubscribe";
-import { FaDiscord, FaEnvelope } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { LuArrowRight, LuDisc, LuGithub, LuMail, LuMailOpen, LuTwitter } from "react-icons/lu";
+import { LuArrowRight } from "react-icons/lu";
 import { BsDiscord, BsGithub, BsTwitterX } from "react-icons/bs";
 import { IoMdMailOpen } from "react-icons/io";
+import { RiUserCommunityFill } from "react-icons/ri";
 
 export default async function Footer({ locale, }: { locale: string }) {
   const t = await getTranslations("footer");
@@ -35,8 +33,11 @@ export default async function Footer({ locale, }: { locale: string }) {
             <Link href="mailto:connect@itqan.dev" className="text-white hover:-translate-y-[10%] transition-transform">
               <IoMdMailOpen size={34} />
             </Link>
-            <Link href="https://community.itqan.dev" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
+            <Link href="https://discord.gg/24CskUbuuB" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
               <BsDiscord size={34} />
+            </Link>
+            <Link href="https://community.itqan.dev" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
+              <RiUserCommunityFill size={34} />
             </Link>
             <Link href="https://x.com/itqan_community" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
               <BsTwitterX size={30} />
@@ -48,7 +49,7 @@ export default async function Footer({ locale, }: { locale: string }) {
         </div>
 
         {/* Newsletter Section */}
-        <div className="flex justify-center py-12 border-t border-primary-800">
+        <div className="flex justify-center lg:justify-start py-16">
           <NewsletterSubscribe locale={locale} />
         </div>
 

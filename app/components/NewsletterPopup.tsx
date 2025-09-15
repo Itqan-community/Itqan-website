@@ -22,12 +22,15 @@ export default function NewsletterPopup({ locale }: NewsletterPopupProps) {
   // Check if it's the first visit and show popup
   useEffect(() => {
     const hasVisitedBefore = localStorage.getItem("itqan-newsletter-popup-shown");
-    
+    const hasIgnoredBefore = sessionStorage.getItem("itqan-newsletter-popup-ignored");
+    if (hasIgnoredBefore) {
+      return;
+    }
     if (!hasVisitedBefore) {
       // Delay popup appearance for better UX
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 3000); // Show after 3 seconds
+      }, 5000); // Show after 3 seconds
 
       return () => clearTimeout(timer);
     }
@@ -48,11 +51,12 @@ export default function NewsletterPopup({ locale }: NewsletterPopupProps) {
 
   const closePopup = () => {
     setIsOpen(false);
+    sessionStorage.setItem("itqan-newsletter-popup-ignored", "true");
   };
 
   // Close popup when clicking outside
   const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
+    if (e.target !== e.currentTarget) {
       closePopup();
     }
   };
