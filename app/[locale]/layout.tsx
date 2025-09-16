@@ -6,10 +6,16 @@ import { notFound } from "next/navigation";
 import "../globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "../components/Footer";
-import NewsletterPopup from "../components/NewsletterPopup";
+import dynamic from "next/dynamic";
+
+// Dynamically import NewsletterPopup since it's not critical for initial load
+const NewsletterPopup = dynamic(() => import("../components/NewsletterPopup"), {
+  ssr: false,
+});
 import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import PageTracking from "@/app/components/PageTracking";
 import WebVitals from "@/app/components/WebVitals";
+import ServiceWorkerRegistration from "@/app/components/ServiceWorkerRegistration";
 import StructuredData from "@/app/components/StructuredData";
 import CriticalCSS from "@/app/components/CriticalCSS";
 import { SanityLive } from "../sanity/live";
@@ -170,6 +176,7 @@ export default async function RootLayout({ children, params }: Props) {
            <GoogleAnalytics />
           <PageTracking />
           <WebVitals />
+          <ServiceWorkerRegistration />
         </NextIntlClientProvider>
       </body>
     </html>

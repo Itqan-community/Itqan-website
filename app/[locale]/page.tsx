@@ -8,6 +8,7 @@ import LinkBtn from "../components/LinkBtn";
 import ForwardArrow from "../components/ForwardArrow";
 import SEOKeywords from "../components/SEOKeywords";
 import SafeImage from "../components/SafeImage";
+import LazySection from "../components/LazySection";
 import dynamicImport from "next/dynamic";
 
 // Dynamically import AnimatedHero to reduce initial bundle size
@@ -258,44 +259,60 @@ export default async function Home({ params: { locale } }: { params: { locale: L
         </div>
       </section>
 
-      <section className="pt-16 sm:pt-20 lg:pt-40 bg-white">
-        <div className="mx-auto">
-          <div className="flex flex-col items-center text-center mb-8 sm:mb-12 px-4 sm:px-6 lg:px-[4%]">
-            <div className="max-w-[635px]">
-              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-neutral-900 mb-4">
-                {t("partners.title")}
-              </h2>
-              <p className="text-xl sm:text-2xl text-primary-700">
-                {t("partners.description")}
-              </p>
+      <LazySection 
+        className="pt-16 sm:pt-20 lg:pt-40 bg-white"
+        fallback={
+          <div className="pt-16 sm:pt-20 lg:pt-40 bg-white">
+            <div className="mx-auto px-4 sm:px-6 lg:px-[4%]">
+              <div className="h-40 animate-pulse bg-gray-100 rounded mb-8"></div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                {[...Array(8)].map((_, i) => (
+                  <div key={i} className="h-[200px] animate-pulse bg-gray-100 rounded"></div>
+                ))}
+              </div>
             </div>
           </div>
+        }
+      >
+        <section>
+          <div className="mx-auto">
+            <div className="flex flex-col items-center text-center mb-8 sm:mb-12 px-4 sm:px-6 lg:px-[4%]">
+              <div className="max-w-[635px]">
+                <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-neutral-900 mb-4">
+                  {t("partners.title")}
+                </h2>
+                <p className="text-xl sm:text-2xl text-primary-700">
+                  {t("partners.description")}
+                </p>
+              </div>
+            </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 border border-neutral-200 border-b-0 shadow-[inset_0_-1px_0_0_#e5e5e5]">
-            {partners.map((partner, index) => (
-              <Link
-                key={index}
-                href={partner.href}
-                target="_blank"
-                className={`group bg-white border-e border-b border-neutral-200 `}
-                aria-label={`Visit ${partner.name}`}
-              >
-                <div className="h-[200px] flex items-center justify-center overflow-hidden">
-                  <SafeImage
-                    src={partner.image}
-                    alt={partner.name}
-                    width={96}
-                    height={64}
-                    className="w-1/2 h-1/2 object-contain transition-transform duration-300 group-hover:scale-110"
-                    loading="lazy"
-                    sizes="(max-width: 640px) 48px, (max-width: 768px) 60px, 96px"
-                  />
-                </div>
-              </Link>
-            ))}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 border border-neutral-200 border-b-0 shadow-[inset_0_-1px_0_0_#e5e5e5]">
+              {partners.map((partner, index) => (
+                <Link
+                  key={index}
+                  href={partner.href}
+                  target="_blank"
+                  className={`group bg-white border-e border-b border-neutral-200 `}
+                  aria-label={`Visit ${partner.name}`}
+                >
+                  <div className="h-[200px] flex items-center justify-center overflow-hidden">
+                    <SafeImage
+                      src={partner.image}
+                      alt={partner.name}
+                      width={96}
+                      height={64}
+                      className="w-1/2 h-1/2 object-contain transition-transform duration-300 group-hover:scale-110"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 48px, (max-width: 768px) 60px, 96px"
+                    />
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </LazySection>
 
       <section className="py-16 sm:py-20 lg:py-40 px-4 sm:px-6 lg:px-[4%] bg-neutral-50">
         <div className="max-w-4xl mx-auto">

@@ -1,10 +1,12 @@
+import { memo } from 'react';
+
 interface ForwardArrowProps {
   silent?: boolean;
   size?: number;
   locale?: string;
 }
 
-export default function ForwardArrow({ 
+const ForwardArrow = memo(function ForwardArrow({ 
   silent, 
   size = 16, 
   locale = "en"
@@ -25,4 +27,6 @@ export default function ForwardArrow({
       <path d="m12 5 7 7-7 7" />
     </svg>
   );
-}
+});
+
+export default ForwardArrow;

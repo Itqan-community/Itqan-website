@@ -1,4 +1,7 @@
 const createNextIntlPlugin = require('next-intl/plugin');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -31,7 +34,7 @@ const nextConfig = {
   
   // Enable experimental features for better performance
   experimental: {
-    optimizePackageImports: ['react-icons'],
+    optimizePackageImports: ['framer-motion', 'next-sanity'],
     turbo: {
       rules: {
         '*.svg': {
@@ -73,4 +76,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withNextIntl(nextConfig); 
+module.exports = withBundleAnalyzer(withNextIntl(nextConfig)); 
