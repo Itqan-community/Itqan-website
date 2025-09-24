@@ -45,7 +45,7 @@ export default function NewsletterArchive({ locale }: NewsletterArchiveProps) {
         }
         
         // Check if there are more pages
-        const hasMorePages = response.meta && response.meta.current_page < response.meta.last_page;
+        const hasMorePages = response.meta ? response.meta.current_page < response.meta.last_page : false;
         setHasMore(hasMorePages);
         setCurrentPage(page);
       }
