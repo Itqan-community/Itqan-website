@@ -27,6 +27,10 @@ const NavbarLinks = [
     href: "/tools",
     text: "tools",
   },
+  {
+    href: "/newsletter",
+    text: "newsletter",
+  },
 ];
 
 export default async function Navbar({ locale }: { locale: string }) {

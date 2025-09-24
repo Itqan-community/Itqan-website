@@ -68,6 +68,7 @@
     "projects": "Projects", 
     "resources": "Resources",
     "articles": "Articles",
+    "newsletter": "Newsletter",
     "discord": "Join Itqan Community",
     "logo": "Itqan",
     "tools": "Tools"
@@ -151,5 +152,14 @@
     "other": {
       "title": "Other"
     }
+  },
+  "newsletterArchive": {
+    "title": "Newsletter",
+    "description": "Stay updated with the latest news and insights about Quranic technologies through our newsletter archive.",
+    "readNewsletter": "Read Newsletter",
+    "publishedOn": "Published on",
+    "noNewsletters": "No newsletters available at the moment.",
+    "loadMore": "Load More",
+    "loading": "Loading newsletters..."
   }
 }
