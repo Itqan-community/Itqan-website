@@ -28,10 +28,14 @@ export default function NewsletterCard({ campaign, locale }: NewsletterCardProps
   // Get preview URL or create a fallback
   const getNewsletterUrl = () => {
     if (primaryEmail?.preview_url) {
-      return primaryEmail.preview_url;
+      return primaryEmail.preview_url.replace("preview.mailerlite.com", "bareed.itqan.dev");
     }
     // Fallback to a generic newsletter view URL if preview is not available
-    return `https://preview.mailerlite.com/campaigns/${campaign.id}`;
+    return `https://bareed.itqan.dev/campaigns/${campaign.id}`;
+  };
+
+  const updateUrlWithBareedDomain = (url: string) => {
+    return url.replace("preview.mailerlite.io", "bareed.itqan.dev");
   };
 
   return (
@@ -40,10 +44,10 @@ export default function NewsletterCard({ campaign, locale }: NewsletterCardProps
         {/* Header */}
         <div className="mb-4">
           <h3 className="font-bold text-xl text-primary-900 mb-2 group-hover:text-primary-700 transition-colors">
-            {campaign.name}
+            {primaryEmail.subject}
           </h3>
           <p className="text-sm text-neutral-600">
-            {t("publishedOn")} {formatDate(campaign.finished_at || campaign.created_at)}
+            {campaign.name} {t("publishedOn")} {formatDate(campaign.created_at)}
           </p>
         </div>
 
@@ -58,9 +62,10 @@ export default function NewsletterCard({ campaign, locale }: NewsletterCardProps
 
 
         {/* Action button */}
+        {primaryEmail.preview_url && (
         <div className="mt-auto pt-4">
           <Link
-            href={getNewsletterUrl()}
+            href={updateUrlWithBareedDomain(primaryEmail.preview_url)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-4 py-2 rounded-lg transition-colors duration-200 hover-lift text-sm"
@@ -74,8 +79,9 @@ export default function NewsletterCard({ campaign, locale }: NewsletterCardProps
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6l6 6-6 6" />
             </svg>
-          </Link>
-        </div>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

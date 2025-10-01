@@ -213,6 +213,7 @@ export async function getCampaigns(
     'filter[status]': status,
     limit: limit.toString(),
     page: page.toString(),
+    sort: 'created_at',
   });
 
   if (type) {
