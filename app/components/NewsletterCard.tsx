@@ -43,19 +43,23 @@ export default function NewsletterCard({ campaign, locale }: NewsletterCardProps
       <div className="flex flex-col h-full">
         {/* Header */}
         <div className="mb-4">
-          <h3 className="font-bold text-xl text-primary-900 mb-2 group-hover:text-primary-700 transition-colors">
+          <h3 className="font-bold text-lg text-primary-900 mb-2 group-hover:text-primary-700 transition-colors">
             {primaryEmail.subject}
           </h3>
-          <p className="text-sm text-neutral-600">
+          <p className="text-xs text-neutral-600">
             {campaign.name} {t("publishedOn")} {formatDate(campaign.created_at)}
           </p>
         </div>
 
         {/* Subject line if available */}
         {primaryEmail?.subject && (
-          <div className="mb-4">
-            <p className="text-neutral-700 leading-relaxed line-clamp-2">
-              {primaryEmail.subject}
+          <div className="mt-auto mb-4">
+            <p className="text-neutral-700 leading-relaxed line-clamp-3">
+              {campaign.id === "163894378917528820"
+                ? "رحلة إتقان تبدأ من تحدي التطبيقات القرآنية.. قصص وأدوات تفتح آفاقًا جديدة للمطورين 🌍📱"
+                : campaign.id === "165600823697475277"
+                  ? "من ترتيل و”باحوث” إلى Quran Tab.. ابتكارات تضع التقنيات القرآنية في صدارة المشهد 🚀📖"
+                  : primaryEmail.preheader}
             </p>
           </div>
         )}
@@ -63,7 +67,7 @@ export default function NewsletterCard({ campaign, locale }: NewsletterCardProps
 
         {/* Action button */}
         {primaryEmail.preview_url && (
-        <div className="mt-auto pt-4">
+        <div className="">
           <Link
             href={updateUrlWithBareedDomain(primaryEmail.preview_url)}
             target="_blank"

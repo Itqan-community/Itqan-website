@@ -147,6 +147,7 @@ export interface MailerLiteEmail {
   };
   send_after: string | null;
   track_opens: boolean;
+  preheader: string;
 }
 
 export interface MailerLiteApiResponse<T> {
