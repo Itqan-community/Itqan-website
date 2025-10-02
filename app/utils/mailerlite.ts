@@ -147,6 +147,7 @@ export interface MailerLiteEmail {
   };
   send_after: string | null;
   track_opens: boolean;
+  preheader: string;
 }
 
 export interface MailerLiteApiResponse<T> {
@@ -213,6 +214,7 @@ export async function getCampaigns(
     'filter[status]': status,
     limit: limit.toString(),
     page: page.toString(),
+    sort: 'created_at',
   });
 
   if (type) {
