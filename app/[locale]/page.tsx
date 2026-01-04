@@ -24,6 +24,7 @@ const AnimatedHero = dynamicImport(() => import("../components/AnimatedHero"), {
 const partners = [
   { name: "Maknon", image: "/images/partners/maknon.png", href: "https://maknon.org.sa/" },
   { name: "Tafsir", image: "/images/partners/tafsir.avif", href: "https://tafsir.net" },
+  { name: "Al Borhan", image: "/images/partners/alborhan.png", href: "https://alborhan.sa" },
   { name: "Quran", image: "/images/partners/quran.avif", href: "https://quran.com" },
   { name: "Tarteel", image: "/images/partners/tarteel.svg", href: "https://www.tarteel.ai" },
   { name: "QuranPedia", image: "/images/partners/quranpedia.avif", href: "https://quranpedia.net/" },
