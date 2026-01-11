@@ -112,23 +112,25 @@ export default function NewsletterArchive({ locale }: NewsletterArchiveProps) {
     <div className="space-y-6">
       {/* Newsletter Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {campaigns.map((campaign, index) => (
-          <LazySection
-            key={campaign.id}
-            fallback={
-              <div className="bg-gray-100 rounded-2xl p-6 animate-pulse">
-                <div className="h-6 bg-gray-200 rounded mb-2"></div>
-                <div className="h-4 bg-gray-200 rounded mb-4 w-3/4"></div>
-                <div className="h-16 bg-gray-200 rounded mb-4"></div>
-                <div className="h-8 bg-gray-200 rounded w-1/2"></div>
-              </div>
-            }
-            threshold={0.1}
-            rootMargin="200px"
-          >
-            <NewsletterCard campaign={campaign} locale={locale} />
-          </LazySection>
-        ))}
+        {campaigns
+          .filter((campaign) => campaign.id !== "175842522817365882")
+          .map((campaign, index) => (
+            <LazySection
+              key={campaign.id}
+              fallback={
+                <div className="bg-gray-100 rounded-2xl p-6 animate-pulse">
+                  <div className="h-6 bg-gray-200 rounded mb-2"></div>
+                  <div className="h-4 bg-gray-200 rounded mb-4 w-3/4"></div>
+                  <div className="h-16 bg-gray-200 rounded mb-4"></div>
+                  <div className="h-8 bg-gray-200 rounded w-1/2"></div>
+                </div>
+              }
+              threshold={0.1}
+              rootMargin="200px"
+            >
+              <NewsletterCard campaign={campaign} locale={locale} />
+            </LazySection>
+          ))}
       </div>
 
       {/* Load More Button */}
