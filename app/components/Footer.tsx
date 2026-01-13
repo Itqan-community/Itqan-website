@@ -32,9 +32,9 @@ export default async function Footer({ locale, }: { locale: string }) {
             <Link href="mailto:connect@itqan.dev" className="text-white hover:-translate-y-[10%] transition-transform">
               <IoMdMailOpen size={34} />
             </Link>
-            <Link href="https://discord.gg/24CskUbuuB" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
+            {/* <Link href="https://discord.gg/24CskUbuuB" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
               <BsDiscord size={34} />
-            </Link>
+            </Link> */}
             <Link href="https://community.itqan.dev" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
               <RiUserCommunityFill size={34} />
             </Link>
