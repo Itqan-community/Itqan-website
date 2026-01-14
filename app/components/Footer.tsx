@@ -3,9 +3,8 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import ForwardArrow from "./ForwardArrow";
 import NewsletterSubscribe from "./NewsletterSubscribe";
-import { BsDiscord, BsGithub, BsTwitterX } from "react-icons/bs";
+import { BsDiscord, BsFacebook, BsGithub, BsInstagram, BsLinkedin, BsPeopleFill, BsTwitterX } from "react-icons/bs";
 import { IoMdMailOpen } from "react-icons/io";
-import { RiUserCommunityFill } from "react-icons/ri";
 
 export default async function Footer({ locale, }: { locale: string }) {
   const t = await getTranslations("footer");
@@ -28,7 +27,7 @@ export default async function Footer({ locale, }: { locale: string }) {
 
             <ForwardArrow silent size={36} locale={locale} />
           </Link>
-          <div className="flex gap-8 justify-center">
+          <div className="flex gap-8 justify-center flex-wrap">
             <Link href="mailto:connect@itqan.dev" className="text-white hover:-translate-y-[10%] transition-transform">
               <IoMdMailOpen size={34} />
             </Link>
@@ -36,13 +35,22 @@ export default async function Footer({ locale, }: { locale: string }) {
               <BsDiscord size={34} />
             </Link> */}
             <Link href="https://community.itqan.dev" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
-              <RiUserCommunityFill size={34} />
+              <BsPeopleFill size={34} />
             </Link>
             <Link href="https://x.com/itqan_community" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
               <BsTwitterX size={30} />
             </Link>
             <Link href="https://github.com/Itqan-community" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
               <BsGithub size={30} />
+            </Link>
+            <Link href="https://www.facebook.com/profile.php?id=61582637409436" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
+              <BsFacebook size={30} />
+            </Link>
+            <Link href="https://www.linkedin.com/company/itqan-community" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
+              <BsLinkedin size={30} />
+            </Link>
+            <Link href="https://www.instagram.com/itqan_community/" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
+              <BsInstagram size={30} />
             </Link>
           </div>
         </div>
