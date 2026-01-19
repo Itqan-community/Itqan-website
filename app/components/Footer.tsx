@@ -43,7 +43,7 @@ export default async function Footer({ locale, }: { locale: string }) {
             <Link href="https://github.com/Itqan-community" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
               <BsGithub size={30} />
             </Link>
-            <Link href="https://www.facebook.com/profile.php?id=61582637409436" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
+            <Link href="https://www.facebook.com/ItqanCommunity" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
               <BsFacebook size={30} />
             </Link>
             <Link href="https://www.linkedin.com/company/itqan-community" target="_blank" rel="noopener" className="text-white hover:-translate-y-[10%] transition-transform">
@@ -62,6 +62,27 @@ export default async function Footer({ locale, }: { locale: string }) {
 
         {/* Footer bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8 mt-12">
+
+          <div className="flex flex-col items-center sm:items-start gap-2">
+            <span className="text-secondary-400 text-xs sm:text-sm">بدعم من</span>
+            <a 
+              href="https://abanumay.sa/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/partners/abanumay.png"
+                alt="Abanumay"
+                width={180}
+                height={60}
+                className="object-contain"
+                style={{ filter: 'brightness(1.5) grayscale(1)' }}
+                loading="lazy"
+              />
+            </a>
+          </div>
+
+
           <div className="text-center sm:text-start flex flex-col gap-2">
             <p className="text-secondary-400 text-sm sm:text-base mb-4 sm:mb-0" style={{letterSpacing: '-0.5px'}}>
               {t("copyright")}
@@ -83,7 +104,8 @@ export default async function Footer({ locale, }: { locale: string }) {
               alt="Itqan"
               width={60}
               height={60}
-              className="brightness-0 contrast-200 grayscale invert saturate-200 sm:w-20 sm:h-20"
+              style={{ filter: 'brightness(1) grayscale(1) contrast(0)' }}
+              className="sm:w-20 sm:h-20"
               loading="lazy"
               sizes="(max-width: 640px) 60px, 80px"
             />
