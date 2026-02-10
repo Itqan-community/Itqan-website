@@ -15,14 +15,25 @@ export default function NewsletterCard({ campaign, locale }: NewsletterCardProps
   // Get the primary email for the campaign
   const primaryEmail = campaign.emails[0];
   
-  // Format the date
+  // Arabic numeral characters (٠-٩)
+  const toArabicNumerals = (str: string) =>
+    str.replace(/\d/g, (d) => '٠١٢٣٤٥٦٧٨٩'[Number(d)]);
+
+  const dateOpts = { year: 'numeric' as const, month: 'long' as const, day: 'numeric' as const };
+
+  // Hijri first, then Miladi (Gregorian)
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat(locale === 'ar' ? 'ar-SA' : 'en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }).format(date);
+    const hijriOptions = { ...dateOpts, calendar: 'islamic-umalqura' as const };
+    const hijri =
+      locale === 'ar'
+        ? toArabicNumerals(new Intl.DateTimeFormat('ar-SA', hijriOptions).format(date))
+        : new Intl.DateTimeFormat('en-US', hijriOptions).format(date);
+    const miladi =
+      locale === 'ar'
+        ? toArabicNumerals(new Intl.DateTimeFormat('ar-SA', dateOpts).format(date))
+        : new Intl.DateTimeFormat('en-US', dateOpts).format(date);
+    return `${hijri} / ${miladi}`;
   };
 
   // Get preview URL or create a fallback
@@ -47,7 +58,7 @@ export default function NewsletterCard({ campaign, locale }: NewsletterCardProps
             {primaryEmail.subject}
           </h3>
           <p className="text-xs text-neutral-600">
-            {campaign.name} {t("publishedOn")} {formatDate(campaign.created_at)}
+            {campaign.name} {t("publishedOn")} {formatDate(campaign.scheduled_for ?? campaign.created_at)}
           </p>
         </div>
 
