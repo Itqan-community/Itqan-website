@@ -203,12 +203,14 @@ async function apiRequest<T>(endpoint: string, options: RequestInit = {}): Promi
  * @param type - Filter by type: 'regular', 'ab', 'resend', 'rss'
  * @param limit - Number of campaigns per page (default: 25)
  * @param page - Page number (default: 1)
+ * @param folder - Filter by folder ID (optional)
  */
 export async function getCampaigns(
   status: 'sent' | 'draft' | 'ready' = 'sent',
   type?: 'regular' | 'ab' | 'resend' | 'rss',
   limit = 25,
-  page = 1
+  page = 1,
+  folder?: string
 ): Promise<MailerLiteApiResponse<MailerLiteCampaign[]>> {
   const params = new URLSearchParams({
     'filter[status]': status,
@@ -219,6 +221,10 @@ export async function getCampaigns(
 
   if (type) {
     params.append('filter[type]', type);
+  }
+
+  if (folder) {
+    params.append('filter[folder]', folder);
   }
 
   return apiRequest<MailerLiteApiResponse<MailerLiteCampaign[]>>(`/campaigns?${params}`);
@@ -260,10 +266,13 @@ export async function subscribeToNewsletter(
   });
 }
 
+/** Folder ID for newsletter campaigns in MailerLite */
+const NEWSLETTER_FOLDER_ID = '176476919924000220';
+
 /**
  * Get all sent campaigns for newsletter archive
- * This function specifically gets sent campaigns sorted by newest first
+ * This function specifically gets sent campaigns from the newsletter folder, sorted by newest first
  */
 export async function getNewsletterArchive(page = 1, limit = 10): Promise<MailerLiteApiResponse<MailerLiteCampaign[]>> {
-  return getCampaigns('sent', 'regular', limit, page);
+  return getCampaigns('sent', 'regular', limit, page, NEWSLETTER_FOLDER_ID);
 }
