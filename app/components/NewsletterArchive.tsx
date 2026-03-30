@@ -1,7 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MailerLiteCampaign, getNewsletterArchive } from "@/app/utils/mailerlite";
+import {
+  MailerLiteCampaign,
+  applyNewsletterArchiveDisplayOverrides,
+  getNewsletterArchive,
+} from "@/app/utils/mailerlite";
 import { useTranslations } from "next-intl";
 import NewsletterCard from "./NewsletterCard";
 import LazySection from "./LazySection";
@@ -39,9 +43,11 @@ export default function NewsletterArchive({ locale }: NewsletterArchiveProps) {
       
       if (response.data) {
         if (isInitial) {
-          setCampaigns(response.data);
+          setCampaigns(applyNewsletterArchiveDisplayOverrides(response.data));
         } else {
-          setCampaigns(prev => [...prev, ...response.data]);
+          setCampaigns((prev) =>
+            applyNewsletterArchiveDisplayOverrides([...prev, ...response.data])
+          );
         }
         
         // Check if there are more pages

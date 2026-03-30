@@ -269,6 +269,82 @@ export async function subscribeToNewsletter(
 /** Folder ID for newsletter campaigns in MailerLite */
 const NEWSLETTER_FOLDER_ID = '176476919924000220';
 
+/** Incorrect send: campaign id (MailerLite) */
+const HIDDEN_NEWSLETTER_CAMPAIGN_ID = '179450149729208120';
+/** Incorrect send: primary email id on that campaign (API sometimes surfaces this; also used if `id` types differ). */
+const HIDDEN_NEWSLETTER_EMAIL_ID = '179450149758568250';
+
+/** Correct resend: campaign id */
+const REPLACEMENT_NEWSLETTER_CAMPAIGN_ID = '183367375509259543';
+/** Correct resend: email id */
+const REPLACEMENT_NEWSLETTER_EMAIL_ID = '183367375552251177';
+
+function newsletterId(v: string | number | undefined | null): string {
+  return v == null ? '' : String(v);
+}
+
+function isHiddenNewsletterCampaign(c: MailerLiteCampaign): boolean {
+  if (newsletterId(c.id) === HIDDEN_NEWSLETTER_CAMPAIGN_ID) return true;
+  if (newsletterId(c.default_email_id) === HIDDEN_NEWSLETTER_EMAIL_ID) return true;
+  return c.emails?.some((e) => newsletterId(e.id) === HIDDEN_NEWSLETTER_EMAIL_ID) ?? false;
+}
+
+function isReplacementNewsletterCampaign(c: MailerLiteCampaign): boolean {
+  if (newsletterId(c.id) === REPLACEMENT_NEWSLETTER_CAMPAIGN_ID) return true;
+  if (newsletterId(c.default_email_id) === REPLACEMENT_NEWSLETTER_EMAIL_ID) return true;
+  return c.emails?.some((e) => newsletterId(e.id) === REPLACEMENT_NEWSLETTER_EMAIL_ID) ?? false;
+}
+
+/**
+ * Newsletter archive fix: drop the incorrect campaign, show the correct one in its list position,
+ * and copy the incorrect campaign’s schedule timestamps so order/date match the original send slot.
+ */
+export function applyNewsletterArchiveDisplayOverrides(
+  campaigns: MailerLiteCampaign[]
+): MailerLiteCampaign[] {
+  const iHidden = campaigns.findIndex(isHiddenNewsletterCampaign);
+  if (iHidden === -1) {
+    return campaigns.filter((c) => !isHiddenNewsletterCampaign(c));
+  }
+
+  const hidden = campaigns[iHidden];
+  const withoutHidden = campaigns.filter((c) => !isHiddenNewsletterCampaign(c));
+
+  const iRep = withoutHidden.findIndex(isReplacementNewsletterCampaign);
+  if (iRep === -1) {
+    return withoutHidden;
+  }
+
+  const replacement = withoutHidden[iRep];
+  const merged: MailerLiteCampaign = {
+    ...replacement,
+    created_at: hidden.created_at,
+    updated_at: hidden.updated_at,
+    scheduled_for: hidden.scheduled_for,
+    queued_at: hidden.queued_at,
+    started_at: hidden.started_at,
+    finished_at: hidden.finished_at,
+    stopped_at: hidden.stopped_at,
+    emails: replacement.emails.map((email, idx) => {
+      const src = hidden.emails[idx];
+      if (!src) return email;
+      return {
+        ...email,
+        created_at: src.created_at,
+        updated_at: src.updated_at,
+      };
+    }),
+  };
+
+  const rest = withoutHidden.filter((c) => !isReplacementNewsletterCampaign(c));
+  /** Slot of the hidden row among “other” campaigns (handles replacement appearing above or below hidden in API order). */
+  const insertAt = campaigns
+    .slice(0, iHidden)
+    .filter((c) => !isHiddenNewsletterCampaign(c) && !isReplacementNewsletterCampaign(c)).length;
+  rest.splice(insertAt, 0, merged);
+  return rest;
+}
+
 /**
  * Get all sent campaigns for newsletter archive
  * This function specifically gets sent campaigns from the newsletter folder, sorted by newest first
