@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import {
   MailerLiteCampaign,
-  applyNewsletterArchiveDisplayOverrides,
+  filterNewsletterArchiveForDisplay,
   getNewsletterArchive,
 } from "@/app/utils/mailerlite";
 import { useTranslations } from "next-intl";
@@ -43,10 +43,10 @@ export default function NewsletterArchive({ locale }: NewsletterArchiveProps) {
       
       if (response.data) {
         if (isInitial) {
-          setCampaigns(applyNewsletterArchiveDisplayOverrides(response.data));
+          setCampaigns(filterNewsletterArchiveForDisplay(response.data));
         } else {
           setCampaigns((prev) =>
-            applyNewsletterArchiveDisplayOverrides([...prev, ...response.data])
+            filterNewsletterArchiveForDisplay([...prev, ...response.data])
           );
         }
         

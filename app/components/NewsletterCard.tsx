@@ -1,6 +1,10 @@
 "use client";
 
-import { MailerLiteCampaign } from "@/app/utils/mailerlite";
+import {
+  MailerLiteCampaign,
+  getBareedNewsletterReadUrl,
+  shouldShowNewsletterReadLink,
+} from "@/app/utils/mailerlite";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
@@ -36,18 +40,8 @@ export default function NewsletterCard({ campaign, locale }: NewsletterCardProps
     return `${hijri} / ${miladi}`;
   };
 
-  // Get preview URL or create a fallback
-  const getNewsletterUrl = () => {
-    if (primaryEmail?.preview_url) {
-      return primaryEmail.preview_url.replace("preview.mailerlite.com", "bareed.itqan.dev");
-    }
-    // Fallback to a generic newsletter view URL if preview is not available
-    return `https://bareed.itqan.dev/campaigns/${campaign.id}`;
-  };
-
-  const updateUrlWithBareedDomain = (url: string) => {
-    return url.replace("preview.mailerlite.io", "bareed.itqan.dev");
-  };
+  const readUrl = getBareedNewsletterReadUrl(campaign);
+  const showReadLink = shouldShowNewsletterReadLink(campaign);
 
   return (
     <div className="group bg-white rounded-2xl p-6 shadow-sm border border-neutral-100 hover:shadow-lg hover:border-primary-200 transition-all duration-300 hover-lift h-full">
@@ -77,10 +71,10 @@ export default function NewsletterCard({ campaign, locale }: NewsletterCardProps
 
 
         {/* Action button */}
-        {primaryEmail.preview_url && (
+        {showReadLink && (
         <div className="">
           <Link
-            href={updateUrlWithBareedDomain(primaryEmail.preview_url)}
+            href={readUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-4 py-2 rounded-lg transition-colors duration-200 hover-lift text-sm"

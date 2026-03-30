@@ -269,80 +269,55 @@ export async function subscribeToNewsletter(
 /** Folder ID for newsletter campaigns in MailerLite */
 const NEWSLETTER_FOLDER_ID = '176476919924000220';
 
-/** Incorrect send: campaign id (MailerLite) */
-const HIDDEN_NEWSLETTER_CAMPAIGN_ID = '179450149729208120';
-/** Incorrect send: primary email id on that campaign (API sometimes surfaces this; also used if `id` types differ). */
-const HIDDEN_NEWSLETTER_EMAIL_ID = '179450149758568250';
+/** Original send row (kept in archive for correct order); “Read” points at the corrected campaign below. */
+const NEWSLETTER_ARCHIVE_REDIRECT_SOURCE_CAMPAIGN_ID = '179450149729208120';
+const NEWSLETTER_ARCHIVE_REDIRECT_SOURCE_EMAIL_ID = '179450149758568250';
 
-/** Correct resend: campaign id */
-const REPLACEMENT_NEWSLETTER_CAMPAIGN_ID = '183367375509259543';
-/** Correct resend: email id */
-const REPLACEMENT_NEWSLETTER_EMAIL_ID = '183367375552251177';
+/** Corrected resend — omitted from archive so only the original row shows. */
+const NEWSLETTER_ARCHIVE_HIDDEN_RESEND_CAMPAIGN_ID = '183367375509259543';
+const NEWSLETTER_ARCHIVE_HIDDEN_RESEND_EMAIL_ID = '183367375552251177';
+
+const NEWSLETTER_ARCHIVE_REDIRECT_BAREED_URL =
+  'https://bareed.itqan.dev/preview/1744457/emails/183367375552251177';
 
 function newsletterId(v: string | number | undefined | null): string {
   return v == null ? '' : String(v);
 }
 
-function isHiddenNewsletterCampaign(c: MailerLiteCampaign): boolean {
-  if (newsletterId(c.id) === HIDDEN_NEWSLETTER_CAMPAIGN_ID) return true;
-  if (newsletterId(c.default_email_id) === HIDDEN_NEWSLETTER_EMAIL_ID) return true;
-  return c.emails?.some((e) => newsletterId(e.id) === HIDDEN_NEWSLETTER_EMAIL_ID) ?? false;
+function isNewsletterArchiveRedirectSourceRow(c: MailerLiteCampaign): boolean {
+  if (newsletterId(c.id) === NEWSLETTER_ARCHIVE_REDIRECT_SOURCE_CAMPAIGN_ID) return true;
+  if (newsletterId(c.default_email_id) === NEWSLETTER_ARCHIVE_REDIRECT_SOURCE_EMAIL_ID) return true;
+  return c.emails?.some((e) => newsletterId(e.id) === NEWSLETTER_ARCHIVE_REDIRECT_SOURCE_EMAIL_ID) ?? false;
 }
 
-function isReplacementNewsletterCampaign(c: MailerLiteCampaign): boolean {
-  if (newsletterId(c.id) === REPLACEMENT_NEWSLETTER_CAMPAIGN_ID) return true;
-  if (newsletterId(c.default_email_id) === REPLACEMENT_NEWSLETTER_EMAIL_ID) return true;
-  return c.emails?.some((e) => newsletterId(e.id) === REPLACEMENT_NEWSLETTER_EMAIL_ID) ?? false;
+function isNewsletterArchiveHiddenResendRow(c: MailerLiteCampaign): boolean {
+  if (newsletterId(c.id) === NEWSLETTER_ARCHIVE_HIDDEN_RESEND_CAMPAIGN_ID) return true;
+  if (newsletterId(c.default_email_id) === NEWSLETTER_ARCHIVE_HIDDEN_RESEND_EMAIL_ID) return true;
+  return c.emails?.some((e) => newsletterId(e.id) === NEWSLETTER_ARCHIVE_HIDDEN_RESEND_EMAIL_ID) ?? false;
 }
 
-/**
- * Newsletter archive fix: drop the incorrect campaign, show the correct one in its list position,
- * and copy the incorrect campaign’s schedule timestamps so order/date match the original send slot.
- */
-export function applyNewsletterArchiveDisplayOverrides(
-  campaigns: MailerLiteCampaign[]
-): MailerLiteCampaign[] {
-  const iHidden = campaigns.findIndex(isHiddenNewsletterCampaign);
-  if (iHidden === -1) {
-    return campaigns.filter((c) => !isHiddenNewsletterCampaign(c));
+/** Drop the duplicate corrected send; the original campaign row stays and links to the fix. */
+export function filterNewsletterArchiveForDisplay(campaigns: MailerLiteCampaign[]): MailerLiteCampaign[] {
+  return campaigns.filter((c) => !isNewsletterArchiveHiddenResendRow(c));
+}
+
+/** Bareed URL to open for this campaign (redirect row uses the hardcoded preview URL for the corrected email). */
+export function getBareedNewsletterReadUrl(campaign: MailerLiteCampaign): string {
+  if (isNewsletterArchiveRedirectSourceRow(campaign)) {
+    return NEWSLETTER_ARCHIVE_REDIRECT_BAREED_URL;
   }
-
-  const hidden = campaigns[iHidden];
-  const withoutHidden = campaigns.filter((c) => !isHiddenNewsletterCampaign(c));
-
-  const iRep = withoutHidden.findIndex(isReplacementNewsletterCampaign);
-  if (iRep === -1) {
-    return withoutHidden;
+  const primary = campaign.emails[0];
+  if (primary?.preview_url) {
+    return primary.preview_url
+      .replace('preview.mailerlite.com', 'bareed.itqan.dev')
+      .replace('preview.mailerlite.io', 'bareed.itqan.dev');
   }
+  return `https://bareed.itqan.dev/campaigns/${newsletterId(campaign.id)}`;
+}
 
-  const replacement = withoutHidden[iRep];
-  const merged: MailerLiteCampaign = {
-    ...replacement,
-    created_at: hidden.created_at,
-    updated_at: hidden.updated_at,
-    scheduled_for: hidden.scheduled_for,
-    queued_at: hidden.queued_at,
-    started_at: hidden.started_at,
-    finished_at: hidden.finished_at,
-    stopped_at: hidden.stopped_at,
-    emails: replacement.emails.map((email, idx) => {
-      const src = hidden.emails[idx];
-      if (!src) return email;
-      return {
-        ...email,
-        created_at: src.created_at,
-        updated_at: src.updated_at,
-      };
-    }),
-  };
-
-  const rest = withoutHidden.filter((c) => !isReplacementNewsletterCampaign(c));
-  /** Slot of the hidden row among “other” campaigns (handles replacement appearing above or below hidden in API order). */
-  const insertAt = campaigns
-    .slice(0, iHidden)
-    .filter((c) => !isHiddenNewsletterCampaign(c) && !isReplacementNewsletterCampaign(c)).length;
-  rest.splice(insertAt, 0, merged);
-  return rest;
+/** Whether to show “Read newsletter” (same as before, plus redirect-only rows without a usable preview). */
+export function shouldShowNewsletterReadLink(campaign: MailerLiteCampaign): boolean {
+  return Boolean(campaign.emails[0]?.preview_url) || isNewsletterArchiveRedirectSourceRow(campaign);
 }
 
 /**
