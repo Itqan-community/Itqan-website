@@ -276,6 +276,10 @@ const NEWSLETTER_ARCHIVE_REDIRECT_SOURCE_EMAIL_ID = '179450149758568250';
 /** Corrected resend — omitted from archive so only the original row shows. */
 const NEWSLETTER_ARCHIVE_HIDDEN_RESEND_CAMPAIGN_ID = '183367375509259543';
 const NEWSLETTER_ARCHIVE_HIDDEN_RESEND_EMAIL_ID = '183367375552251177';
+const NEWSLETTER_ARCHIVE_FORCE_HIDDEN_CAMPAIGN_IDS = new Set([
+  NEWSLETTER_ARCHIVE_HIDDEN_RESEND_CAMPAIGN_ID,
+  '183621222929532334',
+]);
 
 const NEWSLETTER_ARCHIVE_REDIRECT_BAREED_URL =
   'https://bareed.itqan.dev/preview/1744457/emails/183367375552251177';
@@ -291,7 +295,7 @@ function isNewsletterArchiveRedirectSourceRow(c: MailerLiteCampaign): boolean {
 }
 
 function isNewsletterArchiveHiddenResendRow(c: MailerLiteCampaign): boolean {
-  if (newsletterId(c.id) === NEWSLETTER_ARCHIVE_HIDDEN_RESEND_CAMPAIGN_ID) return true;
+  if (NEWSLETTER_ARCHIVE_FORCE_HIDDEN_CAMPAIGN_IDS.has(newsletterId(c.id))) return true;
   if (newsletterId(c.default_email_id) === NEWSLETTER_ARCHIVE_HIDDEN_RESEND_EMAIL_ID) return true;
   return c.emails?.some((e) => newsletterId(e.id) === NEWSLETTER_ARCHIVE_HIDDEN_RESEND_EMAIL_ID) ?? false;
 }
