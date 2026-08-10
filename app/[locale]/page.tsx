@@ -11,7 +11,7 @@ import SafeImage from "../components/SafeImage";
 import LazySection from "../components/LazySection";
 import dynamicImport from "next/dynamic";
 
-// Dynamically import AnimatedHero to reduce initial bundle size
+// Dynamically import AnimatedHero to reduce initial bundle size /
 const AnimatedHero = dynamicImport(() => import("../components/AnimatedHero"), {
   loading: () => (
     <div className="h-[100vh] bg-gradient-to-br from-primary-50 to-primary-100 animate-pulse" />
