@@ -22,6 +22,7 @@ const AnimatedHero = dynamicImport(() => import("../components/AnimatedHero"), {
 
 // Partner data
 const partners = [
+  { name: "Islamic Content", image: "/images/partners/islamiccontent.svg", href: "https://islamiccontent.org/" },
   { name: "Maknon", image: "/images/partners/maknon.png", href: "https://maknon.org.sa/" },
   { name: "Tafsir", image: "/images/partners/tafsir.avif", href: "https://tafsir.net" },
   { name: "Al Borhan", image: "/images/partners/alborhan.png", href: "https://alborhan.sa" },
