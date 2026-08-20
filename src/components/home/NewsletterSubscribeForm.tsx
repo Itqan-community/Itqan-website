@@ -19,6 +19,7 @@ const toneStyles: Record<
     row: string;
     input: string;
     button: string;
+    namePlaceholder: string;
     placeholder: string;
     submitLabel: string;
     successText: string;
@@ -32,6 +33,7 @@ const toneStyles: Record<
       "h-[42px] w-full rounded-[10px] border border-[rgba(35,110,91,0.26)] bg-white px-[18px] text-[14px] text-[var(--color-txt)] outline-none transition-colors duration-200 placeholder:text-[var(--color-txt-dim)] focus:border-[var(--color-brand)] sm:h-[51px] sm:w-[360px] sm:text-[15px]",
     button:
       "btn btn-primary h-[51px] w-full py-0 disabled:cursor-not-allowed disabled:opacity-60 sm:h-auto sm:w-auto sm:py-[16px]",
+    namePlaceholder: "الاسم",
     placeholder: "ادخل بريدك الإلكتروني….",
     submitLabel: "اشترك في نشرة إتقان",
     successText: "text-[var(--color-grad-end)]",
@@ -44,6 +46,7 @@ const toneStyles: Record<
       "w-full rounded-[10px] border border-[rgba(232,238,235,0.12)] bg-[rgba(232,238,235,0.04)] p-[12px] text-[13px] text-white outline-none transition-colors duration-200 placeholder:text-[rgba(203,217,211,0.5)] focus:border-[rgba(166,201,186,0.5)]",
     button:
       "self-start rounded-[8px] bg-[var(--color-grad-start)] px-[20px] py-[10px] text-[13px] font-medium text-white transition-colors duration-200 hover:bg-[var(--color-brand-2)] disabled:cursor-not-allowed disabled:opacity-60",
+    namePlaceholder: "الاسم",
     placeholder: "بريدك الإلكتروني",
     submitLabel: "اشترك الآن",
     successText: "text-[var(--color-brand-soft)]",
@@ -57,6 +60,7 @@ export default function NewsletterSubscribeForm({
   tone = "light",
 }: NewsletterSubscribeFormProps) {
   const styles = toneStyles[tone];
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [message, setMessage] = useState("");
@@ -79,7 +83,7 @@ export default function NewsletterSubscribeForm({
       const response = await fetch("/api/newsletter/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, sourcepage }),
+        body: JSON.stringify({ name, email, sourcepage }),
       });
 
       const data = await response.json().catch(() => null);
@@ -89,6 +93,7 @@ export default function NewsletterSubscribeForm({
 
       setStatus("success");
       setMessage("تم الاشتراك بنجاح — ستصلك النشرة القادمة في بريدك.");
+      setName("");
       setEmail("");
     } catch (err) {
       setStatus("error");
@@ -109,11 +114,24 @@ export default function NewsletterSubscribeForm({
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
       <div className={styles.row}>
+        <label className="sr-only" htmlFor={`${inputId}-name`}>
+          الاسم
+        </label>
+        <input
+          id={`${inputId}-name`}
+          name="name"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder={styles.namePlaceholder}
+          className={styles.input}
+        />
         <label className="sr-only" htmlFor={inputId}>
           بريدك الإلكتروني
         </label>
         <input
           id={inputId}
+          name="email"
           type="email"
           required
           value={email}
