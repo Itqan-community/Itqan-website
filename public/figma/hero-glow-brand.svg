@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1272.79" height="1272.79" viewBox="0 0 1272.79 1272.79" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle id="glow-brand" cx="636.395" cy="636.395" r="636.395" fill="url(#paint0_radial_0_78)"/>
+<defs>
+<radialGradient id="paint0_radial_0_78" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(636.395 636.395) scale(636.395)">
+<stop stop-color="#236E5B" stop-opacity="0.09"/>
+<stop offset="0.38" stop-color="#236E5B" stop-opacity="0.03"/>
+<stop offset="0.68" stop-color="#236E5B" stop-opacity="0"/>
+<stop offset="1" stop-color="#236E5B" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>
