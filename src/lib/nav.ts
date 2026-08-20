@@ -13,7 +13,7 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   { label: "ما الذي نقدمه؟", href: "/services" },
-  { label: "المشاريع", href: "/projects" },
+  { label: "المشاريع", href: "/#projects" },
   {
     label: "الموارد",
     href: "/resources",
@@ -21,7 +21,6 @@ export const navItems: NavItem[] = [
       { label: "دراسات", href: "/resources/studies" },
       { label: "تقارير", href: "/resources/reports" },
       { label: "الورش", href: "/resources/workshops" },
-      { label: "نشرة إتقان", href: "/resources/newsletter" },
     ],
   },
   { label: "تواصل معنا", href: "https://join.itqan.dev" },
@@ -52,7 +51,6 @@ export const footerColumns = [
       { label: "دراسات", href: "/resources/studies" },
       { label: "تقارير", href: "/resources/reports" },
       { label: "الورش", href: "/resources/workshops" },
-      { label: "نشرة إتقان", href: "/resources/newsletter" },
     ],
   },
 ];

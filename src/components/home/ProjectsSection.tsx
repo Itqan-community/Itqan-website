@@ -46,7 +46,7 @@ const projects: Project[] = [
 
 export default function ProjectsSection() {
   return (
-    <section className="hidden w-full bg-white py-[56px] lg:block">
+    <section id="projects" className="hidden w-full bg-white py-[56px] lg:block">
       <div className="shell flex flex-col items-center gap-[40px]">
         <Reveal className="flex w-full flex-col items-start gap-[8px]">
           <span className="badge">مفتوح المصدر</span>

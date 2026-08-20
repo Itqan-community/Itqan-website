@@ -36,7 +36,7 @@ const projects = [
 
 export default function ProjectsSectionMobile() {
   return (
-    <section className="w-full bg-white px-[16px] pt-[48px] pb-[48px] lg:hidden">
+    <section id="projects" className="w-full bg-white px-[16px] pt-[48px] pb-[48px] lg:hidden">
       <div className="flex flex-col gap-[32px]">
         <Reveal className="flex flex-col items-start gap-[12px]">
           <span className="badge">مفتوح المصدر</span>

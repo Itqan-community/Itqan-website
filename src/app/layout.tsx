@@ -27,7 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="ar"
       dir="rtl"
-      className={`${readex.variable} ${jetbrains.variable} h-full antialiased`}
+      className={`${readex.variable} ${jetbrains.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col overflow-x-hidden">{children}</body>
     </html>
