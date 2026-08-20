@@ -4,6 +4,6 @@
 <circle id="Ellipse_2" cx="52.5" cy="11.9641" r="2.5" fill="#236E5B" fill-opacity="0.4"/>
 <circle id="Ellipse_3" cx="38" cy="11.9641" r="3" fill="#236E5B" fill-opacity="0.6"/>
 <circle id="Ellipse_4" cx="22.5" cy="11.9641" r="3.5" fill="#236E5B" fill-opacity="0.85"/>
-<path id="Polygon" d="M4 3.4641L10.75 0V6.9282L4 3.4641Z" fill="#236E5B" fill-opacity="0.9"/>
+<path id="Polygon" d="M4 11.9641L10.75 8.5V15.4282L4 11.9641Z" fill="#236E5B" fill-opacity="0.9"/>
 </g>
 </svg>

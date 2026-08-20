@@ -10,8 +10,7 @@ import Reveal from "@/components/ui/Reveal";
  * White ground, 96px top / 110px bottom padding, 44px gap.
  * 1020px list, 14px gap; cards are 26px/24px padded with a 12px radius.
  *
- * Every item is drawn expanded in Figma (chevron-up on each card), so the
- * accordion starts fully open and the chevron rotates on toggle.
+ * The accordion starts collapsed and the chevron rotates on toggle.
  */
 
 const faqs: { q: string; a: ReactNode }[] = [
@@ -77,7 +76,7 @@ const faqs: { q: string; a: ReactNode }[] = [
 ];
 
 export default function FaqSection() {
-  const [open, setOpen] = useState<number[]>(faqs.map((_, i) => i));
+  const [open, setOpen] = useState<number[]>([]);
   const toggle = (i: number) =>
     setOpen((prev) => (prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]));
 

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import { Mote } from "./hero-cards";
 
@@ -76,11 +75,6 @@ export default function CtaSection() {
           </p>
         </Reveal>
 
-        <Reveal delay={120} className="flex w-full justify-center">
-          <Link href="/projects" className="btn btn-primary h-[51px] w-full py-0 text-center lg:h-auto lg:w-auto lg:py-[16px]">
-            اكتشف المشاريع النشطة على المجتمع
-          </Link>
-        </Reveal>
       </div>
     </section>
   );

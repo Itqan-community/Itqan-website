@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "إتقان — حيث يلتقي من يخدمون القرآن بالتقنية",
   description:
     "مجتمع إتقان: جمعية ومجتمع تقني مفتوح المصدر يسعى لسد الفجوة وتوفير برمجيات ومصاحف رقمية خالية من الأخطاء ومهيئة للاستخدام مباشرة في الأنظمة والتطبيقات.",
+  icons: {
+    icon: "/figma/logo-itqan-small.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
