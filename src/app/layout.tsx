@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Readex_Pro, JetBrains_Mono } from "next/font/google";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import "./globals.css";
 
 const readex = Readex_Pro({
@@ -32,7 +33,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       dir="rtl"
       className={`${readex.variable} ${jetbrains.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col overflow-x-hidden">{children}</body>
+      <body className="min-h-full flex flex-col overflow-x-hidden">
+        {children}
+        <GoogleAnalytics />
+      </body>
     </html>
   );
 }
