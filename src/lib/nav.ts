@@ -21,24 +21,6 @@ export const navItems: NavItem[] = [
 
 export const footerColumns = [
   {
-    title: "المشاريع",
-    links: [
-      { label: "فنار", href: "/projects/fanar" },
-      { label: "رتق", href: "/projects/ratq" },
-      { label: "دليل التطبيقات القرآنية", href: "/projects/apps" },
-      { label: "مستندات المطورين (API)", href: "/docs" },
-    ],
-  },
-  {
-    title: "عن إتقان",
-    links: [
-      { label: "من نحن؟", href: "/about" },
-      { label: "مبادرات إتقان (رمضان الأثر)", href: "/about/initiatives" },
-      { label: "تواصل معنا", href: "https://join.itqan.dev" },
-      { label: "انضم لمجتمع إتقان", href: "https://join.itqan.dev" },
-    ],
-  },
-  {
     title: "الموارد",
     links: [
       { label: "نشرة إتقان", href: "/resources/newsletter" },
@@ -48,9 +30,17 @@ export const footerColumns = [
 ];
 
 export const socialLinks = [
-  { label: "GitHub", href: "https://github.com", icon: "/figma/social-github.svg" },
-  { label: "X", href: "https://x.com", icon: "/figma/social-circle-x.svg" },
-  { label: "Twitter", href: "https://twitter.com", icon: "/figma/social-twitter.svg" },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/ItqanCommunity/",
+    icon: "/figma/social-facebook.svg",
+  },
+  { label: "X", href: "https://x.com/itqan_community", icon: "/figma/social-x.svg" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/itqan-community",
+    icon: "/figma/social-linkedin.svg",
+  },
 ];
 
 export const footerBlurb =

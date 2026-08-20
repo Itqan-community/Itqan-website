@@ -28,7 +28,7 @@ export default function Footer() {
             <p className="text-[13px] text-[rgba(166,201,186,0.9)]">{footerBlurb}</p>
           </div>
 
-          {/* Link columns — المشاريع / عن إتقان / الموارد */}
+          {/* Link columns — الموارد */}
           {footerColumns.map((col) => (
             <div key={col.title} className="flex flex-1 flex-col gap-[16px]">
               <p className="text-[15px] font-semibold text-white">{col.title}</p>
@@ -58,6 +58,12 @@ export default function Footer() {
             </div>
           ))}
 
+          {/* Social links column — desktop only. */}
+          <div className="hidden flex-1 flex-col gap-[24px] md:flex">
+            <p className="text-[15px] font-semibold text-white">تابعنا</p>
+            <SocialRow />
+          </div>
+
           {/* Newsletter column — desktop only. */}
           <div className="hidden flex-1 flex-col gap-[24px] md:flex">
             <p className="text-[15px] font-semibold text-white">اشترك في النشرة البريدية</p>
@@ -70,8 +76,6 @@ export default function Footer() {
               sourcepage="footer"
               inputId="footer-email"
             />
-
-            <SocialRow />
           </div>
         </div>
 
