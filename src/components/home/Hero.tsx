@@ -124,7 +124,7 @@ export default function Hero() {
           <h1 className="flex w-full flex-col text-start text-[34px] font-bold sm:text-[44px] lg:text-[62px]">
             <span className="text-[var(--color-txt)]">ملتقى العاملين على</span>
             <span className="bg-gradient-to-b from-[#2e8069] via-[#1b5749] via-[70%] to-[#1b5749] bg-clip-text text-transparent">
-              التقنات القرآنية
+              التقنيات القرآنية
             </span>
           </h1>
 
