@@ -72,12 +72,14 @@ export default function LaunchSectionMobile() {
           >
             تلقى الدعم والمشورة
           </a>
-          <Link
-            href="/projects/apps"
+          <a
+            href="https://quran-apps.itqan.dev/ar/submit-app"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn btn-ghost h-[51px] w-full border-[rgba(35,110,91,0.26)] bg-white py-0 text-[var(--color-grad-end)]"
           >
             اضف تطبيقك إلى دليل التطبيقات
-          </Link>
+          </a>
         </Reveal>
       </div>
     </section>

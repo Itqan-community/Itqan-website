@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 
@@ -12,21 +13,24 @@ import Reveal from "@/components/ui/Reveal";
 const projects = [
   {
     title: "دليل التطبيقات القرآنية",
-    body: "منصة شاملة تجمع تطبيقات القرآن الكريم الرقمية وتُصنّفها وتُوثّقها لتبسيط وصول المسلمين لاحتياجاتهم وتوجيه جهود المطورين.",
-    primary: { label: "تصفح المشروع", href: "/projects/apps" },
-    secondary: { label: "ساهم معنا", href: "https://github.com/itqan-community" },
+    logo: "/figma/project-apps-arrows.png",
+    body: "منصة شاملة تجمع تطبيقات القرآن الكريم الرقمية وتُصنّفها وتُوثّقها وفق معايير موحّدة، لتُسهّل على المسلمين اكتشاف التطبيق المناسب لاحتياجهم، وتمنح المطورين والباحثين خريطة واضحة للمشهد التقني القرآني.",
+    primary: { label: "تصفح المشروع", href: "https://quran-apps.itqan.dev" },
+    secondary: { label: "ساهم في الدليل", href: "https://github.com/orgs/Itqan-community/projects/4" },
   },
   {
-    title: "رتـــــق",
-    body: "خارطة طريق تقنية تجمع وتنسق الأدوات ومحركات البحث وقواعد البيانات لتبسيط بناء التطبيقات القرآنية.",
-    primary: { label: "تصفح رتق", href: "/projects/ratq" },
-    secondary: { label: "ساهم الآن", href: "https://github.com/itqan-community" },
+    title: "رتق",
+    logo: "/figma/project-ratq-roadmap.png",
+    body: "قاعدة معرفية تقنية (Roadmap and Technologies for Qur'an)، تجمع الأدوات والتقنيات اللازمة لتطوير التطبيقات القرآنية وتنظمها في خارطة طريق واضحة للمطورين.",
+    primary: { label: "تصفح رتق", href: "https://ratq.itqan.dev" },
+    secondary: { label: "ساهم في رتق", href: "https://github.com/orgs/Itqan-community/projects/10" },
   },
   {
-    title: "فنـــــار",
-    body: "نظام إدارة محتوى ونشر مستقل للجهات القرآنية، مع حماية احترافية للحقوق الفكرية والتراخيص الرقمية.",
-    primary: { label: "تصفح فنار", href: "/projects/fanar" },
-    secondary: { label: "تطوع بالترميز", href: "https://github.com/itqan-community" },
+    title: "فنار",
+    logo: "/figma/project-fanar-lighthouse.png",
+    body: "نظام لنشر وإدارة المحتوى القرآني، يمنح الجهات الناشرة مساحة رقمية مستقلة بهويتها الخاصة، تُمكّنها من نشر تلاواتها وأصولها القرآنية بمعايير احترافية وتراخيص محددة تحفظ حقوقها وتُنظم الاستخدام.",
+    primary: { label: "تصفح فنار", href: "https://cms.itqan.dev" },
+    secondary: { label: "ساهم في فنار", href: "https://github.com/orgs/Itqan-community/projects/12" },
   },
 ];
 
@@ -53,7 +57,13 @@ export default function ProjectsSectionMobile() {
               className="card flex flex-col gap-[16px] p-[20px]"
             >
               <div className="flex size-[52px] items-center justify-center rounded-[14px] bg-[var(--brand-a06)]">
-                <span className="size-[28px] rounded-[8px] bg-gradient-to-b from-[#2e8069] to-[var(--color-grad-end)]" />
+                <Image
+                  src={project.logo}
+                  alt=""
+                  width={28}
+                  height={28}
+                  className="size-[28px] object-contain"
+                />
               </div>
               <h3 className="text-[18px] font-semibold text-[var(--color-topic-title)]">
                 {project.title}
@@ -63,12 +73,6 @@ export default function ProjectsSectionMobile() {
               <div className="h-px w-full bg-[var(--brand-a10)]" />
 
               <div className="flex items-center gap-[8px]">
-                <Link
-                  href={project.primary.href}
-                  className="flex h-[31px] flex-1 items-center justify-center rounded-[8px] bg-[var(--color-brand)] text-[13px] font-medium text-white"
-                >
-                  {project.primary.label}
-                </Link>
                 <a
                   href={project.secondary.href}
                   target="_blank"
@@ -77,6 +81,14 @@ export default function ProjectsSectionMobile() {
                 >
                   {project.secondary.label}
                 </a>
+                <Link
+                  href={project.primary.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex h-[31px] flex-1 items-center justify-center rounded-[8px] bg-[var(--color-brand)] text-[13px] font-medium text-white"
+                >
+                  {project.primary.label}
+                </Link>
               </div>
             </Reveal>
           ))}
