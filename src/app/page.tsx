@@ -14,6 +14,8 @@ import PublisherSection from "@/components/home/PublisherSection";
 import PartnersSection from "@/components/home/PartnersSection";
 import PartnersSectionMobile from "@/components/home/PartnersSectionMobile";
 import NewsletterSection from "@/components/home/NewsletterSection";
+import ArticlesSection from "@/components/home/ArticlesSection";
+import ArticlesSectionMobile from "@/components/home/ArticlesSectionMobile";
 import FaqSection from "@/components/home/FaqSection";
 
 /**
@@ -42,6 +44,8 @@ export default function HomePage() {
         <PartnersSection />
         <PartnersSectionMobile />
         <NewsletterSection />
+        <ArticlesSection />
+        <ArticlesSectionMobile />
         <FaqSection />
       </main>
       <Footer />
