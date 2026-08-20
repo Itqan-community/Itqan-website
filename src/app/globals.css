@@ -1,26 +1,399 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   إتقان — Design System tokens
+   Mirrors the Figma variable collection (Design System — Colors / Typography /
+   Spacing & Effects). Names match the Figma variable paths 1:1 so the design
+   and the code stay legible against each other.
+   ========================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand & surface ------------------------------------------------------ */
+  --color-bg: #ffffff;
+  --color-bg-2: #e8eeeb;
+  --color-brand: #236e5b;
+  --color-brand-2: #37826e;
+  --color-brand-deep: #12463a;
+  --color-brand-soft: #a6c9ba;
+
+  /* Text ----------------------------------------------------------------- */
+  --color-txt: #12463a;
+  --color-txt-dim: #5f7d73;
+  --color-topic-title: #14332c;
+
+  /* Gradient stops (primary button + CTA band) --------------------------- */
+  --color-grad-start: #2e8069;
+  --color-grad-end: #1b5749;
+
+  /* Code surfaces -------------------------------------------------------- */
+  --color-code-bg: #0b261f;
+  --color-code-txt: #cbd9d3;
+  --color-code-keyword: #a6c9ba;
+  --color-code-string: #8fcfae;
+  --color-code-function: #9fc7d6;
+  --color-code-comment: #5e7b72;
+  --color-code-number: #d6a9a0;
+
+  /* Derived brand alphas — used pervasively for hairlines and tint fills -- */
+  --brand-a04: rgba(35, 110, 91, 0.04);
+  --brand-a06: rgba(35, 110, 91, 0.06);
+  --brand-a08: rgba(35, 110, 91, 0.08);
+  --brand-a10: rgba(35, 110, 91, 0.1);
+  --brand-a12: rgba(35, 110, 91, 0.12);
+  --brand-a20: rgba(35, 110, 91, 0.2);
+
+  /* Radii ---------------------------------------------------------------- */
+  --radius-sm: 6px;   /* radius/sm, radius/pill */
+  --radius-md: 10px;  /* radius/md, radius/btn */
+  --radius-lg: 12px;  /* radius/lg, radius/topic */
+  --radius-xl: 14px;  /* radius/xl, radius/shot, radius/code */
+  --radius-btn: 10px;
+  --radius-pill: 6px;
+  --radius-topic: 12px;
+  --radius-shot: 14px;
+  --radius-code: 14px;
+
+  /* Spacing scale -------------------------------------------------------- */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-18: 18px;
+  --space-20: 20px;
+  --space-22: 22px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-80: 80px;
+  --space-cta-gap: 12px;
+  --space-col-gap: 35px;
+
+  /* Elevation ------------------------------------------------------------ */
+  --shadow-card: 0 12px 32px -8px rgba(16, 54, 45, 0.14);
+  --shadow-btn: 0 10px 30px -10px rgba(35, 110, 91, 0.4);
+  --shadow-btn-hover: 0 16px 38px -10px rgba(35, 110, 91, 0.52);
+  --shadow-shot: 0 18px 44px -14px rgba(16, 54, 45, 0.22);
+
+  /* Layout --------------------------------------------------------------- */
+  --page-max: 1440px;
+  --page-pad: 100px;   /* horizontal gutter on the 1440 desktop frame */
+  --content-max: 1240px;
+
+  /* Motion — easing curves lifted from the Figma timeline ---------------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-soft: cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--color-bg);
+  --color-bg-2: var(--color-bg-2);
+  --color-brand: var(--color-brand);
+  --color-brand-2: var(--color-brand-2);
+  --color-brand-deep: var(--color-brand-deep);
+  --color-brand-soft: var(--color-brand-soft);
+  --color-txt: var(--color-txt);
+  --color-txt-dim: var(--color-txt-dim);
+  --color-topic-title: var(--color-topic-title);
+  --color-grad-start: var(--color-grad-start);
+  --color-grad-end: var(--color-grad-end);
+  --color-code-bg: var(--color-code-bg);
+  --color-code-txt: var(--color-code-txt);
+
+  --radius-btn: var(--radius-btn);
+  --radius-pill: var(--radius-pill);
+  --radius-topic: var(--radius-topic);
+  --radius-shot: var(--radius-shot);
+
+  --shadow-card: var(--shadow-card);
+  --shadow-btn: var(--shadow-btn);
+
+  --font-sans: var(--font-readex), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-txt);
+  font-family: var(--font-readex), system-ui, sans-serif;
+  /* Every text style in the Figma file uses auto line height, which resolves to
+     the font's own metrics — so `normal`, not a numeric multiplier. */
+  line-height: normal;
+  /* Readex Pro ships a HEXP (horizontal expansion) axis; the Figma file pins
+     it to 0 on every text node. */
+  font-variation-settings: "HEXP" 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+}
+
+::selection {
+  background: var(--brand-a20);
+  color: var(--color-brand-deep);
+}
+
+/* ==========================================================================
+   Type ramp — mirrors the Figma text styles
+   ========================================================================== */
+
+.t-h1 { font-size: 62px; font-weight: 700; }
+.t-h2 { font-size: 46px; font-weight: 700; }
+.t-h3 { font-size: 42px; font-weight: 700; }
+.t-h4 { font-size: 36px; font-weight: 700; }
+.t-h5 { font-size: 28px; font-weight: 700; }
+.t-label-lg { font-size: 20px; font-weight: 600; }
+.t-card-heading { font-size: 18px; font-weight: 600; line-height: 26px; }
+.t-label-md { font-size: 17px; font-weight: 600; }
+.t-label-sm { font-size: 15px; font-weight: 500; }
+.t-body-lg { font-size: 18px; font-weight: 400; }
+.t-body-md { font-size: 16px; font-weight: 400; }
+.t-body-sm { font-size: 14px; font-weight: 400; }
+.t-caption-sm { font-size: 13px; font-weight: 400; }
+.t-caption-md { font-size: 12px; font-weight: 500; }
+.t-code { font-family: var(--font-jetbrains), monospace; font-size: 12.5px; font-weight: 400; }
+
+/* ==========================================================================
+   Layout helpers
+   ========================================================================== */
+
+/* The 1240px content column inside the 1440px frame (100px gutters). */
+.shell {
+  width: 100%;
+  max-width: calc(var(--content-max) + var(--page-pad) * 2);
+  margin-inline: auto;
+  padding-inline: var(--page-pad);
+}
+
+@media (max-width: 1023px) {
+  .shell { padding-inline: 40px; }
+}
+
+@media (max-width: 767px) {
+  :root { --page-pad: 16px; }
+  .shell { padding-inline: 16px; }
+}
+
+/* ==========================================================================
+   Primitives documented in Figma
+   ========================================================================== */
+
+/* Button / Primary (22:74) — "gradient fill + brand shadow. :hover lifts 2px
+   and deepens the shadow (transform .18s ease, box-shadow .25s ease)." */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius-btn);
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  transition: transform 0.18s ease, box-shadow 0.25s ease, background-color 0.2s ease,
+    border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary {
+  padding: 16px 31px;
+  color: #fff;
+  background: linear-gradient(to bottom, var(--color-grad-start), var(--color-brand));
+  box-shadow: var(--shadow-btn);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-btn-hover);
+}
+
+.btn-ghost {
+  padding: 16px 31px;
+  color: var(--color-txt);
+  background: transparent;
+  border-color: var(--brand-a20);
+}
+
+.btn-ghost:hover {
+  transform: translateY(-2px);
+  background: var(--brand-a06);
+  border-color: var(--brand-a20);
+}
+
+/* Badge — the small pill that labels every section. */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: var(--brand-a08);
+  color: var(--color-grad-end);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badge-invert {
+  background: rgba(232, 238, 235, 0.1);
+  color: var(--color-brand-soft);
+}
+
+/* Card — the topic/offering card repeated across every section. */
+.card {
+  background: #fff;
+  border: 1px solid var(--brand-a10);
+  border-radius: var(--radius-topic);
+  box-shadow: var(--shadow-card);
+}
+
+/* ==========================================================================
+   Motion
+   ========================================================================== */
+
+/* Hero root — opacity 0→1 + scale .97→1 over 800ms, ease-out-expo.
+   (Figma timeline: 5.5s track, keyframe at t=0.1455.) */
+@keyframes itqan-rise {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Hero bg — opacity 0→1 + y 24→0 over 600ms, ease-in-out-soft.
+   (Figma timeline: keyframe at t=0.1091.) */
+@keyframes itqan-lift {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes itqan-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Vertical marquee for the hero card column. The Figma track moves the stack
+   upward at ~39.4px/s across a 788.4px cycle; translating a duplicated list by
+   exactly -50% keeps the wrap seamless. */
+@keyframes itqan-marquee-y {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+
+@keyframes itqan-marquee-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Hero card column. Figma moves the stack at 39.42px/s over a 788.4px cycle
+   (6 cards, 131.4px pitch) — 20s per revolution. */
+@keyframes itqan-hero-marquee {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-788.4px); }
+}
+
+/* Mote (8:15) — "3px brand particle with an 8px glow. Rises 160px over a 9s
+   loop, fading in at 25% and out at 100%." */
+@keyframes itqan-mote {
+  0%   { transform: translateY(0); opacity: 0; }
+  25%  { opacity: 0.9; }
+  100% { transform: translateY(-160px); opacity: 0; }
+}
+
+@keyframes itqan-glow-pulse {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50%      { opacity: 1; transform: scale(1.04); }
+}
+
+.anim-rise { animation: itqan-rise 0.8s var(--ease-out-expo) both; }
+.anim-lift { animation: itqan-lift 0.6s var(--ease-in-out-soft) both; }
+.anim-fade { animation: itqan-fade 0.6s var(--ease-out-expo) both; }
+
+/* Scroll-triggered reveal, driven by the Reveal component.
+   Gated on `scripting: enabled` so that with scripting off nothing is ever
+   hidden — and without an inline class-setting script, which would desync the
+   server-rendered <html> attributes from the client and break hydration. */
+@media (scripting: enabled) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+  }
+
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Hide scrollbars on the horizontal rails while keeping them scrollable. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
