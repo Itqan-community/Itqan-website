@@ -6,7 +6,6 @@ import NewsletterSubscribeForm from "./NewsletterSubscribeForm";
 import {
   filterNewsletterArchiveForDisplay,
   getNewsletterArchive,
-  isMailerLiteConfigured,
   type MailerLiteCampaign,
 } from "@/lib/mailerlite";
 
@@ -37,8 +36,6 @@ const fallbackIssues = [
 ];
 
 async function loadLatestIssues(): Promise<MailerLiteCampaign[]> {
-  if (!isMailerLiteConfigured()) return [];
-
   try {
     const response = await getNewsletterArchive(1, 3);
     return filterNewsletterArchiveForDisplay(response.data ?? []);

@@ -21,8 +21,8 @@ import FaqSection from "@/components/home/FaqSection";
  * Section order and vertical rhythm follow the frame top-to-bottom.
  */
 
-// The newsletter section fetches the latest campaigns from MailerLite.
-export const revalidate = 3600;
+// Newsletter cards come from MailerLite; render on the server so the API key is available.
+export const dynamic = "force-dynamic";
 export default function HomePage() {
   return (
     <>

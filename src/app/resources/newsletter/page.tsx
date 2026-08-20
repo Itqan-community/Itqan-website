@@ -5,7 +5,6 @@ import NewsletterCard from "@/components/newsletter/NewsletterCard";
 import {
   filterNewsletterArchiveForDisplay,
   getNewsletterArchive,
-  isMailerLiteConfigured,
   type MailerLiteCampaign,
 } from "@/lib/mailerlite";
 
@@ -15,8 +14,8 @@ export const metadata: Metadata = {
     "أرشيف نشرات إتقان — قصص مُلهمة وأدوات عملية ونقاشات ثرية من عالم التقنيات القرآنية.",
 };
 
-// Campaign data comes straight from MailerLite on every revalidation.
-export const revalidate = 3600;
+// Fetch MailerLite at request time so Netlify runtime env is visible.
+export const dynamic = "force-dynamic";
 
 const PAGE_SIZE = 12;
 const MAX_CAMPAIGNS = 60;
@@ -40,13 +39,11 @@ export default async function NewsletterArchivePage() {
   let campaigns: MailerLiteCampaign[] = [];
   let failed = false;
 
-  if (isMailerLiteConfigured()) {
-    try {
-      campaigns = await loadArchive();
-    } catch (error) {
-      console.error("Failed to load newsletter archive:", error);
-      failed = true;
-    }
+  try {
+    campaigns = await loadArchive();
+  } catch (error) {
+    console.error("Failed to load newsletter archive:", error);
+    failed = true;
   }
 
   return (

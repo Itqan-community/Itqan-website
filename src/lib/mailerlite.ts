@@ -6,7 +6,36 @@
  * route handler. The browser only ever talks to /api/newsletter/subscribe.
  */
 
+import { connection } from "next/server";
+
 const MAILERLITE_API_BASE = "https://connect.mailerlite.com/api";
+
+type NetlifyEnvHost = {
+  env?: { get?: (key: string) => string | undefined };
+};
+
+/**
+ * Read a server secret at request time.
+ *
+ * Static `process.env.NAME` can be inlined to "" during `next build` when
+ * Netlify only injects the value into Functions, not the build. Dynamic
+ * lookup + Netlify.env.get keep the runtime value. Trim handles paste noise.
+ */
+function readServerSecret(name: "MAILERLITE_API_KEY"): string {
+  const candidates = [
+    process.env.MAILERLITE_API_KEY,
+    process.env[name],
+    (globalThis as { Netlify?: NetlifyEnvHost }).Netlify?.env?.get?.(name),
+  ];
+
+  for (const value of candidates) {
+    if (typeof value === "string" && value.trim().length > 0) {
+      return value.trim();
+    }
+  }
+
+  return "";
+}
 
 /** Folder that holds the إتقان newsletter campaigns in MailerLite. */
 const NEWSLETTER_FOLDER_ID = "176476919924000220";
@@ -47,7 +76,7 @@ export interface MailerLiteApiResponse<T> {
 export class MailerLiteError extends Error {}
 
 function apiKey(): string {
-  return process.env.MAILERLITE_API_KEY ?? "";
+  return readServerSecret("MAILERLITE_API_KEY");
 }
 
 export function isMailerLiteConfigured(): boolean {
@@ -55,12 +84,16 @@ export function isMailerLiteConfigured(): boolean {
 }
 
 async function apiRequest<T>(endpoint: string, init: RequestInit = {}): Promise<T> {
+  // Request-time read so Netlify Function env is used, not a baked empty build value.
+  await connection();
+
   if (!isMailerLiteConfigured()) {
     throw new MailerLiteError("MAILERLITE_API_KEY is not set");
   }
 
   const response = await fetch(`${MAILERLITE_API_BASE}${endpoint}`, {
     ...init,
+    cache: "no-store",
     headers: {
       Authorization: `Bearer ${apiKey()}`,
       "Content-Type": "application/json",
@@ -97,21 +130,42 @@ export async function subscribeToNewsletter(
   return result.data;
 }
 
+function campaignListParams(
+  page: number,
+  limit: number,
+  folder?: string
+): URLSearchParams {
+  const params = new URLSearchParams({
+    "filter[status]": "sent",
+    "filter[type]": "regular",
+    limit: String(limit),
+    page: String(page),
+    sort: "-created_at",
+  });
+  if (folder) params.set("filter[folder]", folder);
+  return params;
+}
+
 /** Sent, regular campaigns from the newsletter folder, newest first. */
 export async function getNewsletterArchive(
   page = 1,
   limit = 10
 ): Promise<MailerLiteApiResponse<MailerLiteCampaign[]>> {
-  const params = new URLSearchParams({
-    "filter[status]": "sent",
-    "filter[type]": "regular",
-    "filter[folder]": NEWSLETTER_FOLDER_ID,
-    limit: String(limit),
-    page: String(page),
-    sort: "-created_at",
-  });
+  const withFolder = await apiRequest<MailerLiteApiResponse<MailerLiteCampaign[]>>(
+    `/campaigns?${campaignListParams(page, limit, NEWSLETTER_FOLDER_ID)}`
+  );
 
-  return apiRequest<MailerLiteApiResponse<MailerLiteCampaign[]>>(`/campaigns?${params}`);
+  if (page === 1 && (withFolder.data?.length ?? 0) === 0) {
+    // filter[folder] is not in the public MailerLite docs; some tokens return [].
+    console.warn(
+      "MailerLite folder filter returned no campaigns; retrying without folder."
+    );
+    return apiRequest<MailerLiteApiResponse<MailerLiteCampaign[]>>(
+      `/campaigns?${campaignListParams(page, limit)}`
+    );
+  }
+
+  return withFolder;
 }
 
 /*
