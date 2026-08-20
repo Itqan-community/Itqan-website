@@ -8,7 +8,7 @@ type RevealProps = {
   delay?: number;
   className?: string;
   as?: ElementType;
-};
+} & React.HTMLAttributes<HTMLElement>;
 
 /**
  * Scroll-triggered entrance. Uses the same 24px lift + ease-out-expo curve the
@@ -23,6 +23,7 @@ export default function Reveal({
   delay = 0,
   className = "",
   as: Tag = "div",
+  ...rest
 }: RevealProps) {
   const ref = useRef<HTMLElement>(null);
   const [shown, setShown] = useState(false);
@@ -57,6 +58,7 @@ export default function Reveal({
       ref={ref}
       className={`reveal ${shown ? "is-in" : ""} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
+      {...rest}
     >
       {children}
     </Tag>
