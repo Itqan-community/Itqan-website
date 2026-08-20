@@ -1,9 +1,0 @@
-name: Community Contributor Detection
-on:
-  pull_request:
-    types: [opened]
-
-jobs:
-  detect:
-    uses: Itqan-community/.github/.github/workflows/community-detection.yml@main
-    secrets: inherit
