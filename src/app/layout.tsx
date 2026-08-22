@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Readex_Pro, JetBrains_Mono } from "next/font/google";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import "./globals.css";
+import ogImage from "./og-image.png";
 
 const readex = Readex_Pro({
   variable: "--font-readex",
@@ -28,6 +29,19 @@ export const metadata: Metadata = {
   publisher: "إتقان",
   icons: {
     icon: "/figma/logo-itqan-small.png",
+  },
+  // Declared here rather than via the `opengraph-image.png` file convention:
+  // Turbopack doesn't read `opengraph-image.alt.txt`, so alt text would be dropped.
+  openGraph: {
+    images: [
+      {
+        url: ogImage.src,
+        width: ogImage.width,
+        height: ogImage.height,
+        type: "image/png",
+        alt: "إتقان — ملتقى العاملين على التقنيات القرآنية",
+      },
+    ],
   },
 };
 
