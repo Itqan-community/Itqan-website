@@ -18,10 +18,10 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://itqan.sa"),
+  metadataBase: new URL("https://itqan.dev"),
   title: "إتقان — ملتقى العاملين على التقنيات القرآنية",
   description:
-    "مجتمع تقني مفتوح المصدر يطور برمجيات ومصاحف رقمية خالية من الأخطاء.",
+    "مجتمع تقني مفتوح المصدر يسعى لسد الفجوة التقنية وتوفير برمجيات لجميع العاملين على كتاب الله",
   applicationName: "إتقان",
   authors: [{ name: "إتقان" }],
   creator: "إتقان",
