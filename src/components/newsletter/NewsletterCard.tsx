@@ -39,7 +39,19 @@ export default function NewsletterCard({ campaign, showDate = false }: Newslette
           {title}
         </h3>
         {date && (
-          <p className="text-[12px] text-[var(--color-txt-dim)]">{date}</p>
+          <div className="flex w-full flex-col items-start gap-[10px]">
+            <span className="badge max-w-full text-start">
+              <span className="block min-w-0 whitespace-normal">
+                {campaign.name}
+              </span>
+            </span>
+            <span className="flex items-center gap-[10px]">
+              <span aria-hidden className="h-[12px] w-px bg-[var(--brand-a20)]" />
+              <span className="text-[12px] text-[var(--color-txt-dim)]">
+                {date}
+              </span>
+            </span>
+          </div>
         )}
       </div>
       <a
