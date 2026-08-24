@@ -237,9 +237,12 @@ export default function Hero() {
         </div>
 
         {/* Visual stage — absolute children use physical left/top, so the
-            composition is identical under RTL. At ≥1440px the stage is nudged
-            48px off the viewport edge (me = left under RTL). */}
-        <div className="relative hidden h-[540px] w-[600px] shrink-0 lg:block min-[1440px]:me-[48px]">
+            composition is identical under RTL. At ≥1440px the stage drifts
+            toward the center as the viewport grows (me = left under RTL):
+            24px at 1440, ~280px from ~1990px up. The formula budgets for the
+            101px gutters, both columns, and the 35px flex gap, so the row
+            never overflows and the copy never shrinks. */}
+        <div className="relative hidden h-[540px] w-[600px] shrink-0 lg:block min-[1440px]:me-[max(24px,min(calc((100vw_-_1397px)/2),280px))]">
           <div className="absolute left-1/2 top-1/2 h-[540px] w-[600px] -translate-x-1/2 -translate-y-1/2">
             <Image
               src="/figma/hero-halo.svg"
