@@ -36,19 +36,32 @@ function IconReply() {
 export function TopicCard({
   topic,
   className = "min-h-[118px] w-[240px]",
+  titleLines,
+  dropShadow = true,
 }: {
   topic: Topic;
   className?: string;
+  /** Clamps the title so fixed-pitch marquees can rely on the card height. */
+  titleLines?: 2 | 3;
+  /** Figma's lifted-card shadow; off on the mobile marquee's tight stack. */
+  dropShadow?: boolean;
 }) {
+  const clamp =
+    titleLines === 2 ? "line-clamp-2" : titleLines === 3 ? "line-clamp-3" : "";
+  const shadow = dropShadow
+    ? " drop-shadow-[0_20px_22px_rgba(16,54,45,0.3)]"
+    : "";
   return (
     <article
-      className={`flex flex-col justify-between rounded-[var(--radius-topic)] border border-[rgba(18,70,58,0.1)] bg-white px-[16px] pt-[15px] pb-[13px] drop-shadow-[0_20px_22px_rgba(16,54,45,0.3)] ${className}`}
+      className={`flex flex-col justify-between rounded-[var(--radius-topic)] border border-[rgba(18,70,58,0.1)] bg-white px-[16px] pt-[15px] pb-[13px]${shadow} ${className}`}
     >
       <div className="flex w-full flex-col items-start gap-[9px]">
         <span className="rounded-[var(--radius-pill)] bg-[var(--brand-a10)] px-[10px] py-[4px] text-[11px] text-[var(--color-grad-end)]">
           {topic.category}
         </span>
-        <h3 className="w-full text-start text-[15px] font-medium text-[var(--color-topic-title)]">
+        <h3
+          className={`w-full text-start text-[15px] font-medium text-[var(--color-topic-title)] ${clamp}`}
+        >
           {topic.title}
         </h3>
       </div>
@@ -75,10 +88,33 @@ export function TopicCard({
  * Card / Photo (7:5) — "240×172.8 community photo, 14px radius, 14% brand
  * hairline, lifted shadow. Recycled through the vertical carousel."
  */
-export function ShotCard({ src, alt }: { src: string; alt: string }) {
+export function ShotCard({
+  src,
+  alt,
+  className = "h-[172.8px] w-[240px]",
+  dropShadow = true,
+  eager = false,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  /** Figma's lifted-photo shadow; off on the mobile marquee's tight stack. */
+  dropShadow?: boolean;
+  /** Eager-load photos that live far down an animated track. */
+  eager?: boolean;
+}) {
   return (
-    <div className="relative h-[172.8px] w-[240px] overflow-hidden rounded-[var(--radius-shot)] border border-[rgba(35,110,91,0.14)] bg-[var(--color-bg-2)] shadow-[0_20px_44px_-18px_rgba(16,54,45,0.34)]">
-      <Image src={src} alt={alt} fill sizes="240px" className="object-cover" />
+    <div
+      className={`relative overflow-hidden rounded-[var(--radius-shot)] border border-[rgba(35,110,91,0.14)] bg-[var(--color-bg-2)]${dropShadow ? " shadow-[0_20px_44px_-18px_rgba(16,54,45,0.34)]" : ""} ${className}`}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="240px"
+        loading={eager ? "eager" : undefined}
+        className="object-cover"
+      />
     </div>
   );
 }

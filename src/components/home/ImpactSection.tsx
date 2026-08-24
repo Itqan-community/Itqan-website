@@ -5,7 +5,8 @@ import Reveal from "@/components/ui/Reveal";
 /**
  * Impact Section - Process Graph — Figma 20:1043, 1440×780.
  *
- * #f8fafa ground, 140px top padding (the stats card overlaps into it), 64px
+ * #f8fafa ground, 205px top padding — the stats card hangs 65px into the
+ * section, so the content rhythm stays 140px below the card — 64px
  * stack gap. Four steps read 01 → 04 right-to-left with 80×20 connectors.
  */
 
@@ -39,7 +40,7 @@ const steps = [
 
 export default function ImpactSection() {
   return (
-    <section className="hidden w-full bg-[#f8fafa] pt-[140px] pb-[80px] lg:block">
+    <section className="hidden w-full bg-[#f8fafa] pt-[205px] pb-[80px] lg:block">
       <div className="shell flex flex-col items-center gap-[64px]">
         <Reveal className="flex w-full flex-col items-start gap-[12px]">
           <span className="badge text-[#1b4332]">مجتمع إتقان</span>

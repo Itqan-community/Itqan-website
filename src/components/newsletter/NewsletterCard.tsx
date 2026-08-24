@@ -33,7 +33,13 @@ export default function NewsletterCard({ campaign, showDate = false }: Newslette
   const date = showDate ? formatSendDate(campaign.scheduled_for ?? campaign.created_at) : "";
 
   return (
-    <article className="flex h-full min-h-[130px] flex-col items-start justify-between overflow-hidden rounded-[12px] border border-[rgba(35,110,91,0.11)] bg-white px-[20px] pt-[24px] pb-[20px] shadow-[0_10px_28px_-8px_rgba(16,54,45,0.12)] md:px-[26px] md:pt-[28px] md:pb-[24px]">
+    // The whole card is one link to the issue.
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex h-full min-h-[130px] flex-col items-start justify-between overflow-hidden rounded-[12px] border border-[rgba(35,110,91,0.11)] bg-white px-[20px] pt-[24px] pb-[20px] shadow-[0_10px_28px_-8px_rgba(16,54,45,0.12)] transition-shadow duration-200 hover:shadow-[0_16px_32px_-8px_rgba(16,54,45,0.18)] md:px-[26px] md:pt-[28px] md:pb-[24px]"
+    >
       <div className="flex w-full flex-col items-start gap-[8px]">
         <h3 className="w-full text-start text-[17px] font-semibold leading-[normal] text-[var(--color-topic-title)]">
           {title}
@@ -54,21 +60,16 @@ export default function NewsletterCard({ campaign, showDate = false }: Newslette
           </div>
         )}
       </div>
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-[12px] flex items-center gap-[6px] text-[14px] font-medium leading-[22px] text-[var(--color-grad-end)]"
-      >
+      <span className="mt-[12px] flex items-center gap-[6px] text-[14px] font-medium leading-[22px] text-[var(--color-grad-end)]">
         <span>قراءة النشرة</span>
         <Image
           src="/figma/icon-arrow-read.svg"
           alt=""
           width={14}
           height={14}
-          className="size-[14px]"
+          className="size-[14px] transition-transform duration-200 group-hover:-translate-x-1"
         />
-      </a>
-    </article>
+      </span>
+    </a>
   );
 }

@@ -65,7 +65,10 @@ export default function AppsSection() {
         </Reveal>
 
         <div className="flex w-full items-center gap-[16px]">
-          {/* First child lands on the right under RTL — the "back" affordance. */}
+          {/* First child lands on the right under RTL — the "back" affordance.
+              Note: icon-arrow-left.svg draws a right-pointing chevron and
+              icon-arrow-right.svg a left-pointing one (assets are named for
+              their slot, not their geometry). */}
           <button
             type="button"
             onClick={() => scrollRail(-1)}
@@ -73,7 +76,7 @@ export default function AppsSection() {
             className="hidden size-[48px] shrink-0 items-center justify-center rounded-[24px] border border-[#e5e7eb] bg-white transition-colors duration-200 hover:bg-[var(--brand-a04)] sm:flex"
           >
             <Image
-              src="/figma/icon-arrow-right.svg"
+              src="/figma/icon-arrow-left.svg"
               alt=""
               width={20}
               height={20}
@@ -123,7 +126,7 @@ export default function AppsSection() {
             className="hidden size-[48px] shrink-0 items-center justify-center rounded-[24px] border border-[#e5e7eb] bg-white transition-colors duration-200 hover:bg-[var(--brand-a04)] sm:flex"
           >
             <Image
-              src="/figma/icon-arrow-left.svg"
+              src="/figma/icon-arrow-right.svg"
               alt=""
               width={20}
               height={20}

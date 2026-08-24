@@ -98,7 +98,7 @@ export default function ArticlesPage() {
               {halfWidth.map((article, i) => (
                 <Reveal key={article.slug} delay={i * 80} className="flex-1">
                   <Link
-                    href={`/resources/articles/${article.slug}`}
+                    href={`/articles/${article.slug}`}
                     className="group flex flex-col gap-[20px] rounded-[14px] border-[1.5px] border-[rgba(35,110,91,0.1)] bg-white p-[24px] shadow-[0_12px_16px_rgba(16,54,45,0.08)] transition-shadow duration-200 hover:shadow-[0_16px_24px_rgba(16,54,45,0.12)]"
                   >
                     <div className="relative h-[200px] w-full overflow-hidden rounded-[14px] border border-[rgba(35,110,91,0.1)] sm:h-[240px]">
@@ -147,7 +147,7 @@ export default function ArticlesPage() {
             {fullWidth && (
               <Reveal delay={160}>
                 <Link
-                  href={`/resources/articles/${fullWidth.slug}`}
+                  href={`/articles/${fullWidth.slug}`}
                   className="group flex flex-col items-stretch gap-[24px] rounded-[14px] border-[1.5px] border-[rgba(35,110,91,0.1)] bg-white p-[20px] shadow-[0_12px_16px_rgba(16,54,45,0.08)] transition-shadow duration-200 hover:shadow-[0_16px_24px_rgba(16,54,45,0.12)] sm:p-[32px] lg:flex-row lg:items-center lg:gap-[32px]"
                 >
                   <div className="flex w-full flex-1 flex-col items-start gap-[16px]">

@@ -1,28 +1,17 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
+import { partners } from "./PartnersSection";
 
 /**
  * Partners Section Mobile — Figma 183:372, 390×438.
  *
  * Replaces the 232×180 desktop card grid with a 358×72 featured-publisher row
- * and a wrapped row of 38px name chips. The frame mocks six chips; all twelve
- * partners are rendered here in the same layout.
+ * and a wrapped grid of partner cards carrying the original logos at 60% of
+ * the desktop art size.
  */
 
-const partners = [
-  "Tarteel.ai",
-  "Quran.com",
-  "البرهان",
-  "تفسير",
-  "مكنون",
-  "Greentech",
-  "بي دي إم إس",
-  "مجموعة زاد",
-  "Nuqayah",
-  "Quran Pedia",
-  "زلفى",
-  "mp3 quran",
-];
+/** Mobile renders the desktop logos scaled down to 60%. */
+const LOGO_SCALE = 0.6;
 
 export default function PartnersSectionMobile() {
   return (
@@ -57,14 +46,21 @@ export default function PartnersSectionMobile() {
           </div>
         </Reveal>
 
-        {/* Partners Grid Mobile — 183:383 */}
+        {/* Partners Grid Mobile — 183:383 chips carrying the real logos. */}
         <Reveal className="flex flex-wrap justify-center gap-[10px]">
-          {partners.map((name) => (
+          {partners.map((partner) => (
             <span
-              key={name}
-              className="flex h-[38px] items-center rounded-[10px] border border-[rgba(35,110,91,0.11)] bg-[#f5fbfa] px-[12px] text-[12px] font-medium text-[var(--color-topic-title)]"
+              key={partner.name}
+              className="flex h-[58px] w-[calc(50%-5px)] items-center justify-center rounded-[10px] border border-[rgba(35,110,91,0.11)] bg-[#f5fbfa] px-[12px] sm:w-[calc(33.333%-7px)]"
             >
-              {name}
+              <Image
+                src={partner.logo}
+                alt={partner.name}
+                width={Math.round(partner.w * LOGO_SCALE)}
+                height={Math.round(partner.h * LOGO_SCALE)}
+                style={{ width: partner.w * LOGO_SCALE, height: partner.h * LOGO_SCALE }}
+                className={`max-w-none ${partner.contain ? "object-contain" : ""}`}
+              />
             </span>
           ))}
         </Reveal>

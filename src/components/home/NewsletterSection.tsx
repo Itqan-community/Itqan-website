@@ -22,16 +22,16 @@ import {
 const fallbackIssues = [
   {
     title: "عندما تتقاطع التقنية مع أعظم غاية.. ملامح مستقبل التقنيات القرآنية من القاهرة",
-    href: "/resources/newsletter",
+    href: "/newsletter",
   },
   {
     title: "منصة قاف | حين تحوّلت مشكلة مدير مدرسة لابتكار تخدم المراكز الإسلامية",
-    href: "/resources/newsletter",
+    href: "/newsletter",
   },
   {
     title:
       "الموسوعة القرآنية تُطلق إصدارًا رقميًا مفتوحًا لمصحف الأوقاف الليبية برواية قالون",
-    href: "/resources/newsletter",
+    href: "/newsletter",
   },
 ];
 
@@ -83,23 +83,26 @@ export default async function NewsletterSection() {
                 <Reveal
                   key={issue.title}
                   delay={i * 80}
-                  className="flex min-h-[130px] w-[280px] shrink-0 snap-start flex-col items-start justify-between overflow-hidden rounded-[12px] border border-[rgba(35,110,91,0.11)] bg-white px-[20px] pt-[24px] pb-[20px] shadow-[0_10px_28px_-8px_rgba(16,54,45,0.12)] md:w-auto md:shrink md:px-[26px] md:pt-[28px] md:pb-[24px]"
+                  className="flex min-h-[130px] w-[280px] shrink-0 snap-start overflow-hidden rounded-[12px] border border-[rgba(35,110,91,0.11)] bg-white shadow-[0_10px_28px_-8px_rgba(16,54,45,0.12)] transition-shadow duration-200 hover:shadow-[0_16px_32px_-8px_rgba(16,54,45,0.18)] md:w-auto md:shrink"
                 >
-                  <h3 className="w-full text-start text-[17px] font-semibold leading-[normal] text-[var(--color-topic-title)]">
-                    {issue.title}
-                  </h3>
+                  {/* The whole card is one link to the archive. */}
                   <Link
                     href={issue.href}
-                    className="mt-[12px] flex items-center gap-[6px] text-[14px] font-medium leading-[22px] text-[var(--color-grad-end)]"
+                    className="flex w-full flex-1 flex-col items-start justify-between px-[20px] pt-[24px] pb-[20px] md:px-[26px] md:pt-[28px] md:pb-[24px]"
                   >
-                    <span>قراءة النشرة</span>
-                    <Image
-                      src="/figma/icon-arrow-read.svg"
-                      alt=""
-                      width={14}
-                      height={14}
-                      className="size-[14px]"
-                    />
+                    <h3 className="w-full text-start text-[17px] font-semibold leading-[normal] text-[var(--color-topic-title)]">
+                      {issue.title}
+                    </h3>
+                    <span className="mt-[12px] flex items-center gap-[6px] text-[14px] font-medium leading-[22px] text-[var(--color-grad-end)]">
+                      <span>قراءة النشرة</span>
+                      <Image
+                        src="/figma/icon-arrow-read.svg"
+                        alt=""
+                        width={14}
+                        height={14}
+                        className="size-[14px]"
+                      />
+                    </span>
                   </Link>
                 </Reveal>
               ))}
@@ -107,7 +110,7 @@ export default async function NewsletterSection() {
 
         <Reveal>
           <Link
-            href="/resources/newsletter"
+            href="/newsletter"
             className="flex items-center gap-[6px] text-[15px] font-medium text-[var(--color-grad-end)] transition-colors duration-200 hover:text-[var(--color-brand)]"
           >
             <span>عرض جميع النشرات</span>

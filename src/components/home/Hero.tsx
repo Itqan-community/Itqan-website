@@ -5,7 +5,14 @@ import { CodePanel, Mote, ShotCard, TopicCard, type Topic } from "./hero-cards";
  * Hero — إتقان (20:871), 1440×900.
  *
  * Layout: 35px column gap (space/col-gap), 101px gutters, 80px block padding.
- * Copy column 520px, visual stage 600×540.
+ * Copy column 520px, visual stage 600×540. No fixed min-height on desktop —
+ * the row hugs its content so the stats card straddles a tight hero base.
+ *
+ * The background is full-bleed: glows anchor to the viewport's left edge, the
+ * pattern to its right edge, and the grain tiles edge-to-edge, so the ambience
+ * extends past the 1440 frame on wide screens. Glyphs stay centered via calc.
+ * At ≥1440px the row switches to justify-between so the copy and the visual
+ * stage each claim a viewport edge instead of sitting as a centered group.
  *
  * Motion (from the Figma timeline, node 20:871 / 20:872):
  *   root — opacity 0→1, scale .97→1, 800ms, cubic-bezier(.16,1,.3,1)
@@ -33,6 +40,30 @@ const topics: Topic[] = [
 
 /** Base y of each card in the 540px window; pitch is 131.4px. */
 const CYCLE = 788.4;
+
+/** Mobile marquee rows — one period: topic/shot pairs on alternating zigzag
+    columns, mirroring the desktop track's staircase. Topic rows advance the
+    y cursor by 164px (148px card + 16px margin), shot rows by 174px (158.4px
+    card + 15.6px margin); the 1024px period (in the itqan-hero-marquee-sm
+    keyframe) is 6 rows — even, so the column offset realigns, and ≡ 0 mod 3,
+    so both sequences realign. */
+const MOBILE_ROWS = [
+  { kind: "topic", index: 2, h: 148, pitch: 164 },
+  { kind: "shot", index: 3, h: 158.4, pitch: 174 },
+  { kind: "topic", index: 1, h: 148, pitch: 164 },
+  { kind: "shot", index: 2, h: 158.4, pitch: 174 },
+  { kind: "topic", index: 0, h: 148, pitch: 164 },
+  { kind: "shot", index: 1, h: 158.4, pitch: 174 },
+] as const;
+
+const mobileTrackItems = (() => {
+  let y = 0;
+  return [...MOBILE_ROWS, ...MOBILE_ROWS].map((row, i) => {
+    const item = { ...row, y, x: (i % 2) * 40 };
+    y += row.pitch;
+    return item;
+  });
+})();
 
 const trackItems = [
   { kind: "topic", index: 2, left: 36, top: -158.47 },
@@ -75,20 +106,20 @@ export default function Hero() {
         aria-hidden
         className="anim-lift pointer-events-none absolute inset-0 overflow-hidden"
       >
-        <div className="absolute left-1/2 top-0 h-[900px] w-[1440px] -translate-x-1/2">
+        <div className="absolute inset-x-0 top-0 h-[900px]">
           <Image
             src="/figma/hero-glow-brand.svg"
             alt=""
             width={1273}
             height={1273}
-            className="absolute left-[-388px] top-[-402.4px] size-[1272.79px] max-w-none"
+            className="absolute left-[calc(50%-1108px)] top-[-402.4px] size-[1272.79px] max-w-none min-[1440px]:left-[-388px]"
           />
           <Image
             src="/figma/hero-glow-em.svg"
             alt=""
             width={1160}
             height={1160}
-            className="absolute left-[-83.43px] top-[216.17px] size-[1159.66px] max-w-none"
+            className="absolute left-[calc(50%-803.43px)] top-[216.17px] size-[1159.66px] max-w-none min-[1440px]:left-[-83.43px]"
           />
           <Image
             src="/figma/hero-pattern.png"
@@ -96,7 +127,7 @@ export default function Hero() {
             width={778}
             height={702}
             priority
-            className="absolute left-[662.4px] top-0 h-[702px] w-[777.6px] max-w-none object-cover opacity-15"
+            className="absolute left-[calc(50%-57.6px)] top-0 h-[702px] w-[777.6px] max-w-none object-cover opacity-15 min-[1440px]:left-auto min-[1440px]:right-0"
           />
           <div
             className="absolute inset-0 opacity-10 mix-blend-multiply"
@@ -105,22 +136,23 @@ export default function Hero() {
               backgroundSize: "100px 100px",
             }}
           />
-          <span className="absolute left-[57.6px] top-[108px] font-mono text-[110px] text-[var(--brand-a10)]">
+          <span className="absolute left-[calc(50%-662.4px)] top-[108px] font-mono text-[110px] text-[var(--brand-a10)]">
             {"{ }"}
           </span>
-          <span className="absolute left-[345.6px] top-[589px] font-mono text-[58px] text-[var(--brand-a10)]">
+          <span className="absolute left-[calc(50%-374.4px)] top-[589px] font-mono text-[58px] text-[var(--brand-a10)]">
             [ ]
           </span>
-          <span className="absolute left-[633.6px] top-[730px] font-mono text-[74px] text-[var(--brand-a10)]">
+          <span className="absolute left-[calc(50%-86.4px)] top-[730px] font-mono text-[74px] text-[var(--brand-a10)]">
             {"</>"}
           </span>
         </div>
       </div>
 
       {/* --------------------------------------------------------- content row */}
-      <div className="anim-rise relative mx-auto flex min-h-[640px] w-full max-w-[1440px] flex-col items-center justify-center gap-[var(--space-col-gap)] px-[16px] py-[56px] lg:min-h-[900px] lg:flex-row lg:px-[101px] lg:py-[80px]">
-        {/* Copy — first in the DOM so it lands on the right under RTL. */}
-        <div className="flex w-full flex-col items-start gap-[22px] lg:w-[520px]">
+      <div className="anim-rise relative flex min-h-[640px] w-full flex-col items-center justify-center gap-[var(--space-col-gap)] px-[16px] py-[56px] lg:flex-row lg:px-[101px] lg:py-[80px] min-[1440px]:justify-between">
+        {/* Copy — first in the DOM so it lands on the right under RTL.
+            560px so the 62px headline holds its two designed lines. */}
+        <div className="flex w-full flex-col items-start gap-[22px] lg:w-[560px]">
           <h1 className="flex w-full flex-col text-start text-[34px] font-bold sm:text-[44px] lg:text-[62px]">
             <span className="text-[var(--color-txt)]">ملتقى العاملين على</span>
             <span className="bg-gradient-to-b from-[#2e8069] via-[#1b5749] via-[70%] to-[#1b5749] bg-clip-text text-transparent">
@@ -141,16 +173,58 @@ export default function Hero() {
         </div>
 
         {/* Visual Scene Mobile — Figma 183:198, 358×460.
-            A 320px orbit holding one topic card, three motes, and a 320×124
-            code panel beneath it. */}
+            A 320px orbit holding the topic/photo-card marquee, three motes,
+            and a 320×124 code panel beneath it. The track zigzags between two
+            40px-staggered columns on alternating 164px/174px pitches — the
+            desktop track's diagonal staircase, scaled down. */}
         <div className="relative h-[460px] w-[358px] shrink-0 lg:hidden">
           <div className="absolute left-[19px] top-0 size-[320px]">
             <span
               aria-hidden
               className="absolute left-[10px] top-[10px] size-[300px] rounded-full bg-[radial-gradient(circle,rgba(55,130,110,0.13)_0%,rgba(55,130,110,0)_68%)]"
             />
-            <div className="absolute left-[50px] top-[99px] w-[220px]">
-              <TopicCard topic={topics[0]} className="w-[220px] min-h-[123px]" />
+            {/* Marquee window — CSS gradient mask fades the top and bottom. */}
+            <div
+              className="absolute left-[30px] top-[50px] h-[260px] w-[260px] overflow-hidden"
+              style={{
+                maskImage:
+                  "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+              }}
+            >
+              <div
+                className="absolute inset-0 will-change-transform"
+                style={{ animation: "itqan-hero-marquee-sm 26s linear infinite" }}
+              >
+                {mobileTrackItems.map((item, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-[220px]"
+                    style={{
+                      left: `${item.x}px`,
+                      top: `${item.y}px`,
+                    }}
+                  >
+                    {item.kind === "topic" ? (
+                      <TopicCard
+                        topic={topics[item.index]}
+                        className="h-[148px] w-[220px]"
+                        titleLines={2}
+                        dropShadow={false}
+                      />
+                    ) : (
+                      <ShotCard
+                        src={`/figma/hero-shot-${item.index}.png`}
+                        alt="من لقاءات مجتمع إتقان"
+                        className="h-[158.4px] w-[220px]"
+                        dropShadow={false}
+                        eager
+                      />
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
             <Mote left={40} top={60} delay={0} />
             <Mote left={280} top={90} delay={3} />
@@ -163,8 +237,9 @@ export default function Hero() {
         </div>
 
         {/* Visual stage — absolute children use physical left/top, so the
-            composition is identical under RTL. */}
-        <div className="relative hidden h-[540px] w-[600px] shrink-0 lg:block">
+            composition is identical under RTL. At ≥1440px the stage is nudged
+            48px off the viewport edge (me = left under RTL). */}
+        <div className="relative hidden h-[540px] w-[600px] shrink-0 lg:block min-[1440px]:me-[48px]">
           <div className="absolute left-1/2 top-1/2 h-[540px] w-[600px] -translate-x-1/2 -translate-y-1/2">
             <Image
               src="/figma/hero-halo.svg"

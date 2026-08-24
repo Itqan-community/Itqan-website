@@ -36,7 +36,7 @@ export default function Navbar() {
         <div className="flex items-center gap-[40px]">
           <Link href="/" aria-label="إتقان — الصفحة الرئيسية" className="shrink-0">
             <Image
-              src="/figma/logo-itqan.png"
+              src="/figma/itqan-logo-dark.png"
               alt="إتقان"
               width={140}
               height={50}
@@ -141,7 +141,7 @@ export default function Navbar() {
       <div className="flex h-[64px] items-center justify-between px-[16px] lg:hidden">
         <Link href="/" aria-label="إتقان — الصفحة الرئيسية">
           <Image
-            src="/figma/logo-itqan.png"
+            src="/figma/itqan-logo-dark.png"
             alt="إتقان"
             width={104}
             height={38}
