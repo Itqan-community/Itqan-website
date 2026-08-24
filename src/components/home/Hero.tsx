@@ -41,6 +41,30 @@ const topics: Topic[] = [
 /** Base y of each card in the 540px window; pitch is 131.4px. */
 const CYCLE = 788.4;
 
+/** Mobile marquee rows — one period: topic/shot pairs on alternating zigzag
+    columns, mirroring the desktop track's staircase. Topic rows advance the
+    y cursor by 164px (148px card + 16px margin), shot rows by 174px (158.4px
+    card + 15.6px margin); the 1024px period (in the itqan-hero-marquee-sm
+    keyframe) is 6 rows — even, so the column offset realigns, and ≡ 0 mod 3,
+    so both sequences realign. */
+const MOBILE_ROWS = [
+  { kind: "topic", index: 2, h: 148, pitch: 164 },
+  { kind: "shot", index: 3, h: 158.4, pitch: 174 },
+  { kind: "topic", index: 1, h: 148, pitch: 164 },
+  { kind: "shot", index: 2, h: 158.4, pitch: 174 },
+  { kind: "topic", index: 0, h: 148, pitch: 164 },
+  { kind: "shot", index: 1, h: 158.4, pitch: 174 },
+] as const;
+
+const mobileTrackItems = (() => {
+  let y = 0;
+  return [...MOBILE_ROWS, ...MOBILE_ROWS].map((row, i) => {
+    const item = { ...row, y, x: (i % 2) * 40 };
+    y += row.pitch;
+    return item;
+  });
+})();
+
 const trackItems = [
   { kind: "topic", index: 2, left: 36, top: -158.47 },
   { kind: "shot", index: 3, left: 312, top: -27.07 },
@@ -149,9 +173,10 @@ export default function Hero() {
         </div>
 
         {/* Visual Scene Mobile — Figma 183:198, 358×460.
-            A 320px orbit holding the topic-card marquee, three motes, and a
-            320×124 code panel beneath it. The track reuses the desktop loop:
-            131.4px pitch across the 788.4px itqan-hero-marquee cycle. */}
+            A 320px orbit holding the topic/photo-card marquee, three motes,
+            and a 320×124 code panel beneath it. The track zigzags between two
+            40px-staggered columns on alternating 164px/174px pitches — the
+            desktop track's diagonal staircase, scaled down. */}
         <div className="relative h-[460px] w-[358px] shrink-0 lg:hidden">
           <div className="absolute left-[19px] top-0 size-[320px]">
             <span
@@ -160,7 +185,7 @@ export default function Hero() {
             />
             {/* Marquee window — CSS gradient mask fades the top and bottom. */}
             <div
-              className="absolute left-[50px] top-[50px] h-[260px] w-[220px] overflow-hidden"
+              className="absolute left-[30px] top-[50px] h-[260px] w-[260px] overflow-hidden"
               style={{
                 maskImage:
                   "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
@@ -170,18 +195,33 @@ export default function Hero() {
             >
               <div
                 className="absolute inset-0 will-change-transform"
-                style={{ animation: "itqan-hero-marquee 20s linear infinite" }}
+                style={{ animation: "itqan-hero-marquee-sm 26s linear infinite" }}
               >
-                {[2, 1, 0, 2, 1, 0, 2, 1, 0].map((topicIndex, i) => (
+                {mobileTrackItems.map((item, i) => (
                   <div
                     key={i}
-                    className="absolute left-0 w-[220px]"
-                    style={{ top: `${i * 131.4}px` }}
+                    className="absolute w-[220px]"
+                    style={{
+                      left: `${item.x}px`,
+                      top: `${item.y}px`,
+                    }}
                   >
-                    <TopicCard
-                      topic={topics[topicIndex]}
-                      className="w-[220px] min-h-[123px]"
-                    />
+                    {item.kind === "topic" ? (
+                      <TopicCard
+                        topic={topics[item.index]}
+                        className="h-[148px] w-[220px]"
+                        titleLines={2}
+                        dropShadow={false}
+                      />
+                    ) : (
+                      <ShotCard
+                        src={`/figma/hero-shot-${item.index}.png`}
+                        alt="من لقاءات مجتمع إتقان"
+                        className="h-[158.4px] w-[220px]"
+                        dropShadow={false}
+                        eager
+                      />
+                    )}
                   </div>
                 ))}
               </div>

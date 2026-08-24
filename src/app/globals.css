@@ -342,6 +342,15 @@
   to   { transform: translateY(-788.4px); }
 }
 
+/* Mobile hero marquee — same 39.4px/s, on the 1024px mobile period (6 rows of
+   alternating 164px topic / 174px shot pitches and a two-column zigzag). The
+   cycle is even, so the column offset realigns, and ≡ 0 mod 3, so the topic
+   and photo sequences realign. */
+@keyframes itqan-hero-marquee-sm {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-1024px); }
+}
+
 /* Mote (8:15) — "3px brand particle with an 8px glow. Rises 160px over a 9s
    loop, fading in at 25% and out at 100%." */
 @keyframes itqan-mote {
