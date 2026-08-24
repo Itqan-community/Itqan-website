@@ -78,7 +78,13 @@ export default function PublisherSection() {
         </div>
 
         <Reveal className="flex w-full flex-col items-center">
-          <div className="flex w-full flex-col items-center gap-[8px] rounded-[16px] border-2 border-dashed border-[rgba(35,110,91,0.13)] bg-[#f5fbfa] px-[24px] py-[16px]">
+          {/* The whole dashed card is one link to the publisher signup. */}
+          <a
+            href="https://join.itqan.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full flex-col items-center gap-[8px] rounded-[16px] border-2 border-dashed border-[rgba(35,110,91,0.13)] bg-[#f5fbfa] px-[24px] py-[16px] transition-colors duration-200 hover:border-[rgba(35,110,91,0.35)]"
+          >
             <div className="flex size-[64px] items-center justify-center rounded-[32px] border border-[rgba(35,110,91,0.13)] bg-white">
               <Image
                 src="/figma/icon-plus.svg"
@@ -96,10 +102,8 @@ export default function PublisherSection() {
                 انضم إلينا اليوم وساهم في نشر المعرفة القرآنية حول العالم.
               </p>
             </div>
-            <a href="https://join.itqan.dev" target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-[2px]">
-              سجل كناشر الآن
-            </a>
-          </div>
+            <span className="btn btn-primary mt-[2px]">سجل كناشر الآن</span>
+          </a>
         </Reveal>
       </div>
     </section>

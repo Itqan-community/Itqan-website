@@ -35,7 +35,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <section className="overflow-hidden bg-[#f4faf7] px-[16px] py-[32px] sm:px-[24px] lg:px-[100px] lg:py-[60px]">
           <Reveal>
             <Link
-              href="/resources/articles"
+              href="/articles"
               className="flex items-center gap-[8px] py-[20px] text-[14px] font-medium text-[var(--color-txt-dim)] hover:text-[var(--color-brand)] transition-colors"
             >
               <span>العودة إلى المقالات</span>

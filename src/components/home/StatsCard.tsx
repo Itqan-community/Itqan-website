@@ -19,8 +19,11 @@ const stats = [
 export default function StatsCard() {
   return (
     // Desktop pulls the card up so it straddles the hero (y=910 on the 1440
-    // frame). The mobile frame (183:233) sits flush after the hero instead.
-    <Reveal className="relative z-20 mx-auto mt-[24px] w-full max-w-[calc(1240px+200px)] px-[16px] lg:-mt-[66px] lg:px-[100px]">
+    // frame) and cancels the flow height it adds below the hero (-mb), so the
+    // impact section's ground starts flush at the hero's bottom edge and shows
+    // behind the card's lower half. The mobile frame (183:233) sits flush
+    // after the hero instead.
+    <Reveal className="relative z-20 mx-auto mt-[24px] w-full max-w-[calc(1240px+200px)] px-[16px] lg:-mt-[66px] lg:-mb-[65px] lg:px-[100px]">
       <div className="relative overflow-hidden rounded-[18px] border-[1.5px] border-[rgba(24,72,57,0.2)] bg-[#fafefc] px-[24px] py-[28px] shadow-[0_6px_20px_0_rgba(0,0,0,0.08),0_20px_60px_-10px_rgba(24,72,57,0.15)]">
         {/* Mobile (183:233) stacks the stats into 55px rows split by hairlines;
             desktop (37:146) lays them out as one ltr row with 56px dividers. */}

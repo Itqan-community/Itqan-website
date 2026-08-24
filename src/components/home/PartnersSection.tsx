@@ -10,7 +10,7 @@ import Reveal from "@/components/ui/Reveal";
  * each caption keeps its own direction.
  */
 
-const partners = [
+export const partners = [
   { name: "ترتيل Tarteel.ai", logo: "/figma/partner-tarteel.svg", w: 160, h: 25.43 },
   { name: "Quran.com", logo: "/figma/partner-qurancom.png", w: 160, h: 56, contain: true },
   { name: "جمعية البرهان لخدمة القرآن والسنة", logo: "/figma/partner-burhan.png", w: 160, h: 56, contain: true },

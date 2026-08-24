@@ -114,72 +114,77 @@
 
 /* ==========================================================================
    Base
+   Element resets live in @layer base so Tailwind's utilities layer (declared
+   after base by the "tailwindcss" import) can override them — unlayered rules
+   would beat every utility and e.g. strip the color off any styled <a>.
    ========================================================================== */
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  margin: 0;
-  background: var(--color-bg);
-  color: var(--color-txt);
-  font-family: var(--font-readex), system-ui, sans-serif;
-  /* Every text style in the Figma file uses auto line height, which resolves to
-     the font's own metrics — so `normal`, not a numeric multiplier. */
-  line-height: normal;
-  /* Readex Pro ships a HEXP (horizontal expansion) axis; the Figma file pins
-     it to 0 on every text node. */
-  font-variation-settings: "HEXP" 0;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-txt);
+    font-family: var(--font-readex), system-ui, sans-serif;
+    /* Every text style in the Figma file uses auto line height, which resolves to
+       the font's own metrics — so `normal`, not a numeric multiplier. */
+    line-height: normal;
+    /* Readex Pro ships a HEXP (horizontal expansion) axis; the Figma file pins
+       it to 0 on every text node. */
+    font-variation-settings: "HEXP" 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-figure {
-  margin: 0;
-}
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  figure {
+    margin: 0;
+  }
 
-ul,
-ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-button {
-  font: inherit;
-  color: inherit;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
+  button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
 
-input {
-  font: inherit;
-}
+  input {
+    font: inherit;
+  }
 
-::selection {
-  background: var(--brand-a20);
-  color: var(--color-brand-deep);
+  ::selection {
+    background: var(--brand-a20);
+    color: var(--color-brand-deep);
+  }
 }
 
 /* ==========================================================================

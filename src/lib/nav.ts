@@ -14,8 +14,8 @@ export type NavItem = {
 export const navItems: NavItem[] = [
   { label: "ما الذي نقدمه؟", href: "/services" },
   { label: "المشاريع", href: "/#projects" },
-  { label: "نشرة إتقان", href: "/resources/newsletter" },
-  { label: "المقالات", href: "/resources/articles" },
+  { label: "نشرة إتقان", href: "/newsletter" },
+  { label: "المقالات", href: "/articles" },
   { label: "تواصل معنا", href: "https://join.itqan.dev" },
 ];
 
@@ -23,8 +23,9 @@ export const footerColumns = [
   {
     title: "الموارد",
     links: [
-      { label: "نشرة إتقان", href: "/resources/newsletter" },
-      { label: "المقالات", href: "/resources/articles" },
+      { label: "نشرة إتقان", href: "/newsletter" },
+      { label: "المقالات", href: "/articles" },
+      { label: "اذهب للمجتمع", href: "https://community.itqan.dev" },
     ],
   },
 ];
