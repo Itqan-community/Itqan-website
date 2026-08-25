@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState, type ReactNode } from "react";
 import Reveal from "@/components/ui/Reveal";
 
@@ -39,9 +38,14 @@ const faqs: { q: string; a: ReactNode }[] = [
     a: (
       <>
         املأ{" "}
-        <Link href="/projects/apps" className="text-[var(--color-grad-end)] underline-offset-2 hover:underline">
+        <a
+          href="https://quran-apps.itqan.dev/ar/submit-app"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[var(--color-grad-end)] underline-offset-2 hover:underline"
+        >
           نموذج الطلب
-        </Link>{" "}
+        </a>{" "}
         لإضافة تطبيقك، سيراجع الفريق التقني التطبيق ثم سيعمل على إضافته للدليل
       </>
     ),
