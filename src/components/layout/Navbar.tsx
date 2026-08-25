@@ -132,7 +132,7 @@ export default function Navbar() {
         </div>
 
         {/* Second child sits at the left under RTL: the join CTA. */}
-        <a href="https://join.itqan.dev" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+        <a href="https://community.itqan.dev" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
           انضم لمجتمع إتقان
         </a>
       </nav>
@@ -235,7 +235,7 @@ export default function Navbar() {
           ))}
           <li className="pt-[8px]">
             <a
-              href="https://join.itqan.dev"
+              href="https://community.itqan.dev"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}

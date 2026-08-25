@@ -166,7 +166,7 @@ export default function Hero() {
           </p>
 
           <div className="flex w-full flex-col gap-[var(--space-cta-gap)] pt-[12px] lg:w-auto lg:flex-row lg:items-center">
-            <a href="https://join.itqan.dev" target="_blank" rel="noopener noreferrer" className="btn btn-primary h-[51px] w-full py-0 lg:h-auto lg:w-auto lg:py-[16px]">
+            <a href="https://community.itqan.dev" target="_blank" rel="noopener noreferrer" className="btn btn-primary h-[51px] w-full py-0 lg:h-auto lg:w-auto lg:py-[16px]">
               انضم إلى المجتمع
             </a>
           </div>

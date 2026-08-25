@@ -90,7 +90,7 @@ export default function ImpactSection() {
         </div>
 
         <Reveal>
-          <a href="https://join.itqan.dev" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+          <a href="https://community.itqan.dev" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
             انضم لمجتمع إتقان
           </a>
         </Reveal>
