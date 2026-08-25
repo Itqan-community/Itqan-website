@@ -25,7 +25,8 @@ export const footerColumns = [
     links: [
       { label: "نشرة إتقان", href: "/newsletter" },
       { label: "المقالات", href: "/articles" },
-      { label: "اذهب للمجتمع", href: "https://community.itqan.dev" },
+      { label: "مجتمع إتقان", href: "https://community.itqan.dev" },
+      { label: "دليل التطبيقات القرآنية", href: "https://quran-apps.itqan.dev" },
     ],
   },
 ];

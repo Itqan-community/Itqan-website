@@ -9,7 +9,6 @@ import Reveal from "@/components/ui/Reveal";
  */
 
 const stats = [
-  { value: "+22,000", label: "زيارة للمجتمع", valueColor: "var(--color-brand)", labelColor: "var(--color-txt-dim)" },
   { value: "+580", label: "نقاش تقني", valueColor: "var(--color-brand)", labelColor: "var(--color-txt-dim)" },
   { value: "+5,700", label: "مساهمة", mobileLabel: "مساهمة مضافة", valueColor: "var(--color-brand)", labelColor: "var(--color-txt-dim)" },
   { value: "+1,500", label: "مطور وباحث", mobileLabel: "مطور وباحث نشط", valueColor: "#1a5c47", labelColor: "#66736e" },

@@ -29,6 +29,7 @@ function formatSendDate(iso: string): string {
 export default function NewsletterCard({ campaign, showDate = false }: NewsletterCardProps) {
   const primary = campaign.emails[0];
   const title = primary?.subject || campaign.name;
+  const description = primary?.preheader?.trim() || "";
   const href = getBareedNewsletterReadUrl(campaign);
   const date = showDate ? formatSendDate(campaign.scheduled_for ?? campaign.created_at) : "";
 
@@ -44,6 +45,11 @@ export default function NewsletterCard({ campaign, showDate = false }: Newslette
         <h3 className="w-full text-start text-[17px] font-semibold leading-[normal] text-[var(--color-topic-title)]">
           {title}
         </h3>
+        {description && (
+          <p className="w-full text-start text-[13px] leading-[22px] text-[var(--color-txt-dim)]">
+            {description}
+          </p>
+        )}
         {date && (
           <div className="flex w-full flex-col items-start gap-[10px]">
             <span className="badge max-w-full text-start">
