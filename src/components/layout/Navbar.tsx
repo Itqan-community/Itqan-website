@@ -46,7 +46,9 @@ export default function Navbar() {
           </Link>
 
           <ul className="flex items-center gap-[26px]">
-            {navItems.map((item) => (
+            {navItems
+              .filter((item) => !item.hidden)
+              .map((item) => (
               <li
                 key={item.label}
                 className="relative"
@@ -183,7 +185,9 @@ export default function Navbar() {
         }`}
       >
         <ul className="flex flex-col gap-[2px] px-[16px] py-[12px]">
-          {navItems.map((item) => (
+          {navItems
+            .filter((item) => !item.hidden)
+            .map((item) => (
             <li key={item.label}>
               {isExternal(item.href) ? (
                 <a
