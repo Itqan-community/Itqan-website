@@ -65,7 +65,7 @@ export default function LaunchSectionMobile() {
 
         <Reveal className="flex flex-col gap-[12px]">
           <a
-            href="https://join.itqan.dev"
+            href="https://community.itqan.dev/t/community-support"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary h-[51px] w-full py-0"

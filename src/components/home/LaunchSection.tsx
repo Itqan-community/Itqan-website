@@ -67,7 +67,7 @@ export default function LaunchSection() {
         </div>
 
         <Reveal className="flex flex-col gap-[12px] sm:flex-row sm:items-center">
-          <a href="https://join.itqan.dev" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+          <a href="https://community.itqan.dev/t/community-support" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
             تلقى الدعم والمشورة
           </a>
           <a
