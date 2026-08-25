@@ -33,7 +33,10 @@ export default function Footer() {
             <div key={col.title} className="flex flex-1 flex-col gap-[16px]">
               <p className="text-[15px] font-semibold text-white">{col.title}</p>
               <ul className="flex flex-col gap-[12px]">
-                {col.links.map((link) => (
+                {/* hidden links stay in nav.ts but are filtered out here. */}
+                {col.links
+                  .filter((link) => !link.hidden)
+                  .map((link) => (
                   <li key={link.label}>
                     {isExternal(link.href) ? (
                       <a

@@ -9,23 +9,36 @@ export type NavItem = {
   label: string;
   href: string;
   menu?: { label: string; href: string }[];
+  /**
+   * Hidden items stay defined here but are filtered out of the navbar.
+   * Flip to false to bring them back.
+   */
+  hidden?: boolean;
 };
 
 export const navItems: NavItem[] = [
   { label: "ما الذي نقدمه؟", href: "/services" },
   { label: "المشاريع", href: "/#projects" },
   { label: "نشرة إتقان", href: "/newsletter" },
-  { label: "المقالات", href: "/articles" },
+  { label: "المقالات", href: "/articles", hidden: true },
   { label: "تواصل معنا", href: "https://join.itqan.dev" },
 ];
 
-export const footerColumns = [
+export type FooterLink = {
+  label: string;
+  href: string;
+  /** Same idea as NavItem.hidden — kept in code, filtered out of the footer. */
+  hidden?: boolean;
+};
+
+export const footerColumns: { title: string; links: FooterLink[] }[] = [
   {
     title: "الموارد",
     links: [
       { label: "نشرة إتقان", href: "/newsletter" },
-      { label: "المقالات", href: "/articles" },
-      { label: "اذهب للمجتمع", href: "https://community.itqan.dev" },
+      { label: "المقالات", href: "/articles", hidden: true },
+      { label: "مجتمع إتقان", href: "https://community.itqan.dev" },
+      { label: "دليل التطبيقات القرآنية", href: "https://quran-apps.itqan.dev" },
     ],
   },
 ];

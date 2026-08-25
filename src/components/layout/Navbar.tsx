@@ -46,7 +46,9 @@ export default function Navbar() {
           </Link>
 
           <ul className="flex items-center gap-[26px]">
-            {navItems.map((item) => (
+            {navItems
+              .filter((item) => !item.hidden)
+              .map((item) => (
               <li
                 key={item.label}
                 className="relative"
@@ -132,7 +134,7 @@ export default function Navbar() {
         </div>
 
         {/* Second child sits at the left under RTL: the join CTA. */}
-        <a href="https://join.itqan.dev" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+        <a href="https://community.itqan.dev" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
           انضم لمجتمع إتقان
         </a>
       </nav>
@@ -183,7 +185,9 @@ export default function Navbar() {
         }`}
       >
         <ul className="flex flex-col gap-[2px] px-[16px] py-[12px]">
-          {navItems.map((item) => (
+          {navItems
+            .filter((item) => !item.hidden)
+            .map((item) => (
             <li key={item.label}>
               {isExternal(item.href) ? (
                 <a
@@ -235,7 +239,7 @@ export default function Navbar() {
           ))}
           <li className="pt-[8px]">
             <a
-              href="https://join.itqan.dev"
+              href="https://community.itqan.dev"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
