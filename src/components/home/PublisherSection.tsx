@@ -75,6 +75,30 @@ export default function PublisherSection() {
               </p>
             </div>
           </Reveal>
+
+          <Reveal
+            delay={180}
+            className="flex items-center gap-[16px] self-stretch overflow-hidden rounded-[16px] border border-[rgba(35,110,91,0.13)] bg-white p-[24px] shadow-[0_2px_10px_-2px_rgba(16,54,45,0.07),0_12px_32px_-8px_rgba(16,54,45,0.14)]"
+          >
+            <div className="flex size-[56px] shrink-0 items-center justify-center rounded-[28px] border border-[var(--brand-a10)] bg-[#f5fbfa]">
+              <Image
+                src="/figma/publisher-qiraat.svg"
+                alt=""
+                width={44}
+                height={41}
+                className="size-[44px] object-contain"
+              />
+            </div>
+            <div className="flex min-w-0 flex-1 flex-col items-start gap-[4px] text-start">
+              <h3 className="w-full text-[17px] font-semibold text-[var(--color-topic-title)]">
+                قراءات القرآن
+              </h3>
+              <p className="w-full text-[13px] leading-[normal] text-[var(--color-txt-dim)]">
+                منصة للاستماع إلى تسجيلات القرآن الكريم بالقراءات العشر الكبرى والصغرى
+                بصوت الشيخ الدكتور مفتاح السلطني.
+              </p>
+            </div>
+          </Reveal>
         </div>
 
         <Reveal className="flex w-full flex-col items-center">
