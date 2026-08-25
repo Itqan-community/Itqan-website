@@ -31,7 +31,14 @@ export default function PublisherSection() {
         </Reveal>
 
         <div className="grid w-full grid-cols-1 gap-[24px] lg:grid-cols-2">
-          <Reveal className="flex items-center gap-[16px] self-stretch overflow-hidden rounded-[16px] border border-[rgba(35,110,91,0.13)] bg-white p-[24px] shadow-[0_2px_10px_-2px_rgba(16,54,45,0.07),0_12px_32px_-8px_rgba(16,54,45,0.14)]">
+          {/* Each publisher card is one link to the publisher's site. */}
+          <Reveal className="flex self-stretch">
+            <a
+              href="https://tahbeer.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-1 items-center gap-[16px] overflow-hidden rounded-[16px] border border-[rgba(35,110,91,0.13)] bg-white p-[24px] shadow-[0_2px_10px_-2px_rgba(16,54,45,0.07),0_12px_32px_-8px_rgba(16,54,45,0.14)] transition-shadow duration-200 hover:shadow-[0_6px_16px_-2px_rgba(16,54,45,0.12),0_18px_44px_-10px_rgba(16,54,45,0.22)]"
+            >
             <div className="flex size-[56px] shrink-0 items-center justify-center rounded-[28px] border border-[var(--brand-a10)] bg-[#f5fbfa]">
               <Image
                 src="/figma/publisher-tahbeer.png"
@@ -50,12 +57,16 @@ export default function PublisherSection() {
                 المملكة العربية السعودية والعالم العربي والإسلامي
               </p>
             </div>
+            </a>
           </Reveal>
 
-          <Reveal
-            delay={90}
-            className="flex items-center gap-[16px] self-stretch overflow-hidden rounded-[16px] border border-[rgba(35,110,91,0.13)] bg-white p-[24px] shadow-[0_12px_32px_-8px_rgba(16,54,45,0.14)]"
-          >
+          <Reveal delay={90} className="flex self-stretch">
+            <a
+              href="https://qhc.itqan.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-1 items-center gap-[16px] overflow-hidden rounded-[16px] border border-[rgba(35,110,91,0.13)] bg-white p-[24px] shadow-[0_12px_32px_-8px_rgba(16,54,45,0.14)] transition-shadow duration-200 hover:shadow-[0_6px_16px_-2px_rgba(16,54,45,0.12),0_18px_44px_-10px_rgba(16,54,45,0.22)]"
+            >
             <div className="relative h-[41px] w-[104px] shrink-0 overflow-hidden rounded-[12px]">
               <Image
                 src="/figma/publisher-saudi-center.png"
@@ -74,12 +85,16 @@ export default function PublisherSection() {
                 المملكة العربية السعودية والعالم العربي والإسلامي
               </p>
             </div>
+            </a>
           </Reveal>
 
-          <Reveal
-            delay={180}
-            className="flex items-center gap-[16px] self-stretch overflow-hidden rounded-[16px] border border-[rgba(35,110,91,0.13)] bg-white p-[24px] shadow-[0_2px_10px_-2px_rgba(16,54,45,0.07),0_12px_32px_-8px_rgba(16,54,45,0.14)]"
-          >
+          <Reveal delay={180} className="flex self-stretch">
+            <a
+              href="http://quranqiraat.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-1 items-center gap-[16px] overflow-hidden rounded-[16px] border border-[rgba(35,110,91,0.13)] bg-white p-[24px] shadow-[0_2px_10px_-2px_rgba(16,54,45,0.07),0_12px_32px_-8px_rgba(16,54,45,0.14)] transition-shadow duration-200 hover:shadow-[0_6px_16px_-2px_rgba(16,54,45,0.12),0_18px_44px_-10px_rgba(16,54,45,0.22)]"
+            >
             <div className="flex size-[56px] shrink-0 items-center justify-center rounded-[28px] border border-[var(--brand-a10)] bg-[#f5fbfa]">
               <Image
                 src="/figma/publisher-qiraat.svg"
@@ -98,6 +113,7 @@ export default function PublisherSection() {
                 بصوت الشيخ الدكتور مفتاح السلطني.
               </p>
             </div>
+            </a>
           </Reveal>
         </div>
 
