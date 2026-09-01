@@ -62,34 +62,6 @@ export default function PublisherSection() {
 
           <Reveal delay={90} className="flex self-stretch">
             <a
-              href="https://qhc.itqan.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-1 items-center gap-[16px] overflow-hidden rounded-[16px] border border-[rgba(35,110,91,0.13)] bg-white p-[24px] shadow-[0_12px_32px_-8px_rgba(16,54,45,0.14)] transition-shadow duration-200 hover:shadow-[0_6px_16px_-2px_rgba(16,54,45,0.12),0_18px_44px_-10px_rgba(16,54,45,0.22)]"
-            >
-            <div className="relative h-[41px] w-[104px] shrink-0 overflow-hidden rounded-[12px]">
-              <Image
-                src="/figma/publisher-saudi-center.png"
-                alt=""
-                fill
-                sizes="104px"
-                className="object-contain"
-              />
-            </div>
-            <div className="flex min-w-0 flex-1 flex-col items-start gap-[4px] text-start">
-              <h3 className="w-full text-[17px] font-semibold text-[var(--color-topic-title)]">
-                المركز السعودي للتلاوات القرآنية والأحاديث النبوية
-              </h3>
-              <p className="w-full text-[13px] leading-[normal] text-[var(--color-txt-dim)]">
-                الذكر الحكيم بأعذب الأصوات وأجمل الأداءات مع نخبة من أفضل القراء في
-                المملكة العربية السعودية والعالم العربي والإسلامي
-              </p>
-            </div>
-            </a>
-          </Reveal>
-
-          <Reveal delay={180} className="flex self-stretch">
-            <a
               href="http://quranqiraat.com"
               target="_blank"
               rel="noopener noreferrer"
