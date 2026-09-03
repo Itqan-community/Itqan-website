@@ -219,6 +219,28 @@
   padding-inline: var(--page-pad);
 }
 
+/* Keep partner sequence row-major while the number of columns changes. */
+.partners-grid-desktop {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 232px);
+  grid-auto-flow: row;
+  justify-content: end;
+  gap: 20px;
+  direction: rtl;
+}
+
+.partners-grid-mobile {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: row;
+  gap: 10px;
+  direction: rtl;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .partners-grid-mobile { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 @media (max-width: 1023px) {
   .shell { padding-inline: 40px; }
 }
