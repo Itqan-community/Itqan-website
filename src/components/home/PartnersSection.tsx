@@ -11,18 +11,18 @@ import Reveal from "@/components/ui/Reveal";
  */
 
 export const partners = [
-  { name: "ترتيل Tarteel.ai", logo: "/figma/partner-tarteel.svg", w: 160, h: 25.43 },
-  { name: "Quran.com", logo: "/figma/partner-qurancom.png", w: 160, h: 56, contain: true },
-  { name: "جمعية البرهان لخدمة القرآن والسنة", logo: "/figma/partner-burhan.png", w: 160, h: 56, contain: true },
-  { name: "مركز تفسير للدراسات القرآنية", logo: "/figma/partner-tafsir.png", w: 160, h: 56, contain: true },
   { name: "جمعية مكنون لتحفيظ القرآن الكريم بالرياض", logo: "/figma/partner-maknoon.png", w: 160, h: 56, contain: true },
+  { name: "مركز تفسير للدراسات القرآنية", logo: "/figma/partner-tafsir.png", w: 160, h: 56, contain: true },
+  { name: "جمعية البرهان لخدمة القرآن والسنة", logo: "/figma/partner-burhan.png", w: 160, h: 56, contain: true },
+  { name: "Quran.com", logo: "/figma/partner-qurancom.png", w: 160, h: 56, contain: true },
+  { name: "ترتيل Tarteel.ai", logo: "/figma/partner-tarteel.svg", w: 160, h: 25.43 },
   { name: "Greentech", logo: "/figma/partner-greentech.svg", w: 160, h: 53.6 },
   { name: "بي دي إم إس", logo: "/figma/partner-bdms.svg", w: 46.667, h: 56 },
   { name: "مجموعة زاد", logo: "/figma/partner-zad.png", w: 160, h: 56, contain: true },
   { name: "نقاية Nuqayah", logo: "/figma/partner-nuqayah.svg", w: 64.211, h: 56 },
   { name: "الموسوعة القرآنية Quran Pedia", logo: "/figma/partner-quranpedia.png", w: 160, h: 56, contain: true },
-  { name: "تطبيق زلفى", logo: "/figma/partner-zalfa.svg", w: 56, h: 56 },
   { name: "mp3 quran", logo: "/figma/partner-mp3quran.png", w: 160, h: 56, contain: true },
+  { name: "تطبيق زلفى", logo: "/figma/partner-zalfa.svg", w: 56, h: 56 },
 ];
 
 export default function PartnersSection() {
@@ -40,7 +40,7 @@ export default function PartnersSection() {
           </p>
         </Reveal>
 
-        <div dir="ltr" className="flex w-full flex-wrap justify-end gap-[20px]">
+        <div dir="rtl" className="partners-grid-desktop w-full">
           {partners.map((partner, i) => (
             <Reveal
               key={partner.name}

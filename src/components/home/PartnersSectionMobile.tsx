@@ -46,12 +46,12 @@ export default function PartnersSectionMobile() {
           </div>
         </Reveal>
 
-        {/* Partners Grid Mobile — 183:383 chips carrying the real logos. */}
-        <Reveal className="flex flex-wrap justify-center gap-[10px]">
+        {/* Partners Grid Mobile — first partner stays at the top-right at every width. */}
+        <Reveal dir="rtl" className="partners-grid-mobile">
           {partners.map((partner) => (
             <span
               key={partner.name}
-              className="flex h-[58px] w-[calc(50%-5px)] items-center justify-center rounded-[10px] border border-[rgba(35,110,91,0.11)] bg-[#f5fbfa] px-[12px] sm:w-[calc(33.333%-7px)]"
+              className="flex h-[58px] w-full items-center justify-center rounded-[10px] border border-[rgba(35,110,91,0.11)] bg-[#f5fbfa] px-[12px]"
             >
               <Image
                 src={partner.logo}
