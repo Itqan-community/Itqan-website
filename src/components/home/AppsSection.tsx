@@ -72,7 +72,9 @@ export default function AppsSection({
               alt=""
               width={20}
               height={20}
-              className="size-[20px]"
+              // Assets are named for their RTL slot, not their geometry —
+              // flip both chevrons for LTR locales.
+              className="size-[20px] -scale-x-100 rtl:scale-x-100"
             />
           </button>
 
@@ -125,7 +127,7 @@ export default function AppsSection({
               alt=""
               width={20}
               height={20}
-              className="size-[20px]"
+              className="size-[20px] -scale-x-100 rtl:scale-x-100"
             />
           </button>
         </div>

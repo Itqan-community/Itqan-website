@@ -47,7 +47,9 @@ export default function ImpactSection({
                     alt=""
                     width={80}
                     height={22}
-                    className="absolute left-0 top-[-2px] h-[22px] w-[80px] max-w-none"
+                    // The asset draws a left-pointing arrow (RTL reading
+                    // order); flip it for LTR locales.
+                    className="absolute left-0 top-[-2px] h-[22px] w-[80px] max-w-none -scale-x-100 rtl:scale-x-100"
                   />
                 </div>
               )}
