@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { type Locale } from "@/lib/i18n";
 import {
   getBareedNewsletterReadUrl,
   type MailerLiteCampaign,
@@ -8,14 +9,19 @@ interface NewsletterCardProps {
   campaign: MailerLiteCampaign;
   /** Archive page shows the send date; the home section cards don't. */
   showDate?: boolean;
+  locale?: Locale;
 }
 
 const dateOptions = { year: "numeric", month: "long", day: "numeric" } as const;
 
 /** "١٥ محرم ١٤٤٨ / 23 مارس 2026" — Hijri first, then Gregorian. */
-function formatSendDate(iso: string): string {
+function formatSendDate(iso: string, locale: Locale): string {
   const date = new Date(iso);
   if (Number.isNaN(date.getTime())) return "";
+
+  if (locale === "en") {
+    return new Intl.DateTimeFormat("en-GB", dateOptions).format(date);
+  }
 
   const hijri = new Intl.DateTimeFormat("ar-SA", {
     ...dateOptions,
@@ -26,12 +32,18 @@ function formatSendDate(iso: string): string {
   return `${hijri} / ${gregorian}`;
 }
 
-export default function NewsletterCard({ campaign, showDate = false }: NewsletterCardProps) {
+export default function NewsletterCard({
+  campaign,
+  showDate = false,
+  locale = "ar",
+}: NewsletterCardProps) {
   const primary = campaign.emails[0];
   const title = primary?.subject || campaign.name;
   const description = primary?.preheader?.trim() || "";
   const href = getBareedNewsletterReadUrl(campaign);
-  const date = showDate ? formatSendDate(campaign.scheduled_for ?? campaign.created_at) : "";
+  const date = showDate
+    ? formatSendDate(campaign.scheduled_for ?? campaign.created_at, locale)
+    : "";
 
   return (
     // The whole card is one link to the issue.
@@ -67,7 +79,7 @@ export default function NewsletterCard({ campaign, showDate = false }: Newslette
         )}
       </div>
       <span className="mt-[12px] flex items-center gap-[6px] text-[14px] font-medium leading-[22px] text-[var(--color-grad-end)]">
-        <span>قراءة النشرة</span>
+        <span>{locale === "ar" ? "قراءة النشرة" : "Read the issue"}</span>
         <Image
           src="/figma/icon-arrow-read.svg"
           alt=""

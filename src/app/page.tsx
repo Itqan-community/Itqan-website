@@ -26,7 +26,7 @@ export const dynamic = "force-dynamic";
 export default function HomePage() {
   return (
     <>
-      <Navbar />
+      <Navbar locale="ar" />
       <main className="flex-1">
         <Hero />
         <StatsCard />
@@ -44,7 +44,7 @@ export default function HomePage() {
         <NewsletterSection />
         <FaqSection />
       </main>
-      <Footer />
+      <Footer locale="ar" />
     </>
   );
 }

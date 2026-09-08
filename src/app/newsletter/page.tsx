@@ -48,7 +48,7 @@ export default async function NewsletterArchivePage() {
 
   return (
     <>
-      <Navbar />
+      <Navbar locale="ar" />
       <main className="flex-1">
         <div className="shell py-[64px] lg:py-[96px]">
           <div className="flex flex-col items-start gap-[12px]">
@@ -73,13 +73,13 @@ export default async function NewsletterArchivePage() {
           ) : (
             <div className="mt-[48px] grid grid-cols-1 gap-[24px] md:grid-cols-2 lg:grid-cols-3">
               {campaigns.map((campaign) => (
-                <NewsletterCard key={campaign.id} campaign={campaign} showDate />
+                <NewsletterCard key={campaign.id} campaign={campaign} showDate locale="ar" />
               ))}
             </div>
           )}
         </div>
       </main>
-      <Footer />
+      <Footer locale="ar" />
     </>
   );
 }

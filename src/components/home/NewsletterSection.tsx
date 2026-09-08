@@ -8,6 +8,7 @@ import {
   getNewsletterArchive,
   type MailerLiteCampaign,
 } from "@/lib/mailerlite";
+import { getDictionary } from "@/lib/i18n";
 
 /**
  * Newsletter Section — Figma 152:153, 1440×579.
@@ -47,6 +48,7 @@ async function loadLatestIssues(): Promise<MailerLiteCampaign[]> {
 
 export default async function NewsletterSection() {
   const campaigns = await loadLatestIssues();
+  const dict = getDictionary("ar");
 
   return (
     <section className="w-full bg-[rgba(232,238,235,0.42)] py-[64px] lg:py-[96px]">
@@ -125,7 +127,19 @@ export default async function NewsletterSection() {
         </Reveal>
 
         <Reveal className="w-full sm:w-auto">
-          <NewsletterSubscribeForm sourcepage="homepage" />
+          <NewsletterSubscribeForm
+            sourcepage="homepage"
+            labels={{
+              namePlaceholder: dict.newsletterForm.namePlaceholder,
+              emailPlaceholder: dict.newsletterForm.emailPlaceholder,
+              submitLabel: dict.newsletterForm.submitLabel,
+              submittingLabel: dict.newsletterForm.submittingLabel,
+              successMessage: dict.newsletterForm.successMessage,
+              errorFallback: dict.newsletterForm.errorFallback,
+              nameSrLabel: dict.newsletterForm.nameSrLabel,
+              emailSrLabel: dict.newsletterForm.emailSrLabel,
+            }}
+          />
         </Reveal>
       </div>
     </section>

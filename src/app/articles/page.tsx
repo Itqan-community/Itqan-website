@@ -58,7 +58,7 @@ export default function ArticlesPage() {
 
   return (
     <>
-      <Navbar />
+      <Navbar locale="ar" />
       <main className="flex-1" dir="rtl">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-[#f4faf7] px-[16px] py-[48px] sm:px-[24px] lg:px-[100px] lg:py-[80px]">
@@ -195,7 +195,7 @@ export default function ArticlesPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer locale="ar" />
     </>
   );
 }

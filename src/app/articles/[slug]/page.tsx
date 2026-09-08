@@ -29,7 +29,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <Navbar />
+      <Navbar locale="ar" />
       <main className="flex-1" dir="rtl">
         {/* Article Hero */}
         <section className="overflow-hidden bg-[#f4faf7] px-[16px] py-[32px] sm:px-[24px] lg:px-[100px] lg:py-[60px]">
@@ -273,7 +273,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer locale="ar" />
     </>
   );
 }

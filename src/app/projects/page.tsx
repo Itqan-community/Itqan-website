@@ -24,7 +24,7 @@ const stats = [
 export default function ProjectsPage() {
   return (
     <>
-      <Navbar />
+      <Navbar locale="ar" />
       <main className="flex-1">
         <PageHeader
           badge="مشاريع المجتمع"
@@ -53,7 +53,7 @@ export default function ProjectsPage() {
 
         <ProjectsExplorer />
       </main>
-      <Footer />
+      <Footer locale="ar" />
     </>
   );
 }

@@ -75,7 +75,7 @@ const events = [
 export default function ServicesPage() {
   return (
     <>
-      <Navbar />
+      <Navbar locale="ar" />
       <main className="flex-1">
         <PageHeader
           badge="عن إتقان"
@@ -165,7 +165,7 @@ export default function ServicesPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer locale="ar" />
     </>
   );
 }
