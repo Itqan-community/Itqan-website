@@ -5,15 +5,17 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Reveal from "@/components/ui/Reveal";
+import ComingSoon from "@/components/ComingSoon";
 import { getArticleBySlug, articles } from "@/lib/articles";
-import { hasLocale } from "@/lib/i18n";
+import { getDictionary, hasLocale } from "@/lib/i18n";
 
 export function generateStaticParams() {
   return articles.map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  if (locale === "en") return {};
   const article = getArticleBySlug(slug);
   if (!article) return {};
 
@@ -28,6 +30,19 @@ export default async function ArticlePage({ params }: { params: Promise<{ locale
   if (!hasLocale(locale)) notFound();
   const article = getArticleBySlug(slug);
   if (!article) notFound();
+  const dict = getDictionary(locale);
+
+  if (locale === "en") {
+    return (
+      <>
+        <Navbar locale="en" />
+        <main className="flex-1">
+          <ComingSoon dict={dict.pages.comingSoon} backHref="/ar/articles" />
+        </main>
+        <Footer locale="en" />
+      </>
+    );
+  }
 
   return (
     <>

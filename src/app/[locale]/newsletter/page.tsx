@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import NewsletterCard from "@/components/newsletter/NewsletterCard";
+import ComingSoon from "@/components/ComingSoon";
 import {
   filterNewsletterArchiveForDisplay,
   getNewsletterArchive,
   type MailerLiteCampaign,
 } from "@/lib/mailerlite";
+import { getDictionary, hasLocale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "نشرة إتقان البريدية",
@@ -35,7 +38,27 @@ async function loadArchive(): Promise<MailerLiteCampaign[]> {
   return filterNewsletterArchiveForDisplay(campaigns);
 }
 
-export default async function NewsletterArchivePage() {
+export default async function NewsletterArchivePage({
+  params,
+}: PageProps<"/[locale]/newsletter">) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  const dict = getDictionary(locale);
+
+  if (locale === "en") {
+    return (
+      <>
+        <Navbar locale="en" />
+        <main className="flex-1">
+          <div className="shell py-[64px] lg:py-[96px]">
+            <ComingSoon dict={dict.pages.comingSoon} backHref="/ar/newsletter" />
+          </div>
+        </main>
+        <Footer locale="en" />
+      </>
+    );
+  }
+
   let campaigns: MailerLiteCampaign[] = [];
   let failed = false;
 

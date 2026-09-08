@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Reveal from "@/components/ui/Reveal";
+import ComingSoon from "@/components/ComingSoon";
+import { getDictionary, hasLocale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "تقارير قرآنية — إتقان",
@@ -52,14 +55,32 @@ const articles: Article[] = [
   },
 ];
 
-export default function ArticlesPage() {
+export default async function ArticlesPage({
+  params,
+}: PageProps<"/[locale]/articles">) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  const dict = getDictionary(locale);
+
+  if (locale === "en") {
+    return (
+      <>
+        <Navbar locale="en" />
+        <main className="flex-1">
+          <ComingSoon dict={dict.pages.comingSoon} backHref="/ar/articles" />
+        </main>
+        <Footer locale="en" />
+      </>
+    );
+  }
+
   const halfWidth = articles.filter((a) => !a.featured);
   const fullWidth = articles.find((a) => a.featured);
 
   return (
     <>
       <Navbar locale="ar" />
-      <main className="flex-1" dir="rtl">
+      <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-[#f4faf7] px-[16px] py-[48px] sm:px-[24px] lg:px-[100px] lg:py-[80px]">
           <div className="absolute left-[-240px] top-[-430px] size-[1100px]">
@@ -98,7 +119,7 @@ export default function ArticlesPage() {
               {halfWidth.map((article, i) => (
                 <Reveal key={article.slug} delay={i * 80} className="flex-1">
                   <Link
-                    href={`/articles/${article.slug}`}
+                    href={`/${locale}/articles/${article.slug}`}
                     className="group flex flex-col gap-[20px] rounded-[14px] border-[1.5px] border-[rgba(35,110,91,0.1)] bg-white p-[24px] shadow-[0_12px_16px_rgba(16,54,45,0.08)] transition-shadow duration-200 hover:shadow-[0_16px_24px_rgba(16,54,45,0.12)]"
                   >
                     <div className="relative h-[200px] w-full overflow-hidden rounded-[14px] border border-[rgba(35,110,91,0.1)] sm:h-[240px]">
@@ -114,10 +135,10 @@ export default function ArticlesPage() {
                         {article.category}
                       </span>
                     </div>
-                    <h2 className="text-[18px] font-semibold text-[var(--color-txt)] text-right">
+                    <h2 className="text-[18px] font-semibold text-[var(--color-txt)] text-start">
                       {article.title}
                     </h2>
-                    <p className="min-h-[72px] overflow-hidden text-right text-[14px] text-[var(--color-txt-dim)] sm:min-h-[96px]">
+                    <p className="min-h-[72px] overflow-hidden text-start text-[14px] text-[var(--color-txt-dim)] sm:min-h-[96px]">
                       {article.description}
                     </p>
                     <div className="flex items-center gap-[6px] text-[14px] font-medium text-[var(--color-grad-end)]">
@@ -147,7 +168,7 @@ export default function ArticlesPage() {
             {fullWidth && (
               <Reveal delay={160}>
                 <Link
-                  href={`/articles/${fullWidth.slug}`}
+                  href={`/${locale}/articles/${fullWidth.slug}`}
                   className="group flex flex-col items-stretch gap-[24px] rounded-[14px] border-[1.5px] border-[rgba(35,110,91,0.1)] bg-white p-[20px] shadow-[0_12px_16px_rgba(16,54,45,0.08)] transition-shadow duration-200 hover:shadow-[0_16px_24px_rgba(16,54,45,0.12)] sm:p-[32px] lg:flex-row lg:items-center lg:gap-[32px]"
                 >
                   <div className="flex w-full flex-1 flex-col items-start gap-[16px]">
@@ -156,10 +177,10 @@ export default function ArticlesPage() {
                         {fullWidth.category}
                       </span>
                     </div>
-                    <h2 className="text-[20px] font-semibold text-[var(--color-txt)] text-right">
+                    <h2 className="text-[20px] font-semibold text-[var(--color-txt)] text-start">
                       {fullWidth.title}
                     </h2>
-                    <p className="text-[16px] text-[var(--color-txt-dim)] text-right">
+                    <p className="text-[16px] text-[var(--color-txt-dim)] text-start">
                       {fullWidth.description}
                     </p>
                     <div className="flex items-center gap-[6px] text-[14px] font-medium text-[var(--color-grad-end)]">
