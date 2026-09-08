@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Reveal from "@/components/ui/Reveal";
 import ComingSoon from "@/components/ComingSoon";
+import PageHeader from "@/components/PageHeader";
 import { getArticleBySlug, articles } from "@/lib/articles";
 import { getDictionary, hasLocale } from "@/lib/i18n";
 
@@ -37,6 +38,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ locale
       <>
         <Navbar locale="en" />
         <main className="flex-1">
+          <PageHeader
+            badge={dict.pages.comingSoon.badge}
+            title={dict.pages.comingSoon.title}
+            subtitle={dict.pages.comingSoon.body}
+          />
           <ComingSoon dict={dict.pages.comingSoon} backHref="/ar/articles" />
         </main>
         <Footer locale="en" />

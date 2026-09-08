@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import NewsletterCard from "@/components/newsletter/NewsletterCard";
 import ComingSoon from "@/components/ComingSoon";
+import PageHeader from "@/components/PageHeader";
 import {
   filterNewsletterArchiveForDisplay,
   getNewsletterArchive,
@@ -50,9 +51,12 @@ export default async function NewsletterArchivePage({
       <>
         <Navbar locale="en" />
         <main className="flex-1">
-          <div className="shell py-[64px] lg:py-[96px]">
-            <ComingSoon dict={dict.pages.comingSoon} backHref="/ar/newsletter" />
-          </div>
+          <PageHeader
+            badge={dict.pages.comingSoon.badge}
+            title={dict.pages.comingSoon.title}
+            subtitle={dict.pages.comingSoon.body}
+          />
+          <ComingSoon dict={dict.pages.comingSoon} backHref="/ar/newsletter" />
         </main>
         <Footer locale="en" />
       </>
