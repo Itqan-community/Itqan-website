@@ -64,8 +64,10 @@ Next.js 16 file convention (renamed from middleware). Exported function `proxy`:
 - `src/lib/i18n/ar.ts` — all Arabic strings currently hardcoded inline move here:
   - Navbar/footer labels (from `src/lib/nav.ts`, which becomes per-locale data),
   - All 16 home sections (`src/components/home/*`) incl. hero topics, stats, impact
-    cards, CTA, projects, launch, apps, publishers, partners, newsletter, FAQ,
-  - PageHeader content for internal pages.
+    cards, CTA, projects, launch, apps, publishers, partners, newsletter, FAQ.
+- Internal-page copy (services/projects/newsletter/articles headings) stays in its
+  own page file — each internal page renders exactly one locale (Arabic content or
+  English placeholder), so no per-locale strings are needed there.
 - `src/lib/i18n/en.ts` — English content from `landing-page-english.md`.
 - Shape: one nested object per component/section (e.g. `dict.home.hero`,
   `dict.nav`, `dict.faq.items`), plus arrays for repeated data (stats, FAQ, partners).

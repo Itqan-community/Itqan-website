@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/home/Hero";
@@ -15,6 +16,7 @@ import PartnersSection from "@/components/home/PartnersSection";
 import PartnersSectionMobile from "@/components/home/PartnersSectionMobile";
 import NewsletterSection from "@/components/home/NewsletterSection";
 import FaqSection from "@/components/home/FaqSection";
+import { getDictionary, hasLocale } from "@/lib/i18n";
 
 /**
  * إتقان — Full Website (Figma 20:870), 1440×8446.
@@ -23,10 +25,16 @@ import FaqSection from "@/components/home/FaqSection";
 
 // Newsletter cards come from MailerLite; render on the server so the API key is available.
 export const dynamic = "force-dynamic";
-export default function HomePage() {
+export default async function HomePage({
+  params,
+}: PageProps<"/[locale]">) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  const dict = getDictionary(locale);
+
   return (
     <>
-      <Navbar locale="ar" />
+      <Navbar locale={locale} />
       <main className="flex-1">
         <Hero />
         <StatsCard />
@@ -44,7 +52,7 @@ export default function HomePage() {
         <NewsletterSection />
         <FaqSection />
       </main>
-      <Footer locale="ar" />
+      <Footer locale={locale} />
     </>
   );
 }

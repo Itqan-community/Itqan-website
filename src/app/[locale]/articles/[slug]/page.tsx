@@ -6,12 +6,13 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Reveal from "@/components/ui/Reveal";
 import { getArticleBySlug, articles } from "@/lib/articles";
+import { hasLocale } from "@/lib/i18n";
 
 export function generateStaticParams() {
   return articles.map((article) => ({ slug: article.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const article = getArticleBySlug(slug);
   if (!article) return {};
@@ -22,20 +23,21 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default async function ArticlePage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale, slug } = await params;
+  if (!hasLocale(locale)) notFound();
   const article = getArticleBySlug(slug);
   if (!article) notFound();
 
   return (
     <>
       <Navbar locale="ar" />
-      <main className="flex-1" dir="rtl">
+      <main className="flex-1">
         {/* Article Hero */}
         <section className="overflow-hidden bg-[#f4faf7] px-[16px] py-[32px] sm:px-[24px] lg:px-[100px] lg:py-[60px]">
           <Reveal>
             <Link
-              href="/articles"
+              href="/ar/articles"
               className="flex items-center gap-[8px] py-[20px] text-[14px] font-medium text-[var(--color-txt-dim)] hover:text-[var(--color-brand)] transition-colors"
             >
               <span>العودة إلى المقالات</span>
