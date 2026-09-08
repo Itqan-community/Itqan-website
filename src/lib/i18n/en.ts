@@ -329,6 +329,73 @@ const en: Dictionary = {
       body: "We are working on translating this page. In the meantime, you can browse the full Arabic version.",
       cta: "Browse the Arabic version",
     },
+
+    services: {
+      meta: {
+        title: "What Does Itqan Offer? — Itqan",
+        description: "Six pillars that represent what Itqan offers to serve the field of Quranic tech",
+      },
+      header: {
+        badge: "About Itqan",
+        title: "What Does Itqan Offer?",
+        subtitle: "Six pillars that represent what Itqan offers to serve the field of Quranic tech",
+      },
+      contactCta: "Contact us", // md:9
+      offerings: [
+        {
+          icon: "/figma/offering-ecosystem.svg",
+          title: "Comprehensive Tech Ecosystem",
+          body: "Integrated tools and services for everyone in the Quranic tech space.",
+        },
+        {
+          icon: "/figma/offering-exchange.svg",
+          title: "Knowledge Exchange",
+          body: "A shared space connecting developers and researchers to unify efforts.",
+        },
+        {
+          icon: "/figma/offering-incubation.svg",
+          title: "Project Incubation & Empowerment",
+          body: "Technical, strategic, and operational support across project stages.",
+        },
+        {
+          icon: "/figma/offering-network.svg",
+          title: "Quranic Projects Network",
+          body: "Connecting projects to open collaboration channels and build sustainability",
+        },
+        {
+          icon: "/figma/offering-reach.svg",
+          title: "Expanding Impact",
+          body: "Strategic guidance to help projects position effectively and reach wider audiences.",
+        },
+        {
+          icon: "/figma/offering-research.svg",
+          title: "Scientific Research Support",
+          body: "Backing Quranic tech research and academic events to spread knowledge.",
+        },
+      ],
+      eventsBadge: "Community gatherings",
+      eventsTitle: "Gatherings & Events",
+      events: [
+        {
+          photo: "/figma/events-meetups.png",
+          caption: "Photos from meetups",
+          title: "Regular Meetups",
+          body: "In-person gatherings for networking and knowledge sharing",
+        },
+        {
+          photo: "/figma/events-workshops.png",
+          caption: "Photo from a workshop",
+          title: "Workshops & Webinars",
+          body: "Specialized sessions addressing specific technical challenges",
+        },
+        {
+          photo: "/figma/events-conferences.png",
+          caption: "Photos from conferences",
+          title: "Conferences",
+          body: "Active participation in tech conferences to build strategic partnerships",
+        },
+      ],
+    },
   },
 };
 
