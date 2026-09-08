@@ -36,21 +36,25 @@ export default async function HomePage({
     <>
       <Navbar locale={locale} />
       <main className="flex-1">
-        <Hero />
-        <StatsCard />
-        <ImpactSection />
-        <ImpactSectionMobile />
-        <CtaSection />
-        <ProjectsSection />
-        <ProjectsSectionMobile />
-        <LaunchSection />
-        <LaunchSectionMobile />
-        <AppsSection />
-        <PublisherSection />
-        <PartnersSection />
-        <PartnersSectionMobile />
-        <NewsletterSection />
-        <FaqSection />
+        <Hero dict={dict.home.hero} />
+        <StatsCard dict={dict.home.stats} />
+        <ImpactSection dict={dict.home.impact} />
+        <ImpactSectionMobile dict={dict.home.impactMobile} />
+        <CtaSection dict={dict.home.cta} />
+        <ProjectsSection dict={dict.home.projects} />
+        <ProjectsSectionMobile dict={dict.home.projectsMobile} />
+        <LaunchSection dict={dict.home.launch} />
+        <LaunchSectionMobile dict={dict.home.launchMobile} />
+        <AppsSection dict={dict.home.apps} />
+        <PublisherSection dict={dict.home.publisher} />
+        <PartnersSection dict={dict.home.partners} />
+        <PartnersSectionMobile dict={dict.home.partnersMobile} />
+        <NewsletterSection
+          dict={dict.home.newsletter}
+          formLabels={dict.newsletterForm}
+          locale={locale}
+        />
+        <FaqSection dict={dict.home.faq} />
       </main>
       <Footer locale={locale} />
     </>

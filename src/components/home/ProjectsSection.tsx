@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
+import type { Dictionary } from "@/lib/i18n";
 
 /**
  * Projects Section — Figma 20:1146, 1440×948.
@@ -8,59 +9,35 @@ import Reveal from "@/components/ui/Reveal";
  * Three project cards in a grid with logo, title, description, and action buttons.
  */
 
-type Project = {
-  name: string;
-  logo: string;
-  body: string;
-  contributeLabel: string;
-  site: string;
-  repo: string;
-};
-
-const projects: Project[] = [
-  {
-    name: "دليل التطبيقات القرآنية",
-    logo: "/figma/project-apps-arrows.png",
-    body: "منصة شاملة تجمع تطبيقات القرآن الكريم الرقمية وتُصنّفها وتُوثّقها وفق معايير موحّدة، لتُسهّل على المسلمين اكتشاف التطبيق المناسب لاحتياجهم، وتمنح المطورين والباحثين خريطة واضحة للمشهد التقني القرآني.",
-    contributeLabel: "ساهم في الدليل",
-    site: "https://quran-apps.itqan.dev",
-    repo: "https://github.com/orgs/Itqan-community/projects/4",
-  },
-  {
-    name: "رتق",
-    logo: "/figma/project-ratq-roadmap.png",
-    body: "قاعدة معرفية تقنية (Roadmap and Technologies for Qur'an)، تجمع الأدوات والتقنيات اللازمة لتطوير التطبيقات القرآنية وتنظمها في خارطة طريق واضحة للمطورين.",
-    contributeLabel: "ساهم في رتق",
-    site: "https://ratq.itqan.dev",
-    repo: "https://github.com/orgs/Itqan-community/projects/10",
-  },
-  {
-    name: "فنار",
-    logo: "/figma/project-fanar-lighthouse.png",
-    body: "نظام لنشر وإدارة المحتوى القرآني، يمنح الجهات الناشرة مساحة رقمية مستقلة بهويتها الخاصة، تُمكّنها من نشر تلاواتها وأصولها القرآنية بمعايير احترافية وتراخيص محددة تحفظ حقوقها وتُنظم الاستخدام.",
-    contributeLabel: "ساهم في فنار",
-    site: "https://cms.itqan.dev",
-    repo: "https://github.com/orgs/Itqan-community/projects/12",
-  },
+/** Non-translatable data, zipped with dict.items by index. */
+const PROJECT_META = [
+  { logo: "/figma/project-apps-arrows.png", site: "https://quran-apps.itqan.dev", repo: "https://github.com/orgs/Itqan-community/projects/4" },
+  { logo: "/figma/project-ratq-roadmap.png", site: "https://ratq.itqan.dev", repo: "https://github.com/orgs/Itqan-community/projects/10" },
+  { logo: "/figma/project-fanar-lighthouse.png", site: "https://cms.itqan.dev", repo: "https://github.com/orgs/Itqan-community/projects/12" },
 ];
 
-export default function ProjectsSection() {
+export default function ProjectsSection({
+  dict,
+}: {
+  dict: Dictionary["home"]["projects"];
+}) {
   return (
     <section id="projects" className="hidden w-full bg-white py-[56px] lg:block">
       <div className="shell flex flex-col items-center gap-[40px]">
         <Reveal className="flex w-full flex-col items-start gap-[8px]">
-          <span className="badge">مفتوح المصدر</span>
+          <span className="badge">{dict.badge}</span>
           <h2 className="text-start text-[28px] font-bold text-[var(--color-txt)] lg:text-[36px]">
-            مشاريع مجتمعية
+            {dict.title}
           </h2>
           <p className="w-full max-w-[640px] text-start text-[16px] leading-[normal] text-[var(--color-txt-dim)]">
-            مشاريع تقنية مفتوحة المصدر تهدف لسد الثغرات في المحتوى التقني القرآني، متاحة
-            للجميع للمساهمة والاستخدام
+            {dict.subtitle}
           </p>
         </Reveal>
 
         <div className="grid w-full grid-cols-1 gap-[24px] md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, i) => (
+          {dict.items.map((project, i) => {
+            const meta = PROJECT_META[i];
+            return (
             <Reveal
               key={project.name}
               delay={i * 80}
@@ -68,7 +45,7 @@ export default function ProjectsSection() {
             >
               <div className="flex size-[64px] items-center justify-center rounded-[16px] bg-[rgba(35,110,91,0.06)]">
                 <Image
-                  src={project.logo}
+                  src={meta.logo}
                   alt=""
                   width={36}
                   height={36}
@@ -89,7 +66,7 @@ export default function ProjectsSection() {
 
               <div className="flex items-center gap-[8px]">
                 <a
-                  href={project.repo}
+                  href={meta.repo}
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center rounded-[8px] border border-[rgba(35,110,91,0.26)] bg-transparent px-[16px] py-[9px] text-[13px] font-medium text-[var(--color-grad-end)] transition-colors duration-200 hover:bg-[var(--brand-a06)]"
@@ -97,16 +74,17 @@ export default function ProjectsSection() {
                   {project.contributeLabel}
                 </a>
                 <Link
-                  href={project.site}
+                  href={meta.site}
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center rounded-[8px] bg-[rgba(35,110,91,0.1)] px-[16px] py-[9px] text-[13px] font-medium text-[var(--color-grad-end)] transition-colors duration-200 hover:bg-[var(--brand-a10)]"
                 >
-                  تصفح المشروع
+                  {dict.browseLabel}
                 </Link>
               </div>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
 
 

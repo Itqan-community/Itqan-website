@@ -38,6 +38,7 @@ export function TopicCard({
   className = "min-h-[118px] w-[240px]",
   titleLines,
   dropShadow = true,
+  avatarInitials = ["م", "ن", "ح"],
 }: {
   topic: Topic;
   className?: string;
@@ -45,6 +46,8 @@ export function TopicCard({
   titleLines?: 2 | 3;
   /** Figma's lifted-card shadow; off on the mobile marquee's tight stack. */
   dropShadow?: boolean;
+  /** The three overlapping avatar initials, locale-dependent. */
+  avatarInitials?: string[];
 }) {
   const clamp =
     titleLines === 2 ? "line-clamp-2" : titleLines === 3 ? "line-clamp-3" : "";
@@ -69,11 +72,11 @@ export function TopicCard({
       {/* Under RTL the first child renders right: avatars right, replies left. */}
       <div className="mt-[11px] flex w-full items-center justify-between border-t border-[rgba(18,70,58,0.08)] pt-[11px]">
         <div className="flex items-center">
-          <Avatar initial="م" />
+          <Avatar initial={avatarInitials[0]} />
           <span className="-me-[6px]" />
-          <Avatar initial="ن" />
+          <Avatar initial={avatarInitials[1]} />
           <span className="-me-[6px]" />
-          <Avatar initial="ح" />
+          <Avatar initial={avatarInitials[2]} />
         </div>
         <div className="flex items-center gap-[4px]">
           <IconReply />
@@ -127,9 +130,12 @@ export function CodePanel({
   className = "",
   /** The mobile panel (183:198) carries a shorter three-line snippet. */
   lines = "full",
+  comment,
 }: {
   className?: string;
   lines?: "full" | "compact";
+  /** The locale-dependent code comment above the snippet. */
+  comment: string;
 }) {
   return (
     <div
@@ -150,9 +156,7 @@ export function CodePanel({
 
       <pre className="m-0 overflow-x-auto px-[18px] pt-[16px] pb-[20px] font-mono text-[12.5px] leading-[normal] text-[var(--color-code-txt)]">
         <p dir="auto" className="text-[var(--color-code-comment)]">
-          {lines === "compact"
-            ? "// بيانات منظّمة للآيات"
-            : "// صفحة من المصحف كبيانات منظّمة"}
+          {comment}
         </p>
         <p dir="auto">
           <span className="text-[var(--color-code-keyword)]">import</span>

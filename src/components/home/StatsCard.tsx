@@ -1,4 +1,5 @@
 import Reveal from "@/components/ui/Reveal";
+import type { Dictionary } from "@/lib/i18n";
 
 /**
  * Stats Card — Figma 37:146, 1240×132.
@@ -8,14 +9,15 @@ import Reveal from "@/components/ui/Reveal";
  * so the flex container is pinned to ltr while the labels stay Arabic.
  */
 
-const stats = [
-  { value: "+580", label: "نقاش تقني", valueColor: "var(--color-brand)", labelColor: "var(--color-txt-dim)" },
-  { value: "+5,700", label: "مساهمة", mobileLabel: "مساهمة مضافة", valueColor: "var(--color-brand)", labelColor: "var(--color-txt-dim)" },
-  { value: "+1,500", label: "مطور وباحث", mobileLabel: "مطور وباحث نشط", valueColor: "#1a5c47", labelColor: "#66736e" },
-  { value: "+15", label: "مشروع مفتوح المصدر", valueColor: "#1a5c47", labelColor: "#66736e" },
-];
+/** Positional color pairs from the design, zipped with dict.items by index. */
+const VALUE_COLORS = ["var(--color-brand)", "var(--color-brand)", "#1a5c47", "#1a5c47"];
+const LABEL_COLORS = ["var(--color-txt-dim)", "var(--color-txt-dim)", "#66736e", "#66736e"];
 
-export default function StatsCard() {
+export default function StatsCard({
+  dict,
+}: {
+  dict: Dictionary["home"]["stats"];
+}) {
   return (
     // Desktop pulls the card up so it straddles the hero (y=910 on the 1440
     // frame) and cancels the flow height it adds below the hero (-mb), so the
@@ -30,8 +32,8 @@ export default function StatsCard() {
           dir="ltr"
           className="flex flex-col items-stretch md:flex-row md:items-center md:justify-center"
         >
-          {stats.map((stat, i) => (
-            <div key={stat.label} className="contents">
+          {dict.items.map((stat, i) => (
+            <div key={`${stat.value}-${stat.label}`} className="contents">
               {i > 0 && (
                 <>
                   <div className="my-[16px] h-px w-full shrink-0 bg-[#e0e3e0] md:hidden" />
@@ -41,13 +43,13 @@ export default function StatsCard() {
               <div className="flex min-w-0 flex-1 flex-col items-center justify-center gap-[4px] text-center md:gap-[6px] md:py-[8px]">
                 <p
                   className="whitespace-nowrap text-[28px] font-bold"
-                  style={{ color: stat.valueColor }}
+                  style={{ color: VALUE_COLORS[i] }}
                 >
                   {stat.value}
                 </p>
                 <p
                   className="whitespace-nowrap text-[13px]"
-                  style={{ color: stat.labelColor }}
+                  style={{ color: LABEL_COLORS[i] }}
                 >
                   {/* The mobile frame uses slightly longer labels. */}
                   <span className={stat.mobileLabel ? "md:hidden" : undefined}>

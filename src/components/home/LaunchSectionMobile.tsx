@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
+import type { Dictionary } from "@/lib/i18n";
 
 /**
  * Launch Section Mobile — Figma 183:325, 390×957.
@@ -8,45 +8,26 @@ import Reveal from "@/components/ui/Reveal";
  * mobile frame carries its own step copy, different from the desktop cards.
  */
 
-const steps = [
-  {
-    number: "٠١",
-    title: "ابدأ من أساس جاهز",
-    body: "مكتبات بيانات قرآنية موثوقة ومصاحف رقمية جاهزة تختصر عليك شهور العمل الشاق لتتفرغ للمميزات.",
-  },
-  {
-    number: "٠٢",
-    title: "تجاوز العقبات البرمجية",
-    body: "استشر الخبراء واستعن بمجتمع تقني مكرس لحل التحديات الفنية الصعبة وضبط النظم.",
-  },
-  {
-    number: "٠٣",
-    title: "اجعل مشروعك مرئيًا",
-    body: "انشر مخرجاتك وسوق لتطبيقك عبر منصات وقنوات إتقان الرسمية للوصول لأكبر فئة مستهدفة.",
-  },
-  {
-    number: "٠٤",
-    title: "ابنِ ما لا يتكرر",
-    body: "ندعمك في صقل فكرتك بما يضمن أصالة الفكرة واستدامة التطبيق وموثوقية مرجعيته العلمية.",
-  },
-];
-
-export default function LaunchSectionMobile() {
+export default function LaunchSectionMobile({
+  dict,
+}: {
+  dict: Dictionary["home"]["launchMobile"];
+}) {
   return (
     <section className="w-full bg-[rgba(232,238,235,0.42)] px-[16px] py-[48px] lg:hidden">
       <div className="flex flex-col gap-[32px]">
         <Reveal className="flex flex-col items-start gap-[12px]">
-          <span className="badge">لأصحاب المشاريع</span>
+          <span className="badge">{dict.badge}</span>
           <h2 className="text-[26px] font-bold text-[var(--color-txt)]">
-            تطبيقك من الفكرة إلى الإطلاق
+            {dict.title}
           </h2>
           <p className="text-[14px] text-[var(--color-txt-dim)]">
-            كل ما يحتاجه مشروعك القرآني ليبدأ بقوة، ينمو بثبات، ويصل للمسلمين في كل مكان
+            {dict.subtitle}
           </p>
         </Reveal>
 
         <div className="flex flex-col gap-[16px]">
-          {steps.map((step, i) => (
+          {dict.steps.map((step, i) => (
             <Reveal
               key={step.number}
               delay={i * 70}
@@ -70,7 +51,7 @@ export default function LaunchSectionMobile() {
             rel="noopener noreferrer"
             className="btn btn-primary h-[51px] w-full py-0"
           >
-            تلقى الدعم والمشورة
+            {dict.supportCta}
           </a>
           <a
             href="https://quran-apps.itqan.dev/ar/submit-app"
@@ -78,7 +59,7 @@ export default function LaunchSectionMobile() {
             rel="noopener noreferrer"
             className="btn btn-ghost h-[51px] w-full border-[rgba(35,110,91,0.26)] bg-white py-0 text-[var(--color-grad-end)]"
           >
-            اضف تطبيقك إلى دليل التطبيقات
+            {dict.directoryCta}
           </a>
         </Reveal>
       </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
+import type { Dictionary } from "@/lib/i18n";
 
 /**
  * Partners Section — Figma 151:176, 1440×952.
@@ -25,18 +26,21 @@ export const partners = [
   { name: "تطبيق زلفى", logo: "/figma/partner-zalfa.svg", w: 56, h: 56 },
 ];
 
-export default function PartnersSection() {
+export default function PartnersSection({
+  dict,
+}: {
+  dict: Dictionary["home"]["partners"];
+}) {
   return (
     <section className="hidden w-full bg-white py-[64px] lg:block lg:py-[96px]">
       <div className="shell flex flex-col items-center gap-[44px]">
         <Reveal className="flex w-full flex-col items-start gap-[12px]">
-          <span className="badge">شراكات</span>
+          <span className="badge">{dict.badge}</span>
           <h2 className="w-full text-start text-[28px] font-bold text-[var(--color-txt)] lg:text-[36px]">
-            شركاؤنا في الرحلة
+            {dict.title}
           </h2>
           <p className="w-full max-w-[660px] text-start text-[16px] leading-[normal] text-[var(--color-txt-dim)]">
-            نتعاون مع مؤسسات رائدة في خدمة القرآن الكريم وتقنياته لبناء منظومة رقمية
-            متكاملة تخدم الأمة.
+            {dict.subtitle}
           </p>
         </Reveal>
 
