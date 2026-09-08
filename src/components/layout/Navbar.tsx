@@ -71,7 +71,7 @@ export default function Navbar({ locale }: { locale: Locale }) {
         </div>
 
         {/* Second child sits at the left under RTL: locale switch + join CTA. */}
-        <div className="flex items-center gap-[4px]">
+        <div className="flex items-center gap-[12px]">
           <LocaleSwitch locale={locale} />
           <a href="https://community.itqan.dev" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
             {dict.nav.cta}
@@ -92,30 +92,34 @@ export default function Navbar({ locale }: { locale: Locale }) {
           />
         </Link>
 
-        {/* Hamburger — 32px box, 16px/12px rules as drawn in 183:178. */}
-        <button
-          type="button"
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-label={dict.nav.menuAria}
-          aria-expanded={mobileOpen}
-          className="flex size-[32px] flex-col items-center justify-center gap-[3px]"
-        >
-          <span
-            className={`h-[1.5px] w-[16px] rounded-full bg-[var(--color-txt)] transition-transform duration-200 ${
-              mobileOpen ? "translate-y-[4.5px] rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`h-[1.5px] w-[16px] rounded-full bg-[var(--color-txt)] transition-opacity duration-200 ${
-              mobileOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`h-[1.5px] rounded-full bg-[var(--color-txt)] transition-transform duration-200 ${
-              mobileOpen ? "w-[16px] -translate-y-[4.5px] -rotate-45" : "w-[12px]"
-            }`}
-          />
-        </button>
+        <div className="flex items-center gap-[12px]">
+          <LocaleSwitch locale={locale} />
+
+          {/* Hamburger — 32px box, 16px/12px rules as drawn in 183:178. */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label={dict.nav.menuAria}
+            aria-expanded={mobileOpen}
+            className="flex size-[32px] flex-col items-center justify-center gap-[3px]"
+          >
+            <span
+              className={`h-[1.5px] w-[16px] rounded-full bg-[var(--color-txt)] transition-transform duration-200 ${
+                mobileOpen ? "translate-y-[4.5px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`h-[1.5px] w-[16px] rounded-full bg-[var(--color-txt)] transition-opacity duration-200 ${
+                mobileOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`h-[1.5px] rounded-full bg-[var(--color-txt)] transition-transform duration-200 ${
+                mobileOpen ? "w-[16px] -translate-y-[4.5px] -rotate-45" : "w-[12px]"
+              }`}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile drawer */}
@@ -158,9 +162,6 @@ export default function Navbar({ locale }: { locale: Locale }) {
             >
               {dict.nav.cta}
             </a>
-          </li>
-          <li className="pt-[8px]">
-            <LocaleSwitch locale={locale} />
           </li>
         </ul>
       </div>

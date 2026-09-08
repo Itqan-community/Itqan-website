@@ -23,9 +23,11 @@ const ar = {
   },
 
   localeSwitch: {
-    /** Label shown on the Arabic site, linking to the English page. */
-    toOther: "EN",
-    ariaLabel: "Switch to English",
+    /** Segment labels — language names are self-evident, so both dictionaries share them. */
+    labels: { ar: "ع", en: "EN" },
+    groupLabel: "اللغة",
+    ariaToAr: "التبديل إلى العربية",
+    ariaToEn: "Switch to English",
   },
 
   footer: {

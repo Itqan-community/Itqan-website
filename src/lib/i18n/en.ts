@@ -25,8 +25,10 @@ const en: Dictionary = {
   },
 
   localeSwitch: {
-    toOther: "عربي",
-    ariaLabel: "التبديل إلى العربية",
+    labels: { ar: "ع", en: "EN" },
+    groupLabel: "Language",
+    ariaToAr: "Switch to Arabic",
+    ariaToEn: "Switch to English",
   },
 
   footer: {

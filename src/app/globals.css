@@ -295,6 +295,49 @@
   border-color: var(--brand-a20);
 }
 
+/* Locale switch — segmented pill sitting beside the CTA. The active side
+   carries the brand gradient (same stops as .btn-primary); the container
+   reuses the ghost-button hairline so it reads as a quiet sibling. */
+.locale-switch {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--brand-a20);
+  border-radius: var(--radius-btn);
+  background: var(--brand-a04);
+}
+
+.locale-switch__seg {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: calc(var(--radius-btn) - 3px);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--color-txt-dim);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.locale-switch__seg:hover {
+  background: var(--brand-a06);
+  color: var(--color-brand);
+}
+
+.locale-switch__seg--active,
+.locale-switch__seg--active:hover {
+  color: #fff;
+  background: linear-gradient(to bottom, var(--color-grad-start), var(--color-brand));
+  box-shadow: 0 4px 12px -4px rgba(35, 110, 91, 0.45);
+}
+
+.locale-switch__seg:focus-visible {
+  outline: 2px solid var(--color-brand-2);
+  outline-offset: 2px;
+}
+
 /* Badge — the small pill that labels every section. */
 .badge {
   display: inline-flex;
