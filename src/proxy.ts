@@ -24,10 +24,13 @@ export function proxy(request: NextRequest) {
       ? "ar"
       : "en";
     url.pathname = `/${locale}`;
-  } else {
-    // Legacy bare paths (pre-localization bookmarks) → the Arabic site.
-    url.pathname = `/ar${pathname}`;
+    // 307 — language negotiation must stay re-evaluable per visit; a cacheable
+    // 308 would pin a visitor to the language of their first visit.
+    return NextResponse.redirect(url, 307);
   }
+  // Legacy bare paths (pre-localization bookmarks) → the Arabic site. 308 —
+  // these are the currently-indexed URLs; the move is permanent.
+  url.pathname = `/ar${pathname}`;
   return NextResponse.redirect(url, 308);
 }
 
