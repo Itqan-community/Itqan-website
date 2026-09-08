@@ -54,7 +54,7 @@ export default function LaunchSectionMobile({
             {dict.supportCta}
           </a>
           <a
-            href="https://quran-apps.itqan.dev/ar/submit-app"
+            href={dict.submitAppHref}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-ghost h-[51px] w-full border-[rgba(35,110,91,0.26)] bg-white py-0 text-[var(--color-grad-end)]"

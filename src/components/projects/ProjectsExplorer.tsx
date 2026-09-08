@@ -212,7 +212,7 @@ export default function ProjectsExplorer() {
 
                   <div className="flex w-full items-center justify-between">
                     <Link
-                      href="/projects"
+                      href="/ar/projects"
                       className="flex items-center gap-[6px] text-[14px] font-medium text-[var(--color-grad-start)]"
                     >
                       <span>عرض المشروع ←</span>

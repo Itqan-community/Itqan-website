@@ -34,7 +34,7 @@ export default function Navbar({ locale }: { locale: Locale }) {
       <nav className="shell hidden h-[76px] items-center justify-between lg:flex">
         {/* First child sits at the right under RTL: logo + links. */}
         <div className="flex items-center gap-[40px]">
-          <Link href="/" aria-label={dict.nav.homeAria} className="shrink-0">
+          <Link href={`/${locale}`} aria-label={dict.nav.homeAria} className="shrink-0">
             <Image
               src="/figma/itqan-logo-dark.png"
               alt={dict.nav.logoAlt}
@@ -81,7 +81,7 @@ export default function Navbar({ locale }: { locale: Locale }) {
 
       {/* ----------------------------------------------------------------- mobile */}
       <div className="flex h-[64px] items-center justify-between px-[16px] lg:hidden">
-        <Link href="/" aria-label={dict.nav.homeAria}>
+        <Link href={`/${locale}`} aria-label={dict.nav.homeAria}>
           <Image
             src="/figma/itqan-logo-dark.png"
             alt={dict.nav.logoAlt}

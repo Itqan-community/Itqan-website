@@ -52,7 +52,7 @@ export default function LaunchSection({
             {dict.supportCta}
           </a>
           <a
-            href="https://quran-apps.itqan.dev/ar/submit-app"
+            href={dict.submitAppHref}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-ghost border-[rgba(35,110,91,0.26)] bg-white text-[var(--color-grad-end)]"

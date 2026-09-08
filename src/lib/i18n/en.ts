@@ -182,6 +182,7 @@ const en: Dictionary = {
       subtitle: "Your Quranic project needs to start strong, grow steadily, and reach all", // md:51
       supportCta: "Get support and advice", // md:56
       directoryCta: "Add your app to the Directory", // md:56
+      submitAppHref: "https://quran-apps.itqan.dev/en/submit-app",
       steps: [
         { number: "01", title: "Ready Foundation", body: "Quranic data and libraries that save months of work." }, // md:53
         { number: "02", title: "Overcome Obstacles", body: "Expert consultation and support" },
@@ -196,6 +197,7 @@ const en: Dictionary = {
       subtitle: "Your Quranic project needs to start strong, grow steadily, and reach all",
       supportCta: "Get support and advice",
       directoryCta: "Add your app to the Directory",
+      submitAppHref: "https://quran-apps.itqan.dev/en/submit-app",
       steps: [
         { number: "01", title: "Ready Foundation", body: "Quranic data and libraries that save months of work." },
         { number: "02", title: "Overcome Obstacles", body: "Expert consultation and support" },

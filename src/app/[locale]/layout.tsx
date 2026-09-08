@@ -41,13 +41,6 @@ export async function generateMetadata({
     creator: dict.meta.authorName,
     publisher: dict.meta.authorName,
     icons: { icon: "/figma/logo-itqan-small.png" },
-    alternates: {
-      languages: {
-        ar: `https://itqan.dev/ar`,
-        en: `https://itqan.dev/en`,
-        "x-default": `https://itqan.dev/ar`,
-      },
-    },
     // Declared here rather than via the `opengraph-image.png` file convention:
     // Turbopack doesn't read `opengraph-image.alt.txt`, so alt text would be dropped.
     openGraph: {

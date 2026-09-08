@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -25,6 +26,26 @@ import { getDictionary, hasLocale } from "@/lib/i18n";
 
 // Newsletter cards come from MailerLite; render on the server so the API key is available.
 export const dynamic = "force-dynamic";
+
+// Homepage hreflang links live here (not the layout) so inner pages don't emit
+// them; `x-default` points at Arabic since it is the primary audience.
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!hasLocale(locale)) return {};
+  return {
+    alternates: {
+      languages: {
+        ar: "https://itqan.dev/ar",
+        en: "https://itqan.dev/en",
+        "x-default": "https://itqan.dev/ar",
+      },
+    },
+  };
+}
 export default async function HomePage({
   params,
 }: PageProps<"/[locale]">) {

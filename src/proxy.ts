@@ -28,7 +28,7 @@ export function proxy(request: NextRequest) {
     // Legacy bare paths (pre-localization bookmarks) → the Arabic site.
     url.pathname = `/ar${pathname}`;
   }
-  return NextResponse.redirect(url);
+  return NextResponse.redirect(url, 308);
 }
 
 export const config = {

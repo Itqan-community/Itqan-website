@@ -1,5 +1,3 @@
-import type { RichSegment } from "./types";
-
 const ar = {
   meta: {
     title: "إتقان — ملتقى العاملين على التقنيات القرآنية", // ← src/app/layout.tsx:23
@@ -186,6 +184,7 @@ const ar = {
       subtitle: "كل ما يحتاجه مشروعك القرآني ليبدأ بقوة، ينمو بثبات، ويصل للجميع", // ← LaunchSection.tsx:43
       supportCta: "تلقى الدعم والمشورة", // ← LaunchSection.tsx:71, LaunchSectionMobile.tsx:73
       directoryCta: "اضف تطبيقك إلى دليل التطبيقات", // ← LaunchSection.tsx:79, LaunchSectionMobile.tsx:81
+      submitAppHref: "https://quran-apps.itqan.dev/ar/submit-app", // ← LaunchSection.tsx:55
       steps: [
         { number: "٠١", title: "ابدأ من أساس جاهز", body: "بيانات ومكتبات قرآنية موثوقة تختصر شهور البحث والإعداد، فتتفرغ لما يميز مشروعك" }, // ← LaunchSection.tsx:12-15
         { number: "٠٢", title: "تجاوز العقبات مع من سبقك إليها", body: "مجتمع تقني يُساندك في التحديات البرمجية ويفتح لك آفاق الشراكة مع مشاريع قرآنية أخرى" },
@@ -200,6 +199,7 @@ const ar = {
       subtitle: "كل ما يحتاجه مشروعك القرآني ليبدأ بقوة، ينمو بثبات، ويصل للمسلمين في كل مكان", // ← LaunchSectionMobile.tsx:44
       supportCta: "تلقى الدعم والمشورة",
       directoryCta: "اضف تطبيقك إلى دليل التطبيقات",
+      submitAppHref: "https://quran-apps.itqan.dev/ar/submit-app",
       steps: [
         { number: "٠١", title: "ابدأ من أساس جاهز", body: "مكتبات بيانات قرآنية موثوقة ومصاحف رقمية جاهزة تختصر عليك شهور العمل الشاق لتتفرغ للمميزات." }, // ← LaunchSectionMobile.tsx:13-16
         { number: "٠٢", title: "تجاوز العقبات البرمجية", body: "استشر الخبراء واستعن بمجتمع تقني مكرس لحل التحديات الفنية الصعبة وضبط النظم." },
