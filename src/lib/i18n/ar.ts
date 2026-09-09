@@ -24,7 +24,7 @@ const ar = {
 
   localeSwitch: {
     /** Segment labels — language names are self-evident, so both dictionaries share them. */
-    labels: { ar: "ع", en: "EN" },
+    labels: { ar: "عربي", en: "EN" },
     groupLabel: "اللغة",
     ariaToAr: "التبديل إلى العربية",
     ariaToEn: "Switch to English",

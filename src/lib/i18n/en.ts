@@ -25,7 +25,7 @@ const en: Dictionary = {
   },
 
   localeSwitch: {
-    labels: { ar: "ع", en: "EN" },
+    labels: { ar: "عربي", en: "EN" },
     groupLabel: "Language",
     ariaToAr: "Switch to Arabic",
     ariaToEn: "Switch to English",

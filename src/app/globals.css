@@ -40,6 +40,7 @@
   --brand-a08: rgba(35, 110, 91, 0.08);
   --brand-a10: rgba(35, 110, 91, 0.1);
   --brand-a12: rgba(35, 110, 91, 0.12);
+  --brand-a16: rgba(35, 110, 91, 0.16);
   --brand-a20: rgba(35, 110, 91, 0.2);
 
   /* Radii ---------------------------------------------------------------- */
@@ -295,27 +296,39 @@
   border-color: var(--brand-a20);
 }
 
-/* Locale switch — segmented pill sitting beside the CTA. The active side
-   carries the brand gradient (same stops as .btn-primary); the container
-   reuses the ghost-button hairline so it reads as a quiet sibling. */
+/* Locale switch — segmented pill with a globe prefix, sitting beside the CTA
+   (Figma 4064:379). The active side carries the brand gradient; the container
+   keeps a quiet hairline so it reads as a sibling to the CTA. Logical
+   properties mirror the pill under RTL. */
 .locale-switch {
   display: inline-flex;
-  align-items: stretch;
-  gap: 2px;
-  padding: 3px;
-  border: 1px solid var(--brand-a20);
-  border-radius: var(--radius-btn);
-  background: var(--brand-a04);
+  align-items: center;
+  gap: 4px;
+  height: 40px;
+  padding: 4px;
+  border: 1px solid var(--brand-a16);
+  border-radius: 100px;
+  background: #fafefc;
+}
+
+.locale-switch__icon {
+  display: inline-flex;
+  align-items: center;
+  padding-inline-start: 10px;
+  padding-inline-end: 6px;
 }
 
 .locale-switch__seg {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   padding: 6px 14px;
-  border-radius: calc(var(--radius-btn) - 3px);
+  border-radius: 100px;
   font-size: 13px;
-  font-weight: 500;
-  line-height: 1;
+  font-weight: 600;
+  /* Readex Pro's natural leading at 13px — a tighter line box would push
+     Arabic descenders toward the pill's bottom edge. */
+  line-height: 16px;
   white-space: nowrap;
   color: var(--color-txt-dim);
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -329,8 +342,7 @@
 .locale-switch__seg--active,
 .locale-switch__seg--active:hover {
   color: #fff;
-  background: linear-gradient(to bottom, var(--color-grad-start), var(--color-brand));
-  box-shadow: 0 4px 12px -4px rgba(35, 110, 91, 0.45);
+  background: linear-gradient(to bottom, var(--color-grad-start), var(--color-grad-end));
 }
 
 .locale-switch__seg:focus-visible {
