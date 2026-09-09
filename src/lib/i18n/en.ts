@@ -83,8 +83,6 @@ const en: Dictionary = {
         { category: "Developer discussions", title: "The crisis of available audio sources for developers", replies: "9" },
       ],
       shotAlt: "From Itqan community meetups",
-      codeCommentFull: "// A Mushaf page as structured data",
-      codeCommentCompact: "// Structured ayah data",
       avatarInitials: ["A", "N", "H"],
     },
 

@@ -79,8 +79,6 @@ const ar = {
         { category: "نقاشات المطورين", title: "أزمة المصادر الصوتية المتاحة للمطورين", replies: "٩" },
       ],
       shotAlt: "من لقاءات مجتمع إتقان", // ← Hero.tsx:94,219
-      codeCommentFull: "// صفحة من المصحف كبيانات منظّمة", // ← hero-cards.tsx:155
-      codeCommentCompact: "// بيانات منظّمة للآيات", // ← hero-cards.tsx:153
       avatarInitials: ["م", "ن", "ح"], // ← hero-cards.tsx:72-76
     },
 

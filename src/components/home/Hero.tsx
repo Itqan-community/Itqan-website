@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Dictionary } from "@/lib/i18n";
-import { CodePanel, Mote, ShotCard, TopicCard, type Topic } from "./hero-cards";
+import { Mote, ShotCard, TopicCard, type Topic } from "./hero-cards";
 
 /**
  * Hero — إتقان (20:871), 1440×900.
@@ -177,12 +177,12 @@ export default function Hero({
           </div>
         </div>
 
-        {/* Visual Scene Mobile — Figma 183:198, 358×460.
-            A 320px orbit holding the topic/photo-card marquee, three motes,
-            and a 320×124 code panel beneath it. The track zigzags between two
-            40px-staggered columns on alternating 164px/174px pitches — the
-            desktop track's diagonal staircase, scaled down. */}
-        <div className="relative h-[460px] w-[358px] shrink-0 lg:hidden">
+        {/* Visual Scene Mobile — Figma 183:198.
+            A 320px orbit holding the topic/photo-card marquee and three motes.
+            The track zigzags between two 40px-staggered columns on alternating
+            164px/174px pitches — the desktop track's diagonal staircase,
+            scaled down. */}
+        <div className="relative h-[320px] w-[358px] shrink-0 lg:hidden">
           <div className="absolute left-[19px] top-0 size-[320px]">
             <span
               aria-hidden
@@ -236,11 +236,6 @@ export default function Hero({
             <Mote left={280} top={90} delay={3} />
             <Mote left={120} top={260} delay={6} />
           </div>
-          <CodePanel
-            className="absolute left-[19px] top-[336px] w-[320px]"
-            lines="compact"
-            comment={dict.codeCommentCompact}
-          />
         </div>
 
         {/* Visual stage — absolute children use physical left/top, so the
@@ -316,11 +311,6 @@ export default function Hero({
             <Mote left={312} top={334.8} delay={2.4} />
             <Mote left={198} top={356.4} delay={4.8} />
             <Mote left={366} top={313.2} delay={7.1} />
-
-            <CodePanel
-              className="absolute left-[258px] top-[385.2px] w-[360px]"
-              comment={dict.codeCommentFull}
-            />
           </div>
         </div>
       </div>
