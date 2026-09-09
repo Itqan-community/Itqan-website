@@ -16,20 +16,11 @@ export default function PublisherSection({
     <section className="w-full bg-gradient-to-b from-[#f5fbfa] to-[var(--color-bg-2)] py-[48px]">
       <div className="shell flex flex-col items-start gap-[24px]">
         <Reveal className="flex w-full flex-col items-start gap-[16px]">
-          <div className="flex items-center gap-[12px]">
-            <span className="badge">{dict.badge}</span>
-            <Image
-              src="/figma/logo-itqan-small.png"
-              alt="إتقان"
-              width={53}
-              height={28}
-              className="h-[28px] w-[53px] object-contain"
-            />
-          </div>
-          <h2 className="w-full text-start text-[30px] font-bold leading-[1.1] text-[var(--color-txt)] lg:text-[42px]">
+          <span className="badge">{dict.badge}</span>
+          <h2 className="w-full text-start text-[30px] font-bold leading-[1.5] text-[var(--color-txt)] lg:text-[42px]">
             {dict.title}
           </h2>
-          <p className="w-full max-w-[560px] text-start text-[16px] leading-[normal] text-[var(--color-txt-dim)]">
+          <p className="w-full max-w-[560px] text-start text-[16px] leading-[1.8] text-[var(--color-txt-dim)]">
             {dict.body}
           </p>
         </Reveal>
@@ -52,11 +43,11 @@ export default function PublisherSection({
                 className="size-[44px] rounded-[12px] object-cover"
               />
             </div>
-            <div className="flex min-w-0 flex-1 flex-col items-start gap-[8px] text-start">
-              <h3 className="text-[18px] font-bold leading-[1.2] text-[var(--color-topic-title)]">
+            <div className="flex min-w-0 flex-1 flex-col items-start gap-[4px] text-start">
+              <h3 className="w-full text-[17px] font-semibold text-[var(--color-topic-title)]">
                 {dict.cards[0].title}
               </h3>
-              <p className="text-[13px] leading-[1.5] text-[var(--color-txt-dim)] opacity-85">
+              <p className="w-full text-[13px] leading-[1.8] text-[var(--color-txt-dim)]">
                 {dict.cards[0].body}
               </p>
             </div>
@@ -83,7 +74,7 @@ export default function PublisherSection({
               <h3 className="w-full text-[17px] font-semibold text-[var(--color-topic-title)]">
                 {dict.cards[1].title}
               </h3>
-              <p className="w-full text-[13px] leading-[normal] text-[var(--color-txt-dim)]">
+              <p className="w-full text-[13px] leading-[1.8] text-[var(--color-txt-dim)]">
                 {dict.cards[1].body}
               </p>
             </div>
@@ -112,7 +103,7 @@ export default function PublisherSection({
               <h3 className="text-[17px] font-semibold text-[var(--color-txt)]">
                 {dict.nextTitle}
               </h3>
-              <p className="text-[13px] text-[var(--color-txt-dim)]">
+              <p className="text-[13px] leading-[1.8] text-[var(--color-txt-dim)]">
                 {dict.nextBody}
               </p>
             </div>
