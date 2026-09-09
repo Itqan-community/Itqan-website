@@ -50,7 +50,7 @@ const ar = {
     newsletterText:
       "احصل على آخر التحديثات لمشاريع ومخرجات المجتمع مباشرة في بريدك.", // ← Footer.tsx:73-75
     copyright: "© 2026 مجتمع إتقان. جميع الحقوق محفوظة لخدمة كتاب الله.", // ← nav.ts:copyright
-    languageLabel: "العربية (ar)", // ← Footer.tsx:102
+    languageLabel: "English (en)", // ← Footer.tsx:102
   },
 
   newsletterForm: {

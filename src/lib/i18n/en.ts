@@ -51,7 +51,7 @@ const en: Dictionary = {
     newsletterText:
       "Get the latest updates on community projects and outputs straight to your inbox.",
     copyright: "© 2026 Itqan Community. All rights reserved in service of the Book of Allah.",
-    languageLabel: "English (en)",
+    languageLabel: "العربية (ar)",
   },
 
   newsletterForm: {
