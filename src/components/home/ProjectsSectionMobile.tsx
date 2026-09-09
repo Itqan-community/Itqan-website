@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
+import type { Dictionary } from "@/lib/i18n";
 
 /**
  * Projects Section Mobile — Figma 183:285, 390×1076.
@@ -10,47 +11,29 @@ import Reveal from "@/components/ui/Reveal";
  * The mobile frame carries its own project copy.
  */
 
-const projects = [
-  {
-    title: "دليل التطبيقات القرآنية",
-    logo: "/figma/project-apps-arrows.png",
-    body: "منصة شاملة تجمع تطبيقات القرآن الكريم الرقمية وتُصنّفها وتُوثّقها وفق معايير موحّدة، لتُسهّل على المسلمين اكتشاف التطبيق المناسب لاحتياجهم، وتمنح المطورين والباحثين خريطة واضحة للمشهد التقني القرآني.",
-    primary: { label: "تصفح المشروع", href: "https://quran-apps.itqan.dev" },
-    secondary: { label: "ساهم في الدليل", href: "https://github.com/orgs/Itqan-community/projects/4" },
-  },
-  {
-    title: "رتق",
-    logo: "/figma/project-ratq-roadmap.png",
-    body: "قاعدة معرفية تقنية (Roadmap and Technologies for Qur'an)، تجمع الأدوات والتقنيات اللازمة لتطوير التطبيقات القرآنية وتنظمها في خارطة طريق واضحة للمطورين.",
-    primary: { label: "تصفح رتق", href: "https://ratq.itqan.dev" },
-    secondary: { label: "ساهم في رتق", href: "https://github.com/orgs/Itqan-community/projects/10" },
-  },
-  {
-    title: "فنار",
-    logo: "/figma/project-fanar-lighthouse.png",
-    body: "نظام لنشر وإدارة المحتوى القرآني، يمنح الجهات الناشرة مساحة رقمية مستقلة بهويتها الخاصة، تُمكّنها من نشر تلاواتها وأصولها القرآنية بمعايير احترافية وتراخيص محددة تحفظ حقوقها وتُنظم الاستخدام.",
-    primary: { label: "تصفح فنار", href: "https://cms.itqan.dev" },
-    secondary: { label: "ساهم في فنار", href: "https://github.com/orgs/Itqan-community/projects/12" },
-  },
-];
+/** Non-translatable logos, zipped with dict.items by index. */
+const LOGOS = ["/figma/project-apps-arrows.png", "/figma/project-ratq-roadmap.png", "/figma/project-fanar-lighthouse.png"];
 
-export default function ProjectsSectionMobile() {
+export default function ProjectsSectionMobile({
+  dict,
+}: {
+  dict: Dictionary["home"]["projectsMobile"];
+}) {
   return (
     <section id="projects" className="w-full bg-white px-[16px] pt-[48px] pb-[48px] lg:hidden">
       <div className="flex flex-col gap-[32px]">
         <Reveal className="flex flex-col items-start gap-[12px]">
-          <span className="badge">مفتوح المصدر</span>
+          <span className="badge">{dict.badge}</span>
           <h2 className="text-[26px] font-bold text-[var(--color-txt)]">
-            مشاريع مجتمعية نشطة
+            {dict.title}
           </h2>
           <p className="text-[14px] text-[var(--color-txt-dim)]">
-            مشاريع تقنية مفتوحة المصدر تهدف لسد الثغرات في المحتوى التقني القرآني، متاحة
-            للجميع للمساهمة والاستخدام مباشرة
+            {dict.subtitle}
           </p>
         </Reveal>
 
         <div className="flex flex-col gap-[16px]">
-          {projects.map((project, i) => (
+          {dict.items.map((project, i) => (
             <Reveal
               key={project.title}
               delay={i * 70}
@@ -58,7 +41,7 @@ export default function ProjectsSectionMobile() {
             >
               <div className="flex size-[52px] items-center justify-center rounded-[14px] bg-[var(--brand-a06)]">
                 <Image
-                  src={project.logo}
+                  src={LOGOS[i]}
                   alt=""
                   width={28}
                   height={28}

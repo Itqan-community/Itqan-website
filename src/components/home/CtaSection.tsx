@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
+import type { Dictionary } from "@/lib/i18n";
 import { Mote } from "./hero-cards";
 
 /**
@@ -9,7 +10,11 @@ import { Mote } from "./hero-cards";
  * layer: two radial glows, a 6%-opacity arabesque, an 8% grain tile, three
  * drifting motes and two 3%-white monospace glyphs.
  */
-export default function CtaSection() {
+export default function CtaSection({
+  dict,
+}: {
+  dict: Dictionary["home"]["cta"];
+}) {
   return (
     <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#1b5749] to-[var(--color-code-bg)] px-[16px] py-[48px] lg:p-[100px]">
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -65,13 +70,12 @@ export default function CtaSection() {
 
       <div className="relative flex flex-col items-center gap-[28px] lg:gap-[40px]">
         <Reveal className="flex w-full max-w-[800px] flex-col items-center gap-[20px]">
-          <span className="badge badge-invert">المجتمع المفتوح</span>
+          <span className="badge badge-invert">{dict.badge}</span>
           <h2 className="w-full text-center text-[26px] font-bold text-white lg:text-[42px]">
-            ساهم في بناء البنية التحتية التقنية للقرآن
+            {dict.title}
           </h2>
           <p className="w-full max-w-[580px] text-center text-[14px] leading-[normal] text-[var(--color-code-txt)] lg:text-[16px]">
-            انضم إلى مجتمع المطورين المساهمين في بناء المكتبات البرمجية، وتحسين محركات
-            البحث القرآنية، وتطوير قواعد البيانات الموثوقة التي تخدم مئات التطبيقات.
+            {dict.body}
           </p>
         </Reveal>
 

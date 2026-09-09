@@ -1,44 +1,39 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 
-const LOCALES = ["en", "ar"] as const;
+const LOCALES = ["ar", "en"];
 
-/**
- * Temporary 302 redirects for old locale-prefixed URLs.
- *
- * The previous site version used /en/* and /ar/* routes. The current version
- * uses flat routes with Arabic as the default language. These redirects keep
- * old Google/search-engine links working while preserving the option to
- * reintroduce locale-prefixed URLs in the future.
- */
+function hasLocalePrefix(pathname: string): boolean {
+  const first = pathname.split("/")[1] ?? "";
+  return LOCALES.includes(first);
+}
+
+/** Matches "ar" as a standalone language tag in Accept-Language, e.g.
+    "ar-SA,ar;q=0.9,en;q=0.8" but not "en" or "az". */
+function prefersArabic(acceptLanguage: string): boolean {
+  return /(?:^|,)\s*ar(?:[-;,]|$)/.test(acceptLanguage);
+}
+
 export function proxy(request: NextRequest) {
-  const { pathname, search } = request.nextUrl;
+  const { pathname } = request.nextUrl;
 
-  const localePrefix = LOCALES.find(
-    (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
-  );
+  if (hasLocalePrefix(pathname)) return;
 
-  if (!localePrefix) {
-    return NextResponse.next();
+  const url = request.nextUrl.clone();
+  if (pathname === "/") {
+    const locale = prefersArabic(request.headers.get("accept-language") ?? "")
+      ? "ar"
+      : "en";
+    url.pathname = `/${locale}`;
+    // 307 — language negotiation must stay re-evaluable per visit; a cacheable
+    // 308 would pin a visitor to the language of their first visit.
+    return NextResponse.redirect(url, 307);
   }
-
-  const newPath = pathname === `/${localePrefix}`
-    ? "/"
-    : pathname.slice(`/${localePrefix}`.length);
-
-  const redirectUrl = new URL(`${newPath}${search}`, request.url);
-  return NextResponse.redirect(redirectUrl, 302);
+  // Legacy bare paths (pre-localization bookmarks) → the Arabic site. 308 —
+  // these are the currently-indexed URLs; the move is permanent.
+  url.pathname = `/ar${pathname}`;
+  return NextResponse.redirect(url, 308);
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Run on all request paths except for:
-     * - API routes
-     * - Next.js internals (_next/static, _next/image, _next/data)
-     * - Static assets (images, fonts, icons)
-     * - Metadata files (favicon, sitemap, robots)
-     */
-    "/((?!api|_next|favicon.ico|sitemap.xml|robots.txt|.*\\.(?:png|svg|jpg|jpeg|gif|webp|ico|css|js|json|woff2|ttf|otf)$).*)",
-  ],
+  matcher: ["/((?!_next|api|.*\\..*).*)"],
 };

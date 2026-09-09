@@ -1,9 +1,11 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/ui/Reveal";
+import { getDictionary, hasLocale } from "@/lib/i18n";
 
 /**
  * إتقان — ما الذي نقدمه؟ (Figma 135:134, 1440×2335).
@@ -13,81 +15,39 @@ import Reveal from "@/components/ui/Reveal";
  * run left-to-right, i.e. the reverse of these arrays.
  */
 
-export const metadata: Metadata = {
-  title: "ما الذي تقدمه إتقان؟ — إتقان",
-  description: "ستة محاور تشكّل ما تقدمه إتقان لخدمة مجال التقنيات القرآنية.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!hasLocale(locale)) return {};
+  return getDictionary(locale).pages.services.meta;
+}
 
-const offerings = [
-  {
-    icon: "/figma/offering-ecosystem.svg",
-    title: "البيئة التقنية الشاملة",
-    body: "منظومة متكاملة من الخدمات والأدوات لجميع العاملين في مجال التقنيات القرآنية",
-  },
-  {
-    icon: "/figma/offering-exchange.svg",
-    title: "مساحة لتبادل الخبرات",
-    body: "نجمع العاملين في التقنيات القرآنية في مساحة مشتركة للتلاقي وتبادل الخبرات وتوحيد الجهود",
-  },
-  {
-    icon: "/figma/offering-incubation.svg",
-    title: "تمكين وحضانة المشاريع",
-    body: "نقدم دعمًا تقنيًا واستراتيجيًا وتشغيليًا للمشاريع القرآنية في مختلف مراحل تطورها",
-  },
-  {
-    icon: "/figma/offering-network.svg",
-    title: "شبكة من المشاريع القرآنية",
-    body: "شبكة تربط المشاريع القرآنية لفتح قنوات تعاون تُسرع أثرها وتدعم استدامتها",
-  },
-  {
-    icon: "/figma/offering-reach.svg",
-    title: "التوجيه وتوسيع الأثر",
-    body: "نساعد المشاريع القرآنية على تحديد جمهورها وتحسين تموضعها، لتصل إلى أوسع شريحة ممكنة",
-  },
-  {
-    icon: "/figma/offering-research.svg",
-    title: "دعم البحث العلمي",
-    body: "ندعم البحث العلمي في التقنيات القرآنية ونغطي الفعاليات البحثية لنشر المعرفة وتوسيع أثرها",
-  },
-];
+export default async function ServicesPage({
+  params,
+}: PageProps<"/[locale]/services">) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  const dict = getDictionary(locale);
+  const { services } = dict.pages;
 
-const events = [
-  {
-    photo: "/figma/events-meetups.png",
-    caption: "صور من الملتقيات",
-    title: "ملتقيات دورية",
-    body: "نعقد لقاءات حضورية، تجمع المطورين والباحثين والمهتمين بالتقنيات القرآنية لتبادل الخبرات وفتح النقاشات وبناء علاقات مهنية مثمرة",
-  },
-  {
-    photo: "/figma/events-workshops.png",
-    caption: "صورة من ورش العمل",
-    title: "ورش العمل والندوات عبر الإنترنت",
-    body: "ننظم ورش عمل وجلسات متخصصة تجمع الخبراء والباحثين والمطورين حول تحديات تقنية قرآنية محددة، بهدف الخروج بتوصيات عملية",
-  },
-  {
-    photo: "/figma/events-conferences.png",
-    caption: "صور من المؤتمرات",
-    title: "المؤتمرات",
-    body: "نشارك في المؤتمرات التقنية والبحثية المتخصصة، للتواصل مع الباحثين والمطورين وبناء شراكات تدفع مجال التقنيات القرآنية إلى الأمام",
-  },
-];
-
-export default function ServicesPage() {
   return (
     <>
-      <Navbar />
+      <Navbar locale={locale} />
       <main className="flex-1">
         <PageHeader
-          badge="عن إتقان"
-          title="ما الذي تقدمه إتقان؟"
-          subtitle="ستة محاور تشكّل ما تقدمه إتقان لخدمة مجال التقنيات القرآنية."
+          badge={services.header.badge}
+          title={services.header.title}
+          subtitle={services.header.subtitle}
         />
 
         {/* Offerings Section — 136:149 */}
         <section className="w-full bg-white py-[32px] lg:py-[90px]">
           <div className="shell flex flex-col items-center gap-[24px] lg:gap-[44px]">
             <div className="no-scrollbar -mx-[16px] flex w-[calc(100%+32px)] snap-x snap-mandatory gap-[12px] overflow-x-auto px-[16px] md:mx-0 md:grid md:w-full md:grid-cols-2 md:gap-[24px] md:overflow-visible md:px-0 lg:grid-cols-3">
-              {offerings.map((item, i) => (
+              {services.offerings.map((item, i) => (
                 <Reveal
                   key={item.title}
                   delay={(i % 3) * 80}
@@ -116,7 +76,7 @@ export default function ServicesPage() {
 
             <Reveal>
               <a href="https://join.itqan.dev" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                تواصل معنا
+                {services.contactCta}
               </a>
             </Reveal>
           </div>
@@ -126,14 +86,14 @@ export default function ServicesPage() {
         <section className="w-full bg-[rgba(232,238,235,0.42)] pt-[32px] pb-[40px] lg:pt-[90px] lg:pb-[100px]">
           <div className="shell flex flex-col items-center gap-[24px] lg:gap-[44px]">
             <Reveal className="flex w-full flex-col items-start gap-[12px]">
-              <span className="badge">لقاءات المجتمع</span>
+              <span className="badge">{services.eventsBadge}</span>
               <h2 className="text-start text-[22px] font-bold text-[var(--color-txt)] lg:text-[36px]">
-                الفعاليات والمؤتمرات
+                {services.eventsTitle}
               </h2>
             </Reveal>
 
             <div className="no-scrollbar -mx-[16px] flex w-[calc(100%+32px)] snap-x snap-mandatory gap-[12px] overflow-x-auto px-[16px] md:mx-0 md:grid md:w-full md:grid-cols-3 md:gap-[24px] md:overflow-visible md:px-0">
-              {events.map((event, i) => (
+              {services.events.map((event, i) => (
                 <Reveal
                   key={event.title}
                   delay={i * 80}
@@ -165,7 +125,7 @@ export default function ServicesPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer locale={locale} />
     </>
   );
 }

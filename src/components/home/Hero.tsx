@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import type { Dictionary } from "@/lib/i18n";
 import { CodePanel, Mote, ShotCard, TopicCard, type Topic } from "./hero-cards";
 
 /**
@@ -19,24 +21,6 @@ import { CodePanel, Mote, ShotCard, TopicCard, type Topic } from "./hero-cards";
  *   bg   — opacity 0→1, y 24→0,      600ms, cubic-bezier(.4,0,.6,1)
  *   card column — 39.42px/s over a 788.4px cycle → 20s linear loop
  */
-
-const topics: Topic[] = [
-  {
-    category: "المشاريع والتعاون",
-    title: "توحيد تسميات المصطلحات القرآنية في المشاريع المفتوحة",
-    replies: "١٤",
-  },
-  {
-    category: "نقاشات المطورين",
-    title: "أفضل طريقة لعرض المصحف مطابقًا للنسخة المطبوعة",
-    replies: "٢٢",
-  },
-  {
-    category: "نقاشات المطورين",
-    title: "أزمة المصادر الصوتية المتاحة للمطورين",
-    replies: "٩",
-  },
-];
 
 /** Base y of each card in the 540px window; pitch is 131.4px. */
 const CYCLE = 788.4;
@@ -77,9 +61,15 @@ const trackItems = [
 function TrackItem({
   item,
   offset,
+  topics,
+  avatarInitials,
+  shotAlt,
 }: {
   item: (typeof trackItems)[number];
   offset: number;
+  topics: Topic[];
+  avatarInitials: string[];
+  shotAlt: string;
 }) {
   return (
     <div
@@ -87,18 +77,26 @@ function TrackItem({
       style={{ left: `${item.left}px`, top: `${item.top + offset}px` }}
     >
       {item.kind === "topic" ? (
-        <TopicCard topic={topics[item.index]} />
+        <TopicCard
+          topic={topics[item.index]}
+          avatarInitials={avatarInitials}
+        />
       ) : (
         <ShotCard
           src={`/figma/hero-shot-${item.index}.png`}
-          alt="من لقاءات مجتمع إتقان"
+          alt={shotAlt}
         />
       )}
     </div>
   );
 }
 
-export default function Hero() {
+export default function Hero({
+  dict,
+}: {
+  dict: Dictionary["home"]["hero"];
+}) {
+  const topics: Topic[] = dict.topics;
   return (
     <section className="relative w-full overflow-hidden bg-[var(--color-bg)]">
       {/* ------------------------------------------------------------ bg layer */}
@@ -154,21 +152,28 @@ export default function Hero() {
             560px so the 62px headline holds its two designed lines. */}
         <div className="flex w-full flex-col items-start gap-[22px] lg:w-[560px]">
           <h1 className="flex w-full flex-col text-start text-[34px] font-bold sm:text-[44px] lg:text-[62px]">
-            <span className="text-[var(--color-txt)]">ملتقى العاملين على</span>
+            <span className="text-[var(--color-txt)]">{dict.title1}</span>
             <span className="bg-gradient-to-b from-[#2e8069] via-[#1b5749] via-[70%] to-[#1b5749] bg-clip-text text-transparent">
-              التقنيات القرآنية
+              {dict.title2}
             </span>
           </h1>
 
           <p className="w-full text-start text-[16px] leading-[normal] text-[var(--color-txt-dim)] lg:w-[470px] lg:text-[18px]">
-            مجتمع إتقان هو مساحة تجمع جهود المطورين والباحثين لبناء وصيانة البنية التحتية
-            التقنية، للارتقاء بمنظومة تطبيقات القرآن الكريم واستدامتها
+            {dict.description}
           </p>
 
           <div className="flex w-full flex-col gap-[var(--space-cta-gap)] pt-[12px] lg:w-auto lg:flex-row lg:items-center">
-            <a href="https://community.itqan.dev" target="_blank" rel="noopener noreferrer" className="btn btn-primary h-[51px] w-full py-0 lg:h-auto lg:w-auto lg:py-[16px]">
-              انضم إلى المجتمع
-            </a>
+            {dict.ctas.map((cta) =>
+              cta.external ? (
+                <a key={cta.label} href={cta.href} target="_blank" rel="noopener noreferrer" className="btn btn-primary h-[51px] w-full py-0 lg:h-auto lg:w-auto lg:py-[16px]">
+                  {cta.label}
+                </a>
+              ) : (
+                <Link key={cta.label} href={cta.href} className="btn btn-primary h-[51px] w-full py-0 lg:h-auto lg:w-auto lg:py-[16px]">
+                  {cta.label}
+                </Link>
+              )
+            )}
           </div>
         </div>
 
@@ -212,11 +217,12 @@ export default function Hero() {
                         className="h-[148px] w-[220px]"
                         titleLines={2}
                         dropShadow={false}
+                        avatarInitials={dict.avatarInitials}
                       />
                     ) : (
                       <ShotCard
                         src={`/figma/hero-shot-${item.index}.png`}
-                        alt="من لقاءات مجتمع إتقان"
+                        alt={dict.shotAlt}
                         className="h-[158.4px] w-[220px]"
                         dropShadow={false}
                         eager
@@ -233,6 +239,7 @@ export default function Hero() {
           <CodePanel
             className="absolute left-[19px] top-[336px] w-[320px]"
             lines="compact"
+            comment={dict.codeCommentCompact}
           />
         </div>
 
@@ -283,13 +290,23 @@ export default function Hero() {
                 style={{ animation: "itqan-hero-marquee 20s linear infinite" }}
               >
                 {trackItems.map((item) => (
-                  <TrackItem key={`a-${item.kind}-${item.index}`} item={item} offset={0} />
+                  <TrackItem
+                    key={`a-${item.kind}-${item.index}`}
+                    item={item}
+                    offset={0}
+                    topics={topics}
+                    avatarInitials={dict.avatarInitials}
+                    shotAlt={dict.shotAlt}
+                  />
                 ))}
                 {trackItems.map((item) => (
                   <TrackItem
                     key={`b-${item.kind}-${item.index}`}
                     item={item}
                     offset={CYCLE}
+                    topics={topics}
+                    avatarInitials={dict.avatarInitials}
+                    shotAlt={dict.shotAlt}
                   />
                 ))}
               </div>
@@ -300,7 +317,10 @@ export default function Hero() {
             <Mote left={198} top={356.4} delay={4.8} />
             <Mote left={366} top={313.2} delay={7.1} />
 
-            <CodePanel className="absolute left-[258px] top-[385.2px] w-[360px]" />
+            <CodePanel
+              className="absolute left-[258px] top-[385.2px] w-[360px]"
+              comment={dict.codeCommentFull}
+            />
           </div>
         </div>
       </div>

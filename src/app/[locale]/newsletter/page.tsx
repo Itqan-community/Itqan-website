@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import NewsletterCard from "@/components/newsletter/NewsletterCard";
+import ComingSoon from "@/components/ComingSoon";
+import PageHeader from "@/components/PageHeader";
 import {
   filterNewsletterArchiveForDisplay,
   getNewsletterArchive,
   type MailerLiteCampaign,
 } from "@/lib/mailerlite";
+import { getDictionary, hasLocale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "نشرة إتقان البريدية",
@@ -35,7 +39,30 @@ async function loadArchive(): Promise<MailerLiteCampaign[]> {
   return filterNewsletterArchiveForDisplay(campaigns);
 }
 
-export default async function NewsletterArchivePage() {
+export default async function NewsletterArchivePage({
+  params,
+}: PageProps<"/[locale]/newsletter">) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  const dict = getDictionary(locale);
+
+  if (locale === "en") {
+    return (
+      <>
+        <Navbar locale="en" />
+        <main className="flex-1">
+          <PageHeader
+            badge={dict.pages.comingSoon.badge}
+            title={dict.pages.comingSoon.title}
+            subtitle={dict.pages.comingSoon.body}
+          />
+          <ComingSoon dict={dict.pages.comingSoon} backHref="/ar/newsletter" />
+        </main>
+        <Footer locale="en" />
+      </>
+    );
+  }
+
   let campaigns: MailerLiteCampaign[] = [];
   let failed = false;
 
@@ -48,7 +75,7 @@ export default async function NewsletterArchivePage() {
 
   return (
     <>
-      <Navbar />
+      <Navbar locale="ar" />
       <main className="flex-1">
         <div className="shell py-[64px] lg:py-[96px]">
           <div className="flex flex-col items-start gap-[12px]">
@@ -73,13 +100,13 @@ export default async function NewsletterArchivePage() {
           ) : (
             <div className="mt-[48px] grid grid-cols-1 gap-[24px] md:grid-cols-2 lg:grid-cols-3">
               {campaigns.map((campaign) => (
-                <NewsletterCard key={campaign.id} campaign={campaign} showDate />
+                <NewsletterCard key={campaign.id} campaign={campaign} showDate locale="ar" />
               ))}
             </div>
           )}
         </div>
       </main>
-      <Footer />
+      <Footer locale="ar" />
     </>
   );
 }

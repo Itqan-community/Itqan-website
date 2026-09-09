@@ -1,18 +1,23 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
+import type { Dictionary } from "@/lib/i18n";
 
 /**
  * Publisher Section — Figma 151:151, 1440×635.
  * linear-gradient(#f5fbfa → #e8eeeb), 48px block padding.
  * Content Column (194:201): header, two publisher cards, dashed CTA card.
  */
-export default function PublisherSection() {
+export default function PublisherSection({
+  dict,
+}: {
+  dict: Dictionary["home"]["publisher"];
+}) {
   return (
     <section className="w-full bg-gradient-to-b from-[#f5fbfa] to-[var(--color-bg-2)] py-[48px]">
       <div className="shell flex flex-col items-start gap-[24px]">
         <Reveal className="flex w-full flex-col items-start gap-[16px]">
           <div className="flex items-center gap-[12px]">
-            <span className="badge">للناشرين</span>
+            <span className="badge">{dict.badge}</span>
             <Image
               src="/figma/logo-itqan-small.png"
               alt="إتقان"
@@ -22,11 +27,10 @@ export default function PublisherSection() {
             />
           </div>
           <h2 className="w-full text-start text-[30px] font-bold leading-[1.1] text-[var(--color-txt)] lg:text-[42px]">
-            انشر محتواك القرآني وأتحه للمطورين
+            {dict.title}
           </h2>
           <p className="w-full max-w-[560px] text-start text-[16px] leading-[normal] text-[var(--color-txt-dim)]">
-            انشر محتواك القرآني (تلاوات، تفاسير، ترجمات) على منصة إتقان، ووفّر واجهة
-            برمجية (API) موثوقة تتيح للمطورين والباحثين الوصول إليه بكل يسر.
+            {dict.body}
           </p>
         </Reveal>
 
@@ -50,11 +54,10 @@ export default function PublisherSection() {
             </div>
             <div className="flex min-w-0 flex-1 flex-col items-start gap-[8px] text-start">
               <h3 className="text-[18px] font-bold leading-[1.2] text-[var(--color-topic-title)]">
-                تحبير القراءات العشر
+                {dict.cards[0].title}
               </h3>
               <p className="text-[13px] leading-[1.5] text-[var(--color-txt-dim)] opacity-85">
-                الذكر الحكيم بأعذب الأصوات وأجمل الأداءات مع نخبة من أفضل القراء في
-                المملكة العربية السعودية والعالم العربي والإسلامي
+                {dict.cards[0].body}
               </p>
             </div>
             </a>
@@ -78,11 +81,10 @@ export default function PublisherSection() {
             </div>
             <div className="flex min-w-0 flex-1 flex-col items-start gap-[4px] text-start">
               <h3 className="w-full text-[17px] font-semibold text-[var(--color-topic-title)]">
-                قراءات القرآن
+                {dict.cards[1].title}
               </h3>
               <p className="w-full text-[13px] leading-[normal] text-[var(--color-txt-dim)]">
-                منصة للاستماع إلى تسجيلات القرآن الكريم بالقراءات العشر الكبرى والصغرى
-                بصوت الشيخ الدكتور مفتاح السلطني.
+                {dict.cards[1].body}
               </p>
             </div>
             </a>
@@ -108,13 +110,13 @@ export default function PublisherSection() {
             </div>
             <div className="flex w-full flex-col items-center gap-[4px] text-center">
               <h3 className="text-[17px] font-semibold text-[var(--color-txt)]">
-                كن الناشر التالي
+                {dict.nextTitle}
               </h3>
               <p className="text-[13px] text-[var(--color-txt-dim)]">
-                انضم إلينا اليوم وساهم في نشر المعرفة القرآنية حول العالم.
+                {dict.nextBody}
               </p>
             </div>
-            <span className="btn btn-primary mt-[2px]">سجل كناشر الآن</span>
+            <span className="btn btn-primary mt-[2px]">{dict.registerCta}</span>
           </a>
         </Reveal>
       </div>

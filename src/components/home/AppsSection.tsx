@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import Reveal from "@/components/ui/Reveal";
+import type { Dictionary } from "@/lib/i18n";
 
 /**
  * Apps Section — Figma 150:151, 1440×372.
@@ -16,36 +17,27 @@ import Reveal from "@/components/ui/Reveal";
  * is what the design specifies — it reads as very low contrast on white.
  */
 
-const apps: { name: string; icon?: string }[] = [
-  { name: "تطبيق الكتاب", icon: "/figma/app-alkitab.png" },
-  { name: "أوبن ترتيل" },
-  { name: "قرآن تاب", icon: "/figma/app-qurantab.png" },
-  { name: "خطيب", icon: "/figma/app-khateeb.png" },
-  { name: "قاف", icon: "/figma/app-qaf.png" },
-  { name: "مسلم بيديا", icon: "/figma/app-muslimpedia.png" },
-  { name: "كلمات", icon: "/figma/app-kalimat.png" },
-  { name: "المعلم القرآني" },
-  { name: "تطبيق تعاهد", icon: "/figma/app-taahud.png" },
-  { name: "القرآن مباشر", icon: "/figma/app-quran-live.png" },
-  { name: "الباحث الذكي", icon: "/figma/app-smart-search.png" },
-  { name: "محراب القرآن", icon: "/figma/app-mihrab.png" },
-  { name: "Quranlingo", icon: "/figma/app-quranlingo.png" },
-  { name: "Qurani.ai", icon: "/figma/app-quraniai.png" },
-  { name: "زلفى", icon: "/figma/app-zalfa.svg" },
-  { name: "تجويدوو", icon: "/figma/app-tajweedo.png" },
-  { name: "قراءات القرآن", icon: "/figma/app-qiraat.png" },
-];
+/** Non-translatable icons, zipped with dict.items by index (undefined = none). */
+const APP_ICONS: (string | undefined)[] = ["/figma/app-alkitab.png", undefined, "/figma/app-qurantab.png", "/figma/app-khateeb.png", "/figma/app-qaf.png", "/figma/app-muslimpedia.png", "/figma/app-kalimat.png", undefined, "/figma/app-taahud.png", "/figma/app-quran-live.png", "/figma/app-smart-search.png", "/figma/app-mihrab.png", "/figma/app-quranlingo.png", "/figma/app-quraniai.png", "/figma/app-zalfa.svg", "/figma/app-tajweedo.png", "/figma/app-qiraat.png"];
 
 /** One card + one gutter. */
 const STEP = 176;
 
-export default function AppsSection() {
+export default function AppsSection({
+  dict,
+}: {
+  dict: Dictionary["home"]["apps"];
+}) {
   const railRef = useRef<HTMLDivElement>(null);
 
   /** `dir` = 1 advances toward later apps, -1 goes back. Under RTL, moving
       toward later content means a negative scrollLeft delta. */
   const scrollRail = (dir: 1 | -1) => {
-    railRef.current?.scrollBy({ left: -dir * STEP * 2, behavior: "smooth" });
+    const isRtl =
+      typeof document !== "undefined" &&
+      document.documentElement.dir === "rtl";
+    const sign = isRtl ? -1 : 1;
+    railRef.current?.scrollBy({ left: sign * dir * STEP * 2, behavior: "smooth" });
   };
 
   return (
@@ -53,14 +45,14 @@ export default function AppsSection() {
       <div className="shell flex flex-col items-center gap-[32px]">
         <Reveal className="flex w-full flex-col items-start gap-[12px]">
           <span className="rounded-[100px] bg-[rgba(255,255,255,0.08)] px-[14px] py-[6px] text-[12px] font-medium text-[#a7d4c8]">
-            دليل التطبيقات
+            {dict.badge}
           </span>
           <h2 className="text-start text-[26px] font-bold text-[#0f2820] lg:text-[36px]">
-            <span className="lg:hidden">تطبيقات قرآنية بارزة</span>
-            <span className="hidden lg:inline">تطبيقات بارزة على مجتمع إتقان</span>
+            <span className="lg:hidden">{dict.titleMobile}</span>
+            <span className="hidden lg:inline">{dict.titleDesktop}</span>
           </h2>
           <p className="text-start text-[14px] text-[var(--color-txt-dim)] lg:hidden">
-            مجموعة من التطبيقات النشطة والمنشورة ضمن دليل المجتمع
+            {dict.subtitleMobile}
           </p>
         </Reveal>
 
@@ -72,7 +64,7 @@ export default function AppsSection() {
           <button
             type="button"
             onClick={() => scrollRail(-1)}
-            aria-label="تطبيقات سابقة"
+            aria-label={dict.prevAria}
             className="hidden size-[48px] shrink-0 items-center justify-center rounded-[24px] border border-[#e5e7eb] bg-white transition-colors duration-200 hover:bg-[var(--brand-a04)] sm:flex"
           >
             <Image
@@ -80,7 +72,9 @@ export default function AppsSection() {
               alt=""
               width={20}
               height={20}
-              className="size-[20px]"
+              // Assets are named for their RTL slot, not their geometry —
+              // flip both chevrons for LTR locales.
+              className="size-[20px] -scale-x-100 rtl:scale-x-100"
             />
           </button>
 
@@ -95,14 +89,16 @@ export default function AppsSection() {
             }}
           >
             <div className="flex h-full items-center gap-[16px]">
-              {apps.map((app) => (
+              {dict.items.map((name, i) => {
+                const icon = APP_ICONS[i];
+                return (
                 <div
-                  key={app.name}
+                  key={name}
                   className="flex h-[120px] w-[140px] shrink-0 flex-col items-center justify-center gap-[10px] overflow-hidden rounded-[16px] border border-[#e5e7eb] bg-white lg:size-[160px]"
                 >
-                  {app.icon ? (
+                  {icon ? (
                     <Image
-                      src={app.icon}
+                      src={icon}
                       alt=""
                       width={48}
                       height={48}
@@ -112,17 +108,18 @@ export default function AppsSection() {
                     <div className="size-[40px] rounded-[12px] bg-[rgba(35,110,91,0.07)] lg:size-[48px]" />
                   )}
                   <p className="w-full px-[8px] text-center text-[12px] font-medium leading-[16px] text-[#0f2820]">
-                    {app.name}
+                    {name}
                   </p>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
           <button
             type="button"
             onClick={() => scrollRail(1)}
-            aria-label="تطبيقات تالية"
+            aria-label={dict.nextAria}
             className="hidden size-[48px] shrink-0 items-center justify-center rounded-[24px] border border-[#e5e7eb] bg-white transition-colors duration-200 hover:bg-[var(--brand-a04)] sm:flex"
           >
             <Image
@@ -130,7 +127,7 @@ export default function AppsSection() {
               alt=""
               width={20}
               height={20}
-              className="size-[20px]"
+              className="size-[20px] -scale-x-100 rtl:scale-x-100"
             />
           </button>
         </div>

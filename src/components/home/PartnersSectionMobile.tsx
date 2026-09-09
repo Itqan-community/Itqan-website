@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
+import type { Dictionary } from "@/lib/i18n";
 import { partners } from "./PartnersSection";
 
 /**
@@ -13,17 +14,21 @@ import { partners } from "./PartnersSection";
 /** Mobile renders the desktop logos scaled down to 60%. */
 const LOGO_SCALE = 0.6;
 
-export default function PartnersSectionMobile() {
+export default function PartnersSectionMobile({
+  dict,
+}: {
+  dict: Dictionary["home"]["partnersMobile"];
+}) {
   return (
     <section className="w-full bg-white px-[16px] py-[48px] lg:hidden">
       <div className="flex flex-col gap-[32px]">
         <Reveal className="flex flex-col items-start gap-[12px]">
-          <span className="badge">الناشرون والشركاء</span>
+          <span className="badge">{dict.badge}</span>
           <h2 className="text-[26px] font-bold text-[var(--color-txt)]">
-            شركاؤنا في رحلة الأثر
+            {dict.title}
           </h2>
           <p className="text-[14px] text-[var(--color-txt-dim)]">
-            نتعاون مع جهات قرآنية ومؤسسات رائدة لبناء منظومة تقنية متكاملة
+            {dict.subtitle}
           </p>
         </Reveal>
 
@@ -38,10 +43,10 @@ export default function PartnersSectionMobile() {
           />
           <div className="flex min-w-0 flex-col items-start">
             <p className="text-[15px] font-semibold text-[var(--color-topic-title)]">
-              تحبير
+              {dict.featuredName}
             </p>
             <p className="text-[12px] text-[var(--color-txt-dim)]">
-              المركز السعودي للتلاوات
+              {dict.featuredSubtitle}
             </p>
           </div>
         </Reveal>

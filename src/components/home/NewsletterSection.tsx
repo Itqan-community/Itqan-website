@@ -8,6 +8,7 @@ import {
   getNewsletterArchive,
   type MailerLiteCampaign,
 } from "@/lib/mailerlite";
+import type { Dictionary, Locale } from "@/lib/i18n";
 
 /**
  * Newsletter Section — Figma 152:153, 1440×579.
@@ -19,22 +20,6 @@ import {
  * keep the section rendered (their links point at the archive page).
  */
 
-const fallbackIssues = [
-  {
-    title: "عندما تتقاطع التقنية مع أعظم غاية.. ملامح مستقبل التقنيات القرآنية من القاهرة",
-    href: "/newsletter",
-  },
-  {
-    title: "منصة قاف | حين تحوّلت مشكلة مدير مدرسة لابتكار تخدم المراكز الإسلامية",
-    href: "/newsletter",
-  },
-  {
-    title:
-      "الموسوعة القرآنية تُطلق إصدارًا رقميًا مفتوحًا لمصحف الأوقاف الليبية برواية قالون",
-    href: "/newsletter",
-  },
-];
-
 async function loadLatestIssues(): Promise<MailerLiteCampaign[]> {
   try {
     const response = await getNewsletterArchive(1, 3);
@@ -45,26 +30,31 @@ async function loadLatestIssues(): Promise<MailerLiteCampaign[]> {
   }
 }
 
-export default async function NewsletterSection() {
+export default async function NewsletterSection({
+  dict,
+  formLabels,
+  locale,
+}: {
+  dict: Dictionary["home"]["newsletter"];
+  /** The light-tone form labels come from the shared newsletterForm slice. */
+  formLabels: Dictionary["newsletterForm"];
+  locale: Locale;
+}) {
   const campaigns = await loadLatestIssues();
+  const archiveHref = locale === "ar" ? "/ar/newsletter" : "/en/newsletter";
 
   return (
     <section className="w-full bg-[rgba(232,238,235,0.42)] py-[64px] lg:py-[96px]">
       <div className="shell flex flex-col items-center gap-[44px]">
         <Reveal className="flex w-full flex-col items-start gap-[12px]">
-          <span className="badge">كل أسبوعين</span>
+          <span className="badge">{dict.badge}</span>
           <h2 className="w-full text-start text-[26px] font-bold text-[var(--color-txt)] lg:text-[36px]">
-            <span className="lg:hidden">نشرة إتقان البريدية</span>
-            <span className="hidden lg:inline">نشرة إتقان</span>
+            <span className="lg:hidden">{dict.titleMobile}</span>
+            <span className="hidden lg:inline">{dict.titleDesktop}</span>
           </h2>
           <p className="w-full max-w-[660px] text-start text-[14px] leading-[normal] text-[var(--color-txt-dim)] lg:text-[16px]">
-            <span className="lg:hidden">
-              أفكار ملهمة ومشاريع برمجية جديدة تصل إلى بريدك مباشرة
-            </span>
-            <span className="hidden lg:inline">
-              قصص مُلهمة وأدوات عملية ونقاشات ثرية من عالم التقنيات القرآنية، تصل مباشرةً
-              إلى بريدك
-            </span>
+            <span className="lg:hidden">{dict.bodyMobile}</span>
+            <span className="hidden lg:inline">{dict.bodyDesktop}</span>
           </p>
         </Reveal>
 
@@ -76,10 +66,10 @@ export default async function NewsletterSection() {
                   delay={i * 80}
                   className="w-[280px] shrink-0 snap-start md:w-auto md:shrink"
                 >
-                  <NewsletterCard campaign={campaign} />
+                  <NewsletterCard campaign={campaign} locale={locale} />
                 </Reveal>
               ))
-            : fallbackIssues.map((issue, i) => (
+            : dict.fallbackIssues.map((issue, i) => (
                 <Reveal
                   key={issue.title}
                   delay={i * 80}
@@ -87,14 +77,14 @@ export default async function NewsletterSection() {
                 >
                   {/* The whole card is one link to the archive. */}
                   <Link
-                    href={issue.href}
+                    href={archiveHref}
                     className="flex w-full flex-1 flex-col items-start justify-between px-[20px] pt-[24px] pb-[20px] md:px-[26px] md:pt-[28px] md:pb-[24px]"
                   >
                     <h3 className="w-full text-start text-[17px] font-semibold leading-[normal] text-[var(--color-topic-title)]">
                       {issue.title}
                     </h3>
                     <span className="mt-[12px] flex items-center gap-[6px] text-[14px] font-medium leading-[22px] text-[var(--color-grad-end)]">
-                      <span>قراءة النشرة</span>
+                      <span>{dict.readLabel}</span>
                       <Image
                         src="/figma/icon-arrow-read.svg"
                         alt=""
@@ -110,10 +100,10 @@ export default async function NewsletterSection() {
 
         <Reveal>
           <Link
-            href="/newsletter"
+            href={archiveHref}
             className="flex items-center gap-[6px] text-[15px] font-medium text-[var(--color-grad-end)] transition-colors duration-200 hover:text-[var(--color-brand)]"
           >
-            <span>عرض جميع النشرات</span>
+            <span>{dict.viewAll}</span>
             <Image
               src="/figma/icon-arrow-read.svg"
               alt=""
@@ -125,7 +115,19 @@ export default async function NewsletterSection() {
         </Reveal>
 
         <Reveal className="w-full sm:w-auto">
-          <NewsletterSubscribeForm sourcepage="homepage" />
+          <NewsletterSubscribeForm
+            sourcepage="homepage"
+            labels={{
+              namePlaceholder: formLabels.namePlaceholder,
+              emailPlaceholder: formLabels.emailPlaceholder,
+              submitLabel: formLabels.submitLabel,
+              submittingLabel: formLabels.submittingLabel,
+              successMessage: formLabels.successMessage,
+              errorFallback: formLabels.errorFallback,
+              nameSrLabel: formLabels.nameSrLabel,
+              emailSrLabel: formLabels.emailSrLabel,
+            }}
+          />
         </Reveal>
       </div>
     </section>

@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PageHeader from "@/components/PageHeader";
 import ProjectsExplorer from "@/components/projects/ProjectsExplorer";
+import ComingSoon from "@/components/ComingSoon";
+import { getDictionary, hasLocale } from "@/lib/i18n";
 
 /**
  * all-projects-page — Figma 205:207, 1440×3200.
@@ -21,10 +24,33 @@ const stats = [
   { label: "مشاريع نشطة", value: "42 مشروع" },
 ];
 
-export default function ProjectsPage() {
+export default async function ProjectsPage({
+  params,
+}: PageProps<"/[locale]/projects">) {
+  const { locale } = await params;
+  if (!hasLocale(locale)) notFound();
+  const dict = getDictionary(locale);
+
+  if (locale === "en") {
+    return (
+      <>
+        <Navbar locale="en" />
+        <main className="flex-1">
+          <PageHeader
+            badge={dict.pages.comingSoon.badge}
+            title={dict.pages.comingSoon.title}
+            subtitle={dict.pages.comingSoon.body}
+          />
+          <ComingSoon dict={dict.pages.comingSoon} backHref="/ar/projects" />
+        </main>
+        <Footer locale="en" />
+      </>
+    );
+  }
+
   return (
     <>
-      <Navbar />
+      <Navbar locale="ar" />
       <main className="flex-1">
         <PageHeader
           badge="مشاريع المجتمع"
@@ -53,7 +79,7 @@ export default function ProjectsPage() {
 
         <ProjectsExplorer />
       </main>
-      <Footer />
+      <Footer locale="ar" />
     </>
   );
 }

@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
 import Reveal from "@/components/ui/Reveal";
+import RichSegments from "@/components/ui/RichSegments";
+import type { Dictionary } from "@/lib/i18n";
 
 /**
  * FAQ Section — Figma 153:155, 1440×1481.
@@ -12,74 +14,11 @@ import Reveal from "@/components/ui/Reveal";
  * The accordion starts collapsed and the chevron rotates on toggle.
  */
 
-const faqs: { q: string; a: ReactNode }[] = [
-  {
-    q: "هل مجتمع إتقان يناسبني؟",
-    a: "سواءً كنت مطورًا، باحثًا، صاحب مشروع قرآني، جهة داعمة، أو شغوف بالتقنيات القرآنية؛ فمجتمع إتقان هو مساحتك التي تجد فيها نفسك. مكان يجمع أفكارك، ويحتضن نقاشاتك، ويتكاتف معك لتجاوز تحدياتك، لتشارك في صناعة ما تأمل رؤيته في مستقبل التقنيات القرآنية",
-  },
-  {
-    q: "لماذا قد أرغب بالانضمام لمجتمع إتقان؟",
-    a: "يمنحك كل ما تحتاجه لبناء وتطوير كودك البرمجي في خدمة القرآن الكريم؛ أدوات وبنية جاهزة، بيانات ومكتبات قرآنية موثوقة، ومشاريع مفتوحة المصدر (مثل فنار ورتق) تختصر عليك شهورًا من العمل. بالإضافة إلى دعم وتسويق لمشروعك؛ إذ نساعدك في تجاوز العقبات التقنية، ونُبرز تطبيقك ونسوّق له عبر قنواتنا ونُدرجه في دليل التطبيقات القرآنية. بجانب إمكانية تطوير مهاراتك وشبكة علاقاتك؛ حيث تنضم لأكثر من 1,500 مطور وباحث، وتشارك في ورش عمل وملتقيات، وتكتسب خبرة عملية مباشرة. وستحقق أثر مستدام من خلال فرصة ليكون كودك مساهمًا في إفادة ملايين المسلمين حول العالم",
-  },
-  {
-    q: "ما المواضيع التي يمكنني السؤال عنها على مجتمع إتقان؟",
-    a: "يتيح لك مجتمع إتقان النقاش والسؤال في مختلف مجالات التقنية القرآنية؛ حيث يمكنك طرح التحديات البرمجية ونقاشات المطورين، والاستفسار عن الأدوات والموارد والمعرفة التقنية، وطلب الدعم والمشورة لمشروعك. كما يمكنك البحث عن فرص التعاون والمشاريع، ومشاركة الأفكار والتطبيقات الملهمة، بالإضافة إلى مناقشة البحوث القرآنية وطرح الأسئلة العامة ومتابعة آخر التحديثات والمبادرات",
-  },
-  {
-    q: "هل يشترط أن أكون مبرمجًا للمشاركة في إتقان؟",
-    a: "لا، لا يُشترط أن تكون مبرمجًا. يرحب مجتمع إتقان بالجميع؛ سواءً كنت مبرمجًا، أو باحثًا، أو صاحب فكرة أو مشروع قرآني، أو جهة داعمة، أو حتى شغوفًا بالتقنيات القرآنية. هناك مساحة واسعة للجميع للمشاركة بالأفكار، تقديم المشورة، إدارة المشاريع، أو المساهمة في تطوير المحتوى والبحوث.",
-  },
-  {
-    q: "هل المشاركة في مجتمع إتقان مجانية؟",
-    a: "نعم، المشاركة في مجتمع إتقان مجانية تمامًا. يمكنك الانضمام، طرح الأسئلة، تصفح المشاريع، والمساهمة في المبادرات والأنشطة دون أي رسوم",
-  },
-  {
-    q: "كيف أضيف تطبيقي إلى دليل التطبيقات القرآنية؟",
-    a: (
-      <>
-        املأ{" "}
-        <a
-          href="https://quran-apps.itqan.dev/ar/submit-app"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[var(--color-grad-end)] underline-offset-2 hover:underline"
-        >
-          نموذج الطلب
-        </a>{" "}
-        لإضافة تطبيقك، سيراجع الفريق التقني التطبيق ثم سيعمل على إضافته للدليل
-      </>
-    ),
-  },
-  {
-    q: "هل تتوفر بيانات أو مكتبات جاهزة يمكنني استخدامها في مشروعي؟",
-    a: "على مجتمع إتقان مجموعة من المشاريع المجتمعية التي يمكنك استخدامها مباشرةً في مشروعك، سواء مكتبات أو بيانات أو واجهات برمجية، أو مصاحف رقمية.",
-  },
-  {
-    q: "هل هناك فعاليات أو لقاءات دورية للمجتمع؟",
-    a: "نعم، يعقد مؤتمر إتقان لقاءات دورية حضورية وعن بُعد في الرياض، بالإضافة إلى لقاءات حضورية بالقاهرة. بجانب ورش مُنظمة مع جهات قرآنية بارزة وجامعات وخبراء وكفاءات لمناقشة كل ما يتعلق بمجال التقنيات القرآنية.",
-  },
-  {
-    q: "كيف يمكن لجهة أو مؤسسة التعاون مع إتقان كشريك؟",
-    a: (
-      <>
-        تواصل معنا مباشرة عبر{" "}
-        <a href="https://join.itqan.dev" target="_blank" rel="noopener noreferrer" className="text-[var(--color-grad-end)] underline-offset-2 hover:underline">
-          هذا النموذج
-        </a>{" "}
-        أو عبر البريد التالي{" "}
-        <a
-          href="mailto:Connect@itqan.dev"
-          className="text-[var(--color-grad-end)] underline-offset-2 hover:underline"
-        >
-          Connect@itqan.dev
-        </a>{" "}
-        وسيتواصل معك فريقنا لمناقشة سُبل التعاون
-      </>
-    ),
-  },
-];
-
-export default function FaqSection() {
+export default function FaqSection({
+  dict,
+}: {
+  dict: Dictionary["home"]["faq"];
+}) {
   const [open, setOpen] = useState<number[]>([]);
   const toggle = (i: number) =>
     setOpen((prev) => (prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]));
@@ -88,14 +27,14 @@ export default function FaqSection() {
     <section className="w-full bg-white pt-[64px] pb-[80px] lg:pt-[96px] lg:pb-[110px]">
       <div className="shell flex flex-col items-center gap-[44px]">
         <Reveal className="flex w-full flex-col items-start gap-[12px]">
-          <span className="badge">مساعدة</span>
+          <span className="badge">{dict.badge}</span>
           <h2 className="w-full text-start text-[26px] font-bold text-[var(--color-txt)] lg:text-[36px]">
-            الأسئلة الشائعة
+            {dict.title}
           </h2>
         </Reveal>
 
         <div className="flex w-full max-w-[1020px] flex-col gap-[14px]">
-          {faqs.map((faq, i) => {
+          {dict.items.map((faq, i) => {
             const isOpen = open.includes(i);
             return (
               <Reveal
@@ -130,7 +69,7 @@ export default function FaqSection() {
                 >
                   <div className="overflow-hidden">
                     <p className="pt-[8px] text-start text-[13px] leading-[normal] text-[var(--color-txt-dim)] lg:pt-[12px] lg:text-[14px]">
-                      {faq.a}
+                      <RichSegments segments={faq.a} />
                     </p>
                   </div>
                 </div>
