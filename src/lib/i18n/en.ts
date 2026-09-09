@@ -101,10 +101,10 @@ const en: Dictionary = {
       subtitle: "Itqan Community is a wide space where you find your place and make a difference", // md:19
       cta: "Join the community", // md:27
       steps: [
-        { number: "01", title: "Contribute", body: "Choose an existing project and contribute using your skills, reviews, and ideas" }, // md:23
-        { number: "02", title: "Learn", body: "Benefit from experts to develop your specialized Quranic technology skills" },
-        { number: "03", title: "Discuss", body: "Join the developers' and researchers' community to share your experience and questions" },
-        { number: "04", title: "Launch", body: "Build your project's capabilities or launch it with support from the Itqan community" },
+        { number: "1", title: "Contribute", body: "Choose an existing project and contribute using your skills, reviews, and ideas" }, // md:23
+        { number: "2", title: "Learn", body: "Benefit from experts to develop your specialized Quranic technology skills" },
+        { number: "3", title: "Discuss", body: "Join the developers' and researchers' community to share your experience and questions" },
+        { number: "4", title: "Launch", body: "Build your project's capabilities or launch it with support from the Itqan community" },
       ],
     },
 

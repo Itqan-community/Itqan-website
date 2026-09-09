@@ -8,7 +8,7 @@ import type { Dictionary } from "@/lib/i18n";
  *
  * #f8fafa ground, 205px top padding — the stats card hangs 65px into the
  * section, so the content rhythm stays 140px below the card — 64px
- * stack gap. Four steps read 01 → 04 right-to-left with 80×20 connectors.
+ * stack gap. Four steps read 1 → 4 right-to-left with 80×20 connectors.
  */
 
 /** Per-step glow shadows from the design, zipped with dict.steps by index. */
