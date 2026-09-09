@@ -38,55 +38,56 @@ export default function PageHeader({
         } as CSSProperties
       }
     >
+      {/* Full-bleed: the pattern band and grain tile edge-to-edge at any
+          viewport width; the right glow anchors to the right edge instead of a
+          fixed 1440px band. */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute left-1/2 top-0 h-full w-[1440px] -translate-x-1/2">
-          <Image
-            src="/figma/glow-brand.svg"
-            alt=""
-            width={600}
-            height={400}
-            className="absolute left-[-100px] top-[-100px] h-[400px] w-[600px] max-w-none"
-          />
-          <Image
-            src="/figma/glow-em.svg"
-            alt=""
-            width={500}
-            height={350}
-            className="absolute left-[800px] top-[-50px] h-[350px] w-[500px] max-w-none"
-          />
-          <Image
-            src="/figma/pattern.png"
-            alt=""
-            width={1440}
-            height={320}
-            style={{ opacity: patternOpacity }}
-            className="absolute left-0 top-0 h-[320px] w-[1440px] max-w-none object-cover"
-          />
-          {softLayers && (
-            <>
-              <div
-                className="absolute left-0 top-0 h-[300px] w-[1440px] opacity-[0.05]"
-                style={{
-                  backgroundImage: 'url("/figma/grain.png")',
-                  backgroundSize: "160px 160px",
-                }}
-              />
-              <Image
-                src="/figma/glow.svg"
-                alt=""
-                width={1100}
-                height={1100}
-                className="absolute left-[-240px] top-[-430px] size-[1100px] max-w-none"
-              />
-            </>
-          )}
-          <span className="absolute left-[96px] top-[34px] font-mono text-[92px] text-[rgba(35,110,91,0.09)]">
-            {"{ }"}
-          </span>
-          <span className="absolute left-[300px] top-[168px] font-mono text-[64px] text-[rgba(35,110,91,0.09)]">
-            {"</>"}
-          </span>
-        </div>
+        <Image
+          src="/figma/glow-brand.svg"
+          alt=""
+          width={600}
+          height={400}
+          className="absolute left-[-100px] top-[-100px] h-[400px] w-[600px] max-w-none"
+        />
+        <Image
+          src="/figma/glow-em.svg"
+          alt=""
+          width={500}
+          height={350}
+          className="absolute right-[140px] top-[-50px] h-[350px] w-[500px] max-w-none"
+        />
+        <Image
+          src="/figma/pattern.png"
+          alt=""
+          width={1440}
+          height={320}
+          style={{ opacity: patternOpacity }}
+          className="absolute inset-x-0 top-0 h-[320px] w-full max-w-none object-cover"
+        />
+        {softLayers && (
+          <>
+            <div
+              className="absolute inset-x-0 top-0 h-[300px] opacity-[0.05]"
+              style={{
+                backgroundImage: 'url("/figma/grain.png")',
+                backgroundSize: "160px 160px",
+              }}
+            />
+            <Image
+              src="/figma/glow.svg"
+              alt=""
+              width={1100}
+              height={1100}
+              className="absolute left-[-240px] top-[-430px] size-[1100px] max-w-none"
+            />
+          </>
+        )}
+        <span className="absolute left-[96px] top-[34px] font-mono text-[92px] text-[rgba(35,110,91,0.09)]">
+          {"{ }"}
+        </span>
+        <span className="absolute left-[300px] top-[168px] font-mono text-[64px] text-[rgba(35,110,91,0.09)]">
+          {"</>"}
+        </span>
       </div>
 
       <div className="shell relative flex flex-col items-start justify-center gap-[10px] py-[24px] [min-height:var(--hdr-min-m)] lg:gap-[14px] lg:py-[48px] lg:[min-height:var(--hdr-min)]">

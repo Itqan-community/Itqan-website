@@ -189,6 +189,20 @@
 }
 
 /* ==========================================================================
+   RTL leading
+   Arabic script needs more generous leading than the font's natural metrics —
+   the Figma "auto" line height reads tight in Arabic. Give block text 1.8 in
+   RTL; single-line UI (buttons, badges, nav links) keeps the natural leading.
+   Fixed-geometry contexts (hero marquee, stats straddle, hero headline) opt
+   out with !leading-[normal]. (Note: v4's `leading-normal` is 1.5, not CSS
+   `normal` — hence the arbitrary value.)
+   ========================================================================== */
+
+[dir="rtl"] :is(p, h1, h2, h3, h4, h5, h6, li, blockquote) {
+  line-height: 1.8;
+}
+
+/* ==========================================================================
    Type ramp — mirrors the Figma text styles
    ========================================================================== */
 

@@ -69,7 +69,7 @@ export default function ProjectsSection({
                   href={meta.repo}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center rounded-[8px] border border-[rgba(35,110,91,0.26)] bg-transparent px-[16px] py-[9px] text-[13px] font-medium text-[var(--color-grad-end)] transition-colors duration-200 hover:bg-[var(--brand-a06)]"
+                  className="flex flex-1 items-center justify-center rounded-[8px] border border-[rgba(35,110,91,0.26)] bg-transparent px-[16px] py-[9px] text-[13px] font-medium text-[var(--color-grad-end)] transition-colors duration-200 hover:bg-[var(--brand-a06)]"
                 >
                   {project.contributeLabel}
                 </a>
@@ -77,7 +77,7 @@ export default function ProjectsSection({
                   href={meta.site}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center rounded-[8px] bg-[rgba(35,110,91,0.1)] px-[16px] py-[9px] text-[13px] font-medium text-[var(--color-grad-end)] transition-colors duration-200 hover:bg-[var(--brand-a10)]"
+                  className="flex flex-1 items-center justify-center rounded-[8px] bg-[rgba(35,110,91,0.1)] px-[16px] py-[9px] text-[13px] font-medium text-[var(--color-grad-end)] transition-colors duration-200 hover:bg-[var(--brand-a10)]"
                 >
                   {dict.browseLabel}
                 </Link>

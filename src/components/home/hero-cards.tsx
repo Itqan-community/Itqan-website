@@ -62,8 +62,9 @@ export function TopicCard({
         <span className="rounded-[var(--radius-pill)] bg-[var(--brand-a10)] px-[10px] py-[4px] text-[11px] text-[var(--color-grad-end)]">
           {topic.category}
         </span>
+        {/* !leading-[normal]: the marquee track has a fixed 131.4px pitch. */}
         <h3
-          className={`w-full text-start text-[15px] font-medium text-[var(--color-topic-title)] ${clamp}`}
+          className={`w-full text-start text-[15px] font-medium !leading-[normal] text-[var(--color-topic-title)] ${clamp}`}
         >
           {topic.title}
         </h3>
@@ -118,70 +119,6 @@ export function ShotCard({
         loading={eager ? "eager" : undefined}
         className="object-cover"
       />
-    </div>
-  );
-}
-
-/**
- * Code Panel (8:6) — "frosted glass SDK panel: rgba(11,38,31,.94) over an 18px
- * backdrop blur, 40% brand hairline, window bar + syntax-highlighted snippet."
- */
-export function CodePanel({
-  className = "",
-  /** The mobile panel (183:198) carries a shorter three-line snippet. */
-  lines = "full",
-  comment,
-}: {
-  className?: string;
-  lines?: "full" | "compact";
-  /** The locale-dependent code comment above the snippet. */
-  comment: string;
-}) {
-  return (
-    <div
-      className={`overflow-hidden rounded-[var(--radius-code)] border border-[rgba(35,110,91,0.4)] bg-[rgba(11,38,31,0.94)] shadow-[0_26px_60px_-22px_rgba(16,54,45,0.5)] backdrop-blur-[9px] ${className}`}
-    >
-      <div className="flex items-center justify-between border-b border-[rgba(232,238,235,0.12)] bg-[rgba(232,238,235,0.04)] px-[14px] py-[11px]">
-        <p className="font-mono text-[11px] tracking-[0.44px] text-[rgba(166,201,186,0.9)]">
-          itqan/quran-sdk
-        </p>
-        <Image
-          src="/figma/code-dots.svg"
-          alt=""
-          width={38}
-          height={8}
-          className="h-[8px] w-[38px]"
-        />
-      </div>
-
-      <pre className="m-0 overflow-x-auto px-[18px] pt-[16px] pb-[20px] font-mono text-[12.5px] leading-[normal] text-[var(--color-code-txt)]">
-        <p dir="auto" className="text-[var(--color-code-comment)]">
-          {comment}
-        </p>
-        <p dir="auto">
-          <span className="text-[var(--color-code-keyword)]">import</span>
-          {" { mushaf } "}
-          <span className="text-[var(--color-code-keyword)]">from</span>{" "}
-          <span className="text-[var(--color-code-string)]">&quot;@itqan/quran&quot;</span>;
-        </p>
-        {lines === "full" && <p>&nbsp;</p>}
-        <p dir="auto">
-          <span className="text-[var(--color-code-keyword)]">const</span>
-          {" page = "}
-          <span className="text-[var(--color-code-keyword)]">await</span>
-          {" mushaf."}
-          <span className="text-[var(--color-code-function)]">page</span>(
-          <span className="text-[var(--color-code-number)]">293</span>);
-        </p>
-        {lines === "full" && (
-          <p dir="auto">
-            page.lines.
-            <span className="text-[var(--color-code-function)]">map</span>(renderAyah);
-          </p>
-        )}
-      </pre>
-
-      <div className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]" />
     </div>
   );
 }

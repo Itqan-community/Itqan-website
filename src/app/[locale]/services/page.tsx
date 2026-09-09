@@ -105,6 +105,7 @@ export default async function ServicesPage({
                       alt={event.caption}
                       fill
                       sizes="(max-width: 767px) 100vw, 33vw"
+                      quality={90}
                       className="object-cover"
                     />
                   </div>

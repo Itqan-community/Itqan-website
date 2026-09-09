@@ -12,13 +12,10 @@ import type { Dictionary } from "@/lib/i18n";
  *
  * The "All Apps Legend" child (180:354) is hidden in the Figma file
  * (visible: false), so it is not rendered here.
- *
- * Note: the section badge uses #a7d4c8 on a rgba(255,255,255,.08) pill, which
- * is what the design specifies — it reads as very low contrast on white.
  */
 
 /** Non-translatable icons, zipped with dict.items by index (undefined = none). */
-const APP_ICONS: (string | undefined)[] = ["/figma/app-alkitab.png", undefined, "/figma/app-qurantab.png", "/figma/app-khateeb.png", "/figma/app-qaf.png", "/figma/app-muslimpedia.png", "/figma/app-kalimat.png", undefined, "/figma/app-taahud.png", "/figma/app-quran-live.png", "/figma/app-smart-search.png", "/figma/app-mihrab.png", "/figma/app-quranlingo.png", "/figma/app-quraniai.png", "/figma/app-zalfa.svg", "/figma/app-tajweedo.png", "/figma/app-qiraat.png"];
+const APP_ICONS: (string | undefined)[] = ["/figma/app-alkitab.png", "/figma/open-tarteel.webp", "/figma/app-qurantab.png", "/figma/app-khateeb.png", "/figma/app-qaf.png", "/figma/app-muslimpedia.png", "/figma/app-kalimat.png", undefined, "/figma/app-taahud.png", "/figma/app-quran-live.png", "/figma/app-smart-search.png", "/figma/app-mihrab.png", "/figma/app-quranlingo.png", "/figma/app-quraniai.png", "/figma/app-zalfa.svg", "/figma/app-tajweedo.png", "/figma/app-qiraat.png"];
 
 /** One card + one gutter. */
 const STEP = 176;
@@ -44,9 +41,6 @@ export default function AppsSection({
     <section className="w-full bg-white py-[48px]">
       <div className="shell flex flex-col items-center gap-[32px]">
         <Reveal className="flex w-full flex-col items-start gap-[12px]">
-          <span className="rounded-[100px] bg-[rgba(255,255,255,0.08)] px-[14px] py-[6px] text-[12px] font-medium text-[#a7d4c8]">
-            {dict.badge}
-          </span>
           <h2 className="text-start text-[26px] font-bold text-[#0f2820] lg:text-[36px]">
             <span className="lg:hidden">{dict.titleMobile}</span>
             <span className="hidden lg:inline">{dict.titleDesktop}</span>

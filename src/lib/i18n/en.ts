@@ -51,7 +51,7 @@ const en: Dictionary = {
     newsletterText:
       "Get the latest updates on community projects and outputs straight to your inbox.",
     copyright: "© 2026 Itqan Community. All rights reserved in service of the Book of Allah.",
-    languageLabel: "English (en)",
+    languageLabel: "العربية (ar)",
   },
 
   newsletterForm: {
@@ -83,8 +83,6 @@ const en: Dictionary = {
         { category: "Developer discussions", title: "The crisis of available audio sources for developers", replies: "9" },
       ],
       shotAlt: "From Itqan community meetups",
-      codeCommentFull: "// A Mushaf page as structured data",
-      codeCommentCompact: "// Structured ayah data",
       avatarInitials: ["A", "N", "H"],
     },
 
@@ -103,10 +101,10 @@ const en: Dictionary = {
       subtitle: "Itqan Community is a wide space where you find your place and make a difference", // md:19
       cta: "Join the community", // md:27
       steps: [
-        { number: "01", title: "Contribute", body: "Choose an existing project and contribute using your skills, reviews, and ideas" }, // md:23
-        { number: "02", title: "Learn", body: "Benefit from experts to develop your specialized Quranic technology skills" },
-        { number: "03", title: "Discuss", body: "Join the developers' and researchers' community to share your experience and questions" },
-        { number: "04", title: "Launch", body: "Build your project's capabilities or launch it with support from the Itqan community" },
+        { number: "1", title: "Contribute", body: "Choose an existing project and contribute using your skills, reviews, and ideas" }, // md:23
+        { number: "2", title: "Learn", body: "Benefit from experts to develop your specialized Quranic technology skills" },
+        { number: "3", title: "Discuss", body: "Join the developers' and researchers' community to share your experience and questions" },
+        { number: "4", title: "Launch", body: "Build your project's capabilities or launch it with support from the Itqan community" },
       ],
     },
 
@@ -137,7 +135,7 @@ const en: Dictionary = {
         {
           name: "Quranic Apps Directory", // md:44 (directory first to match the ar order: directory, RATQ, fanar)
           body: "A platform that gathers digital Quran applications, classifies them, and documents them against unified criteria, so Muslims can find the application that suits their need, and developers and researchers have a clear map of the Quranic technology landscape.",
-          contributeLabel: "Contribute to the Directory",
+          contributeLabel: "Contribute to QAD",
         },
         {
           name: "RATQ", // md:44
@@ -161,7 +159,7 @@ const en: Dictionary = {
           title: "Quranic Apps Directory",
           body: "A platform that gathers digital Quran applications, classifies them, and documents them against unified criteria, so Muslims can find the application that suits their need, and developers and researchers have a clear map of the Quranic technology landscape.",
           primary: { label: "Browse the Directory", href: "https://quran-apps.itqan.dev" },
-          secondary: { label: "Contribute to the Directory", href: "https://github.com/orgs/Itqan-community/projects/4" },
+          secondary: { label: "Contribute to QAD", href: "https://github.com/orgs/Itqan-community/projects/4" },
         },
         {
           title: "RATQ",
@@ -186,10 +184,10 @@ const en: Dictionary = {
       directoryCta: "Add your app to the Directory", // md:56
       submitAppHref: "https://quran-apps.itqan.dev/en/submit-app",
       steps: [
-        { number: "01", title: "Ready Foundation", body: "Quranic data and libraries that save months of work." }, // md:53
-        { number: "02", title: "Overcome Obstacles", body: "Expert consultation and support" },
-        { number: "03", title: "Visibility & Reach", body: "Marketing and promotion through Itqan's channels." },
-        { number: "04", title: "Unique Impact", body: "Refined ideas ensuring originality, sustainability, and reliability" },
+        { number: "1", title: "Ready Foundation", body: "Quranic data and libraries that save months of work." }, // md:53
+        { number: "2", title: "Overcome Obstacles", body: "Expert consultation and support" },
+        { number: "3", title: "Visibility & Reach", body: "Marketing and promotion through Itqan's channels." },
+        { number: "4", title: "Unique Impact", body: "Refined ideas ensuring originality, sustainability, and reliability" },
       ],
     },
 
@@ -201,15 +199,14 @@ const en: Dictionary = {
       directoryCta: "Add your app to the Directory",
       submitAppHref: "https://quran-apps.itqan.dev/en/submit-app",
       steps: [
-        { number: "01", title: "Ready Foundation", body: "Quranic data and libraries that save months of work." },
-        { number: "02", title: "Overcome Obstacles", body: "Expert consultation and support" },
-        { number: "03", title: "Visibility & Reach", body: "Marketing and promotion through Itqan's channels." },
-        { number: "04", title: "Unique Impact", body: "Refined ideas ensuring originality, sustainability, and reliability" },
+        { number: "1", title: "Ready Foundation", body: "Quranic data and libraries that save months of work." },
+        { number: "2", title: "Overcome Obstacles", body: "Expert consultation and support" },
+        { number: "3", title: "Visibility & Reach", body: "Marketing and promotion through Itqan's channels." },
+        { number: "4", title: "Unique Impact", body: "Refined ideas ensuring originality, sustainability, and reliability" },
       ],
     },
 
     apps: {
-      badge: "Apps Directory",
       titleDesktop: "Featured apps on the Itqan community", // md:61
       titleMobile: "Featured Quranic applications", // md:61
       subtitleMobile: "A selection of active apps listed in the community directory",
