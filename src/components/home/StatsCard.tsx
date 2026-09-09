@@ -40,15 +40,17 @@ export default function StatsCard({
                   <div className="hidden h-[56px] w-px shrink-0 bg-[#e0e3e0] md:block" />
                 </>
               )}
+              {/* !leading-[normal] on both: the card's 131px height is baked
+                  into the hero straddle margins (-mt/-mb). */}
               <div className="flex min-w-0 flex-1 flex-col items-center justify-center gap-[4px] text-center md:gap-[6px] md:py-[8px]">
                 <p
-                  className="whitespace-nowrap text-[28px] font-bold"
+                  className="whitespace-nowrap text-[28px] font-bold !leading-[normal]"
                   style={{ color: VALUE_COLORS[i] }}
                 >
                   {stat.value}
                 </p>
                 <p
-                  className="whitespace-nowrap text-[13px]"
+                  className="whitespace-nowrap text-[13px] !leading-[normal]"
                   style={{ color: LABEL_COLORS[i] }}
                 >
                   {/* The mobile frame uses slightly longer labels. */}

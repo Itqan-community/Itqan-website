@@ -36,9 +36,10 @@ export default function LaunchSection({
                 {step.number}
               </div>
               <div className="flex w-full flex-col gap-[8px] text-start">
-                {/* Arabic titles wrap unevenly (1-2 lines); reserve two lines so
-                    every card's body starts on the same horizontal line. */}
-                <h3 className="text-[17px] font-semibold leading-[normal] text-[var(--color-topic-title)] rtl:min-h-[42px]">
+                {/* Arabic titles wrap unevenly (1-2 lines); reserve two lines at
+                    the 1.8 RTL leading so every card's body starts on the same
+                    horizontal line. */}
+                <h3 className="text-[17px] font-semibold text-[var(--color-topic-title)] rtl:min-h-[3.6em]">
                   {step.title}
                 </h3>
                 <p className="text-[14px] leading-[normal] text-[var(--color-txt-dim)]">

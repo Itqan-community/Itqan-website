@@ -62,8 +62,9 @@ export function TopicCard({
         <span className="rounded-[var(--radius-pill)] bg-[var(--brand-a10)] px-[10px] py-[4px] text-[11px] text-[var(--color-grad-end)]">
           {topic.category}
         </span>
+        {/* !leading-[normal]: the marquee track has a fixed 131.4px pitch. */}
         <h3
-          className={`w-full text-start text-[15px] font-medium text-[var(--color-topic-title)] ${clamp}`}
+          className={`w-full text-start text-[15px] font-medium !leading-[normal] text-[var(--color-topic-title)] ${clamp}`}
         >
           {topic.title}
         </h3>

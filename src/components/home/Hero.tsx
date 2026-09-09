@@ -151,7 +151,8 @@ export default function Hero({
         {/* Copy — first in the DOM so it lands on the right under RTL.
             560px so the 62px headline holds its two designed lines. */}
         <div className="flex w-full flex-col items-start gap-[22px] lg:w-[560px]">
-          <h1 className="flex w-full flex-col text-start text-[34px] font-bold sm:text-[44px] lg:text-[62px] rtl:gap-[10px] lg:rtl:gap-[20px]">
+            {/* !leading-[normal]: the two designed lines keep their tuned gap. */}
+            <h1 className="flex w-full flex-col text-start text-[34px] font-bold !leading-[normal] sm:text-[44px] lg:text-[62px] rtl:gap-[10px] lg:rtl:gap-[20px]">
             <span className="text-[var(--color-txt)]">{dict.title1}</span>
             <span className="bg-gradient-to-b from-[#2e8069] via-[#1b5749] via-[70%] to-[#1b5749] bg-clip-text text-transparent">
               {dict.title2}
