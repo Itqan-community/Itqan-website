@@ -184,10 +184,10 @@ const en: Dictionary = {
       directoryCta: "Add your app to the Directory", // md:56
       submitAppHref: "https://quran-apps.itqan.dev/en/submit-app",
       steps: [
-        { number: "01", title: "Ready Foundation", body: "Quranic data and libraries that save months of work." }, // md:53
-        { number: "02", title: "Overcome Obstacles", body: "Expert consultation and support" },
-        { number: "03", title: "Visibility & Reach", body: "Marketing and promotion through Itqan's channels." },
-        { number: "04", title: "Unique Impact", body: "Refined ideas ensuring originality, sustainability, and reliability" },
+        { number: "1", title: "Ready Foundation", body: "Quranic data and libraries that save months of work." }, // md:53
+        { number: "2", title: "Overcome Obstacles", body: "Expert consultation and support" },
+        { number: "3", title: "Visibility & Reach", body: "Marketing and promotion through Itqan's channels." },
+        { number: "4", title: "Unique Impact", body: "Refined ideas ensuring originality, sustainability, and reliability" },
       ],
     },
 
@@ -199,10 +199,10 @@ const en: Dictionary = {
       directoryCta: "Add your app to the Directory",
       submitAppHref: "https://quran-apps.itqan.dev/en/submit-app",
       steps: [
-        { number: "01", title: "Ready Foundation", body: "Quranic data and libraries that save months of work." },
-        { number: "02", title: "Overcome Obstacles", body: "Expert consultation and support" },
-        { number: "03", title: "Visibility & Reach", body: "Marketing and promotion through Itqan's channels." },
-        { number: "04", title: "Unique Impact", body: "Refined ideas ensuring originality, sustainability, and reliability" },
+        { number: "1", title: "Ready Foundation", body: "Quranic data and libraries that save months of work." },
+        { number: "2", title: "Overcome Obstacles", body: "Expert consultation and support" },
+        { number: "3", title: "Visibility & Reach", body: "Marketing and promotion through Itqan's channels." },
+        { number: "4", title: "Unique Impact", body: "Refined ideas ensuring originality, sustainability, and reliability" },
       ],
     },
 

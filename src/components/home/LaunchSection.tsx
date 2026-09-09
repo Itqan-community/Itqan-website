@@ -4,7 +4,7 @@ import type { Dictionary } from "@/lib/i18n";
 /**
  * Launch Section — Figma 149:147, 1440×731.
  * rgba(232,238,235,.42) ground, 100px padding, 56px stack gap.
- * Four 292×250 cards read ٠١ → ٠٤ right-to-left.
+ * Four 292×250 cards read 1 → 4 right-to-left.
  */
 
 export default function LaunchSection({
