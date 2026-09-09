@@ -209,7 +209,6 @@ const ar = {
     },
 
     apps: {
-      badge: "دليل التطبيقات", // ← AppsSection.tsx:56
       titleDesktop: "تطبيقات بارزة على مجتمع إتقان", // ← AppsSection.tsx:60
       titleMobile: "تطبيقات قرآنية بارزة", // ← AppsSection.tsx:59
       subtitleMobile: "مجموعة من التطبيقات النشطة والمنشورة ضمن دليل المجتمع", // ← AppsSection.tsx:63

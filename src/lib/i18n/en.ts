@@ -207,7 +207,6 @@ const en: Dictionary = {
     },
 
     apps: {
-      badge: "Apps Directory",
       titleDesktop: "Featured apps on the Itqan community", // md:61
       titleMobile: "Featured Quranic applications", // md:61
       subtitleMobile: "A selection of active apps listed in the community directory",
