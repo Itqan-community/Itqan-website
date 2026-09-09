@@ -135,7 +135,7 @@ const en: Dictionary = {
         {
           name: "Quranic Apps Directory", // md:44 (directory first to match the ar order: directory, RATQ, fanar)
           body: "A platform that gathers digital Quran applications, classifies them, and documents them against unified criteria, so Muslims can find the application that suits their need, and developers and researchers have a clear map of the Quranic technology landscape.",
-          contributeLabel: "Contribute to the Directory",
+          contributeLabel: "Contribute to QAD",
         },
         {
           name: "RATQ", // md:44
@@ -159,7 +159,7 @@ const en: Dictionary = {
           title: "Quranic Apps Directory",
           body: "A platform that gathers digital Quran applications, classifies them, and documents them against unified criteria, so Muslims can find the application that suits their need, and developers and researchers have a clear map of the Quranic technology landscape.",
           primary: { label: "Browse the Directory", href: "https://quran-apps.itqan.dev" },
-          secondary: { label: "Contribute to the Directory", href: "https://github.com/orgs/Itqan-community/projects/4" },
+          secondary: { label: "Contribute to QAD", href: "https://github.com/orgs/Itqan-community/projects/4" },
         },
         {
           title: "RATQ",
