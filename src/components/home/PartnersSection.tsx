@@ -39,7 +39,9 @@ export default function PartnersSection({
           <h2 className="w-full text-start text-[28px] font-bold text-[var(--color-txt)] lg:text-[36px]">
             {dict.title}
           </h2>
-          <p className="w-full max-w-[660px] text-start text-[16px] leading-[normal] text-[var(--color-txt-dim)]">
+          {/* lg:max-w: the ar subtitle is 677px wide at 16px — 660px orphaned
+              its last word on a second line. */}
+          <p className="w-full max-w-[660px] text-start text-[16px] leading-[normal] text-[var(--color-txt-dim)] lg:max-w-[720px]">
             {dict.subtitle}
           </p>
         </Reveal>
