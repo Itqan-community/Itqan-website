@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
-import type { Dictionary } from "@/lib/i18n";
+import type { Dictionary, Locale } from "@/lib/i18n";
 
 /**
  * Partners Section — Figma 151:176, 1440×952.
@@ -9,27 +9,38 @@ import type { Dictionary } from "@/lib/i18n";
  *
  * The grid is pinned to ltr so the card order matches the Figma rows exactly;
  * each caption keeps its own direction.
+ *
+ * Captions are locale-aware: `name` carries the English and Arabic label for
+ * each logo so the /en and /ar pages show the right writing under the logo.
  */
 
-export const partners = [
-  { name: "جمعية مكنون لتحفيظ القرآن الكريم بالرياض", logo: "/figma/partner-maknoon.png", w: 160, h: 56, contain: true },
-  { name: "مركز تفسير للدراسات القرآنية", logo: "/figma/partner-tafsir.png", w: 160, h: 56, contain: true },
-  { name: "جمعية البرهان لخدمة القرآن والسنة", logo: "/figma/partner-burhan.png", w: 160, h: 56, contain: true },
-  { name: "Quran.com", logo: "/figma/partner-qurancom.png", w: 160, h: 56, contain: true },
-  { name: "ترتيل Tarteel.ai", logo: "/figma/partner-tarteel.svg", w: 160, h: 25.43 },
-  { name: "Greentech", logo: "/figma/partner-greentech.svg", w: 160, h: 53.6 },
-  { name: "بي دي إم إس", logo: "/figma/partner-bdms.svg", w: 46.667, h: 56 },
-  { name: "مجموعة زاد", logo: "/figma/partner-zad.png", w: 160, h: 56, contain: true },
-  { name: "نقاية Nuqayah", logo: "/figma/partner-nuqayah.svg", w: 64.211, h: 56 },
-  { name: "الموسوعة القرآنية Quran Pedia", logo: "/figma/partner-quranpedia.png", w: 160, h: 56, contain: true },
-  { name: "mp3 quran", logo: "/figma/partner-mp3quran.png", w: 160, h: 56, contain: true },
-  { name: "تطبيق زلفى", logo: "/figma/partner-zalfa.svg", w: 56, h: 56 },
+export const partners: {
+  logo: string;
+  w: number;
+  h: number;
+  contain?: boolean;
+  name: Record<Locale, string>;
+}[] = [
+  { logo: "/figma/partner-maknoon.png", w: 160, h: 56, contain: true, name: { en: "Maknon", ar: "جمعية مكنون لتحفيظ القرآن الكريم بالرياض" } },
+  { logo: "/figma/partner-tafsir.png", w: 160, h: 56, contain: true, name: { en: "Tafseer Center For Qur'anic Studies", ar: "مركز تفسير للدراسات القرآنية" } },
+  { logo: "/figma/partner-burhan.png", w: 160, h: 56, contain: true, name: { en: "Alborhan", ar: "جمعية البرهان لخدمة القرآن والسنة" } },
+  { logo: "/figma/partner-qurancom.png", w: 160, h: 56, contain: true, name: { en: "Quran.com", ar: "Quran.com" } },
+  { logo: "/figma/partner-tarteel.svg", w: 160, h: 25.43, name: { en: "Tarheel.ai", ar: "ترتيل Tarteel.ai" } },
+  { logo: "/figma/partner-greentech.svg", w: 160, h: 53.6, name: { en: "Greentech", ar: "Greentech" } },
+  { logo: "/figma/partner-bdms.svg", w: 46.667, h: 56, name: { en: "PDMS", ar: "بي دي إم إس" } },
+  { logo: "/figma/partner-zad.png", w: 160, h: 56, contain: true, name: { en: "Zad group", ar: "مجموعة زاد" } },
+  { logo: "/figma/partner-nuqayah.svg", w: 64.211, h: 56, name: { en: "Nuqayah نقاة", ar: "نقاية Nuqayah" } },
+  { logo: "/figma/partner-quranpedia.png", w: 160, h: 56, contain: true, name: { en: "QuranPedia", ar: "الموسوعة القرآنية Quran Pedia" } },
+  { logo: "/figma/partner-mp3quran.png", w: 160, h: 56, contain: true, name: { en: "mp3 quran", ar: "mp3 quran" } },
+  { logo: "/figma/partner-zalfa.svg", w: 56, h: 56, name: { en: "Zulfah", ar: "تطبيق زلفى" } },
 ];
 
 export default function PartnersSection({
   dict,
+  locale,
 }: {
   dict: Dictionary["home"]["partners"];
+  locale: Locale;
 }) {
   return (
     <section className="hidden w-full bg-white py-[64px] lg:block lg:py-[96px]">
@@ -49,14 +60,14 @@ export default function PartnersSection({
         <div dir="rtl" className="partners-grid-desktop w-full">
           {partners.map((partner, i) => (
             <Reveal
-              key={partner.name}
+              key={partner.logo}
               delay={(i % 5) * 60}
               className="flex h-[180px] w-[calc(50%-10px)] flex-col items-center justify-center gap-[12px] overflow-hidden rounded-[12px] border border-[rgba(35,110,91,0.11)] bg-white px-[14px] py-[22px] shadow-[0_8px_22px_-6px_rgba(16,54,45,0.08)] sm:w-[calc(33.333%-14px)] lg:w-[232px]"
             >
               <div className="flex h-[56px] w-[160px] items-center justify-center">
                 <Image
                   src={partner.logo}
-                  alt={partner.name}
+                  alt={partner.name[locale]}
                   width={Math.round(partner.w)}
                   height={Math.round(partner.h)}
                   style={{ width: partner.w, height: partner.h }}
@@ -67,7 +78,7 @@ export default function PartnersSection({
                 dir="auto"
                 className="w-full text-center text-[12px] font-medium leading-[normal] text-[var(--color-topic-title)]"
               >
-                {partner.name}
+                {partner.name[locale]}
               </p>
             </Reveal>
           ))}
