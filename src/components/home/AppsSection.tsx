@@ -15,7 +15,7 @@ import type { Dictionary } from "@/lib/i18n";
  */
 
 /** Non-translatable icons, zipped with dict.items by index (undefined = none). */
-const APP_ICONS: (string | undefined)[] = ["/figma/app-alkitab.png", "/figma/open-tarteel.webp", "/figma/app-qurantab.png", "/figma/app-khateeb.png", "/figma/app-qaf.png", "/figma/app-muslimpedia.png", "/figma/app-kalimat.png", undefined, "/figma/app-taahud.png", "/figma/app-quran-live.png", "/figma/app-smart-search.png", "/figma/app-mihrab.png", "/figma/app-quranlingo.png", "/figma/app-quraniai.png", "/figma/app-zalfa.svg", "/figma/app-tajweedo.png", "/figma/app-qiraat.png"];
+const APP_ICONS: (string | undefined)[] = ["/figma/app-alkitab.png", "/figma/open-tarteel.webp", "/figma/app-qurantab.png", "/figma/app-khateeb.png", "/figma/app-qaf.png", "/figma/app-muslimpedia.png", "/figma/app-kalimat.png", "/figma/almualim-alqurani.png", "/figma/app-taahud.png", "/figma/app-quran-live.png", "/figma/app-smart-search.png", "/figma/app-mihrab.png", "/figma/app-quranlingo.png", "/figma/app-quraniai.png", "/figma/app-zalfa.svg", "/figma/app-tajweedo.png", "/figma/app-qiraat.png"];
 
 /** One card + one gutter. */
 const STEP = 176;
