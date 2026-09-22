@@ -67,7 +67,7 @@ export default function PublisherSection({
                 alt=""
                 width={44}
                 height={41}
-                className="size-[44px] object-contain"
+                className="h-auto w-[44px] object-contain"
               />
             </div>
             <div className="flex min-w-0 flex-1 flex-col items-start gap-[4px] text-start">
