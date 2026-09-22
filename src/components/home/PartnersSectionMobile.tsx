@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
-import type { Dictionary } from "@/lib/i18n";
+import type { Dictionary, Locale } from "@/lib/i18n";
 import { partners } from "./PartnersSection";
 
 /**
@@ -16,8 +16,10 @@ const LOGO_SCALE = 0.6;
 
 export default function PartnersSectionMobile({
   dict,
+  locale,
 }: {
   dict: Dictionary["home"]["partnersMobile"];
+  locale: Locale;
 }) {
   return (
     <section className="w-full bg-white px-[16px] py-[48px] lg:hidden">
@@ -55,12 +57,12 @@ export default function PartnersSectionMobile({
         <Reveal dir="rtl" className="partners-grid-mobile">
           {partners.map((partner) => (
             <span
-              key={partner.name}
+              key={partner.logo}
               className="flex h-[58px] w-full items-center justify-center rounded-[10px] border border-[rgba(35,110,91,0.11)] bg-[#f5fbfa] px-[12px]"
             >
               <Image
                 src={partner.logo}
-                alt={partner.name}
+                alt={partner.name[locale]}
                 width={Math.round(partner.w * LOGO_SCALE)}
                 height={Math.round(partner.h * LOGO_SCALE)}
                 style={{ width: partner.w * LOGO_SCALE, height: partner.h * LOGO_SCALE }}

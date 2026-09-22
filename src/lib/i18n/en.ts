@@ -258,8 +258,8 @@ const en: Dictionary = {
       titleMobile: "Itqan Newsletter", // md:94
       bodyDesktop: "Inspiring stories, practical tools, and insightful discussions from the world of Quranic technologies, delivered straight to your inbox.", // md:96
       bodyMobile: "Inspiring stories and new software projects delivered straight to your inbox",
-      readLabel: "Read the issue",
-      viewAll: "View all issues",
+      readLabel: "Read more",
+      viewAll: "View all newsletter",
       fallbackIssues: [
         { title: "Where technology meets the greatest purpose: shaping the future of Quranic tech from Cairo", href: "/en/newsletter" },
         { title: "Qaf platform | When a school principal's problem became innovation serving Islamic centers", href: "/en/newsletter" },

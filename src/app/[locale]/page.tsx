@@ -68,8 +68,8 @@ export default async function HomePage({
         <LaunchSectionMobile dict={dict.home.launchMobile} />
         <AppsSection dict={dict.home.apps} />
         <PublisherSection dict={dict.home.publisher} />
-        <PartnersSection dict={dict.home.partners} />
-        <PartnersSectionMobile dict={dict.home.partnersMobile} />
+        <PartnersSection dict={dict.home.partners} locale={locale} />
+        <PartnersSectionMobile dict={dict.home.partnersMobile} locale={locale} />
         <NewsletterSection
           dict={dict.home.newsletter}
           formLabels={dict.newsletterForm}

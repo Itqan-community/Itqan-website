@@ -40,7 +40,17 @@ export async function generateMetadata({
     authors: [{ name: dict.meta.authorName }],
     creator: dict.meta.authorName,
     publisher: dict.meta.authorName,
-    icons: { icon: "/figma/itqan-logo-dark.png" },
+    // Two favicons chosen by the OS/browser color scheme. Chrome, Edge and
+    // Firefox honour `media` on the icon link; older Safari ignores it and uses
+    // the first entry, so the light-mode (dark-ink) icon leads as the default.
+    // This tracks the OS setting, not any in-site theme toggle; for guaranteed
+    // cross-browser behavior, swap the href via matchMedia in a client component.
+    icons: {
+      icon: [
+        { url: "/figma/itqan-logo-dark.png", media: "(prefers-color-scheme: light)" },
+        { url: "/figma/logo-itqan-small.png", media: "(prefers-color-scheme: dark)" },
+      ],
+    },
     // Declared here rather than via the `opengraph-image.png` file convention:
     // Turbopack doesn't read `opengraph-image.alt.txt`, so alt text would be dropped.
     openGraph: {

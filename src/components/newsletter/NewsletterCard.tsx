@@ -79,13 +79,13 @@ export default function NewsletterCard({
         )}
       </div>
       <span className="mt-[12px] flex items-center gap-[6px] text-[14px] font-medium leading-[22px] text-[var(--color-grad-end)]">
-        <span>{locale === "ar" ? "قراءة النشرة" : "Read the issue"}</span>
+        <span>{locale === "ar" ? "قراءة النشرة" : "Read more"}</span>
         <Image
           src="/figma/icon-arrow-read.svg"
           alt=""
           width={14}
           height={14}
-          className="size-[14px] transition-transform duration-200 group-hover:-translate-x-1"
+          className="size-[14px] -scale-x-100 rtl:scale-x-100 transition-transform duration-200 group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
         />
       </span>
     </a>

@@ -70,7 +70,7 @@ export default function CtaSection({
       </div>
 
       <div className="relative flex flex-col items-center gap-[28px] lg:gap-[40px]">
-        <Reveal className="flex w-full max-w-[800px] flex-col items-center gap-[20px]">
+        <Reveal className="flex w-full max-w-[900px] flex-col items-center gap-[20px]">
           <span className="badge badge-invert">{dict.badge}</span>
           <h2 className="w-full text-center text-[26px] font-bold text-white lg:text-[42px]">
             {dict.title}
