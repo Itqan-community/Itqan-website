@@ -90,7 +90,7 @@ export default async function NewsletterSection({
                         alt=""
                         width={14}
                         height={14}
-                        className="size-[14px]"
+                        className="size-[14px] -scale-x-100 rtl:scale-x-100"
                       />
                     </span>
                   </Link>
@@ -109,7 +109,7 @@ export default async function NewsletterSection({
               alt=""
               width={14}
               height={14}
-              className="size-[14px]"
+              className="size-[14px] -scale-x-100 rtl:scale-x-100"
             />
           </Link>
         </Reveal>
