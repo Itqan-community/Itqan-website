@@ -6,6 +6,7 @@ import NewsletterCard from "@/components/newsletter/NewsletterCard";
 import ComingSoon from "@/components/ComingSoon";
 import PageHeader from "@/components/PageHeader";
 import {
+  enrichCampaignPreheaders,
   filterNewsletterArchiveForDisplay,
   getNewsletterArchive,
   type MailerLiteCampaign,
@@ -36,7 +37,7 @@ async function loadArchive(): Promise<MailerLiteCampaign[]> {
     page += 1;
   } while (page <= lastPage && campaigns.length < MAX_CAMPAIGNS);
 
-  return filterNewsletterArchiveForDisplay(campaigns);
+  return enrichCampaignPreheaders(filterNewsletterArchiveForDisplay(campaigns));
 }
 
 export default async function NewsletterArchivePage({
