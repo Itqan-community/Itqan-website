@@ -7,6 +7,10 @@
  */
 
 import { connection } from "next/server";
+import {
+  extractHiddenPreheader,
+  newsletterPreviewHtmlUrl,
+} from "@/lib/newsletter-preheader";
 
 const MAILERLITE_API_BASE = "https://connect.mailerlite.com/api";
 
@@ -166,6 +170,45 @@ export async function getNewsletterArchive(
   }
 
   return withFolder;
+}
+
+/**
+ * Visual-editor issues already have emails[].preheader. Custom HTML issues
+ * leave it blank and hide the sentence at the top of the body instead.
+ * Fill only the blank ones, and leave a populated preheader untouched.
+ */
+export async function enrichCampaignPreheaders(
+  campaigns: MailerLiteCampaign[]
+): Promise<MailerLiteCampaign[]> {
+  return Promise.all(campaigns.map(enrichCampaignPreheader));
+}
+
+async function enrichCampaignPreheader(
+  campaign: MailerLiteCampaign
+): Promise<MailerLiteCampaign> {
+  const primary = campaign.emails?.[0];
+  if (!primary || primary.preheader?.trim() || !primary.preview_url) {
+    return campaign;
+  }
+
+  try {
+    const response = await fetch(newsletterPreviewHtmlUrl(primary.preview_url), {
+      cache: "no-store",
+      signal: AbortSignal.timeout(8000),
+      headers: { Accept: "text/html" },
+    });
+    if (!response.ok) return campaign;
+
+    const preheader = extractHiddenPreheader(await response.text());
+    if (!preheader) return campaign;
+
+    const emails = campaign.emails.slice();
+    emails[0] = { ...primary, preheader };
+    return { ...campaign, emails };
+  } catch (error) {
+    console.error(`Failed to read preheader for campaign ${campaign.id}:`, error);
+    return campaign;
+  }
 }
 
 /*
