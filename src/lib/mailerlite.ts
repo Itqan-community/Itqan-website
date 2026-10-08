@@ -7,6 +7,10 @@
  */
 
 import { connection } from "next/server";
+import {
+  extractHiddenPreheader,
+  newsletterPreviewHtmlUrl,
+} from "@/lib/newsletter-preheader";
 
 const MAILERLITE_API_BASE = "https://connect.mailerlite.com/api";
 
@@ -168,32 +172,101 @@ export async function getNewsletterArchive(
   return withFolder;
 }
 
-/*
- * One-off archive corrections (carried over from the previous site):
- * - campaign 179450149729208120 was sent with a broken email; the corrected
- *   resend (183367375509259543 / email 183367375552251177) is hidden so only
- *   the original row shows, and its "read" link points at the corrected email.
+/**
+ * Visual-editor issues already have emails[].preheader. Custom HTML issues
+ * leave it blank and hide the sentence in the body (#itqan-preheader, else
+ * an mso-hide cell). Fill only the blank ones; leave a populated field.
+ * When a card is redirected to a corrected send, parse that HTML instead.
  */
-const REDIRECT_SOURCE_CAMPAIGN_ID = "179450149729208120";
-const REDIRECT_SOURCE_EMAIL_ID = "179450149758568250";
-const HIDDEN_RESEND_EMAIL_ID = "183367375552251177";
-const FORCE_HIDDEN_CAMPAIGN_IDS = new Set(["183367375509259543", "183621222929532334"]);
-const REDIRECT_BAREED_URL = "https://bareed.itqan.dev/preview/1744457/emails/183367375552251177";
+export async function enrichCampaignPreheaders(
+  campaigns: MailerLiteCampaign[]
+): Promise<MailerLiteCampaign[]> {
+  return Promise.all(campaigns.map(enrichCampaignPreheader));
+}
+
+async function enrichCampaignPreheader(
+  campaign: MailerLiteCampaign
+): Promise<MailerLiteCampaign> {
+  const primary = campaign.emails?.[0];
+  const previewUrl =
+    correctedPreviewUrl(campaign) ?? primary?.preview_url ?? null;
+  if (!primary || primary.preheader?.trim() || !previewUrl) {
+    return campaign;
+  }
+
+  try {
+    const response = await fetch(newsletterPreviewHtmlUrl(previewUrl), {
+      cache: "no-store",
+      signal: AbortSignal.timeout(8000),
+      headers: { Accept: "text/html" },
+    });
+    if (!response.ok) return campaign;
+
+    const preheader = extractHiddenPreheader(await response.text());
+    if (!preheader) return campaign;
+
+    const emails = campaign.emails.slice();
+    emails[0] = { ...primary, preheader };
+    return { ...campaign, emails };
+  } catch (error) {
+    console.error(`Failed to read preheader for campaign ${campaign.id}:`, error);
+    return campaign;
+  }
+}
+
+/*
+ * One-off archive corrections:
+ * - Keep the original public campaign row (date / name).
+ * - Hide the corrected resend so it does not appear as a second issue.
+ * - Point "read" (and preheader HTML) at the corrected email.
+ *
+ * 179450149729208120: broken send; corrected email 183367375552251177.
+ * 199479050565060301: newsletter 31 original; corrected email 200112311506044525.
+ * 183621222929532334: meetup message, hidden with no redirect.
+ */
+const HIDDEN_CAMPAIGN_IDS = new Set(["183367375509259543", "183621222929532334"]);
+const HIDDEN_EMAIL_IDS = new Set(["183367375552251177", "200112311506044525"]);
+
+const PREVIEW_REDIRECTS: {
+  sourceCampaignIds: string[];
+  sourceEmailIds: string[];
+  url: string;
+}[] = [
+  {
+    sourceCampaignIds: ["179450149729208120"],
+    sourceEmailIds: ["179450149758568250"],
+    url: "https://bareed.itqan.dev/preview/1744457/emails/183367375552251177",
+  },
+  {
+    sourceCampaignIds: [],
+    sourceEmailIds: ["199479050565060301"],
+    url: "https://bareed.itqan.dev/preview/1744457/emails/200112311506044525",
+  },
+];
 
 function campaignHasEmail(campaign: MailerLiteCampaign, emailId: string): boolean {
   return campaign.emails?.some((e) => String(e.id) === emailId) ?? false;
 }
 
-function isHiddenResendRow(campaign: MailerLiteCampaign): boolean {
-  if (FORCE_HIDDEN_CAMPAIGN_IDS.has(String(campaign.id))) return true;
-  if (String(campaign.default_email_id) === HIDDEN_RESEND_EMAIL_ID) return true;
-  return campaignHasEmail(campaign, HIDDEN_RESEND_EMAIL_ID);
+function campaignHasAnyEmail(campaign: MailerLiteCampaign, emailIds: Iterable<string>): boolean {
+  return [...emailIds].some((id) => campaignHasEmail(campaign, id));
 }
 
-function isRedirectSourceRow(campaign: MailerLiteCampaign): boolean {
-  if (String(campaign.id) === REDIRECT_SOURCE_CAMPAIGN_ID) return true;
-  if (String(campaign.default_email_id) === REDIRECT_SOURCE_EMAIL_ID) return true;
-  return campaignHasEmail(campaign, REDIRECT_SOURCE_EMAIL_ID);
+function isHiddenResendRow(campaign: MailerLiteCampaign): boolean {
+  if (HIDDEN_CAMPAIGN_IDS.has(String(campaign.id))) return true;
+  if (HIDDEN_EMAIL_IDS.has(String(campaign.default_email_id))) return true;
+  return campaignHasAnyEmail(campaign, HIDDEN_EMAIL_IDS);
+}
+
+function correctedPreviewUrl(campaign: MailerLiteCampaign): string | null {
+  for (const redirect of PREVIEW_REDIRECTS) {
+    if (redirect.sourceCampaignIds.includes(String(campaign.id))) return redirect.url;
+    if (redirect.sourceEmailIds.includes(String(campaign.default_email_id))) {
+      return redirect.url;
+    }
+    if (campaignHasAnyEmail(campaign, redirect.sourceEmailIds)) return redirect.url;
+  }
+  return null;
 }
 
 /** Drop duplicate corrected resends; the original campaign row stays. */
@@ -205,9 +278,8 @@ export function filterNewsletterArchiveForDisplay(
 
 /** Reader URL on bareed.itqan.dev for a campaign's primary email. */
 export function getBareedNewsletterReadUrl(campaign: MailerLiteCampaign): string {
-  if (isRedirectSourceRow(campaign)) {
-    return REDIRECT_BAREED_URL;
-  }
+  const redirected = correctedPreviewUrl(campaign);
+  if (redirected) return redirected;
 
   const primary = campaign.emails[0];
   if (primary?.preview_url) {

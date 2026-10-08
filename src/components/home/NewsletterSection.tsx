@@ -4,6 +4,7 @@ import Reveal from "@/components/ui/Reveal";
 import NewsletterCard from "@/components/newsletter/NewsletterCard";
 import NewsletterSubscribeForm from "./NewsletterSubscribeForm";
 import {
+  enrichCampaignPreheaders,
   filterNewsletterArchiveForDisplay,
   getNewsletterArchive,
   type MailerLiteCampaign,
@@ -23,7 +24,9 @@ import type { Dictionary, Locale } from "@/lib/i18n";
 async function loadLatestIssues(): Promise<MailerLiteCampaign[]> {
   try {
     const response = await getNewsletterArchive(1, 3);
-    return filterNewsletterArchiveForDisplay(response.data ?? []);
+    return enrichCampaignPreheaders(
+      filterNewsletterArchiveForDisplay(response.data ?? [])
+    );
   } catch (error) {
     console.error("Failed to load newsletter issues:", error);
     return [];
