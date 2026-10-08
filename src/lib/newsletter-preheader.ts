@@ -3,8 +3,9 @@
  *
  * Visual-editor campaigns store it on MailerLite's email.preheader, which the
  * archive already shows. HTML-from-scratch campaigns leave that field empty and
- * put the same sentence in a hidden cell at the top of the body (mso-hide:all).
- * Read the field first. Parse the HTML only when the field is blank.
+ * hide the sentence in the body: prefer #itqan-preheader, then a legacy
+ * mso-hide:all cell at the top. Read the API field first. Parse HTML only
+ * when that field is blank.
  */
 
 const PREVIEW_HOSTS = new Set([
@@ -73,8 +74,27 @@ function indexOfClosingTag(html: string, tag: string): number {
   return -1;
 }
 
-/** Text of the first hidden inbox-preview block, or "" when there isn't one. */
+function extractByElementId(html: string, id: string): string {
+  const escaped = id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const openRe = new RegExp(
+    `<([a-z0-9]+)\\b([^>]*\\bid\\s*=\\s*(?:(["'])${escaped}\\3|${escaped}\\b)[^>]*)>`,
+    "i"
+  );
+  const match = openRe.exec(html);
+  if (!match) return "";
+
+  const tag = match[1].toLowerCase();
+  const rest = html.slice(match.index + match[0].length);
+  const closeAt = indexOfClosingTag(rest, tag);
+  const inner = closeAt >= 0 ? rest.slice(0, closeAt) : rest.slice(0, 4000);
+  return visibleText(inner);
+}
+
+/** Text of #itqan-preheader, else the first hidden inbox-preview block. */
 export function extractHiddenPreheader(html: string): string {
+  const fromId = extractByElementId(html, "itqan-preheader");
+  if (fromId) return fromId;
+
   const bodyStart = html.search(/<body\b/i);
   const slice = html.slice(bodyStart < 0 ? 0 : bodyStart, (bodyStart < 0 ? 0 : bodyStart) + 40000);
   const tagRe = /<([a-z0-9]+)\b([^>]*)>/gi;
