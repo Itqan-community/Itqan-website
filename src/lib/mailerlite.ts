@@ -224,47 +224,45 @@ async function enrichCampaignPreheader(
  * 199479050565060301: newsletter 31 original; corrected email 200112311506044525.
  * 183621222929532334: meetup message, hidden with no redirect.
  */
-const HIDDEN_CAMPAIGN_IDS = new Set(["183367375509259543", "183621222929532334"]);
-const HIDDEN_EMAIL_IDS = new Set(["183367375552251177", "200112311506044525"]);
+const HIDDEN_IDS = new Set([
+  "183367375509259543", // broken send resend campaign ID
+  "183367375552251177", // broken send resend email ID
+  "183621222929532334", // meetup message campaign ID
+  "200112311506044525", // issue 31 self-resend email/campaign ID
+]);
 
 const PREVIEW_REDIRECTS: {
-  sourceCampaignIds: string[];
-  sourceEmailIds: string[];
+  sourceIds: string[];
   url: string;
 }[] = [
   {
-    sourceCampaignIds: ["179450149729208120"],
-    sourceEmailIds: ["179450149758568250"],
+    // Issue 179450149729208120 (campaign/email 179450149758568250)
+    sourceIds: ["179450149729208120", "179450149758568250"],
     url: "https://bareed.itqan.dev/preview/1744457/emails/183367375552251177",
   },
   {
-    sourceCampaignIds: [],
-    sourceEmailIds: ["199479050565060301"],
+    // Issue 31 (campaign/email 199479050565060301)
+    sourceIds: ["199479050565060301"],
     url: "https://bareed.itqan.dev/preview/1744457/emails/200112311506044525",
   },
 ];
 
-function campaignHasEmail(campaign: MailerLiteCampaign, emailId: string): boolean {
-  return campaign.emails?.some((e) => String(e.id) === emailId) ?? false;
-}
-
-function campaignHasAnyEmail(campaign: MailerLiteCampaign, emailIds: Iterable<string>): boolean {
-  return [...emailIds].some((id) => campaignHasEmail(campaign, id));
+function campaignMatchesAnyId(campaign: MailerLiteCampaign, ids: Iterable<string>): boolean {
+  const set = ids instanceof Set ? ids : new Set(ids);
+  if (set.has(String(campaign.id))) return true;
+  if (set.has(String(campaign.default_email_id))) return true;
+  return campaign.emails?.some((e) => set.has(String(e.id))) ?? false;
 }
 
 function isHiddenResendRow(campaign: MailerLiteCampaign): boolean {
-  if (HIDDEN_CAMPAIGN_IDS.has(String(campaign.id))) return true;
-  if (HIDDEN_EMAIL_IDS.has(String(campaign.default_email_id))) return true;
-  return campaignHasAnyEmail(campaign, HIDDEN_EMAIL_IDS);
+  return campaignMatchesAnyId(campaign, HIDDEN_IDS);
 }
 
 function correctedPreviewUrl(campaign: MailerLiteCampaign): string | null {
   for (const redirect of PREVIEW_REDIRECTS) {
-    if (redirect.sourceCampaignIds.includes(String(campaign.id))) return redirect.url;
-    if (redirect.sourceEmailIds.includes(String(campaign.default_email_id))) {
+    if (campaignMatchesAnyId(campaign, redirect.sourceIds)) {
       return redirect.url;
     }
-    if (campaignHasAnyEmail(campaign, redirect.sourceEmailIds)) return redirect.url;
   }
   return null;
 }
