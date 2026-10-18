@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { subscribeToNewsletter } from "@/lib/mailerlite";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -7,6 +8,7 @@ interface SubscribeBody {
   email?: string;
   name?: string;
   sourcepage?: string;
+  turnstileToken?: string;
 }
 
 export async function POST(request: NextRequest) {
@@ -17,7 +19,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const { email, name, sourcepage } = body ?? {};
+  const { email, name, sourcepage, turnstileToken } = body ?? {};
 
   if (!email) {
     return NextResponse.json({ error: "Email is required" }, { status: 400 });
@@ -25,6 +27,21 @@ export async function POST(request: NextRequest) {
 
   if (!EMAIL_REGEX.test(email)) {
     return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
+  }
+
+  if (!turnstileToken) {
+    return NextResponse.json(
+      { error: "Verification token is required" },
+      { status: 400 }
+    );
+  }
+
+  const ip = request.headers.get("cf-connecting-ip") ?? undefined;
+  if (!(await verifyTurnstile(turnstileToken, ip))) {
+    return NextResponse.json(
+      { error: "Verification failed. Please try again." },
+      { status: 403 }
+    );
   }
 
   try {

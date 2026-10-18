@@ -1,6 +1,38 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { TURNSTILE_SITE_KEY } from "@/lib/turnstile";
+
+type TurnstileApi = {
+  render: (container: HTMLElement, options: Record<string, unknown>) => string;
+  reset: (widgetId?: string) => void;
+  remove: (widgetId?: string) => void;
+};
+
+declare global {
+  interface Window {
+    turnstile?: TurnstileApi;
+  }
+}
+
+let turnstileScript: Promise<void> | null = null;
+
+/** Inject the Turnstile script once per page, however many forms mount. */
+function loadTurnstile(): Promise<void> {
+  turnstileScript ??= new Promise<void>((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src =
+      "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.async = true;
+    script.onload = () => resolve();
+    script.onerror = () => {
+      turnstileScript = null;
+      reject(new Error("Turnstile failed to load"));
+    };
+    document.head.appendChild(script);
+  });
+  return turnstileScript;
+}
 
 type SubmitStatus = "idle" | "submitting" | "success" | "error";
 type Tone = "light" | "dark";
@@ -69,10 +101,46 @@ export default function NewsletterSubscribeForm({
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [message, setMessage] = useState("");
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const widgetRef = useRef<HTMLDivElement>(null);
+  const widgetId = useRef<string | undefined>(undefined);
+  const turnstileToken = useRef("");
+  // The interaction-only widget is invisible; it only takes space if a challenge is shown.
+  const [challengeVisible, setChallengeVisible] = useState(false);
 
   useEffect(() => {
     return () => {
       if (resetTimer.current) clearTimeout(resetTimer.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadTurnstile()
+      .then(() => {
+        if (cancelled || !widgetRef.current || !window.turnstile) return;
+        widgetId.current = window.turnstile.render(widgetRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          appearance: "interaction-only",
+          callback: (token: string) => {
+            turnstileToken.current = token;
+          },
+          "expired-callback": () => {
+            turnstileToken.current = "";
+          },
+          "error-callback": () => {
+            turnstileToken.current = "";
+          },
+          "before-interactive-callback": () => setChallengeVisible(true),
+          "after-interactive-callback": () => setChallengeVisible(false),
+        });
+      })
+      .catch(() => {
+        // Script blocked or offline: submit shows the generic error.
+      });
+    return () => {
+      cancelled = true;
+      if (widgetId.current) window.turnstile?.remove(widgetId.current);
+      widgetId.current = undefined;
     };
   }, []);
 
@@ -84,10 +152,17 @@ export default function NewsletterSubscribeForm({
     setMessage("");
 
     try {
+      if (!turnstileToken.current) throw new Error(labels.errorFallback);
+
       const response = await fetch("/api/newsletter/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, sourcepage }),
+        body: JSON.stringify({
+          name,
+          email,
+          sourcepage,
+          turnstileToken: turnstileToken.current,
+        }),
       });
 
       const data = await response.json().catch(() => null);
@@ -107,6 +182,10 @@ export default function NewsletterSubscribeForm({
           : labels.errorFallback
       );
     }
+
+    // Tokens are single-use: get a fresh one for the next attempt.
+    turnstileToken.current = "";
+    if (widgetId.current) window.turnstile?.reset(widgetId.current);
 
     if (resetTimer.current) clearTimeout(resetTimer.current);
     resetTimer.current = setTimeout(() => {
@@ -151,6 +230,8 @@ export default function NewsletterSubscribeForm({
           {status === "submitting" ? labels.submittingLabel : labels.submitLabel}
         </button>
       </div>
+      {/* Absolutely positioned while invisible so it adds no flex gap. */}
+      <div ref={widgetRef} className={challengeVisible ? "" : "absolute"} />
       <p
         aria-live="polite"
         className={`w-full text-start text-[13px] leading-[normal] ${
