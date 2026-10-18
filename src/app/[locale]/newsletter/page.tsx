@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "أرشيف نشرات إتقان — قصص مُلهمة وأدوات عملية ونقاشات ثرية من عالم التقنيات القرآنية.",
 };
 
-// Fetch MailerLite at request time so Netlify runtime env is visible.
+// Fetch MailerLite at request time so the runtime secret is visible.
 export const dynamic = "force-dynamic";
 
 const PAGE_SIZE = 12;
