@@ -14,23 +14,15 @@ import {
 
 const MAILERLITE_API_BASE = "https://connect.mailerlite.com/api";
 
-type NetlifyEnvHost = {
-  env?: { get?: (key: string) => string | undefined };
-};
-
 /**
  * Read a server secret at request time.
  *
- * Static `process.env.NAME` can be inlined to "" during `next build` when
- * Netlify only injects the value into Functions, not the build. Dynamic
- * lookup + Netlify.env.get keep the runtime value. Trim handles paste noise.
+ * Static `process.env.NAME` can be inlined to "" during `next build` when the
+ * value is only injected at runtime (Worker secret). Dynamic lookup keeps the
+ * runtime value. Trim handles paste noise.
  */
 function readServerSecret(name: "MAILERLITE_API_KEY"): string {
-  const candidates = [
-    process.env.MAILERLITE_API_KEY,
-    process.env[name],
-    (globalThis as { Netlify?: NetlifyEnvHost }).Netlify?.env?.get?.(name),
-  ];
+  const candidates = [process.env.MAILERLITE_API_KEY, process.env[name]];
 
   for (const value of candidates) {
     if (typeof value === "string" && value.trim().length > 0) {
