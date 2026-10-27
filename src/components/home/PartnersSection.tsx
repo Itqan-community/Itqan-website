@@ -25,7 +25,7 @@ export const partners: {
   { logo: "/figma/partner-tafsir.png", w: 160, h: 56, contain: true, name: { en: "Tafseer Center For Qur'anic Studies", ar: "مركز تفسير للدراسات القرآنية" } },
   { logo: "/figma/partner-burhan.png", w: 160, h: 56, contain: true, name: { en: "Alborhan", ar: "جمعية البرهان لخدمة القرآن والسنة" } },
   { logo: "/figma/partner-qurancom.png", w: 160, h: 56, contain: true, name: { en: "Quran.com", ar: "Quran.com" } },
-  { logo: "/figma/partner-tarteel.svg", w: 160, h: 25.43, name: { en: "Tarheel.ai", ar: "ترتيل Tarteel.ai" } },
+  { logo: "/figma/partner-tarteel.svg", w: 160, h: 25.43, name: { en: "Tarteel.ai", ar: "ترتيل Tarteel.ai" } },
   { logo: "/figma/partner-greentech.svg", w: 160, h: 53.6, name: { en: "Greentech", ar: "Greentech" } },
   { logo: "/figma/partner-bdms.svg", w: 46.667, h: 56, name: { en: "PDMS", ar: "بي دي إم إس" } },
   { logo: "/figma/partner-zad.png", w: 160, h: 56, contain: true, name: { en: "Zad group", ar: "مجموعة زاد" } },
