@@ -84,9 +84,9 @@ const ar = {
 
     stats: {
       items: [
-        { value: "+580", label: "نقاش تقني" }, // ← StatsCard.tsx:12-15
-        { value: "+5,700", label: "مساهمة", mobileLabel: "مساهمة مضافة" },
-        { value: "+1,500", label: "مطور وباحث", mobileLabel: "مطور وباحث نشط" },
+        { value: "+880", label: "نقاش تقني" }, // ← StatsCard.tsx:12-15
+        { value: "+8,800", label: "مساهمة", mobileLabel: "مساهمة مضافة" },
+        { value: "+2,500", label: "مطور وباحث", mobileLabel: "مطور وباحث نشط" },
         { value: "+15", label: "مشروع مفتوح المصدر" },
       ],
     },
