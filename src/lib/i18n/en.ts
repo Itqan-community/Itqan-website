@@ -90,7 +90,7 @@ const en: Dictionary = {
       items: [
         { value: "+880", label: "discussion threads" }, // md:12
         { value: "+8,800", label: "contributions", mobileLabel: "contributions added" },
-        { value: "+2,500", label: "developers and researchers", mobileLabel: "active developers and researchers" },
+        { value: "+5,000", label: "developers and researchers", mobileLabel: "active developers and researchers" },
         { value: "+15", label: "open-source projects" },
       ],
     },
