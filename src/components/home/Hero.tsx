@@ -83,7 +83,7 @@ function TrackItem({
         />
       ) : (
         <ShotCard
-          src={`/figma/hero-shot-${item.index}.png`}
+          src={`/figma/hero-shot-${item.index}.jpg`}
           alt={shotAlt}
         />
       )}
@@ -222,7 +222,7 @@ export default function Hero({
                       />
                     ) : (
                       <ShotCard
-                        src={`/figma/hero-shot-${item.index}.png`}
+                        src={`/figma/hero-shot-${item.index}.jpg`}
                         alt={dict.shotAlt}
                         className="h-[158.4px] w-[220px]"
                         dropShadow={false}
