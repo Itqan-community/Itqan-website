@@ -140,13 +140,13 @@ def update_index_html(resources):
         if idx_start == -1:
             return
 
-        idx_end = html.find("\n    ];", idx_start)
+        end_token = "const SHEIKH_IMG_HTML ="
+        idx_end = html.find(end_token, idx_start)
         if idx_end == -1:
-            idx_end = html.find("];", idx_start)
-        idx_end = html.find(";", idx_end) + 1
+            return
 
         formatted_json = json.dumps(resources, ensure_ascii=False, indent=6)
-        new_embedded_block = f"const EMBEDDED_RESOURCES = {formatted_json};"
+        new_embedded_block = f"const EMBEDDED_RESOURCES = {formatted_json};\n\n    "
         new_html = html[:idx_start] + new_embedded_block + html[idx_end:]
 
         with open(INDEX_FILE, "w", encoding="utf-8") as f:

@@ -6473,7 +6473,23 @@
       }
 ];
 
-    // Load data from external JSON with cache-busting
+    const SHEIKH_IMG_HTML = `<img src="data:image/png;base64,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" class="custom-sheikh-icon" alt="نماذج تسميع القرآن">`;
+
+    let allResources = EMBEDDED_RESOURCES;
+    let selectedCategory = null; // NOTHING SHOWN INITIALLY UNLESS USER SELECTS A FOLDER!
+    let searchQuery = '';
+    let openedCardId = null;     // ALL CARDS FOLDED BY DEFAULT
+
+    // Defined Categories Configuration
+    const CATEGORIES = [
+      { id: 'ai', title: 'نماذج تسميع القرآن', icon: SHEIKH_IMG_HTML, label: 'نماذج' },
+      { id: 'audio', title: 'حزم البيانات والصوتيات', icon: '🔊', label: 'حزم' },
+      { id: 'fonts', title: 'الخطوط والمصاحف', icon: '✒️', label: 'خطوط' },
+      { id: 'tools', title: 'البرمجيات والأدوات', icon: '💻', label: 'أدوات' },
+      { id: 'research', title: 'الأبحاث والدراسات', icon: '📚', label: 'أبحاث' },
+      { id: 'workshops', title: 'الورش والمحاضرات', icon: '📺', label: 'ورش' }
+    ];
+
     async function loadData() {
       try {
         const res = await fetch('resources.json?v=' + Date.now(), { cache: 'no-store' });
