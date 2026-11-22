@@ -1,24 +1,30 @@
 #!/usr/bin/env python3
 """
 sync_resources.py
-Automated deep-mining scanner and updater for Itqan Library (مكتبة إتقان).
+Automated deep-mining scanner, link validator, and updater for Itqan Library (مكتبة إتقان).
 Scans Itqan Community discussions AND replies/posts across all tags and search queries
 for new datasets, models, tools, papers, and recorded workshops/sessions, and automatically upserts them into resources.json.
 
-Includes a Resilient 3-Tier Fallback Engine:
-- Tier 1: Google Gemini 1.5 Flash (AI Semantic Classification & Summarization)
-- Tier 2: Groq Llama-3.3-70B / OpenRouter (Secondary AI Backup if Gemini is rate-limited or fails)
-- Tier 3: Deterministic Rule-Based & Heuristic Engine (Zero-AI, Zero-cost, 100% offline & keyless)
+Features:
+- Parallel Link Health Checker (ThreadPoolExecutor with HEAD/GET verification to eliminate 404/410 broken links)
+- Resilient 3-Tier Fallback Engine:
+  - Tier 1: Google Gemini 1.5 Flash (AI Semantic Classification & Summarization)
+  - Tier 2: Groq Llama-3.3-70B / OpenRouter (Secondary AI Backup if Gemini is rate-limited or fails)
+  - Tier 3: Deterministic Rule-Based & Heuristic Engine (Zero-AI, Zero-cost, 100% offline & keyless)
+- Auto-embedding into index.html for zero-latency standalone execution.
 """
 
 import json
 import os
 import re
 import sys
+import concurrent.futures
 import urllib.request
 import urllib.error
+import ssl
 
 RESOURCES_FILE = os.path.join(os.path.dirname(__file__), "resources.json")
+INDEX_FILE = os.path.join(os.path.dirname(__file__), "index.html")
 BASE_DISCUSSIONS_API = "https://community.itqan.dev/api/discussions"
 BASE_POSTS_API = "https://community.itqan.dev/api/posts"
 
@@ -58,16 +64,102 @@ EXCLUDE_LINK_PATTERNS = [
     "mailerlite.com", "t.me"
 ]
 
+SSL_CTX = ssl.create_default_context()
+SSL_CTX.check_hostname = False
+SSL_CTX.verify_mode = ssl.CERT_NONE
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+}
+
+URL_CACHE = {}
+
+def verify_single_url(url, timeout=7):
+    """
+    Carefully validates whether a URL is alive.
+    A link is considered dead ONLY if it returns HTTP 404, 410, or DNS resolution failure.
+    Uses HEAD first, then falls back to GET (bytes 0-100) to avoid false positives.
+    """
+    if url in URL_CACHE:
+        return URL_CACHE[url]
+
+    # 1. Try HEAD request
+    try:
+        req = urllib.request.Request(url, headers=HEADERS, method="HEAD")
+        with urllib.request.urlopen(req, timeout=timeout, context=SSL_CTX) as resp:
+            URL_CACHE[url] = True
+            return True
+    except urllib.error.HTTPError as e:
+        pass
+    except Exception:
+        pass
+
+    # 2. Test with GET (handles servers rejecting HEAD or CDN bot challenges)
+    try:
+        get_headers = dict(HEADERS)
+        get_headers["Range"] = "bytes=0-100"
+        req_get = urllib.request.Request(url, headers=get_headers, method="GET")
+        with urllib.request.urlopen(req_get, timeout=timeout, context=SSL_CTX) as resp:
+            URL_CACHE[url] = True
+            return True
+    except urllib.error.HTTPError as e:
+        if e.code in (404, 410):
+            URL_CACHE[url] = False
+            return False
+        # 403, 429, 500 etc. mean server exists but throttles/protects bots
+        URL_CACHE[url] = True
+        return True
+    except urllib.error.URLError as e:
+        reason_str = str(e.reason).lower()
+        if "not known" in reason_str or "nodename" in reason_str or "getaddrinfo failed" in reason_str or "connection refused" in reason_str:
+            URL_CACHE[url] = False
+            return False
+        URL_CACHE[url] = True
+        return True
+    except Exception:
+        URL_CACHE[url] = True
+        return True
+
 def load_existing():
     if os.path.exists(RESOURCES_FILE):
         with open(RESOURCES_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     return []
 
+def update_index_html(resources):
+    """Embeds the updated resources.json data directly into index.html for offline support."""
+    if not os.path.exists(INDEX_FILE):
+        return
+    try:
+        with open(INDEX_FILE, "r", encoding="utf-8") as f:
+            html = f.read()
+
+        start_token = "const EMBEDDED_RESOURCES = ["
+        idx_start = html.find(start_token)
+        if idx_start == -1:
+            return
+
+        idx_end = html.find("\n    ];", idx_start)
+        if idx_end == -1:
+            idx_end = html.find("];", idx_start)
+        idx_end = html.find(";", idx_end) + 1
+
+        formatted_json = json.dumps(resources, ensure_ascii=False, indent=6)
+        new_embedded_block = f"const EMBEDDED_RESOURCES = {formatted_json};"
+        new_html = html[:idx_start] + new_embedded_block + html[idx_end:]
+
+        with open(INDEX_FILE, "w", encoding="utf-8") as f:
+            f.write(new_html)
+        print(f"Successfully synced index.html with {len(resources)} embedded resources.")
+    except Exception as e:
+        print(f"Notice: Failed to embed resources into index.html: {e}", file=sys.stderr)
+
 def save_resources(data):
     with open(RESOURCES_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     print(f"Successfully saved {len(data)} curated resources to {RESOURCES_FILE}")
+    update_index_html(data)
 
 def api_get(url):
     req = urllib.request.Request(
@@ -85,6 +177,7 @@ def extract_links_from_text(text):
     """
     Find and cleanly format genuine resource links.
     Handles standard URLs as well as Flarum embedded iframes (e.g. YouTube nocookie embeds).
+    Fast regex extraction; validation is performed in batch in Stage 3.
     """
     urls = re.findall(r'https?://[^\s<>"\)\]]+', text)
     
@@ -282,7 +375,58 @@ def ai_classify_and_summarize(title, content, links):
     # --- Tier 3: Deterministic Rule-Based Fallback (Zero-AI) ---
     return rule_based_classify_and_summarize(title, content)
 
-def scan_and_update():
+def clean_and_verify_all_resources(existing):
+    """
+    Parallel health check across all library resources.
+    Removes 404/410/dead URLs and prunes cards that have 0 remaining active download links.
+    """
+    print("\nStarting Parallel Link Health Check & Dead Link Verification...")
+    all_urls = set()
+    for item in existing:
+        for l in item.get("links", []):
+            all_urls.add(l["url"])
+
+    urls_list = list(all_urls)
+    print(f"Verifying {len(urls_list)} unique links across {len(existing)} resources...")
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=25) as executor:
+        future_map = {executor.submit(verify_single_url, u): u for u in urls_list}
+        done = 0
+        for future in concurrent.futures.as_completed(future_map):
+            done += 1
+            # URL_CACHE is updated in verify_single_url
+
+    cleaned = []
+    removed_links_count = 0
+    pruned_cards_count = 0
+
+    for item in existing:
+        valid_links = []
+        for l in item.get("links", []):
+            if URL_CACHE.get(l["url"], True):
+                valid_links.append(l)
+            else:
+                removed_links_count += 1
+
+        if not valid_links:
+            pruned_cards_count += 1
+            continue
+
+        item_copy = dict(item)
+        item_copy["links"] = valid_links
+        if "روابط" in item_copy.get("metric", "") or "مصادر" in item_copy.get("metric", ""):
+            item_copy["metric"] = f"{len(valid_links)} مصادر وروابط مباشرة"
+        cleaned.append(item_copy)
+
+    # Re-index IDs consecutively
+    for idx, item in enumerate(cleaned, 1):
+        item["id"] = idx
+
+    print(f"Link Health Verification complete: Removed {removed_links_count} dead/404 links, pruned {pruned_cards_count} empty resources.")
+    print(f"Total active verified resources: {len(cleaned)}")
+    return cleaned
+
+def scan_and_update(run_health_check=True):
     existing = load_existing()
     existing_by_num = {str(item.get("discussionNum")): item for item in existing if item.get("discussionNum")}
     
@@ -408,7 +552,6 @@ def scan_and_update():
             
             # Also check if any reply in this discussion contains a YouTube recording or gold link
             if not links or not any(l["src"] in ["GitHub", "HuggingFace", "Archive.org", "ورقة علمية", "فيديو مسجل"] for l in links):
-                # Fetch discussion posts to inspect replies
                 detailed_disc = api_get(f"{BASE_DISCUSSIONS_API}/{disc_id}")
                 if detailed_disc and "included" in detailed_disc:
                     for inc in detailed_disc.get("included", []):
@@ -452,11 +595,14 @@ def scan_and_update():
                 new_count += 1
                 print(f"  [+] Curated and added: {title[:40]} (#{disc_id}) -> {new_item['category']}")
 
-    if new_count > 0 or updated_links_count > 0:
-        save_resources(existing)
-        print(f"Curation complete: Added {new_count} new assets, auto-mined {updated_links_count} new links into existing cards.")
-    else:
-        print("Curation complete: Library is fully up to date.")
+    # -------------------------------------------------------------
+    # Stage 3: Health Check & Dead Link Pruning
+    # -------------------------------------------------------------
+    if run_health_check:
+        existing = clean_and_verify_all_resources(existing)
+
+    save_resources(existing)
+    print(f"Sync & Health Check complete: Curated {len(existing)} active resources.")
 
 if __name__ == "__main__":
     scan_and_update()

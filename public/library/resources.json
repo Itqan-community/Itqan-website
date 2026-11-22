@@ -17,11 +17,6 @@
         "src": "HuggingFace"
       },
       {
-        "name": "مستودع الكود والمكتبة على GitHub",
-        "url": "https://github.com/quranlab",
-        "src": "GitHub"
-      },
-      {
         "name": "لوحة صدارة نماذج التسميع (Leaderboard)",
         "url": "https://huggingface.co/spaces/Quran-Lab/quranic-asr-leaderboard",
         "src": "Leaderboard"
@@ -41,11 +36,6 @@
     "description": "نموذج التعرف الصوتي الشهير zipformer_p-arabic-v3، لا يكتفي بكتابة الحروف إملائياً بل يكتب ما نطقه القارئ صوتاً صوتاً (فونيمات) مع قياس أزمنة المدود وحركات الإعراب بدقة لتمكين تطبيقات التسميع الذكية.",
     "links": [
       {
-        "name": "مستودع تدريب النموذج وتصديره (ONNX)",
-        "url": "https://github.com/quranlab/zipformer-arabic",
-        "src": "GitHub"
-      },
-      {
         "name": "تحميل أوزان النموذج على HuggingFace",
         "url": "https://huggingface.co/Quran-Lab/zipformer_p-arabic-v3",
         "src": "HuggingFace"
@@ -54,30 +44,6 @@
   },
   {
     "id": 3,
-    "title": "المعلم القرآني (Quran Muaalem): نظام ونموذج كشف أخطاء التلاوة",
-    "category": "ai",
-    "icon": "👳‍♂️",
-    "license": "مفتوح المصدر (GPL-3.0)",
-    "metric": "كشف اللحن الجلي وتصحيح الكلمات",
-    "author": "طارق منصور (@iphoneislam)",
-    "discussionUrl": "https://community.itqan.dev/d/102",
-    "discussionNum": "102",
-    "description": "منظومة ونموذج ذكاء اصطناعي مفتوح المصدر تم تدريبه لكشف أخطاء التلاوة التلقائية وتنبيه القارئ للكلمات المنسية أو المبدلة، يعتمد عليه العديد من المطورين كنواة لتطبيقات التسميع والمراجعة اليومية.",
-    "links": [
-      {
-        "name": "المستودع الرئيسي للمشروع (GitHub)",
-        "url": "https://github.com/iphoneislam/Quran-Muaalem",
-        "src": "GitHub"
-      },
-      {
-        "name": "مستودع أداة التسميع لمصحف السراج",
-        "url": "https://github.com/khalid-taha/quran-muaalem-web",
-        "src": "GitHub"
-      }
-    ]
-  },
-  {
-    "id": 4,
     "title": "نموذج SAWT V4 لترميم ومعالجة التلاوات الصوتية بجودة 48kHz",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -92,16 +58,11 @@
         "name": "صفحة النموذج على HuggingFace",
         "url": "https://huggingface.co/Quran-Lab/sawt-v4",
         "src": "HuggingFace"
-      },
-      {
-        "name": "كود المعالجة والترميم على GitHub",
-        "url": "https://github.com/quranlab/sawt-restoration",
-        "src": "GitHub"
       }
     ]
   },
   {
-    "id": 5,
+    "id": 4,
     "title": "نموذج Tarteel Whisper للتعرف الصوتي على الآيات القرآنية",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -125,7 +86,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": 5,
     "title": "محرك BurhanAI المفتوح للتحقق من المخرجات القرآنية ومنع الهلوسة",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -137,11 +98,6 @@
     "description": "معمارية برمجية مفتوحة المصدر مصممة لربط النماذج اللغوية الكبيرة (LLMs) بقواعد التحقق القرآني الصارمة لمنع هلوسة الآيات والتحقق من صحة الاستدلال ومطابقة الرسم العثماني.",
     "links": [
       {
-        "name": "مستودع BurhanAI على GitHub",
-        "url": "https://github.com/BurhanAI/burhan-core",
-        "src": "GitHub"
-      },
-      {
         "name": "حزم بايثون الرسمية (PyPI)",
         "url": "https://pypi.org/project/burhan-ai",
         "src": "PyPI"
@@ -149,7 +105,7 @@
     ]
   },
   {
-    "id": 7,
+    "id": 6,
     "title": "نموذج FastConformer Quran CTC ONNX للتعرف السريع",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -173,26 +129,7 @@
     ]
   },
   {
-    "id": 8,
-    "title": "نظام AraS2P لتجزئة التلاوة القرآنية إلى فونيمات صوتية دقيقة",
-    "category": "ai",
-    "icon": "👳‍♂️",
-    "license": "أبحاث مفتوحة المصدر",
-    "metric": "تفكيك النطق إلى وحدات صوتية أساسية",
-    "author": "مختبر الصوتيات القرآنية",
-    "discussionUrl": "https://community.itqan.dev/d/87",
-    "discussionNum": "87",
-    "description": "نظام صوتي متقدم يحول الموجات الصوتية للتلاوة مباشرة إلى فونيمات تجويدية وصوتية، مما يمكن الأنظمة من مقارنة صوت المتعلم بصوت الشيخ بدقة مخارج الحروف والصفات.",
-    "links": [
-      {
-        "name": "مستودع AraS2P على GitHub",
-        "url": "https://github.com/itqan-community/aras2p",
-        "src": "GitHub"
-      }
-    ]
-  },
-  {
-    "id": 9,
+    "id": 7,
     "title": "أداة التسميع المباشرة فوق Muaalem لمصحف السراج",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -204,11 +141,6 @@
     "description": "تطبيق ومحرك تسميع تفاعلي مبني فوق نواة Muaalem، يوفر تجربة سلسة للمستخدم أثناء التسميع مع التلوين الفوري للآيات المنطوقة والتنبيه الصوتي عند حدوث خطأ في القراءة.",
     "links": [
       {
-        "name": "المستودع البرمجي على GitHub",
-        "url": "https://github.com/khalid-taha/quran-muaalem-web",
-        "src": "GitHub"
-      },
-      {
         "name": "التجربة الحية لأداة التسميع",
         "url": "https://community.itqan.dev/d/991",
         "src": "Live Tool"
@@ -216,7 +148,7 @@
     ]
   },
   {
-    "id": 10,
+    "id": 8,
     "title": "نموذج Cohere Quranic Evaluation للتحقق الصوتي والنصي",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -235,12 +167,12 @@
     ]
   },
   {
-    "id": 11,
+    "id": 9,
     "title": "حزم تسجيلات المتعلمين ومجموعات بيانات أخطاء التلاوة",
     "category": "audio",
     "icon": "🎙️",
     "license": "بيانات بحثية مفتوحة للجميع",
-    "metric": "أكثر من 95,000 مقطع صوتي + 8 مصادر مباشرة",
+    "metric": "8 مصادر وروابط مباشرة",
     "author": "أحمد التميمي (@Ahmed_Al_Tamimi)",
     "discussionUrl": "https://community.itqan.dev/d/930",
     "discussionNum": "930",
@@ -289,7 +221,7 @@
     ]
   },
   {
-    "id": 12,
+    "id": 10,
     "title": "مشروع QUA: تلاوات متعددة الروايات مع توقيتات بالكلمة والآية",
     "category": "audio",
     "icon": "🎙️",
@@ -301,11 +233,6 @@
     "description": "مبادرة Qur'anic Universal Audio لتوحيد تسجيلات المصاحف بروايات متعددة ومزامنتها بملفات توقيت دقيقة على مستوى الكلمة والحرف، لتسهيل بناء تطبيقات المصاحف متعددة الروايات.",
     "links": [
       {
-        "name": "مستودع بيانات QUA على GitHub",
-        "url": "https://github.com/itqan-community/qua-audio-dataset",
-        "src": "GitHub"
-      },
-      {
         "name": "ملفات التوقيت ومحاذاة الروايات",
         "url": "https://huggingface.co/datasets/itqan/qua-alignments",
         "src": "HuggingFace"
@@ -313,69 +240,7 @@
     ]
   },
   {
-    "id": 13,
-    "title": "مشروع تدبُّر (Tadabbur): أضخم مجموعة بيانات صوتية لمشاهير القراء",
-    "category": "audio",
-    "icon": "🎙️",
-    "license": "بيانات وقفية عامة",
-    "metric": "عشرات المصاحف المرتلة الكاملة",
-    "author": "فريق مشروع تدبر القرآني",
-    "discussionUrl": "https://community.itqan.dev/d/402",
-    "discussionNum": "402",
-    "description": "أرشيف صوتي فائق الجودة يجمع تلاوات المصحف الكاملة لأبرز أئمة الحرمين ومشاهير القراء بصيغة MP3 نقية، مع معرّفات موحدة للآيات والسور لتسهيل البث الصوتي المباشر في التطبيقات.",
-    "links": [
-      {
-        "name": "مستودع الأرشيف المفتوح على Archive.org",
-        "url": "https://archive.org/details/tadabbur-quran-audio",
-        "src": "Archive.org"
-      }
-    ]
-  },
-  {
-    "id": 14,
-    "title": "مجموعة بيانات مصحف المدينة الصوتية وطوابع الكلمات الزمنية",
-    "category": "audio",
-    "icon": "🎙️",
-    "license": "مفتوح المصدر للاستخدام غير التجاري",
-    "metric": "طوابع زمنية دقيقة لـ 77,430 كلمة",
-    "author": "مبادرة البيانات المفتوحة",
-    "discussionUrl": "https://community.itqan.dev/d/968",
-    "discussionNum": "968",
-    "description": "بيانات التوقيت الدقيق على مستوى كل كلمة في القرآن الكريم، تم إنتاجها ومراجعتها يدويّاً للتلاوات التعليمية، مما يتيح تلوين الكلمة المنطوقة لحظة تلاوتها على صفحة المصحف.",
-    "links": [
-      {
-        "name": "ملفات التوقيت بتنسيق JSON و CSV",
-        "url": "https://github.com/itqan-community/quran-word-timestamps",
-        "src": "GitHub"
-      },
-      {
-        "name": "تحميل الحزم المضغوطة على Archive.org",
-        "url": "https://archive.org/details/quran-word-by-word-timestamps",
-        "src": "Archive.org"
-      }
-    ]
-  },
-  {
-    "id": 15,
-    "title": "المصحف المرتل الجديد للشيخ المنشاوي مجزأً بالآيات (Studio Master)",
-    "category": "audio",
-    "icon": "🎙️",
-    "license": "متاح للاستخدام العام والتطبيقات",
-    "metric": "ختمة كاملة مجزأة آية بآية بنقاء فائق",
-    "author": "فريق رقمنة التلاوات التاريخية",
-    "discussionUrl": "https://community.itqan.dev/d/562",
-    "discussionNum": "562",
-    "description": "الختمة الإذاعية المرتلة الكاملة للشيخ محمد صديق المنشاوي، تم تنقيتها رقمياً وفصلها آية آية مع تسمية موحدة وفق معايير قواعد بيانات التطبيقات القرآنية.",
-    "links": [
-      {
-        "name": "تحميل الختمة كاملة على Archive.org",
-        "url": "https://archive.org/details/minshawi-murattal-verse-by-verse",
-        "src": "Archive.org"
-      }
-    ]
-  },
-  {
-    "id": 16,
+    "id": 11,
     "title": "أرشيف تلاوات EveryAyah الشامل مع واجهة برمجية مفتوحة",
     "category": "audio",
     "icon": "🎙️",
@@ -399,7 +264,7 @@
     ]
   },
   {
-    "id": 17,
+    "id": 12,
     "title": "أرشيف خطوط ومصاحف مجمع الملك فهد (KFGQPC Fonts)",
     "category": "fonts",
     "icon": "✒️",
@@ -416,11 +281,6 @@
         "src": "Official Portal"
       },
       {
-        "name": "مستودع الخطوط والترميز على GitHub",
-        "url": "https://github.com/quran/quran.nd",
-        "src": "GitHub"
-      },
-      {
         "name": "حزم خطوط الروايات على HuggingFace",
         "url": "https://huggingface.co/datasets/itqan/kfgqpc-fonts",
         "src": "HuggingFace"
@@ -428,55 +288,7 @@
     ]
   },
   {
-    "id": 18,
-    "title": "مصحف عماد: خط متجهي مفتوح المصدر للرسم العثماني",
-    "category": "fonts",
-    "icon": "✒️",
-    "license": "رخصة الخطوط المفتوحة (OFL-1.1)",
-    "metric": "خط متجهي TrueType و WOFF2",
-    "author": "فريق خط عماد والمساهمون",
-    "discussionUrl": "https://community.itqan.dev/d/11",
-    "discussionNum": "11",
-    "description": "خط حاسوبي طباعي مفتوح المصدر مصمم للرسم العثماني برواية حفص عن عاصم، يدعم الضبط التام والتشكيل الدقيق لكافة الآيات وعلامات الوقف والابتداء دون تداخل في الأحرف.",
-    "links": [
-      {
-        "name": "المستودع الرسمي على GitHub",
-        "url": "https://github.com/EmadQuran/EmadFont",
-        "src": "GitHub"
-      },
-      {
-        "name": "تحميل ملفات الخط المباشرة (TTF & WOFF2)",
-        "url": "https://github.com/EmadQuran/EmadFont/releases",
-        "src": "Direct Download"
-      }
-    ]
-  },
-  {
-    "id": 19,
-    "title": "قاعدة بيانات صفحات المصحف المتجهية (MushafDatabase SVG)",
-    "category": "fonts",
-    "icon": "✒️",
-    "license": "مفتوح المصدر",
-    "metric": "604 صفحة بدقة متناهية SVG",
-    "author": "مبادرة المصحف الرقمي",
-    "discussionUrl": "https://community.itqan.dev/d/693",
-    "discussionNum": "693",
-    "description": "قاعدة بيانات رسومية متكاملة توفر كل صفحة من صفحات مصحف المدينة بصيغة SVG فائقة الدقة وقابلة للتكبير اللانهائي دون أي تشوه، مع معرّفات مستقلة لكل آية وسط وإطار.",
-    "links": [
-      {
-        "name": "مستودع ملفات SVG على GitHub",
-        "url": "https://github.com/mushaf/mushaf-svg-pages",
-        "src": "GitHub"
-      },
-      {
-        "name": "الأرشيف الرسومي على Archive.org",
-        "url": "https://archive.org/details/mushaf-svg-highres",
-        "src": "Archive.org"
-      }
-    ]
-  },
-  {
-    "id": 20,
+    "id": 13,
     "title": "خط الأميري القرآني (Amiri Quran Font)",
     "category": "fonts",
     "icon": "✒️",
@@ -500,69 +312,7 @@
     ]
   },
   {
-    "id": 21,
-    "title": "مكتبة علامات الآيات ورؤوس الفواصل المتجهية (Ayah Markers Library)",
-    "category": "fonts",
-    "icon": "✒️",
-    "license": "مفتوح المصدر (MIT)",
-    "metric": "رموز وأرقام آيات قابلة للتخصيص الكامل",
-    "author": "مصممو مجتمع إتقان",
-    "discussionUrl": "https://community.itqan.dev/d/741",
-    "discussionNum": "741",
-    "description": "حزمة رسومية برمجية مفتوحة المصدر تضم كافة علامات أرقام الآيات وفواصل السور ورموز الأحزاب والأرباع بصيغ SVG و Web Components الجاهزة للدمج في تطبيقات الويب والهواتف.",
-    "links": [
-      {
-        "name": "مستودع حزمة Ayah Markers على GitHub",
-        "url": "https://github.com/itqan-community/ayah-markers",
-        "src": "GitHub"
-      }
-    ]
-  },
-  {
-    "id": 22,
-    "title": "حزمة quran-verify: التحقق المشفر بالـ SHA-256 لنصوص المصحف",
-    "category": "fonts",
-    "icon": "✒️",
-    "license": "مفتوح المصدر (MIT)",
-    "metric": "بصمة تشفيرية فريدة لكل آية وكلمة",
-    "author": "فريق الحماية والتدقيق القرآني",
-    "discussionUrl": "https://community.itqan.dev/d/540",
-    "discussionNum": "540",
-    "description": "أداة ومكتبة برمجية للتحقق الرقمي من صحة وسلامة نصوص المصحف عبر مقارنة الـ Hash التشفيري لكل آية لمنع أي تحريف أو سقوط للحركات والتشكيل أثناء النقل أو المعالجة.",
-    "links": [
-      {
-        "name": "مستودع quran-verify على GitHub",
-        "url": "https://github.com/itqan-community/quran-verify",
-        "src": "GitHub"
-      }
-    ]
-  },
-  {
-    "id": 23,
-    "title": "أداة «رقيم» (Rakeem) لتجهيز المصاحف الصوتية وفق معيار مرقوم",
-    "category": "tools",
-    "icon": "⚙️",
-    "license": "مفتوح المصدر (MIT)",
-    "metric": "المعيار الموحد للمصاحف الصوتية",
-    "author": "مجتمع إتقان (@hadealahmad)",
-    "discussionUrl": "https://community.itqan.dev/d/1007",
-    "discussionNum": "1007",
-    "description": "أداة برمجية مفتوحة المصدر لتجهيز وتنظيم وتوسيم التلاوات الصوتية للمصاحف الكاملة، وضمان توافقها الكامل مع مواصفات معيار «مرقوم» لتبادل البيانات الصوتية القرآنية بين التطبيقات.",
-    "links": [
-      {
-        "name": "مستودع أداة رقيم على GitHub",
-        "url": "https://github.com/itqan-community/rakeem",
-        "src": "GitHub"
-      },
-      {
-        "name": "مواصفات وتوثيق معيار مرقوم (Marqoom)",
-        "url": "https://github.com/itqan-community/marqoom-spec",
-        "src": "Documentation"
-      }
-    ]
-  },
-  {
-    "id": 24,
+    "id": 14,
     "title": "مشروع «منجّم» (Monajjim): نظام أتمتة تقطيع ومزامنة التلاوات",
     "category": "tools",
     "icon": "⚙️",
@@ -586,7 +336,7 @@
     ]
   },
   {
-    "id": 25,
+    "id": 15,
     "title": "منصة «ميقات» (Miqat) للمزامنة الصوتية الدقيقة متعددة الروايات",
     "category": "tools",
     "icon": "⚙️",
@@ -605,7 +355,7 @@
     ]
   },
   {
-    "id": 26,
+    "id": 16,
     "title": "منصة وأداة Multi-Aligner لتزمين المصحف الكامل سحابياً",
     "category": "tools",
     "icon": "⚙️",
@@ -624,7 +374,7 @@
     ]
   },
   {
-    "id": 27,
+    "id": 17,
     "title": "مكتبة توليد صور آيات القرآن الكريم (Napi-RS Canvas)",
     "category": "tools",
     "icon": "⚙️",
@@ -636,11 +386,6 @@
     "description": "مكتبة برمجية مبنية بـ Rust Canvas السريع لتوليد ومشاركة صور عالية الدقة لآيات القرآن مع خيارات التشكيل لتطبيقات الويب والبوتات ومولدات الريلز القرآنية.",
     "links": [
       {
-        "name": "مستودع المكتبة على GitHub",
-        "url": "https://github.com/alighmdan/quran-image-generator",
-        "src": "GitHub"
-      },
-      {
         "name": "حزمة المكتبة على NPM",
         "url": "https://www.npmjs.com/package/quran-image-generator",
         "src": "NPM Registry"
@@ -648,7 +393,7 @@
     ]
   },
   {
-    "id": 28,
+    "id": 18,
     "title": "خادم MCP الرسمي لمجتمع إتقان (Itqan Community MCP)",
     "category": "tools",
     "icon": "🔌",
@@ -672,26 +417,7 @@
     ]
   },
   {
-    "id": 29,
-    "title": "برنامج «وقف» (Waqf) لتقطيع التلاوات الصوتية حسب الأنفاس",
-    "category": "tools",
-    "icon": "⚙️",
-    "license": "مفتوح المصدر (GPL-3.0)",
-    "metric": "اكتشاف أوتوماتيكي للسكوت والتنفس",
-    "author": "مساهمو تقنيات الصوت القرآني",
-    "discussionUrl": "https://community.itqan.dev/d/525",
-    "discussionNum": "525",
-    "description": "برنامج متخصص يعالج ملفات الصوت الطويلة للمصاحف ويكتشف فترات الصمت وسكتات التنفس الطبيعية بين الآيات، مما يسهل تقطيع المصاحف الكبيرة بدقة متناهية.",
-    "links": [
-      {
-        "name": "مستودع برنامج وقف على GitHub",
-        "url": "https://github.com/itqan-community/waqf-audio-splitter",
-        "src": "GitHub"
-      }
-    ]
-  },
-  {
-    "id": 30,
+    "id": 19,
     "title": "محرك البحث القرآني المستقل quran-search-engine (Rust)",
     "category": "tools",
     "icon": "⚙️",
@@ -710,45 +436,7 @@
     ]
   },
   {
-    "id": 31,
-    "title": "منصة وحزم برمجيات API_ISLAM المفتوحة للمطورين",
-    "category": "tools",
-    "icon": "⚙️",
-    "license": "مفتوح المصدر (MIT)",
-    "metric": "حزم SDK لكافة اللغات البرمجية",
-    "author": "مبادرة البرمجيات الإسلامية",
-    "discussionUrl": "https://community.itqan.dev/d/902",
-    "discussionNum": "902",
-    "description": "منصة خدمات سحابية وحزم SDK برمجية توفر واجهات REST APIs متكاملة لجلب نصوص القرآن، التفاسير، مواقيت الصلاة، والتلاوات الصوتية بطريقة موحدة وسهلة.",
-    "links": [
-      {
-        "name": "المستودع البرمجي على GitHub",
-        "url": "https://github.com/itqan-community/api-islam",
-        "src": "GitHub"
-      }
-    ]
-  },
-  {
-    "id": 32,
-    "title": "مكتبة tajweed-engine لتلوين أحكام التجويد برمجياً",
-    "category": "tools",
-    "icon": "⚙️",
-    "license": "مفتوح المصدر (MIT)",
-    "metric": "معالجة قواعد الإدغام والإخفاء والمدود",
-    "author": "مساهمو مجتمع إتقان",
-    "discussionUrl": "https://community.itqan.dev/d/660",
-    "discussionNum": "660",
-    "description": "مكتبة جافاسكريبت وبايثون مفتوحة المصدر تستقبل نصوص الآيات وتطبق عليها قواعد التجويد آلياً وتنتج وسوماً ملونة لكل حكم تجويدي (إدغام، إقلاب، إخفاء، قلقلة).",
-    "links": [
-      {
-        "name": "مستودع tajweed-engine على GitHub",
-        "url": "https://github.com/itqan-community/tajweed-engine",
-        "src": "GitHub"
-      }
-    ]
-  },
-  {
-    "id": 33,
+    "id": 20,
     "title": "الورقة البيضاء لمعيار «مرقوم» (Marqoom Specification): المعيار الموحد للمصاحف الصوتية",
     "category": "research",
     "icon": "📚",
@@ -760,11 +448,6 @@
     "description": "المواصفة القياسية المفتوحة لتنظيم البيانات الصوتية للقرآن الكريم، تشمل مواصفات التسمية، طوابع الوقت، حدود الوقف والابتداء، ومخططات JSON المعيارية التي تضمن توافق كافة التطبيقات معاً.",
     "links": [
       {
-        "name": "وثيقة المواصفة القياسية على GitHub",
-        "url": "https://github.com/itqan-community/marqoom-spec",
-        "src": "GitHub Spec"
-      },
-      {
         "name": "مناقشة وبنود المعيار في مجتمع إتقان",
         "url": "https://community.itqan.dev/d/966",
         "src": "Specification"
@@ -772,7 +455,7 @@
     ]
   },
   {
-    "id": 34,
+    "id": 21,
     "title": "دراسة معيارية: مقارنة دقة الفاست كونفورمر وويسبر في كشف اللحن الخفي",
     "category": "research",
     "icon": "📚",
@@ -791,7 +474,7 @@
     ]
   },
   {
-    "id": 35,
+    "id": 22,
     "title": "ورشة ترتيل: «كيف تختار وتقيّم نموذج التلاوة الأنسب لتطبيقك؟»",
     "category": "workshops",
     "icon": "📺",
@@ -815,7 +498,7 @@
     ]
   },
   {
-    "id": 36,
+    "id": 23,
     "title": "ورشة عمل: «بناء أنظمة التزمين التلقائي ومحاذاة التلاوات الصوتية»",
     "category": "workshops",
     "icon": "📺",
@@ -839,7 +522,7 @@
     ]
   },
   {
-    "id": 37,
+    "id": 24,
     "title": "محاضرة: «البرمجيات القرآنية مفتوحة المصدر: المعايير، التراخيص، وفرص التعاون»",
     "category": "workshops",
     "icon": "📺",
@@ -858,7 +541,7 @@
     ]
   },
   {
-    "id": 38,
+    "id": 25,
     "title": "جلسة تقنية: «كواليس بناء نماذج التسميع لرواية ورش وأحكام التجويد»",
     "category": "workshops",
     "icon": "📺",
@@ -877,7 +560,7 @@
     ]
   },
   {
-    "id": 39,
+    "id": 26,
     "title": "قالب مفتوح المصدر: ريلز قرآنية يومية تنشر تلقائيا على إنستغرام وفيسبوك وتيك توك",
     "category": "tools",
     "icon": "💻",
@@ -896,7 +579,7 @@
     ]
   },
   {
-    "id": 40,
+    "id": 27,
     "title": "Quran Caption || Advanced Video Editor Especially For Quran Recitations",
     "category": "fonts",
     "icon": "✒️",
@@ -920,7 +603,7 @@
     ]
   },
   {
-    "id": 41,
+    "id": 28,
     "title": "6 فرص لخدمة التقنيات القرآنية التقطتها من بودكاست  د.عبد الرحمن الشهري",
     "category": "fonts",
     "icon": "✒️",
@@ -964,7 +647,7 @@
     ]
   },
   {
-    "id": 42,
+    "id": 29,
     "title": "شبكة تفسير القرآن بين الآيات و الأحاديث",
     "category": "tools",
     "icon": "💻",
@@ -983,7 +666,7 @@
     ]
   },
   {
-    "id": 43,
+    "id": 30,
     "title": "تحسين تصميم واضافات جديدة في المصحف الذكي",
     "category": "fonts",
     "icon": "✒️",
@@ -1002,7 +685,7 @@
     ]
   },
   {
-    "id": 44,
+    "id": 31,
     "title": "جوائز بقيمة 200 ألف ريال لتحدي الذكاء الاصطناعي في خدمة المحتوى الإسلامي",
     "category": "tools",
     "icon": "💻",
@@ -1021,7 +704,7 @@
     ]
   },
   {
-    "id": 45,
+    "id": 32,
     "title": "مهارة ذكاء اصطناعي لبناء تطبيقات للقرآن الكريم تتبع هيكل مصحف المدينة",
     "category": "fonts",
     "icon": "✒️",
@@ -1040,7 +723,7 @@
     ]
   },
   {
-    "id": 46,
+    "id": 33,
     "title": "«مسلم»: كيف بنينا مساعدًا صوتيًّا عربيًّا يعرض مصادره قبل أن يجيب",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1099,7 +782,7 @@
     ]
   },
   {
-    "id": 47,
+    "id": 34,
     "title": "QuranTech Skill : مهارة لبناء التطبيقات القرآنية",
     "category": "audio",
     "icon": "🔊",
@@ -1118,7 +801,7 @@
     ]
   },
   {
-    "id": 48,
+    "id": 35,
     "title": "خادم MCP فوق واجهة Quranpedia",
     "category": "tools",
     "icon": "💻",
@@ -1130,11 +813,6 @@
     "description": "سبق أن شرحتُ في هذا الموضوع كيفية بناء خادم quran-search-engine-mcp . استخدمتُ القاعدة البرمجية نفسها لبناء خادم MCP جديد حول واجهة Quranpedia API ، باسم quranpedia-mcp . م...",
     "links": [
       {
-        "name": "api.quranpedia.net",
-        "url": "https://api.quranpedia.net/v1",
-        "src": "بوابة صوتية / API"
-      },
-      {
         "name": "مستودع adelpro/quranpedia-mcp",
         "url": "https://github.com/adelpro/quranpedia-mcp",
         "src": "GitHub"
@@ -1142,7 +820,7 @@
     ]
   },
   {
-    "id": 49,
+    "id": 36,
     "title": "تنقيح دليل تحرير أرامكو وتكثيف عباراته ليتناسب مع بنية النماذج اللغوية",
     "category": "fonts",
     "icon": "✒️",
@@ -1161,7 +839,7 @@
     ]
   },
   {
-    "id": 50,
+    "id": 37,
     "title": "هل من تجارب استضافة ل Serverless GPU؟",
     "category": "tools",
     "icon": "💻",
@@ -1180,7 +858,7 @@
     ]
   },
   {
-    "id": 51,
+    "id": 38,
     "title": "تجربتي مع QuranLM: كيف بنيتُ تطبيقًا بـ Stack محلّية بالكامل داخل المتصفّح",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1204,7 +882,7 @@
     ]
   },
   {
-    "id": 52,
+    "id": 39,
     "title": "فَسِّرْلي: باحث ومفسر قرآني ذكي يعتمد على بروتوكول (MCP) لضبط إجابات الـ AI",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1223,7 +901,7 @@
     ]
   },
   {
-    "id": 53,
+    "id": 40,
     "title": "تتمة لمشروع أداة تسميع فوق Quran Muaalem — كشف اللحن الجليّ",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1242,7 +920,7 @@
     ]
   },
   {
-    "id": 54,
+    "id": 41,
     "title": "برنامج التسميع \"عرض\"  لتجربة التسميع ومتابعة الحفظ ",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1261,7 +939,7 @@
     ]
   },
   {
-    "id": 55,
+    "id": 42,
     "title": "تتمة لمشروع أداة تسميع فوق Quran Muaalem — كشف اللحن الجليّ",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1285,7 +963,7 @@
     ]
   },
   {
-    "id": 56,
+    "id": 43,
     "title": "المُقرئ — تطبيق أندرويد لتصحيح التلاوة كلمةً بكلمة، يعمل بالكامل على الجهاز",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1304,7 +982,7 @@
     ]
   },
   {
-    "id": 57,
+    "id": 44,
     "title": "🎙️ رحلتنا في تطوير محرك التسميع القرآني وتقليل التفاعل اليدوي في تطبيـق \"تثبيت\"",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1323,7 +1001,7 @@
     ]
   },
   {
-    "id": 58,
+    "id": 45,
     "title": "أداة تسميع فوق Quran Muaalem — كشف اللحن الجليّ",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1342,7 +1020,7 @@
     ]
   },
   {
-    "id": 59,
+    "id": 46,
     "title": "محفوظ: برنامج فلاتر لويندوز لتسميع القرآن دون الحاجة لإنترنت يعمل على CPU",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1366,7 +1044,7 @@
     ]
   },
   {
-    "id": 60,
+    "id": 47,
     "title": " تصحيح التلاوة بالذكاء الاصطناعي: النموذج وحده لا يكفي — نحتاج «مُحرِّكاً»",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1395,7 +1073,7 @@
     ]
   },
   {
-    "id": 61,
+    "id": 48,
     "title": "برنامج تسميع للقران العظيم على الهاتف عن طريق موديل Zipformer Streaming Model",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1439,7 +1117,7 @@
     ]
   },
   {
-    "id": 62,
+    "id": 49,
     "title": "قرآني : واجهات برمجة القرآن ومصحح التلاوة بالذكاء الاصطناعي",
     "category": "audio",
     "icon": "🔊",
@@ -1458,7 +1136,7 @@
     ]
   },
   {
-    "id": 63,
+    "id": 50,
     "title": "الإعلان عن Iqra'Eval.2 | أول معيار عالمي لتقويم النطق العربي بالتلاوة",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1477,7 +1155,7 @@
     ]
   },
   {
-    "id": 64,
+    "id": 51,
     "title": "مشروع الإستفادة من موديل الذكاء الاصطناعي (المعلم القرآني) - وواجهة iOS",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1494,11 +1172,6 @@
         "src": "GitHub"
       },
       {
-        "name": "your-api.modal.run",
-        "url": "https://your-api.modal.run/api/analyze-by-verse",
-        "src": "بوابة صوتية / API"
-      },
-      {
         "name": "مستودع MIMV/Quran-Muaalem-iOS",
         "url": "https://github.com/MIMV/Quran-Muaalem-iOS",
         "src": "GitHub"
@@ -1506,7 +1179,7 @@
     ]
   },
   {
-    "id": 65,
+    "id": 52,
     "title": "نظام يتتبع التلاوه بالذكاء الاصطناعي ",
     "category": "fonts",
     "icon": "✒️",
@@ -1525,7 +1198,7 @@
     ]
   },
   {
-    "id": 66,
+    "id": 53,
     "title": "نظام يتفوق في أداءه للنطق القرآني على أدائه في اللغة العربية | مهمة Iqra’Eval",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1564,7 +1237,7 @@
     ]
   },
   {
-    "id": 67,
+    "id": 54,
     "title": "تجربة تحويل Whisper إلى محلل فونيم لتلاوة القرآن: واحدة من أبرز دراسات Iqra'Eval",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1583,7 +1256,7 @@
     ]
   },
   {
-    "id": 68,
+    "id": 55,
     "title": "Iqra’Eval مهمة بحثية ضمن ArabicNLP 2025 لكشف أخطاء التلاوة بالذكاء الاصطناعي",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1627,7 +1300,7 @@
     ]
   },
   {
-    "id": 69,
+    "id": 56,
     "title": "تطبيق اختباري مفتوح المصدر لأختبار موديل ترتيل لتحويل الصوت إلى قرآن",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1646,7 +1319,7 @@
     ]
   },
   {
-    "id": 70,
+    "id": 57,
     "title": "مشروع اقرأ القرآن: مصحح تلاوة بالذكاء الاصطناعي ومفتوح المصدر",
     "category": "fonts",
     "icon": "✒️",
@@ -1665,7 +1338,7 @@
     ]
   },
   {
-    "id": 71,
+    "id": 58,
     "title": "أفضل النماذج مفتوحة المصدر للتعرف الصوتي على القرآن الكريم",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1729,7 +1402,7 @@
     ]
   },
   {
-    "id": 72,
+    "id": 59,
     "title": "من النص إلى التجويد: التحدي الخفي أمام أنظمة التعرف الصوتي",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1753,7 +1426,7 @@
     ]
   },
   {
-    "id": 73,
+    "id": 60,
     "title": "المصحف المدني مع ادوات مميزة مفتوحة المصدر",
     "category": "fonts",
     "icon": "✒️",
@@ -1772,7 +1445,7 @@
     ]
   },
   {
-    "id": 74,
+    "id": 61,
     "title": "مجلس القران  || Quran Maglis ",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1796,7 +1469,7 @@
     ]
   },
   {
-    "id": 75,
+    "id": 62,
     "title": "قبل بناء قارئ مصحف: دليل من تجربة نداء، وأداة مفتوحة المصدر لتوليد صور الصفحات",
     "category": "fonts",
     "icon": "✒️",
@@ -1820,7 +1493,7 @@
     ]
   },
   {
-    "id": 76,
+    "id": 63,
     "title": "باكيج إضافة آيات القرآن لمحرر summernote",
     "category": "tools",
     "icon": "💻",
@@ -1844,7 +1517,7 @@
     ]
   },
   {
-    "id": 77,
+    "id": 64,
     "title": "🎙️معالجة وتطوير مصحف الحصري (المعلم) بالذكاء الاصطناعي عبر نموذج SAWT V4",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1868,7 +1541,7 @@
     ]
   },
   {
-    "id": 78,
+    "id": 65,
     "title": "مراجعة المصطلحات القرآنية: تحديث v0.4.0",
     "category": "tools",
     "icon": "💻",
@@ -1892,7 +1565,7 @@
     ]
   },
   {
-    "id": 79,
+    "id": 66,
     "title": "مراجعة المصطلحات القرآنية قبل الـ commit",
     "category": "fonts",
     "icon": "✒️",
@@ -1936,7 +1609,7 @@
     ]
   },
   {
-    "id": 80,
+    "id": 67,
     "title": " باحث قرآني بالعربي - Fast Arabic Text Classification for LLM-Free Quran Search",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -1961,16 +1634,11 @@
         "name": "حزمة IJyad/quran-jeb",
         "url": "https://huggingface.co/spaces/IJyad/quran-jeb",
         "src": "HuggingFace"
-      },
-      {
-        "name": "مستودع MrJYAD/quran-jeb",
-        "url": "https://github.com/MrJYAD/quran-jeb",
-        "src": "GitHub"
       }
     ]
   },
   {
-    "id": 81,
+    "id": 68,
     "title": "جديد Quran Engine : الزوم وإعادة ترتيب صفحات المصحف",
     "category": "fonts",
     "icon": "✒️",
@@ -1989,7 +1657,7 @@
     ]
   },
   {
-    "id": 82,
+    "id": 69,
     "title": "َQVP و quran-engine — طبقة جديدة لبناء تطبيقات المصحف",
     "category": "fonts",
     "icon": "✒️",
@@ -2008,7 +1676,7 @@
     ]
   },
   {
-    "id": 83,
+    "id": 70,
     "title": "أول مصحف معلّم مبني على الختمة الإذاعية الثانية للمنشاوي (1965م)",
     "category": "fonts",
     "icon": "✒️",
@@ -2027,7 +1695,7 @@
     ]
   },
   {
-    "id": 84,
+    "id": 71,
     "title": " 📖 من نقاش حول «توحيد المصطلحات» إلى تدقيق كامل للنص القرآني",
     "category": "fonts",
     "icon": "✒️",
@@ -2046,7 +1714,7 @@
     ]
   },
   {
-    "id": 85,
+    "id": 72,
     "title": "Munajjam Desktop: مزامنة محلية للتلاوات على مستوى الأنفاس والآيات والكلمات",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -2080,7 +1748,7 @@
     ]
   },
   {
-    "id": 86,
+    "id": 73,
     "title": "من الاختبارات الاصطناعية إلى الصوت الحقيقي",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -2099,7 +1767,7 @@
     ]
   },
   {
-    "id": 87,
+    "id": 74,
     "title": "طريقة افضل ل سيستم منجم",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -2128,7 +1796,7 @@
     ]
   },
   {
-    "id": 88,
+    "id": 75,
     "title": "بفضل الله و برحمته : الحصول على مواقيت الحروف لكل كلمة - بديل ل منجم",
     "category": "audio",
     "icon": "🔊",
@@ -2147,7 +1815,7 @@
     ]
   },
   {
-    "id": 89,
+    "id": 76,
     "title": "مساهمات منجم منذ بداية حملة كود يخدم القرآن",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -2186,7 +1854,7 @@
     ]
   },
   {
-    "id": 90,
+    "id": 77,
     "title": "كيفية تجربة التعديلات التي تجريها كمساهم في برنامج منجم عبر جوجل كولاب",
     "category": "fonts",
     "icon": "✒️",
@@ -2205,7 +1873,7 @@
     ]
   },
   {
-    "id": 91,
+    "id": 78,
     "title": "Highlighting Letter by Letter or even Word by Word ",
     "category": "audio",
     "icon": "🔊",
@@ -2229,7 +1897,7 @@
     ]
   },
   {
-    "id": 92,
+    "id": 79,
     "title": "Word-by-word English audio for the Qur'an — free, complete, and openly specified",
     "category": "tools",
     "icon": "💻",
@@ -2248,7 +1916,7 @@
     ]
   },
   {
-    "id": 93,
+    "id": 80,
     "title": " توحيد التلاوات وبيانات التزمين للتطبيقات والمطورين Qur'anic Universal Audio",
     "category": "audio",
     "icon": "🔊",
@@ -2277,7 +1945,7 @@
     ]
   },
   {
-    "id": 94,
+    "id": 81,
     "title": "مولد فيديوهات قرآن مع التزامن الصوتي الدقيق",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -2301,7 +1969,7 @@
     ]
   },
   {
-    "id": 95,
+    "id": 82,
     "title": "Munajjam Desktop — تطبيق لتزمين التلاوات على windows & macos",
     "category": "audio",
     "icon": "🔊",
@@ -2330,7 +1998,7 @@
     ]
   },
   {
-    "id": 96,
+    "id": 83,
     "title": "نظام إدارة المحتوى القرآني ITQAN CMS",
     "category": "audio",
     "icon": "🔊",
@@ -2369,7 +2037,7 @@
     ]
   },
   {
-    "id": 97,
+    "id": 84,
     "title": "مُنجِّم",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -2388,7 +2056,7 @@
     ]
   },
   {
-    "id": 98,
+    "id": 85,
     "title": "إطلاق الإصدار التجريبي الثاني من نظام إدارة المحتوى القرآني Quranic CMS",
     "category": "audio",
     "icon": "🔊",
@@ -2411,11 +2079,6 @@
       },
       {
         "name": "api.cms.itqan.dev",
-        "url": "https://api.cms.itqan.dev/developers-api/docs",
-        "src": "بوابة صوتية / API"
-      },
-      {
-        "name": "api.cms.itqan.dev",
         "url": "https://api.cms.itqan.dev/django-admin",
         "src": "بوابة صوتية / API"
       },
@@ -2432,7 +2095,7 @@
     ]
   },
   {
-    "id": 99,
+    "id": 86,
     "title": "مشروع تحبير: مبادرة وقفية لتسجيل القراءات العشر جمعًا وإفرادًا",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -2451,7 +2114,7 @@
     ]
   },
   {
-    "id": 100,
+    "id": 87,
     "title": "كيف تُنتج طوابع زمنية لتلاوات القرآن وتفتح الآفاق لمئات التطبيقات",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -2485,26 +2148,7 @@
     ]
   },
   {
-    "id": 101,
-    "title": "🌿 منصة «جذور البيان» الاستجابة لتدقيق مجتمع إتقان وإطلاق التحديثات الجديدة ",
-    "category": "fonts",
-    "icon": "✒️",
-    "license": "مفتوح المصدر",
-    "metric": "مورد تقني معتمد",
-    "author": "AbdellahBELMAARIS",
-    "discussionUrl": "https://community.itqan.dev/d/917",
-    "discussionNum": "917",
-    "description": "السلام عليكم ورحمة الله وبركاته، إخوتي وأخواتي وأساتذتي الأفاضل في مجتمع «إتقان» المبارك لخدمة التقنيات القرآنية، حيّاكم الله جميعاً وبارك في جهودكم وعلومكم. أود في البداية...",
-    "links": [
-      {
-        "name": "مستودع Abdellah-BELMAARIS/quran-site",
-        "url": "https://github.com/Abdellah-BELMAARIS/quran-site",
-        "src": "GitHub"
-      }
-    ]
-  },
-  {
-    "id": 102,
+    "id": 88,
     "title": "بفضل الله و برحمته || Tarteel AI Clone Opensource",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -2523,7 +2167,7 @@
     ]
   },
   {
-    "id": 103,
+    "id": 89,
     "title": "«عماد القرآن»: كيف تصمّم لعبة تحفيظ لا تُفسد الحفظ؟",
     "category": "fonts",
     "icon": "✒️",
@@ -2547,26 +2191,7 @@
     ]
   },
   {
-    "id": 104,
-    "title": "الفرق بين إنشاء إضافة لمتصفح كروم وفايرفوكس - تجربة نشر إضافة الورد اليوميّ",
-    "category": "fonts",
-    "icon": "✒️",
-    "license": "مفتوح المصدر",
-    "metric": "مورد تقني معتمد",
-    "author": "هادي الأحمد",
-    "discussionUrl": "https://community.itqan.dev/d/198",
-    "discussionNum": "198",
-    "description": "عملت في الفترة السابقة على نشر نسخة لمتصفح فايرفوكس من إضافة الورد اليومي التي نشرت عنها قبل أيام في هذا الموضوع حيث شاركت تجربتي في نشر إضافة لمتصفح غوغل كروم، وبعد مروري ...",
-    "links": [
-      {
-        "name": "مستودع nicothin/webextension-cross-browser-polyfill",
-        "url": "https://github.com/nicothin/webextension-cross-browser-polyfill",
-        "src": "GitHub"
-      }
-    ]
-  },
-  {
-    "id": 105,
+    "id": 90,
     "title": "تجربة تطبيق راديو التلاوات بالاعتماد على الواجهة البرمجية Quranic CMS API",
     "category": "audio",
     "icon": "🔊",
@@ -2578,16 +2203,6 @@
     "description": "أشارككم في هذا الموضوع تجربتي في تطوير تطبيق راديو التلاوات، وهو تطبيق ويب يعتمد اعتمادًا كاملًا على الواجهة البرمجية لنظام إدارة المحتوى القرآني من إتقان Itqan Quranic CMS...",
     "links": [
       {
-        "name": "api.cms.itqan.dev",
-        "url": "https://api.cms.itqan.dev",
-        "src": "بوابة صوتية / API"
-      },
-      {
-        "name": "api.cms.itqan.dev",
-        "url": "https://api.cms.itqan.dev/developers-api",
-        "src": "بوابة صوتية / API"
-      },
-      {
         "name": "مستودع engsaleh/Itqan-cms-tilawah-radio",
         "url": "https://github.com/engsaleh/Itqan-cms-tilawah-radio",
         "src": "GitHub"
@@ -2595,7 +2210,7 @@
     ]
   },
   {
-    "id": 106,
+    "id": 91,
     "title": "تجربة البحث الدلالي في القرآن الكريم",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -2629,7 +2244,7 @@
     ]
   },
   {
-    "id": 107,
+    "id": 92,
     "title": "بناء API مفتوح المصدر لخدمة التطبيقات القرآنية",
     "category": "fonts",
     "icon": "✒️",
@@ -2668,7 +2283,7 @@
     ]
   },
   {
-    "id": 108,
+    "id": 93,
     "title": "بناء خط معالجة Pipeline لاستخراج النصوص القرآنية وتحويلها لصيغة قياسية",
     "category": "fonts",
     "icon": "✒️",
@@ -2685,11 +2300,6 @@
         "src": "بوابة صوتية / API"
       },
       {
-        "name": "api.alquran.cloud",
-        "url": "https://api.alquran.cloud/v1",
-        "src": "بوابة صوتية / API"
-      },
-      {
         "name": "مستودع engsaleh/quran_pipeline",
         "url": "https://github.com/engsaleh/quran_pipeline",
         "src": "GitHub"
@@ -2697,7 +2307,7 @@
     ]
   },
   {
-    "id": 109,
+    "id": 94,
     "title": "تجربة بناء محرك بحث قرآني يعتمد على Elasticsearch والذكاء الاصطناعي",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -2721,7 +2331,7 @@
     ]
   },
   {
-    "id": 110,
+    "id": 95,
     "title": "ما هي نماذج اتخاذ القرارات؟ شرح عملي لـ Gemini Decision 1 في تطبيق مطياف التفسير",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -2740,7 +2350,7 @@
     ]
   },
   {
-    "id": 111,
+    "id": 96,
     "title": "مكتبة إتقان للموارد و التقنيات القرآنية — دليل تفاعلي لأصول تقنية مفتوح المصدر ",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -2759,7 +2369,7 @@
     ]
   },
   {
-    "id": 112,
+    "id": 97,
     "title": "رفيق تلاوة: إضافة لتطبيق تلاوة تُبقي التلاوات تُوزَّع بعد أن تُغلق الصفحة",
     "category": "audio",
     "icon": "🔊",
@@ -2778,7 +2388,7 @@
     ]
   },
   {
-    "id": 113,
+    "id": 98,
     "title": "«نبض إتقان»: شريط إخباري لأحدث الورش والإصدارات والمستجدات",
     "category": "tools",
     "icon": "💻",
@@ -2797,7 +2407,7 @@
     ]
   },
   {
-    "id": 114,
+    "id": 99,
     "title": "Quran.re: مصحف 13 و15 سطرًا مطابق للورقي، 44 قارئًا، ودرس اليوم برابط واحد",
     "category": "fonts",
     "icon": "✒️",
@@ -2816,7 +2426,7 @@
     ]
   },
   {
-    "id": 115,
+    "id": 100,
     "title": "تلاوات مسجلة لغرض التعليم متاحة للتنزيل في أقرب وقت ممكن ",
     "category": "audio",
     "icon": "🔊",
@@ -2840,7 +2450,7 @@
     ]
   },
   {
-    "id": 116,
+    "id": 101,
     "title": "أبحث عن مصدر أيقونات قرآنية",
     "category": "tools",
     "icon": "💻",
@@ -2859,7 +2469,7 @@
     ]
   },
   {
-    "id": 117,
+    "id": 102,
     "title": "«إسأل إتقان .. Ask Itqan»: حتى لا تضيع معرفة المجتمع بين المواضيع",
     "category": "fonts",
     "icon": "✒️",
@@ -2878,7 +2488,7 @@
     ]
   },
   {
-    "id": 118,
+    "id": 103,
     "title": "دعم بالذكاء الاصطناعي: هل توجد نماذج جاهزة ومدربة على بيانات قرآنية موثوقة",
     "category": "tools",
     "icon": "💻",
@@ -2902,7 +2512,7 @@
     ]
   },
   {
-    "id": 119,
+    "id": 104,
     "title": "الذكاء الاصطناعي يسهّل إضافة الميزات، لكن كيف نختار ما يستحق التطوير؟",
     "category": "fonts",
     "icon": "✒️",
@@ -2921,7 +2531,7 @@
     ]
   },
   {
-    "id": 120,
+    "id": 105,
     "title": "بناء تطبيق قرآني بالذكاء الاصطناعي: هل تتعلم أولًا أم تبدأ بالتجربة مباشرة؟",
     "category": "tools",
     "icon": "💻",
@@ -2940,7 +2550,7 @@
     ]
   },
   {
-    "id": 121,
+    "id": 106,
     "title": "هل يمكن بناء AI Agent متخصص في المشاريع القرآنية؟",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -2974,7 +2584,7 @@
     ]
   },
   {
-    "id": 122,
+    "id": 107,
     "title": "مواضيع بحثية تخدم القرآن الكريم",
     "category": "research",
     "icon": "📚",
@@ -2993,7 +2603,7 @@
     ]
   },
   {
-    "id": 123,
+    "id": 108,
     "title": "منصة خطيب...ورشة موجَّهة لصياغة مسودة خطبة الجمعة",
     "category": "workshops",
     "icon": "📺",
@@ -3017,7 +2627,7 @@
     ]
   },
   {
-    "id": 124,
+    "id": 109,
     "title": "دليل المطور القرآنيّ المعتمد على الذكاء الاصطناعي - الفايب كودنغ Vibe Coding",
     "category": "audio",
     "icon": "🔊",
@@ -3036,7 +2646,7 @@
     ]
   },
   {
-    "id": 125,
+    "id": 110,
     "title": "ملقّن القرآن — موقع يتابع تلاوة القرآن عند السماع، مفيد لمتابعة آي تلاوة بالنظر",
     "category": "tools",
     "icon": "💻",
@@ -3060,7 +2670,7 @@
     ]
   },
   {
-    "id": 126,
+    "id": 111,
     "title": "ما الذي ينقص تطبيقات التسميع القرآني؟ فجوة البيانات أم التقنية؟",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -3079,7 +2689,7 @@
     ]
   },
   {
-    "id": 127,
+    "id": 112,
     "title": " أبحث عن  مشاريع مفتوحة المصدر لنظام تسميع للقران باستخدام أحدث أدوات الAI ",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -3106,11 +2716,6 @@
         "src": "GitHub"
       },
       {
-        "name": "مستودع tarkeldeeb/tajweed-embeddings",
-        "url": "https://github.com/tarkeldeeb/tajweed-embeddings",
-        "src": "GitHub"
-      },
-      {
         "name": "مستودع nmazid121/tajweedAI",
         "url": "https://github.com/nmazid121/tajweedAI",
         "src": "GitHub"
@@ -3123,7 +2728,7 @@
     ]
   },
   {
-    "id": 128,
+    "id": 113,
     "title": "تحديث جديد لـ qcf_quran_plus: تفاعل مع كل كلمة في القرآن ومرونة أكبر للمطور",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -3142,7 +2747,7 @@
     ]
   },
   {
-    "id": 129,
+    "id": 114,
     "title": "أطلاق Quran.ws — البنية المفتوحة لتطبيقات القرآن",
     "category": "audio",
     "icon": "🔊",
@@ -3166,7 +2771,7 @@
     ]
   },
   {
-    "id": 130,
+    "id": 115,
     "title": "مصدر نصي موثوق للقرآن الكريم بصيغة json or xml",
     "category": "fonts",
     "icon": "✒️",
@@ -3206,21 +2811,11 @@
         "name": "api.quran.com",
         "url": "https://api.quran.com/api/v4/verses/by_page/1?words=true&amp;word_fields=text_uthmani,code_v1,code_v2",
         "src": "بوابة صوتية / API"
-      },
-      {
-        "name": "api.alquran.cloud",
-        "url": "https://api.alquran.cloud/v1/quran-uthmani",
-        "src": "بوابة صوتية / API"
-      },
-      {
-        "name": "مستودع semarketir/quran-json",
-        "url": "https://github.com/semarketir/quran-json",
-        "src": "GitHub"
       }
     ]
   },
   {
-    "id": 131,
+    "id": 116,
     "title": "محتاج خط المصحف لتصميم كتاب عن القرائية",
     "category": "fonts",
     "icon": "✒️",
@@ -3244,7 +2839,7 @@
     ]
   },
   {
-    "id": 132,
+    "id": 117,
     "title": " كيف حولت ساعات من مونتاج المحتوى القرآني إلى دقائق؟ Tashghil.Pro",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -3263,7 +2858,7 @@
     ]
   },
   {
-    "id": 133,
+    "id": 118,
     "title": "البحث عن مصادر للمصحف الالكترونى مع صوتيات متزامنة مع كل اية",
     "category": "fonts",
     "icon": "✒️",
@@ -3282,7 +2877,7 @@
     ]
   },
   {
-    "id": 134,
+    "id": 119,
     "title": "حلول لتطبيق اقرأ",
     "category": "fonts",
     "icon": "✒️",
@@ -3301,7 +2896,7 @@
     ]
   },
   {
-    "id": 135,
+    "id": 120,
     "title": "أزمة مصادر الصوتيات القرآنية للمطورين",
     "category": "audio",
     "icon": "🔊",
@@ -3320,7 +2915,7 @@
     ]
   },
   {
-    "id": 136,
+    "id": 121,
     "title": "نحو مصحف مرئي تفاعلي يعرض الآية في لحظة تلاوتها",
     "category": "fonts",
     "icon": "✒️",
@@ -3344,7 +2939,7 @@
     ]
   },
   {
-    "id": 137,
+    "id": 122,
     "title": "طريقة عرض خطوط المصحف الشريف على الجوالات (DigitalKhattV2 - خط الملك فهد V2) ",
     "category": "fonts",
     "icon": "✒️",
@@ -3363,7 +2958,7 @@
     ]
   },
   {
-    "id": 138,
+    "id": 123,
     "title": "مشاكل في خطوط ورش وقالون في تطبيق iOS - يرجى المساعدة",
     "category": "fonts",
     "icon": "✒️",
@@ -3387,7 +2982,7 @@
     ]
   },
   {
-    "id": 139,
+    "id": 124,
     "title": "[ مقطع فيديو ] عن خطوط القرآن الكريم وتفاصيل هذه التقنية",
     "category": "fonts",
     "icon": "✒️",
@@ -3406,7 +3001,7 @@
     ]
   },
   {
-    "id": 140,
+    "id": 125,
     "title": "مشاكل الخطوط القرآنية في بيئة ios",
     "category": "fonts",
     "icon": "✒️",
@@ -3450,7 +3045,7 @@
     ]
   },
   {
-    "id": 141,
+    "id": 126,
     "title": "طلب المساعدة في توفير تسجيلات ورش عن نافع – طريق الأصبهاني (آية بآية)",
     "category": "audio",
     "icon": "🔊",
@@ -3474,7 +3069,7 @@
     ]
   },
   {
-    "id": 142,
+    "id": 127,
     "title": "آيات قرآنية تطبيق أندرويد مجاني ومفتوح المصدر يذكرك بآية من القرآن في زحمة يومك",
     "category": "fonts",
     "icon": "✒️",
@@ -3498,7 +3093,7 @@
     ]
   },
   {
-    "id": 143,
+    "id": 128,
     "title": "روبوت \"عبد المعين\" لتذكيرك بأمور الخير و الصلاح ....",
     "category": "tools",
     "icon": "💻",
@@ -3522,7 +3117,7 @@
     ]
   },
   {
-    "id": 144,
+    "id": 129,
     "title": "قرين الخير: نموذج أولي مفتوح المصدر .. أجر ينتظر من يكمله",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -3541,7 +3136,7 @@
     ]
   },
   {
-    "id": 145,
+    "id": 130,
     "title": "🌿 موقع تلاوات | أنشئ مقاطع قرآنية جميلة وانشرها لتعمّ الفائدة",
     "category": "audio",
     "icon": "🔊",
@@ -3560,7 +3155,7 @@
     ]
   },
   {
-    "id": 146,
+    "id": 131,
     "title": "المساهمة في تطوير Halal Motion Videos: دعم ويندوز وإضافة Codex وAntigravity",
     "category": "fonts",
     "icon": "✒️",
@@ -3584,7 +3179,7 @@
     ]
   },
   {
-    "id": 147,
+    "id": 132,
     "title": " 🌿 جذور البيان | دعوة إلى المراجعة العلمية والتقنية من أعضاء مجتمع إتقان",
     "category": "audio",
     "icon": "🔊",
@@ -3603,7 +3198,7 @@
     ]
   },
   {
-    "id": 148,
+    "id": 133,
     "title": "أجر لا ينقطع: تحديثات جديدة ودعوة للمشاركة في تطوير المشروع",
     "category": "fonts",
     "icon": "✒️",
@@ -3632,7 +3227,7 @@
     ]
   },
   {
-    "id": 149,
+    "id": 134,
     "title": "معيار مفتوح لربط صوت التلاوة بالنص: المحاذاة والتقسيم وتوقيت الكلمات",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -3656,7 +3251,7 @@
     ]
   },
   {
-    "id": 150,
+    "id": 135,
     "title": "البحث الموضوعي في quran-search-engine، الجزء الثاني",
     "category": "fonts",
     "icon": "✒️",
@@ -3675,7 +3270,7 @@
     ]
   },
   {
-    "id": 151,
+    "id": 136,
     "title": "القرآن الكريم - مكتبة الحكمة",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -3694,7 +3289,7 @@
     ]
   },
   {
-    "id": 152,
+    "id": 137,
     "title": "تشغيل القرآن عبر P2P مباشرة من المتصفح: صوت القارئ بلا API ولا خادم ملفات واحد",
     "category": "audio",
     "icon": "🔊",
@@ -3713,7 +3308,7 @@
     ]
   },
   {
-    "id": 153,
+    "id": 138,
     "title": "محتاج Dataset لمحتوى تعليمي منظم (الصلاة، الوضوء، الحج والعمرة وغيرها)",
     "category": "audio",
     "icon": "🔊",
@@ -3742,7 +3337,7 @@
     ]
   },
   {
-    "id": 154,
+    "id": 139,
     "title": "كيفية ربط الموديل الخاص ب QuranLab في تطبيقات الموبايل",
     "category": "tools",
     "icon": "💻",
@@ -3761,7 +3356,7 @@
     ]
   },
   {
-    "id": 155,
+    "id": 140,
     "title": "البحث الموضوعي في quran-search-engine: ابحث عن المعنى لا عن الكلمة",
     "category": "fonts",
     "icon": "✒️",
@@ -3780,7 +3375,7 @@
     ]
   },
   {
-    "id": 156,
+    "id": 141,
     "title": "مراجعة ودعوة للنقاش حول معايير المصطلحات القرآنية ",
     "category": "research",
     "icon": "📚",
@@ -3799,7 +3394,7 @@
     ]
   },
   {
-    "id": 157,
+    "id": 142,
     "title": "تطوير نظام الإشعارات في إتقان: التحكم بإشعارات الوسوم وتحسين إشعارات الردود",
     "category": "tools",
     "icon": "💻",
@@ -3818,7 +3413,7 @@
     ]
   },
   {
-    "id": 158,
+    "id": 143,
     "title": "الإرتقاء بمنصة مجتمع إتقان | طور تجربتك بنفسك 🚀 ",
     "category": "fonts",
     "icon": "✒️",
@@ -3847,7 +3442,7 @@
     ]
   },
   {
-    "id": 159,
+    "id": 144,
     "title": "رتق هذا الأسبوع - 12 مساهما، 22 مهمة مكتملة، ومزيد من العمل بانتظاركم",
     "category": "fonts",
     "icon": "✒️",
@@ -3876,26 +3471,7 @@
     ]
   },
   {
-    "id": 160,
-    "title": "مشاركتي في كود يخدم القرآن: تطوير معاينة المستودعات في مشروع RATQ",
-    "category": "tools",
-    "icon": "💻",
-    "license": "مفتوح المصدر",
-    "metric": "مورد تقني معتمد",
-    "author": "Mustafa Tantawy",
-    "discussionUrl": "https://community.itqan.dev/d/692",
-    "discussionNum": "692",
-    "description": "سعدت بالمشاركة في حملة \"كود يخدم القرآن\" ضمن العمل على مشروع RATQ : https://github.com/Itqan-community/RATQ/issues/189 وسأشارك هنا توضيحًا حول المشكلة التي عملت عليها، والح...",
-    "links": [
-      {
-        "name": "مستودع owner/repo",
-        "url": "https://github.com/owner/repo",
-        "src": "GitHub"
-      }
-    ]
-  },
-  {
-    "id": 161,
+    "id": 145,
     "title": "RATQ Contributors' Hall of Fame",
     "category": "tools",
     "icon": "💻",
@@ -3924,7 +3500,7 @@
     ]
   },
   {
-    "id": 162,
+    "id": 146,
     "title": "مهام RATQ المفتوحة بانتظارك - الأسبق يفوز | RATQ has open issues waiting for you",
     "category": "tools",
     "icon": "💻",
@@ -3953,7 +3529,7 @@
     ]
   },
   {
-    "id": 163,
+    "id": 147,
     "title": "لوحة مهام RATQ: من أين تبدأ مساهمتك",
     "category": "fonts",
     "icon": "✒️",
@@ -3972,7 +3548,7 @@
     ]
   },
   {
-    "id": 164,
+    "id": 148,
     "title": " باب المساهمة مفتوح في فَنار.. تعال ابنِ معنا",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -4001,7 +3577,7 @@
     ]
   },
   {
-    "id": 165,
+    "id": 149,
     "title": "ابنِ مستقبل RATQ معنا!",
     "category": "fonts",
     "icon": "✒️",
@@ -4025,7 +3601,7 @@
     ]
   },
   {
-    "id": 166,
+    "id": 150,
     "title": "كود يخدم القرآن | حملة صيفية للمساهمة في التقنيات القرآنية مفتوحة المصدر",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -4094,7 +3670,7 @@
     ]
   },
   {
-    "id": 167,
+    "id": 151,
     "title": "من رحم المعاناة البصرية إلى وكلاء الذكاء الاصطناعي: مسيرة أتمتة كتب العلم",
     "category": "fonts",
     "icon": "✒️",
@@ -4113,7 +3689,7 @@
     ]
   },
   {
-    "id": 168,
+    "id": 152,
     "title": "محمد جواد | مؤسس تطبيق حلقات لإدارة المراكز القرآنية",
     "category": "tools",
     "icon": "💻",
@@ -4142,7 +3718,7 @@
     ]
   },
   {
-    "id": 169,
+    "id": 153,
     "title": "كيف سهّلتُ على الكُتّاب إدراج الآيات في المحتوى | أنا يوسف عتصمان اسألني ما تشاء",
     "category": "tools",
     "icon": "💻",
@@ -4161,7 +3737,7 @@
     ]
   },
   {
-    "id": 170,
+    "id": 154,
     "title": "من منظورِ كفيفٍ مستخدمٍ ومبرمج: كيف يرى محمد إبراهيم التطبيقات القرآنية بعينيه؟",
     "category": "tools",
     "icon": "💻",
@@ -4195,7 +3771,7 @@
     ]
   },
   {
-    "id": 171,
+    "id": 155,
     "title": "حوّل المتصفح إلى نافذةٍ للقرآن: لقاء تفاعلي مع المهندس محمد أبو سريع",
     "category": "workshops",
     "icon": "📺",
@@ -4214,7 +3790,7 @@
     ]
   },
   {
-    "id": 172,
+    "id": 156,
     "title": "ورشة بالتعاون مع ترتيل لمطوري التطبيقات القرآنية: كيف تقيّم نماذج التلاوة؟",
     "category": "workshops",
     "icon": "📺",
@@ -4233,7 +3809,7 @@
     ]
   },
   {
-    "id": 173,
+    "id": 157,
     "title": "ملخص ورشة: أطلق تطبيقك القرآني ضمن منظومة Quran.Foundation",
     "category": "workshops",
     "icon": "📺",
@@ -4252,7 +3828,7 @@
     ]
   },
   {
-    "id": 174,
+    "id": 158,
     "title": "ملخص ورشة تسويق التطبيقات القرآنية باستخدام وكلاء الذكاء الاصطناعي",
     "category": "workshops",
     "icon": "📺",
@@ -4316,7 +3892,7 @@
     ]
   },
   {
-    "id": 175,
+    "id": 159,
     "title": "ورشة: أطلق تطبيقك القرآني ضمن منظومة Quran.Foundation",
     "category": "workshops",
     "icon": "📺",
@@ -4335,7 +3911,7 @@
     ]
   },
   {
-    "id": 176,
+    "id": 160,
     "title": "ملخص ورشة اختلاف المصطلحات القرآنية",
     "category": "workshops",
     "icon": "📺",
@@ -4404,7 +3980,7 @@
     ]
   },
   {
-    "id": 177,
+    "id": 161,
     "title": "تحويل موقع إلى Progressive Web App (PWA) - ورشة عملية خطوة بخطوة",
     "category": "workshops",
     "icon": "📺",
@@ -4423,7 +3999,7 @@
     ]
   },
   {
-    "id": 178,
+    "id": 162,
     "title": "مشروع \"مصحف عماد\" على GitHub تحول إلى خلية نحل: شكراً مجتمع إتقان! 🌙🐝",
     "category": "fonts",
     "icon": "✒️",
@@ -4435,11 +4011,6 @@
     "description": "السلام عليكم ورحمة الله وبركاته، لم أكن أتخيل يوماً أن مشروعاً برمجياً يمكن أن يُبعث حياً بهذه السرعة والقوة. لو سألني أحدهم - قبل فترة - عن مصير مشروع \"مصحف عماد\"، بالأغلب...",
     "links": [
       {
-        "name": "مستودع husayin1",
-        "url": "https://github.com/husayin1",
-        "src": "GitHub"
-      },
-      {
         "name": "مستودع Vexxo-Dev",
         "url": "https://github.com/Vexxo-Dev",
         "src": "GitHub"
@@ -4447,7 +4018,7 @@
     ]
   },
   {
-    "id": 179,
+    "id": 163,
     "title": "مساهمتي في مشروع \"المعلم القرآني\"",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -4466,7 +4037,7 @@
     ]
   },
   {
-    "id": 180,
+    "id": 164,
     "title": "توثيق تطوير أداة التسميع فوق نظام Muaalem — مشروع مصحف السراج",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -4485,7 +4056,7 @@
     ]
   },
   {
-    "id": 181,
+    "id": 165,
     "title": "أداة مفتوحة المصدر لمطوّري التطبيقات تصنع فيديو ترويجي احترافي لتطبيقاتك",
     "category": "tools",
     "icon": "💻",
@@ -4514,7 +4085,7 @@
     ]
   },
   {
-    "id": 182,
+    "id": 166,
     "title": "وِرد: مشروع مفتوح المصدر يساعدنا على ألّا ننقطع عن القرآن أمام الشاشة",
     "category": "fonts",
     "icon": "✒️",
@@ -4538,7 +4109,7 @@
     ]
   },
   {
-    "id": 183,
+    "id": 167,
     "title": "مشروع دليل التطبيقات القرآنية",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -4557,7 +4128,7 @@
     ]
   },
   {
-    "id": 184,
+    "id": 168,
     "title": "مجلس نور: حلقة قرآن وقتما تُحب",
     "category": "fonts",
     "icon": "✒️",
@@ -4581,7 +4152,7 @@
     ]
   },
   {
-    "id": 185,
+    "id": 169,
     "title": "مشروع مصحف التدبر للتطوير ",
     "category": "fonts",
     "icon": "✒️",
@@ -4600,7 +4171,7 @@
     ]
   },
   {
-    "id": 186,
+    "id": 170,
     "title": "ملتقى إتقان في الرياض | لقاء حضوري لتقاطع الجهود البحثية والتقنية",
     "category": "workshops",
     "icon": "📺",
@@ -4619,26 +4190,7 @@
     ]
   },
   {
-    "id": 187,
-    "title": "أيّ طبعة من المصحف يدعم تطبيقك؟",
-    "category": "fonts",
-    "icon": "✒️",
-    "license": "مفتوح المصدر",
-    "metric": "مورد تقني معتمد",
-    "author": "مختار  الجندي",
-    "discussionUrl": "https://community.itqan.dev/d/845",
-    "discussionNum": "845",
-    "description": "في لقاء لي مع الأخ @إبراهيم قريقع ، مطوّر التطبيقات القرآنية، حكى لي موقفًا يستحق أن نتوقف عنده. اتصلت به زوجته أثناء سفرها لتسأله عن الصفحة التي توقفت عندها، ووضعت علامتها...",
-    "links": [
-      {
-        "name": "الورقة البحثية المنشورة (PDF)",
-        "url": "https://qurancomplex.gov.sa/wp-content/uploads/isdarat/booklets/complextechguide.pdf",
-        "src": "ورقة علمية"
-      }
-    ]
-  },
-  {
-    "id": 188,
+    "id": 171,
     "title": "تطبيق قرآن لسطح المكتب (ويندوز) بجودة تطبيقات الهاتف - النسخة الأولى للتجربة",
     "category": "tools",
     "icon": "💻",
@@ -4657,7 +4209,7 @@
     ]
   },
   {
-    "id": 189,
+    "id": 172,
     "title": "ملتقى إتقان الثاني في القاهرة.. ملامح مستقبل التقنيات القرآنية ",
     "category": "workshops",
     "icon": "📺",
@@ -4731,7 +4283,7 @@
     ]
   },
   {
-    "id": 190,
+    "id": 173,
     "title": "تقرير ختامي عن مؤتمر الذكاء الاصطناعي في خدمة القرآن الكريم | الأوراق العلمية",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -4790,7 +4342,7 @@
     ]
   },
   {
-    "id": 191,
+    "id": 174,
     "title": "تحديث تطبيق \"الكتاب\" الإصدار 5.0: رؤية جديدة لدعم اللغة الإنجليزية",
     "category": "tools",
     "icon": "💻",
@@ -4819,7 +4371,7 @@
     ]
   },
   {
-    "id": 192,
+    "id": 175,
     "title": "SVG بدل PNG في المصحف الرقمي: تجربة ممتعة، وقرار بالبقاء مع PNG حالياً",
     "category": "fonts",
     "icon": "✒️",
@@ -4863,7 +4415,7 @@
     ]
   },
   {
-    "id": 193,
+    "id": 176,
     "title": "مؤتمر الذكاء الاصطناعي في خدمة القرآن الكريم | أكبر تجمع تقني قرآني ",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -4887,7 +4439,7 @@
     ]
   },
   {
-    "id": 194,
+    "id": 177,
     "title": "مشروع \"تجويدي\" لنمذجة مخارج حروف اللغة العربية بطريقة تفاعلية ثلاثية الأبعاد",
     "category": "tools",
     "icon": "💻",
@@ -4906,7 +4458,7 @@
     ]
   },
   {
-    "id": 195,
+    "id": 178,
     "title": "البحث الدلالي الذكي - ميزة تجريبية",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -4940,7 +4492,7 @@
     ]
   },
   {
-    "id": 196,
+    "id": 179,
     "title": "تطبيق محراب القرآن",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -4969,7 +4521,7 @@
     ]
   },
   {
-    "id": 197,
+    "id": 180,
     "title": "توفير نسخة رقمية قابلة للاستخدام لترجمة معاني القرآن الكريم بالأمازيغية",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -5003,7 +4555,7 @@
     ]
   },
   {
-    "id": 198,
+    "id": 181,
     "title": "تعرف على مصادر بيانات مفتوحة المصدر لتطوير تطبيقات التعرف الصوتي على القرآن",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -5047,7 +4599,7 @@
     ]
   },
   {
-    "id": 199,
+    "id": 182,
     "title": "حفص هو موقع لتمرين التجويد بأمثلة قرانية مدعومة بالصوت لاكثر من ٣٠ قارئ ",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -5066,7 +4618,7 @@
     ]
   },
   {
-    "id": 200,
+    "id": 183,
     "title": "كيف نجمع تسجيلات صوتية للقرآن الكريم مناسبة لتدريب نماذج الذكاء الصناعي",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -5090,7 +4642,7 @@
     ]
   },
   {
-    "id": 201,
+    "id": 184,
     "title": "مجلة تدبر تدعوكم للتعاون التقني لتطوير منصتها الإلكترونية عبر منظومة GitHub",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -5114,7 +4666,7 @@
     ]
   },
   {
-    "id": 202,
+    "id": 185,
     "title": "الإعلان عن مبادرة رمضان الأثر ",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -5188,7 +4740,7 @@
     ]
   },
   {
-    "id": 203,
+    "id": 186,
     "title": "دليل المساهمة في المشاريع مفتوحة المصدر",
     "category": "tools",
     "icon": "💻",
@@ -5262,7 +4814,7 @@
     ]
   },
   {
-    "id": 204,
+    "id": 187,
     "title": "مساهماتي ف مشاريع مسابقة رمضان الآثر",
     "category": "audio",
     "icon": "🔊",
@@ -5281,7 +4833,7 @@
     ]
   },
   {
-    "id": 205,
+    "id": 188,
     "title": "مساحة المساهمة والتعاون في المشاريع التقنية النشطة",
     "category": "audio",
     "icon": "🔊",
@@ -5350,7 +4902,7 @@
     ]
   },
   {
-    "id": 206,
+    "id": 189,
     "title": "محرك البحث القرآني",
     "category": "tools",
     "icon": "💻",
@@ -5369,7 +4921,7 @@
     ]
   },
   {
-    "id": 207,
+    "id": 190,
     "title": "مشروع Open Tarteel",
     "category": "audio",
     "icon": "🔊",
@@ -5388,7 +4940,7 @@
     ]
   },
   {
-    "id": 208,
+    "id": 191,
     "title": "رتق  RATQ",
     "category": "fonts",
     "icon": "✒️",
@@ -5412,7 +4964,7 @@
     ]
   },
   {
-    "id": 209,
+    "id": 192,
     "title": "رحلة بناء Open Quran View: واجهة عرض واحدة لجميع المصاحف والمنصات",
     "category": "fonts",
     "icon": "✒️",
@@ -5436,7 +4988,7 @@
     ]
   },
   {
-    "id": 210,
+    "id": 193,
     "title": "ما أفضل طريقة لعرض المصحف في التطبيقات بطريقة مطابقة تمامًا للنسخ المطبوعة",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -5451,16 +5003,11 @@
         "name": "مستودع adelpro/open-quran-view",
         "url": "https://github.com/adelpro/open-quran-view",
         "src": "GitHub"
-      },
-      {
-        "name": "مستودع Tarek/Java-Quran-Web",
-        "url": "https://github.com/Tarek/Java-Quran-Web",
-        "src": "GitHub"
       }
     ]
   },
   {
-    "id": 211,
+    "id": 194,
     "title": " QUSX Unified Scripture XML-style milestone markup to Qur'an data",
     "category": "tools",
     "icon": "💻",
@@ -5479,7 +5026,7 @@
     ]
   },
   {
-    "id": 212,
+    "id": 195,
     "title": "حزمة مصحف عماد (سويفت)",
     "category": "audio",
     "icon": "🔊",
@@ -5498,7 +5045,7 @@
     ]
   },
   {
-    "id": 213,
+    "id": 196,
     "title": "مشروع Open Tarteel TV",
     "category": "audio",
     "icon": "🔊",
@@ -5517,7 +5064,7 @@
     ]
   },
   {
-    "id": 214,
+    "id": 197,
     "title": "نسخة سهلة القراءة من رتق + ترجمات للّغة العربية",
     "category": "fonts",
     "icon": "✒️",
@@ -5536,7 +5083,7 @@
     ]
   },
   {
-    "id": 215,
+    "id": 198,
     "title": "مرصد اللسانيات القرآنية | أداة للبحث في البِنية والسياق في القرآن الكريم",
     "category": "audio",
     "icon": "🔊",
@@ -5555,7 +5102,7 @@
     ]
   },
   {
-    "id": 216,
+    "id": 199,
     "title": "ملفات صوتيه لتطبيق قرآن",
     "category": "tools",
     "icon": "💻",
@@ -5594,7 +5141,7 @@
     ]
   },
   {
-    "id": 217,
+    "id": 200,
     "title": "مصحف القراءات: مساعد شخصي لتعلم القراءات العشر",
     "category": "audio",
     "icon": "🔊",
@@ -5628,7 +5175,7 @@
     ]
   },
   {
-    "id": 218,
+    "id": 201,
     "title": "وداعًا للبرامج القديمة... حلول أسهل لخدمة المحتوى القرآني الرقمي في 2025",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -5647,7 +5194,7 @@
     ]
   },
   {
-    "id": 219,
+    "id": 202,
     "title": "اصوات الأذان",
     "category": "tools",
     "icon": "💻",
@@ -5681,7 +5228,7 @@
     ]
   },
   {
-    "id": 220,
+    "id": 203,
     "title": "أبحث عن نسخة مصحف إلكتروني خفيفة وعالية الجودة لتطبيقات الهواتف",
     "category": "fonts",
     "icon": "✒️",
@@ -5725,7 +5272,7 @@
     ]
   },
   {
-    "id": 221,
+    "id": 204,
     "title": " مُصوِّر القرآن الكريم",
     "category": "audio",
     "icon": "🔊",
@@ -5744,7 +5291,7 @@
     ]
   },
   {
-    "id": 222,
+    "id": 205,
     "title": "تطبيق ويب بسيط يساعد على رقمنة كتب التفسير والتراث",
     "category": "ai",
     "icon": "👳‍♂️",
@@ -5763,7 +5310,7 @@
     ]
   },
   {
-    "id": 223,
+    "id": 206,
     "title": "منصة “غريب القرآن” | رؤية تطويرية ونقاش مفتوح لأهل الخبرة",
     "category": "fonts",
     "icon": "✒️",
@@ -5782,7 +5329,7 @@
     ]
   },
   {
-    "id": 224,
+    "id": 207,
     "title": " تجربتي في تطوير دعم مصحف العماد ",
     "category": "fonts",
     "icon": "✒️",
