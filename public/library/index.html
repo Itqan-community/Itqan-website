@@ -1004,7 +1004,7 @@
     }
 
   
-    /* Modern Pulsing Beacon / Fade Out Circles */
+    /* Modern Dynamic Pulsing Beacon / Staggered Fade-Out Timing per Status */
     .status-indicator {
       position: relative;
       display: inline-flex;
@@ -1030,46 +1030,70 @@
       height: 14px;
       border-radius: 50%;
       z-index: 1;
-      animation: pingFade 2s cubic-bezier(0, 0, 0.2, 1) infinite;
       pointer-events: none;
     }
 
-    @keyframes pingFade {
-      0% {
-        transform: scale(0.6);
-        opacity: 0.9;
-      }
-      65%, 100% {
-        transform: scale(2.2);
-        opacity: 0;
-      }
-    }
-
-    /* Green (Ready / Stable) */
+    /* 🟢 Green (Ready / Stable): Confident, rhythmic 2.4s breathing pulse */
     .status-indicator.ready .core-dot {
       background-color: #10b981;
       box-shadow: 0 0 5px rgba(16, 185, 129, 0.7);
     }
     .status-indicator.ready .ping-circle {
       background-color: rgba(16, 185, 129, 0.45);
+      animation: pingFadeGreen 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
     }
 
-    /* Yellow (Beta / Experimental) */
+    /* 🟡 Yellow (Beta / Experimental): Energetic, rapid 1.5s attention-grabbing pulse */
     .status-indicator.beta .core-dot {
       background-color: #f59e0b;
-      box-shadow: 0 0 5px rgba(245, 158, 11, 0.7);
+      box-shadow: 0 0 6px rgba(245, 158, 11, 0.85);
     }
     .status-indicator.beta .ping-circle {
-      background-color: rgba(245, 158, 11, 0.45);
+      background-color: rgba(245, 158, 11, 0.55);
+      animation: pingFadeYellow 1.5s cubic-bezier(0.15, 0.85, 0.35, 1.2) infinite;
     }
 
-    /* Purple (Reference / Workshops) */
+    /* 🟣 Purple (Reference / Workshops): Serene, deep 3.3s ambient knowledge pulse */
     .status-indicator.ref .core-dot {
       background-color: #8b5cf6;
       box-shadow: 0 0 5px rgba(139, 92, 246, 0.7);
     }
     .status-indicator.ref .ping-circle {
       background-color: rgba(139, 92, 246, 0.45);
+      animation: pingFadePurple 3.3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes pingFadeGreen {
+      0% {
+        transform: scale(0.6);
+        opacity: 0.9;
+      }
+      65%, 100% {
+        transform: scale(2.3);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pingFadeYellow {
+      0% {
+        transform: scale(0.55);
+        opacity: 1;
+      }
+      55%, 100% {
+        transform: scale(2.6);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pingFadePurple {
+      0% {
+        transform: scale(0.65);
+        opacity: 0.85;
+      }
+      70%, 100% {
+        transform: scale(2.1);
+        opacity: 0;
+      }
     }
 
   </style>
