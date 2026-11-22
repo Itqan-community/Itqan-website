@@ -21,7 +21,10 @@
         "url": "https://huggingface.co/spaces/Quran-Lab/quranic-asr-leaderboard",
         "src": "Leaderboard"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 2,
@@ -40,7 +43,10 @@
         "url": "https://huggingface.co/Quran-Lab/zipformer_p-arabic-v3",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 3,
@@ -59,7 +65,10 @@
         "url": "https://huggingface.co/Quran-Lab/sawt-v4",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 4,
@@ -83,7 +92,10 @@
         "url": "https://github.com/tarteel-ai",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 5,
@@ -102,7 +114,10 @@
         "url": "https://pypi.org/project/burhan-ai",
         "src": "PyPI"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 6,
@@ -126,7 +141,10 @@
         "url": "https://github.com/itqan-community",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 7,
@@ -145,7 +163,10 @@
         "url": "https://community.itqan.dev/d/991",
         "src": "Live Tool"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 8,
@@ -164,7 +185,10 @@
         "url": "https://github.com/itqan-community",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 9,
@@ -218,7 +242,10 @@
         "url": "https://everyayah.com/data/",
         "src": "Audio Portal"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 10,
@@ -237,7 +264,10 @@
         "url": "https://huggingface.co/datasets/itqan/qua-alignments",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 11,
@@ -261,7 +291,10 @@
         "url": "https://everyayah.com",
         "src": "Documentation"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 12,
@@ -285,7 +318,10 @@
         "url": "https://huggingface.co/datasets/itqan/kfgqpc-fonts",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 13,
@@ -309,7 +345,10 @@
         "url": "https://www.amirifont.org",
         "src": "Official Portal"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 14,
@@ -333,7 +372,10 @@
         "url": "https://colab.research.google.com",
         "src": "Google Colab"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 15,
@@ -352,7 +394,10 @@
         "url": "https://github.com/itqan-community/miqat",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 16,
@@ -371,7 +416,10 @@
         "url": "https://audio.qud.dev",
         "src": "Web Tool"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 17,
@@ -390,7 +438,10 @@
         "url": "https://www.npmjs.com/package/quran-image-generator",
         "src": "NPM Registry"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 18,
@@ -414,7 +465,10 @@
         "url": "https://github.com/Itqan-community/itqan-community-public",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 19,
@@ -433,7 +487,10 @@
         "url": "https://github.com/itqan-community/quran-search-engine",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 20,
@@ -452,7 +509,10 @@
         "url": "https://community.itqan.dev/d/966",
         "src": "Specification"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": true
   },
   {
     "id": 21,
@@ -471,7 +531,10 @@
         "url": "https://community.itqan.dev/d/603",
         "src": "Community Research"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": true
   },
   {
     "id": 22,
@@ -495,7 +558,10 @@
         "url": "https://community.itqan.dev/d/988",
         "src": "Community Summary"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": true
   },
   {
     "id": 23,
@@ -519,7 +585,10 @@
         "url": "https://colab.research.google.com",
         "src": "Colab Notebook"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 24,
@@ -538,7 +607,10 @@
         "url": "https://community.itqan.dev/d/802",
         "src": "Community Video"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": true
   },
   {
     "id": 25,
@@ -557,7 +629,10 @@
         "url": "https://community.itqan.dev/d/806",
         "src": "Community Video"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 26,
@@ -576,7 +651,10 @@
         "url": "https://github.com/fadiabushabab-afk/quran-reels-template",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 27,
@@ -600,7 +678,10 @@
         "url": "https://github.com/zonetecde/QuranCaption",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 28,
@@ -644,7 +725,10 @@
         "url": "https://www.youtube.com/watch?v=F06wXLJYZHc&amp;t=6332s",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 29,
@@ -663,7 +747,10 @@
         "url": "https://github.com/mohamed-soubhi/quran-graph",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 30,
@@ -682,7 +769,10 @@
         "url": "https://github.com/ahmadmounir/quran-library",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 31,
@@ -701,7 +791,10 @@
         "url": "https://islamicaich.org/files/Hackathon/i2xgA3mxVhrbRe0ReLlA86kTDbFZ9QQ9eb856dq8.pdf",
         "src": "ورقة علمية"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 32,
@@ -720,7 +813,10 @@
         "url": "https://github.com/hadealahmad/quran-madina-layout",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 33,
@@ -779,7 +875,10 @@
         "url": "https://huggingface.co/NightPrince",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 34,
@@ -798,7 +897,10 @@
         "url": "https://github.com/quranpedia/qurantech-skill",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 35,
@@ -817,7 +919,10 @@
         "url": "https://github.com/adelpro/quranpedia-mcp",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 36,
@@ -836,7 +941,10 @@
         "url": "https://github.com/kamalyaser31/arabic-guide",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 37,
@@ -855,7 +963,10 @@
         "url": "https://github.com/alinice1998/munajjam-backend",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 38,
@@ -879,7 +990,10 @@
         "url": "https://github.com/adelpro/quranlm",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 39,
@@ -898,7 +1012,10 @@
         "url": "https://github.com/alinice1998/Fasserly",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 40,
@@ -917,7 +1034,10 @@
         "url": "https://github.com/omarhfs34-ops/tasmee3-muaalem-findings",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 41,
@@ -936,7 +1056,10 @@
         "url": "https://github.com/Iam-Muslim/ReciteQuran",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 42,
@@ -960,7 +1083,10 @@
         "url": "https://huggingface.co/datasets/omar-abu-hfs-siraj/tasmee3-muaalem-findings",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 43,
@@ -979,7 +1105,10 @@
         "url": "https://github.com/nandxorandor/al-muqri",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 44,
@@ -998,7 +1127,10 @@
         "url": "https://github.com/Iam-Muslim/ReciteQuran",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 45,
@@ -1017,7 +1149,10 @@
         "url": "https://huggingface.co/datasets/omar-abu-hfs-siraj/tasmee3-muaalem-findings",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 46,
@@ -1041,7 +1176,10 @@
         "url": "https://github.com/alinice1998/mahfoodh",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 47,
@@ -1070,7 +1208,10 @@
         "url": "https://github.com/Iam-Muslim/ReciteQuran",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 48,
@@ -1114,7 +1255,10 @@
         "url": "https://huggingface.co/Muno459/zipformer_p-quran",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 49,
@@ -1133,7 +1277,10 @@
         "url": "https://github.com/misraj-ai/quranhub",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 50,
@@ -1152,7 +1299,10 @@
         "url": "https://huggingface.co/spaces/IqraEval/IqraEval_Interspeech_26",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 51,
@@ -1176,7 +1326,10 @@
         "url": "https://github.com/MIMV/Quran-Muaalem-iOS",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 52,
@@ -1195,7 +1348,10 @@
         "url": "https://github.com/yayaiu6/Real-Time-Quran-recitation-tracker-System",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 53,
@@ -1234,7 +1390,10 @@
         "url": "https://everyayah.com/",
         "src": "بوابة صوتية / API"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": true
   },
   {
     "id": 54,
@@ -1253,7 +1412,10 @@
         "url": "https://aclanthology.org/2025.arabicnlp-sharedtasks.64.pdf",
         "src": "ورقة علمية"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": true
   },
   {
     "id": 55,
@@ -1297,7 +1459,10 @@
         "url": "https://huggingface.co/IqraEval",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 56,
@@ -1316,7 +1481,10 @@
         "url": "https://github.com/MIMV/QuranWhisperKit.git",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 57,
@@ -1335,7 +1503,10 @@
         "url": "https://github.com/Itqan-community/iqra-al-quran",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 58,
@@ -1399,7 +1570,10 @@
         "url": "https://github.com/alphacep/vosk-api",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 59,
@@ -1423,7 +1597,10 @@
         "url": "https://scispace.com/pdf/towards-a-minimal-phonetic-set-for-quran-recitation-3ma5ukexhu.pdf",
         "src": "ورقة علمية"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": true
   },
   {
     "id": 60,
@@ -1442,7 +1619,10 @@
         "url": "https://github.com/ahmadmounir/quran-libary",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 61,
@@ -1466,7 +1646,10 @@
         "url": "https://github.com/Recite-Quran/Natlu",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 62,
@@ -1490,7 +1673,10 @@
         "url": "https://github.com/quran-ws/quran-engine",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 63,
@@ -1514,7 +1700,10 @@
         "url": "https://github.com/ahmadyousefdev/summernote-quran/blob/main/dist/index.html",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 64,
@@ -1538,7 +1727,10 @@
         "url": "https://huggingface.co/Quran-Lab/sawt-v4",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 65,
@@ -1562,7 +1754,10 @@
         "url": "https://github.com/realabdu/quranic-terminology-lint",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 66,
@@ -1606,7 +1801,10 @@
         "url": "https://github.com/hci-lab/PyQuran/tree/24c70e4e7315cd12b05d2b2f4c703b495e029f92",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 67,
@@ -1635,7 +1833,10 @@
         "url": "https://huggingface.co/spaces/IJyad/quran-jeb",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 68,
@@ -1654,7 +1855,10 @@
         "url": "https://github.com/quran-ws/quran-engine/",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 69,
@@ -1673,7 +1877,10 @@
         "url": "https://github.com/quran-ws/quran-engine",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 70,
@@ -1692,7 +1899,10 @@
         "url": "https://github.com/kamalyaser31/minshawi",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 71,
@@ -1711,7 +1921,10 @@
         "url": "https://github.com/M97Chahboun/quran-database-verifier",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 72,
@@ -1745,7 +1958,10 @@
         "url": "https://github.com/alinice1998/munajjam-desktop",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 73,
@@ -1764,7 +1980,10 @@
         "url": "https://github.com/Itqan-community/Munajjam",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 74,
@@ -1793,7 +2012,10 @@
         "url": "https://huggingface.co/spaces/hetchyy/quranic-universal-aligner",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 75,
@@ -1812,7 +2034,10 @@
         "url": "https://github.com/Iam-Muslim/QuranReciteToText/tree/phoneme-%D8%A7%D9%84%D8%AD%D9%85%D8%AF%D9%84%D9%84%D9%87",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 76,
@@ -1851,7 +2076,10 @@
         "url": "https://github.com/Itqan-community/Munajjam/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 77,
@@ -1870,7 +2098,10 @@
         "url": "https://github.com/alinice1998/munajjamfrontend",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 78,
@@ -1894,7 +2125,10 @@
         "url": "https://huggingface.co/spaces/hetchyy/quranic-universal-audio",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 79,
@@ -1913,7 +2147,10 @@
         "url": "https://github.com/dfordev1/qusx-audio",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 80,
@@ -1942,7 +2179,10 @@
         "url": "https://github.com/Wider-Community/quranic-universal-audio/releases",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 81,
@@ -1966,7 +2206,10 @@
         "url": "https://github.com/avax43/Quran-Video-Generator",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 82,
@@ -1995,7 +2238,10 @@
         "url": "https://github.com/Itqan-community/munajjam-desktop",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 83,
@@ -2034,7 +2280,10 @@
         "url": "https://github.com/orgs/Itqan-community/projects/7",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 84,
@@ -2053,7 +2302,10 @@
         "url": "https://github.com/Itqan-community/Munajjam/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 85,
@@ -2092,7 +2344,10 @@
         "url": "https://github.com/Itqan-community/cms-backend",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": true
   },
   {
     "id": 86,
@@ -2111,7 +2366,10 @@
         "url": "https://www.youtube.com/channel/UCue0VDiw0UCeD8jkmI2LsFw",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 87,
@@ -2145,7 +2403,10 @@
         "url": "https://github.com/readbeyond/aeneas?",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 88,
@@ -2164,7 +2425,10 @@
         "url": "https://github.com/Iam-Muslim/Natlu",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 89,
@@ -2188,7 +2452,10 @@
         "url": "https://github.com/Itqan-community/mushaf-imad-flutter",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 90,
@@ -2207,7 +2474,10 @@
         "url": "https://github.com/engsaleh/Itqan-cms-tilawah-radio",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": true
   },
   {
     "id": 91,
@@ -2241,7 +2511,10 @@
         "url": "https://github.com/engsaleh/quran_semantic_search",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 92,
@@ -2280,7 +2553,10 @@
         "url": "https://github.com/engsaleh/Qawm-frontend",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 93,
@@ -2304,7 +2580,10 @@
         "url": "https://github.com/engsaleh/quran_pipeline",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 94,
@@ -2328,7 +2607,10 @@
         "url": "https://github.com/engsaleh/Baheth-Quran",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 95,
@@ -2347,7 +2629,10 @@
         "url": "https://github.com/alinice1998/mityaf-altafsir",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 96,
@@ -2366,7 +2651,10 @@
         "url": "https://github.com/nandxorandor/itqan-library",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 97,
@@ -2385,7 +2673,10 @@
         "url": "https://github.com/adelpro/open-tilawa/tree/develop/apps%2Fextension",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 98,
@@ -2404,7 +2695,10 @@
         "url": "https://github.com/Itqan-community/itqan-community-public/",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": true
   },
   {
     "id": 99,
@@ -2423,7 +2717,10 @@
         "url": "https://www.youtube.com/watch?v=sE6WSZM0emg",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 100,
@@ -2447,7 +2744,10 @@
         "url": "https://huggingface.co/datasets/Alimalas/recordquran-dataset",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 101,
@@ -2466,7 +2766,10 @@
         "url": "https://hibastudio.com/wp-content/uploads/2023/07/KS-Quran-Manual.pdf",
         "src": "ورقة علمية"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": true
   },
   {
     "id": 102,
@@ -2485,7 +2788,10 @@
         "url": "https://github.com/Itqan-community/itqan-community-public/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 103,
@@ -2509,7 +2815,10 @@
         "url": "https://github.com/RanaMalhas/QRCD",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 104,
@@ -2528,7 +2837,10 @@
         "url": "https://github.com/QUD-Technologies/quranic-phonemizer",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 105,
@@ -2547,7 +2859,10 @@
         "url": "https://docs.github.com/en/copilot/tutorials/vibe-coding",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 106,
@@ -2581,7 +2896,10 @@
         "url": "https://github.com/Astro-Han/karpathy-llm-wiki",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 107,
@@ -2600,7 +2918,10 @@
         "url": "https://arxiv.org/abs/2606.13837",
         "src": "ورقة علمية"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 108,
@@ -2624,7 +2945,10 @@
         "url": "https://github.com/blader/humanizer",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 109,
@@ -2643,7 +2967,10 @@
         "url": "https://github.com/DietrichGebert/ponytail",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 110,
@@ -2667,7 +2994,10 @@
         "url": "https://www.youtube.com/watch?v=UfwS9Ua-N1U",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 111,
@@ -2686,7 +3016,10 @@
         "url": "https://huggingface.co/omar-abu-hfs-siraj",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 112,
@@ -2725,7 +3058,10 @@
         "url": "https://github.com/Itqan-community/iqra-al-quran",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 113,
@@ -2744,7 +3080,10 @@
         "url": "https://github.com/Itqan-community/mushaf-imad-flutter/",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 114,
@@ -2768,7 +3107,10 @@
         "url": "https://github.com/quran-ws/qurantech-skill/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 115,
@@ -2812,7 +3154,10 @@
         "url": "https://api.quran.com/api/v4/verses/by_page/1?words=true&amp;word_fields=text_uthmani,code_v1,code_v2",
         "src": "بوابة صوتية / API"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 116,
@@ -2836,7 +3181,10 @@
         "url": "https://quranpedia.net/api/page/hafs/1",
         "src": "بوابة صوتية / API"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 117,
@@ -2855,7 +3203,10 @@
         "url": "https://github.com/zonetecde/QuranCaption",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 118,
@@ -2874,7 +3225,10 @@
         "url": "https://github.com/Itqan-community/miqat-frontend",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 119,
@@ -2893,7 +3247,10 @@
         "url": "https://github.com/ibo2001/MushafImad",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 120,
@@ -2912,7 +3269,10 @@
         "url": "https://github.com/Itqan-community/LUBB",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 121,
@@ -2936,7 +3296,10 @@
         "url": "https://github.com/Itqan-community/Munajjam",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 122,
@@ -2955,7 +3318,10 @@
         "url": "https://huggingface.co/omar-abu-hfs-siraj",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 123,
@@ -2979,7 +3345,10 @@
         "url": "https://github.com/iTarek/Java-Quran-Web",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 124,
@@ -2998,7 +3367,10 @@
         "url": "https://www.youtube.com/watch?v=CvVptKEJDIw",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 125,
@@ -3042,7 +3414,10 @@
         "url": "https://github.com/adelpro/open-mushaf-native/blob/main/app/search.tsx",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 126,
@@ -3066,7 +3441,10 @@
         "url": "https://archive.org/details/96_20261023",
         "src": "Archive.org"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 127,
@@ -3090,7 +3468,10 @@
         "url": "https://github.com/omer73364/Ayat-Quran/releases/download/v1.1.1/Ayat-Quran-v1.1.1.apk",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 128,
@@ -3114,7 +3495,10 @@
         "url": "https://huggingface.co/pollen-robotics",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 129,
@@ -3133,7 +3517,10 @@
         "url": "https://github.com/nandxorandor/qareen",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 130,
@@ -3152,7 +3539,10 @@
         "url": "https://github.com/zeyadAlmothafar-founder/Tilawat",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 131,
@@ -3176,7 +3566,10 @@
         "url": "https://github.com/iTarek/Halal-Motion-Videos",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 132,
@@ -3195,7 +3588,10 @@
         "url": "https://github.com/quranpedia/qurantech-skill",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 133,
@@ -3224,7 +3620,10 @@
         "url": "https://github.com/FekyBaz/ajr_layanqate3/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 134,
@@ -3248,7 +3647,10 @@
         "url": "https://github.com/QUD-Technologies/quran-alignment-benchmark",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 135,
@@ -3267,7 +3669,10 @@
         "url": "https://github.com/adelpro/quran-search-engine",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 136,
@@ -3286,7 +3691,10 @@
         "url": "https://github.com/alheekmahlib/alquranalkareem",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 137,
@@ -3305,7 +3713,10 @@
         "url": "https://github.com/adelpro/open-tilawa",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 138,
@@ -3334,7 +3745,10 @@
         "url": "https://github.com/sehalhussain/Hadith-Dua-assets",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 139,
@@ -3353,7 +3767,10 @@
         "url": "https://github.com/Iam-Muslim/ReciteQuran",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 140,
@@ -3372,7 +3789,10 @@
         "url": "https://github.com/adelpro/quran-search-engine",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 141,
@@ -3391,7 +3811,10 @@
         "url": "https://github.com/realabdu/quranic-vocab",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 142,
@@ -3410,7 +3833,10 @@
         "url": "https://github.com/Itqan-community/itqan-community-public",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 143,
@@ -3439,7 +3865,10 @@
         "url": "https://github.com/Itqan-community/itqan-community-public/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 144,
@@ -3468,7 +3897,10 @@
         "url": "https://github.com/Itqan-community/RATQ/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 145,
@@ -3497,7 +3929,10 @@
         "url": "https://github.com/Itqan-community/RATQ/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 146,
@@ -3526,7 +3961,10 @@
         "url": "https://github.com/orgs/Itqan-community/projects/10",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 147,
@@ -3545,7 +3983,10 @@
         "url": "https://github.com/orgs/Itqan-community/projects/10",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": true
   },
   {
     "id": 148,
@@ -3574,7 +4015,10 @@
         "url": "https://github.com/Itqan-community/cms-backend/blob/main/CONTRIBUTING.md",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 149,
@@ -3598,7 +4042,10 @@
         "url": "https://github.com/Itqan-community/RATQ",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 150,
@@ -3667,7 +4114,10 @@
         "url": "https://github.com/M97Chahboun/ahkam_tajweed/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 151,
@@ -3686,7 +4136,10 @@
         "url": "https://github.com/kamalyaser31/ocr-workflow",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 152,
@@ -3715,7 +4168,10 @@
         "url": "https://github.com/quran/quran.com-images",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 153,
@@ -3734,7 +4190,10 @@
         "url": "https://github.com/benotsman-youssuf/kamil",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 154,
@@ -3768,7 +4227,10 @@
         "url": "https://www.youtube.com/watch?v=f3aJ2WByfV8",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 155,
@@ -3787,7 +4249,10 @@
         "url": "https://www.youtube.com/watch?v=5wOijYD-NgQ",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": true
   },
   {
     "id": 156,
@@ -3806,7 +4271,10 @@
         "url": "https://www.youtube.com/watch?v=OOMRv_FIYfU",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 157,
@@ -3825,7 +4293,10 @@
         "url": "https://www.youtube.com/watch?v=mg13Z1CKdKM",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": true
   },
   {
     "id": 158,
@@ -3889,7 +4360,10 @@
         "url": "https://www.youtube.com/watch?v=Yqtyt6zsz4k",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": true
   },
   {
     "id": 159,
@@ -3908,7 +4382,10 @@
         "url": "https://www.youtube.com/@ItqanCommunity",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 160,
@@ -3977,7 +4454,10 @@
         "url": "https://github.com/ebrahim-youssef/quran-api-unified",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 161,
@@ -3996,7 +4476,10 @@
         "url": "https://github.com/adelpro/open-mushaf-native/blob/main/public/service-worker.js",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 162,
@@ -4015,7 +4498,10 @@
         "url": "https://github.com/Vexxo-Dev",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 163,
@@ -4034,7 +4520,10 @@
         "url": "https://github.com/obadx/quran-muaalem",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 164,
@@ -4053,7 +4542,10 @@
         "url": "https://github.com/omarhfs34-ops/tasmee3-muaalem-findings",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 165,
@@ -4082,7 +4574,10 @@
         "url": "https://www.youtube.com/watch?v=Qvpv1ATZihc",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 166,
@@ -4106,7 +4601,10 @@
         "url": "https://github.com/abu-ayesh/wird-project/releases/latest",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 167,
@@ -4125,7 +4623,10 @@
         "url": "https://github.com/Itqan-community/quran-apps-directory/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 168,
@@ -4149,7 +4650,10 @@
         "url": "https://github.com/edriso/majlis-noor#شكر-وتقدير",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": true
   },
   {
     "id": 169,
@@ -4168,7 +4672,10 @@
         "url": "https://github.com/Majidahcode/quran-tadabbur/tree/main",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 170,
@@ -4187,7 +4694,10 @@
         "url": "https://huggingface.co/spaces/IqraEval/IqraEval_Interspeech_26",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": true
   },
   {
     "id": 171,
@@ -4206,7 +4716,10 @@
         "url": "https://youtu.be/cghTQx2gtJg",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 172,
@@ -4280,7 +4793,10 @@
         "url": "https://www.youtube.com/watch?v=YQYZ-If-zVM",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": true
   },
   {
     "id": 173,
@@ -4339,7 +4855,10 @@
         "url": "https://www.youtube.com/watch?v=IhWLGTUFLAw",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 174,
@@ -4368,7 +4887,10 @@
         "url": "https://www.youtube.com/watch?v=opCbeb8ZJ7U",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 175,
@@ -4412,7 +4934,10 @@
         "url": "https://github.com/adelpro/open-mushaf-native",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 176,
@@ -4436,7 +4961,10 @@
         "url": "https://www.youtube.com/watch?v=j1hea598mpw",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 177,
@@ -4455,7 +4983,10 @@
         "url": "https://www.youtube.com/watch?v=GCnOoBGZK78",
         "src": "فيديو مسجل"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 178,
@@ -4489,7 +5020,10 @@
         "url": "https://huggingface.co/adelpro/atm-v2-web",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 179,
@@ -4518,7 +5052,10 @@
         "url": "https://huggingface.co/obadx/muaalem-model-v3_2",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 180,
@@ -4552,7 +5089,10 @@
         "url": "https://github.com/aliftype/quran-data",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 181,
@@ -4596,7 +5136,10 @@
         "url": "https://arxiv.org/abs/2509.00094?",
         "src": "ورقة علمية"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": false
   },
   {
     "id": 182,
@@ -4615,7 +5158,10 @@
         "url": "https://huggingface.co/Quran-Lab/zipformer_p-arabic-v3",
         "src": "HuggingFace"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 183,
@@ -4639,7 +5185,10 @@
         "url": "https://arxiv.org/html/2405.02675v1?",
         "src": "ورقة علمية"
       }
-    ]
+    ],
+    "status": "reference",
+    "statusLabel": "مورد توثيقي / مسجل",
+    "ratq": true
   },
   {
     "id": 184,
@@ -4663,7 +5212,10 @@
         "url": "https://github.com/alinice1998/",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 185,
@@ -4737,7 +5289,10 @@
         "url": "https://github.com/AmmarCodes/obsidian-quran-helper-plugin/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 186,
@@ -4811,7 +5366,10 @@
         "url": "https://github.com/AmmarCodes/obsidian-quran-helper-plugin/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 187,
@@ -4830,7 +5388,10 @@
         "url": "https://github.com/Amr-Bendary",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 188,
@@ -4899,7 +5460,10 @@
         "url": "https://github.com/adelpro/open-tarteel",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 189,
@@ -4918,7 +5482,10 @@
         "url": "https://github.com/adelpro/quran-search-engine/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 190,
@@ -4937,7 +5504,10 @@
         "url": "https://github.com/adelpro/open-tarteel/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": true
   },
   {
     "id": 191,
@@ -4961,7 +5531,10 @@
         "url": "https://github.com/Itqan-community/RATQ/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 192,
@@ -4985,7 +5558,10 @@
         "url": "https://github.com/adelpro/open-quran-view",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 193,
@@ -5004,7 +5580,10 @@
         "url": "https://github.com/adelpro/open-quran-view",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 194,
@@ -5023,7 +5602,10 @@
         "url": "https://github.com/dfordev1/usxv2",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 195,
@@ -5042,7 +5624,10 @@
         "url": "https://github.com/ibo2001/MushafImad/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 196,
@@ -5061,7 +5646,10 @@
         "url": "https://github.com/adelpro/open-tarteel-tv/issues",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": true
   },
   {
     "id": 197,
@@ -5080,7 +5668,10 @@
         "url": "https://github.com/hadealahmad/RATQ/tree/arabic",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": true
   },
   {
     "id": 198,
@@ -5099,7 +5690,10 @@
         "url": "https://github.com/lAvArt/Quran-corpus-visualizer",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 199,
@@ -5138,7 +5732,10 @@
         "url": "https://archive.org/details/audio",
         "src": "Archive.org"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 200,
@@ -5172,7 +5769,10 @@
         "url": "https://archive.org/details/20240512_20240512_1637/page/n629/mode/1up",
         "src": "Archive.org"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 201,
@@ -5191,7 +5791,10 @@
         "url": "https://github.com/CAMeL-Lab/camel_tools",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 202,
@@ -5225,7 +5828,10 @@
         "url": "https://github.com/DBChoco/Salawat",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 203,
@@ -5269,7 +5875,10 @@
         "url": "https://github.com/quranpedia/quran-svg",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 204,
@@ -5288,7 +5897,10 @@
         "url": "https://github.com/kaisdukes/quranic-corpus",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 205,
@@ -5307,7 +5919,10 @@
         "url": "https://github.com/alinice1998/lammah",
         "src": "GitHub"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   },
   {
     "id": 206,
@@ -5326,7 +5941,10 @@
         "url": "https://archive.org/details/KalimatQuran",
         "src": "Archive.org"
       }
-    ]
+    ],
+    "status": "ready",
+    "statusLabel": "جاهز ومستقر",
+    "ratq": false
   },
   {
     "id": 207,
@@ -5345,6 +5963,9 @@
         "url": "https://archive.org/details/mushaf-shamrley",
         "src": "Archive.org"
       }
-    ]
+    ],
+    "status": "beta",
+    "statusLabel": "تجريبي قيد التطوير",
+    "ratq": false
   }
 ]

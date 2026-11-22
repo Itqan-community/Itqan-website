@@ -58,6 +58,33 @@ EXCLUDE_TITLE_KEYWORDS = [
     "شراكات واستثمار"
 ]
 
+
+BETA_KEYWORDS = [
+    "تجريبي", "تجريبية", "قيد التطوير", "أولي", "أولية", "beta", "alpha", 
+    "poc", "proof of concept", "محاولة", "نموذج أولي", "مسودة", 
+    "مشروع بسيط", "تجربة", "غير مكتمل", "تحت الاختبار", "فكرة"
+]
+
+RATQ_KEYWORDS = [
+    "ratq", "رتق", "itqan", "إتقان", "مرقوم", "معيار", "مصحف المدينة", 
+    "مجمع الملك فهد", "everyayah", "tanzil", "tarteel", "quran-lab"
+]
+
+def determine_status_and_ratq(title, content, category, links, author=""):
+    text = (title + " " + content).lower()
+    if category in ["workshops", "research"] or any(l.get("src") in ["فيديو مسجل", "ورقة علمية"] for l in links):
+        status = "reference"
+        status_label = "مورد توثيقي / مسجل"
+    elif any(re.search(rf"\b{re.escape(w)}\b", text) or w in text for w in BETA_KEYWORDS):
+        status = "beta"
+        status_label = "تجريبي قيد التطوير"
+    else:
+        status = "ready"
+        status_label = "جاهز ومستقر"
+
+    is_ratq = any(w in text for w in RATQ_KEYWORDS) or "Itqan" in author or "إتقان" in author
+    return status, status_label, is_ratq
+
 EXCLUDE_LINK_PATTERNS = [
     "/issues/", "/pull/", "before.html", "play.google.com", 
     "twitter.com", "x.com", "facebook.com", "google.com/search",
@@ -489,6 +516,12 @@ def scan_and_update(run_health_check=True):
                         "discussionUrl": f"https://community.itqan.dev/d/{disc_id}",
                         "discussionNum": disc_id,
                         "description": analysis.get("summary", ""),
+                    "status": determine_status_and_ratq(title, content, analysis.get("category", "tools"), links, author_name)[0],
+                    "statusLabel": determine_status_and_ratq(title, content, analysis.get("category", "tools"), links, author_name)[1],
+                    "ratq": determine_status_and_ratq(title, content, analysis.get("category", "tools"), links, author_name)[2],
+                    "status": determine_status_and_ratq(disc_title, content, analysis.get("category", "tools"), links)[0],
+                    "statusLabel": determine_status_and_ratq(disc_title, content, analysis.get("category", "tools"), links)[1],
+                    "ratq": determine_status_and_ratq(disc_title, content, analysis.get("category", "tools"), links)[2],
                         "links": links[:12]
                     }
                     existing.append(new_item)
@@ -588,6 +621,12 @@ def scan_and_update(run_health_check=True):
                     "discussionUrl": f"https://community.itqan.dev/d/{disc_id}",
                     "discussionNum": disc_id,
                     "description": analysis.get("summary", ""),
+                    "status": determine_status_and_ratq(title, content, analysis.get("category", "tools"), links, author_name)[0],
+                    "statusLabel": determine_status_and_ratq(title, content, analysis.get("category", "tools"), links, author_name)[1],
+                    "ratq": determine_status_and_ratq(title, content, analysis.get("category", "tools"), links, author_name)[2],
+                    "status": determine_status_and_ratq(disc_title, content, analysis.get("category", "tools"), links)[0],
+                    "statusLabel": determine_status_and_ratq(disc_title, content, analysis.get("category", "tools"), links)[1],
+                    "ratq": determine_status_and_ratq(disc_title, content, analysis.get("category", "tools"), links)[2],
                     "links": links[:12]
                 }
                 existing.append(new_item)
