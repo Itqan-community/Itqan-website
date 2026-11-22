@@ -1250,6 +1250,9 @@
         <button class="status-filter-btn" id="filter-btn-beta" onclick="filterByStatus('beta')">
           <span class="status-indicator beta"><span class="ping-circle"></span><span class="core-dot"></span></span><span>تجريبي قيد التطوير</span>
         </button>
+        <button class="status-filter-btn" id="filter-btn-reference" onclick="filterByStatus('reference')">
+          <span class="status-indicator ref"><span class="ping-circle"></span><span class="core-dot"></span></span><span>مورد توثيقي / مسجل</span>
+        </button>
         <button class="status-filter-btn" id="filter-btn-ratq" onclick="filterByStatus('ratq')">
           <span>🛡️ معتمد في رتق</span>
         </button>
@@ -7441,6 +7444,7 @@
         }
         if (currentStatusFilter === 'ready' && it.status !== 'ready') return false;
         if (currentStatusFilter === 'beta' && it.status !== 'beta') return false;
+        if (currentStatusFilter === 'reference' && it.status !== 'reference') return false;
         if (currentStatusFilter === 'ratq' && !it.ratq) return false;
         if (!searchQuery) return true;
         return (
