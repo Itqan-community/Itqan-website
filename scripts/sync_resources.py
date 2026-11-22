@@ -2,8 +2,8 @@
 """
 sync_resources.py
 Automated deep-mining scanner and updater for Itqan Library (مكتبة إتقان).
-Scans Itqan Community discussions AND replies/posts across all tags
-for new datasets, models, tools, and papers, and automatically upserts them into resources.json.
+Scans Itqan Community discussions AND replies/posts across all tags and search queries
+for new datasets, models, tools, papers, and recorded workshops/sessions, and automatically upserts them into resources.json.
 
 Includes a Resilient 3-Tier Fallback Engine:
 - Tier 1: Google Gemini 1.5 Flash (AI Semantic Classification & Summarization)
@@ -29,11 +29,25 @@ TECH_TAGS = [
     "tools-resources",
     "recitation-audio-data",
     "uthmani-scripts",
-    "tech-knowledge"
+    "tech-knowledge",
+    "projects-collabs",
+    "developers-space",
+    "code-for-quran",
+    "ama"
+]
+
+SEARCH_QUERIES = [
+    "ورشة",
+    "ملخص ورشة",
+    "لقاء",
+    "youtube",
+    "huggingface",
+    "github.com",
+    "archive.org"
 ]
 
 EXCLUDE_TITLE_KEYWORDS = [
-    "مقترح", "فكرة", "استطلاع", "رأي", "دعوة", "سؤال", "مشكلة", 
+    "مقترح", "فكرة", "استطلاع", "رأي", "سؤال", "مشكلة", 
     "استفسار", "طلب مساعدة", "تحديت نفسي", "أحتاج مساعدة", "كيف تبني",
     "شراكات واستثمار"
 ]
@@ -58,7 +72,7 @@ def save_resources(data):
 def api_get(url):
     req = urllib.request.Request(
         url,
-        headers={"User-Agent": "ItqanLibraryCurator/3.5 (+https://github.com/nandxorandor/itqan-library)"}
+        headers={"User-Agent": "ItqanLibraryCurator/4.0 (+https://github.com/nandxorandor/itqan-library)"}
     )
     try:
         with urllib.request.urlopen(req, timeout=15) as resp:
@@ -68,8 +82,17 @@ def api_get(url):
         return None
 
 def extract_links_from_text(text):
-    """Find and cleanly format genuine resource links."""
+    """
+    Find and cleanly format genuine resource links.
+    Handles standard URLs as well as Flarum embedded iframes (e.g. YouTube nocookie embeds).
+    """
     urls = re.findall(r'https?://[^\s<>"\)\]]+', text)
+    
+    # Also extract YouTube embeds from Flarum iframes (youtube-nocookie.com/embed/ID)
+    yt_embed_ids = re.findall(r'youtube-nocookie\.com/embed/([a-zA-Z0-9_-]{11})', text)
+    for vid in yt_embed_ids:
+        urls.append(f"https://www.youtube.com/watch?v={vid}")
+
     verified = []
     seen = set()
     for u in urls:
@@ -109,7 +132,7 @@ def extract_links_from_text(text):
             name = "الورقة البحثية المنشورة (PDF)"
         elif "youtube.com" in u or "youtu.be" in u:
             src = "فيديو مسجل"
-            name = "مشاهدة الورشة المرئية"
+            name = "مشاهدة تسجيل الورشة (YouTube)"
         elif "audio.qud.dev" in u or "everyayah.com" in u or "api" in u:
             src = "بوابة صوتية / API"
             name = u.replace("https://", "").replace("http://", "").split("/")[0]
@@ -128,21 +151,26 @@ def rule_based_classify_and_summarize(title, content):
     category = "tools"
     icon = "💻"
     
-    if any(w in title_and_text for w in ["huggingface.co/models", "نموذج", "whisper", "zipformer", "tajweedformer", "تسميع"]):
-        category = "ai"
-        icon = "👳‍♂️"
-    elif any(w in title_and_text for w in ["archive.org", "حزمة صوت", "تسجيلات", "تلاوات", "corpus", "dataset"]):
-        category = "audio"
-        icon = "🔊"
-    elif any(w in title_and_text for w in ["خط", "رسم عثماني", "مصحف", "ttf", "woff2", "svg"]):
-        category = "fonts"
-        icon = "✒️"
-    elif any(w in title_and_text for w in ["arxiv", "paper", "ورقة بحثية", "دراسة", "معيار"]):
-        category = "research"
-        icon = "📚"
-    elif any(w in title_and_text for w in ["ورشة", "محاضرة", "لقاء تقني", "شرح عملي", "youtube"]):
+    # Priority 1: Workshops & Recorded Sessions
+    if any(w in title_and_text for w in ["ورشة", "ملخص ورشة", "لقاء تفاعلي", "تسجيل الورشة", "جلسة تفاعلية", "youtube.com/watch", "youtu.be"]):
         category = "workshops"
         icon = "📺"
+    # Priority 2: Recitation AI Models
+    elif any(w in title_and_text for w in ["huggingface.co/models", "نموذج", "whisper", "zipformer", "tajweedformer", "تسميع"]):
+        category = "ai"
+        icon = "👳‍♂️"
+    # Priority 3: Audio Corpora & Reciter Datasets
+    elif any(w in title_and_text for w in ["archive.org", "حزمة صوت", "تسجيلات", "تلاوات", "corpus", "dataset", "everyayah"]):
+        category = "audio"
+        icon = "🔊"
+    # Priority 4: Fonts & Mushaf Assets
+    elif any(w in title_and_text for w in ["خط", "رسم عثماني", "مصحف", "ttf", "woff2", "svg", "مصحف المدينة"]):
+        category = "fonts"
+        icon = "✒️"
+    # Priority 5: Research & Standards
+    elif any(w in title_and_text for w in ["arxiv", "paper", "ورقة بحثية", "دراسة", "معيار", "معايير"]):
+        category = "research"
+        icon = "📚"
 
     clean_desc = re.sub(r'<[^>]+>', ' ', content)
     clean_desc = re.sub(r'\s+', ' ', clean_desc).strip()
@@ -178,7 +206,7 @@ def ai_classify_and_summarize(title, content, links):
 {{
   "category": "ai" | "audio" | "fonts" | "tools" | "research" | "workshops",
   "summary": "ملخص فني دقيق من سطرين يوضح فائدة هذا المورد للمطورين والباحثين",
-  "metric": "وصف تقني موجز مثل: نموذج مفتوح المصدر أو حزمة تسجيلات صوتية"
+  "metric": "وصف تقني موجز مثل: ورشة عمل مسجلة أو نموذج مفتوح المصدر"
 }}"""
 
     # --- Tier 1: Google Gemini API ---
@@ -256,7 +284,6 @@ def ai_classify_and_summarize(title, content, links):
 
 def scan_and_update():
     existing = load_existing()
-    # Index by discussionNum for fast upserting
     existing_by_num = {str(item.get("discussionNum")): item for item in existing if item.get("discussionNum")}
     
     print(f"Curated library currently contains {len(existing)} resources.")
@@ -265,11 +292,12 @@ def scan_and_update():
 
     # -------------------------------------------------------------
     # Stage 1: Deep Post/Comment Mining (/api/posts)
-    # Catches links posted in replies and discussions in real-time
+    # Catches links posted in replies, embeds, and comments
     # -------------------------------------------------------------
     print("Stage 1: Scanning latest community replies and comments for resource links...")
-    posts_payload = api_get(f"{BASE_POSTS_API}?sort=-createdAt&page[limit]=50&include=discussion,user")
+    posts_payload = api_get(f"{BASE_POSTS_API}?sort=-createdAt&page[limit]=100&include=discussion,user")
     if posts_payload and "data" in posts_payload:
+        included = {item['id']: item for item in posts_payload.get('included', [])}
         for post in posts_payload.get("data", []):
             content = post.get("attributes", {}).get("contentHtml", "")
             links = extract_links_from_text(content)
@@ -281,7 +309,7 @@ def scan_and_update():
             if not disc_id:
                 continue
 
-            # Check if this discussion is already tracked in our catalog
+            # If discussion already tracked, append new links
             if disc_id in existing_by_num:
                 target_item = existing_by_num[disc_id]
                 existing_urls = {l["url"] for l in target_item.get("links", [])}
@@ -295,16 +323,54 @@ def scan_and_update():
                         print(f"  [⟳] Auto-mined new link for #{disc_id} ({target_item.get('title')[:30]}): {l['url']}")
                 if added_any:
                     target_item["metric"] = f"{len(target_item['links'])} مصادر وروابط مباشرة"
+            else:
+                # If a post has high-value links in an untracked discussion, fetch discussion and create card!
+                disc_info = included.get(disc_id)
+                disc_title = disc_info.get("attributes", {}).get("title", "") if disc_info else ""
+                if not disc_title:
+                    fetched_disc = api_get(f"{BASE_DISCUSSIONS_API}/{disc_id}")
+                    if fetched_disc and "data" in fetched_disc:
+                        disc_title = fetched_disc["data"].get("attributes", {}).get("title", "")
+                
+                if disc_title and not any(bad in disc_title for bad in EXCLUDE_TITLE_KEYWORDS):
+                    analysis = ai_classify_and_summarize(disc_title, content, links)
+                    new_item = {
+                        "id": len(existing) + 1,
+                        "title": disc_title,
+                        "category": analysis.get("category", "workshops" if any(l["src"] == "فيديو مسجل" for l in links) else "tools"),
+                        "icon": analysis.get("icon", "📺" if any(l["src"] == "فيديو مسجل" for l in links) else "💻"),
+                        "license": "مفتوح المصدر",
+                        "metric": analysis.get("metric", f"{len(links)} روابط فحص وتحميل مباشرة"),
+                        "author": "مساهمة من ردود المجتمع",
+                        "discussionUrl": f"https://community.itqan.dev/d/{disc_id}",
+                        "discussionNum": disc_id,
+                        "description": analysis.get("summary", ""),
+                        "links": links[:12]
+                    }
+                    existing.append(new_item)
+                    existing_by_num[disc_id] = new_item
+                    new_count += 1
+                    print(f"  [+] Discovered from reply: #{disc_id} ({disc_title[:35]}) -> {new_item['category']}")
 
     # -------------------------------------------------------------
     # Stage 2: Discussions Scanner (/api/discussions)
-    # Catches new technical topics across tags
+    # Catches technical topics across tags and targeted queries
     # -------------------------------------------------------------
-    print("Stage 2: Scanning technical discussion topics across tags...")
+    print("Stage 2: Scanning technical discussion topics and workshops...")
+    endpoints = []
     for tag in TECH_TAGS:
         url = f"{BASE_DISCUSSIONS_API}?include=tags,firstPost,user&sort=-createdAt&page[limit]=50"
         if tag:
             url += f"&filter[tag]={tag}"
+        endpoints.append(url)
+    
+    for q in SEARCH_QUERIES:
+        import urllib.parse
+        encoded_q = urllib.parse.quote(q)
+        endpoints.append(f"{BASE_DISCUSSIONS_API}?include=tags,firstPost,user&filter[q]={encoded_q}&page[limit]=30")
+
+    seen_discussions = set()
+    for url in endpoints:
         payload = api_get(url)
         if not payload or "data" not in payload:
             continue
@@ -322,14 +388,16 @@ def scan_and_update():
 
         for disc in discussions:
             disc_id = str(disc["id"])
-            if disc_id in existing_by_num:
+            if disc_id in seen_discussions or disc_id in existing_by_num:
                 continue
+            seen_discussions.add(disc_id)
 
             attrs = disc.get("attributes", {})
             title = attrs.get("title", "")
             
-            # Strict rejection of non-resource discussions
-            if any(bad in title for bad in EXCLUDE_TITLE_KEYWORDS):
+            # Strict rejection of non-resource discussions (unless it's a workshop summary)
+            is_workshop_topic = any(w in title.lower() for w in ["ورشة", "ملخص ورشة", "لقاء تفاعلي"])
+            if not is_workshop_topic and any(bad in title for bad in EXCLUDE_TITLE_KEYWORDS):
                 continue
             
             first_post_rel = disc.get("relationships", {}).get("firstPost", {}).get("data", {})
@@ -337,6 +405,20 @@ def scan_and_update():
             content = posts_by_id.get(first_post_id, "")
             
             links = extract_links_from_text(content)
+            
+            # Also check if any reply in this discussion contains a YouTube recording or gold link
+            if not links or not any(l["src"] in ["GitHub", "HuggingFace", "Archive.org", "ورقة علمية", "فيديو مسجل"] for l in links):
+                # Fetch discussion posts to inspect replies
+                detailed_disc = api_get(f"{BASE_DISCUSSIONS_API}/{disc_id}")
+                if detailed_disc and "included" in detailed_disc:
+                    for inc in detailed_disc.get("included", []):
+                        if inc.get("type") == "posts":
+                            post_content = inc.get("attributes", {}).get("contentHtml", "")
+                            reply_links = extract_links_from_text(post_content)
+                            for rl in reply_links:
+                                if rl["url"] not in [x["url"] for x in links]:
+                                    links.append(rl)
+
             has_gold_link = any(l["src"] in ["GitHub", "HuggingFace", "Archive.org", "ورقة علمية", "فيديو مسجل"] for l in links)
             
             if has_gold_link:
@@ -345,6 +427,12 @@ def scan_and_update():
 
                 # Classify and summarize using the Resilient Fallback Engine
                 analysis = ai_classify_and_summarize(title, content, links)
+
+                # If it's a workshop topic with YouTube links, force workshops category
+                if is_workshop_topic or any(l["src"] == "فيديو مسجل" for l in links):
+                    analysis["category"] = "workshops"
+                    analysis["icon"] = "📺"
+                    analysis["metric"] = "ورشة تقنية مسجلة"
 
                 new_item = {
                     "id": len(existing) + 1,
@@ -362,7 +450,7 @@ def scan_and_update():
                 existing.append(new_item)
                 existing_by_num[disc_id] = new_item
                 new_count += 1
-                print(f"  [+] Curated and added: {title} (#{disc_id}) -> {new_item['category']}")
+                print(f"  [+] Curated and added: {title[:40]} (#{disc_id}) -> {new_item['category']}")
 
     if new_count > 0 or updated_links_count > 0:
         save_resources(existing)
